@@ -178,3 +178,4 @@ sympy-plots-for-*.tex/
 *.bak
 *.sav
 
+.vagrant
