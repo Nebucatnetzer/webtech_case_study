@@ -1,0 +1,42 @@
+\documentclass[a4paper, 11pt]{article}
+\include{style}
+%\include{glossary}
+\begin{document}
+
+\include{titlepage}
+
+\newpage
+\microtypesetup{protrusion=false} % disables protrusion locally in the document
+\tableofcontents % prints Table of Contents
+\microtypesetup{protrusion=true} % enables protrusion
+\newpage
+
+\include{content}
+
+\newpage
+  \nocite{*}
+  \bibliographystyle{acm}
+  \bibliography{bib}
+\include{latex}
+
+\microtypesetup{protrusion=false}
+\listoffigures
+\microtypesetup{protrusion=true}
+\
+\newpage
+
+\microtypesetup{protrusion=false}
+\listoftables
+\microtypesetup{protrusion=true}
+\
+\newpage
+
+
+%\printglossaries
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,379 @@
+\section{Situationsanalyse}
+\subsection{Vision}
+\subsection{Stakeholder}
+Folgende Stakeholder sind in diesem Projekt zu berücksichtigen:
+\begin{itemize}
+   \item Plattforminhaber
+   \item Standbetreiber
+   \item Marktbesucher
+\end{itemize}
+
+Abbildung: (\ref{fig:stakeholder}) zeigt die Beziehung der Stakeholder
+zum Projekt noch grafisch auf.
+
+\begin{figure}
+  \centering
+  %\includegraphics[width=0.9\textwidth]{diagrammes/stakeholder.png}
+  \caption{Stakeholder Diagramm\label{fig:stakeholder}}
+\end{figure}
+
+\subsection{Chancen und Risiken}
+
+\subsubsection{Chancen}
+\subsubsection{Risiken}
+Ein grosses Risiko ist das wir uns beim Erarbeiten der Datenbank sowie
+beim Schreiben der Applikation in Details verlieren die nicht
+gefordert werden. Sowie unter Umständen Dinge einbauen welche wir nicht
+genügend kennen. Dies könnte uns zu einem späteren Zeitpunkt zum Verhängnis
+werden.
+
+\newpage
+\section{Zielsetzung}
+\subsection{Mussziele}
+\subsection{Wunschziele}
+\section{User Stories}
+User Stories sind eine in Alltagssprache geschriebenen
+Software-Anforderungen. Sie sind bewusst kurzgehalten und
+beschreiben die Wünsche und Ziele der Rollen welche die
+Software verwenden.
+\section{Use Cases}
+Ein Use Case sammelt alle möglichen Szenarien, die eintreten können,
+wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
+bestimmtes Ziel zu erreichen. Dabei beschreibt er was beim Versuch der
+Zielerreichung passieren kann. Je nach Ablauf kann auch ein Fehlschlag
+ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Passwort beim
+Login). Dabei wird die technische Lösung nicht konkret beschrieben.
+Die Detailstufe kann dabei sehr unterschiedlich sein.
+
+\subsection{Use Case Diagramm}
+``Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
+Unified Modeling Language (UML), einer Sprache für die Modellierung
+der Strukturen und des Verhaltens von Software- und anderen Systemen.
+Es stellt Anwendungsfälle und Akteure mit ihren jeweiligen
+Abhängigkeiten und Beziehungen dar.''\cite{dbcs7}
+
+Wir verschafften uns dabei mit einem Use Case Diagramm, zu sehen in
+Abbildung: (\ref{fig:use_case}), zuerst einen groben Überblick über
+die Use Cases und wie sie zusammenhängen.
+
+\subsection{Use Cases Detailbeschreibungen}
+Für die Ausarbeitung der C\# Applikation haben wir uns für 5 Use Cases
+entschieden und diese in einer Use Case Schablone von Alistair
+Cockburn im Detail ausgearbeitet und beschrieben haben. Die Alistair
+Cockburn Schablone gibt eine gute Vorgabe für den Inhalt der Use Case
+Beschreibung.
+
+\subsubsection{Lösungsvarianten}
+\paragraph{Gewählte Variante}
+\begin{landscape}
+
+\begin{figure}
+  \centering
+  %\includegraphics[height=0.9\textheight]{diagrammes/use_cases.png}
+  \caption{Use Case Diagramm\label{fig:use_case}}
+\end{figure}
+\end{landscape}
+
+
+%% -- Begining of Use Case Template --
+\subsubsection{User Registrierung}
+{\footnotesize\begin{longtable}{|>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}|}
+  \hline
+  %begin title row
+  {\cellcolor[HTML]{C0C0C0} Identifier} + Name & {\cellcolor[HTML]{C0C0C0} 1.0 User Registrierung} \\ \hline
+  %end title row
+Description & Registrierung eines neuen User Accounts.\\
+\hline
+Actors & User\\
+\hline
+Status & Freigegeben\\
+\hline
+Includes & -\\
+\hline
+Trigger & User möchte sich registrieren.\\
+\hline
+Preconditions & Email Adresse vorhanden.\\
+\hline
+Postconditions & User hat sich einen Account erstellt.\\
+\hline
+Normal Flow & 1. User startet Registrierung\\
+ & 2. User füllt Form aus\\
+ & 3. User schliesst Registrierung ab\\
+\hline
+Alternative Flow & 1. User startet Registrierung\\
+ & 2. User füllt Form mit bereits vorhandener Email Adresse aus.\\
+ & 3. Applikation gibt Fehler aus\\
+ & 4. User verwendet einzigartige Email Adresse\\
+ & 5. User schliesst Registrierung ab\\
+\hline
+Notes & -\\
+\hline
+UC History & 1.0 Draft erstellt durch AZ\\
+ & 1.1 kleinere Anpassungen durch AZ\\
+\hline
+Author & A. Zweili \& I. Cadaroski\\
+\hline
+Date & 24. August 2017\\
+\hline
+\caption{Use 1.0 User Registrierung}
+\end{longtable}}
+\newpage
+%% -- End of Use Case Template --
+
+\begin{landscape}
+\section{Stundenplanung}
+
+%% -- start Stundenplanung table --
+\footnotesize
+\begin{longtable}{|>{\columncolor[HTML]{EFEFEF}}p{4cm}|p{2.1cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{7cm}|}
+\hline
+  %begin title row
+{\cellcolor[HTML]{C0C0C0}\textbf{Aktivität}} &
+{\cellcolor[HTML]{C0C0C0}\textbf{Definition}}
+\footnote{Definition Arbeit ist grundlegend in Dokumentation (Doku) der Lösung
+  und erarbeiten des Codes (Code) der dazugehörigen Funktionen aufgebaut} &
+{\cellcolor[HTML]{C0C0C0}\textbf{Planung}} &
+{\cellcolor[HTML]{C0C0C0}\textbf{Leistung}} &
+{\cellcolor[HTML]{C0C0C0}\textbf{Differenz}} &
+{\cellcolor[HTML]{C0C0C0}\textbf{Erklärung}} \\ \hline
+  %endtitle row
+Projekt Management & Doku & 10 & 20 & 10 & Wir hatten uns zu Beginn
+darauf festgelegt alle zwei Wochen ein kurzes Meeting abzuhalten. Die
+Meetings wurden dann aber mit durchschnittlich 1h länger als
+ursprünglich angenommen. \\ \hline
+
+Dokumentation & Doku & 25 & 45 & 20 & Wir haben bei dieser Arbeit
+wesentlich mehr Zeit in die Dokumentation investiert. Ein Teil davon
+ist sicher der Tatsache zu Schulden das wir die Arbeit in LaTeX
+geschrieben haben. \\ \hline
+
+Vision & Doku & 1 & 1 & 0 & \ \\ \hline
+
+User Stories & Doku & 2 & 2 & 0 & \ \\ \hline
+
+ERM erstellen & Doku & 3 & 2 & -1 & Beim RM haben wir weniger Details
+eingezeichnet, sondern uns hauptsächlich darauf beschränkt uns eine
+grobe Übersicht zu verschaffen. \\ \hline
+
+ERD erstellen & Doku & 4 & 12 & 8 & Die Aufgabenstellung hat sich als
+wesentlich komplizierter herausgestellt als wir angenommen hatten. \\ \hline
+
+User Stories(Diagramm) erstellen & & 1 & 1 & 0 & \ \\ \hline
+
+Testplan aufgebaut & Doku & 12 & 4 & -8 & Erwies sich als weniger
+Aufwand, als ursprünglich gedacht. Da wir mit den Use Cases bereits
+gute Vorlagen hatten. \\ \hline
+
+SQL Code & & & & & \ \\ \hline
+SQL Scripts erstellen & Code & 7 & 8 & 1 & Das Erstellen der Testdaten
+Scripts hat etwas mehr Zeit gebraucht als erwartet. Insbesondere da
+wir zuerst versucht haben, die Länder und Städte Listen bereits
+komplett zu erstellen. \\ \hline
+
+C\# Code & & & & & \\ \hline
+Frontend (GUI) erstellen & Code & 25 & 30 & 5 & Der Aufbau unseres GUI
+zeigte sich um einiges komplizierte als wir es uns zu Anfang
+vorgestellt haben. Ein grosser Anteil des Aufwandes ging an die
+Nachforschung des Codes verloren, da wir dies zu diesem Zeitpunkt noch
+nicht angewendet haben. \\ \hline
+
+Datenbankverbindung & Code & 2 & 3 & 1 & Es entstand ein kleiner
+Mehraufwand, da bei Applikation jeweils der Verbindungsstring
+angepasst werden musste Wenn der Code auf einem anderen Computer
+kompiliert wurde. \\ \hline
+
+Konzept des Aufbaus & Code & 4 & 4 & 0 & Der Konzeptaufbau (Was
+möchten wir darstellen?), wurde von uns öfters als geplant
+umstrukturiert, hielt sich aber noch Im Zeitrahmen \\ \hline
+
+Login und Registration & Code & 4 & 6 & -2 & Die ID- Vergabe und die
+Verarbeitung benötigten mehr Aufwand als vorgesehen \\ \hline
+
+Standort-Abfrage & Code & 6 & 9 & 3 & Durch Wissenslücken ging ein
+Grossteil der Zeit in der Informationssuche verloren \\ \hline
+
+Rent-Reservation-Eingabe & Code & 20 & 32 & 12 & Die Übergabe der
+verschiedenen ID`s in der Applikation warfen einige Probleme auf, die
+in der Reservation besonders Zum Vorschein gekommen sind \\ \hline
+
+Rent-Abfrage & Code & 8 & 8 & 0 & \\ \hline
+
+Coding (Verbinden der Funktionen) & Code & 20 & 40 & 20 & Da wir in
+unserer Applikation gleich mehrere Funktionen abgebildet
+haben (Login/Informationsabfrage/ Informationseingabe/Abfrage
+eingefüllter Daten), war das darauffolgende Verbinden des Codes auch
+ein grosser Aufwand \\ \hline
+
+Test`s & & & & & \ \\ \hline
+Testplan durchgeführt & Doku & 30 & 15 & -15 & Die Tests haben
+wesentlich weniger Zeit gebraucht als angenommen und wurden meistens
+on the fly gemacht. \\ \hline
+
+\textbf{Total} & & \textbf{184} & \textbf{242} & & \\ \hline
+
+\caption{Stundenplanung}
+\end{longtable}
+%% -- end Stundenplanung table --
+\end{landscape}
+
+\newpage
+
+\section{Umsetzung}
+
+\subsection{Zusammenarbeit}
+Zur Zusammenarbeit am Code haben wir uns für Git entschieden. Dies
+ermöglichte es uns gleichzeitig am Code zu arbeiten und zwischendurch
+die Änderungen des anderen zu ``mergen''. Dies war von grossem Vorteil
+da wir so unabhängig voneinander am Code weiterarbeiten konnten. So
+entstanden insgesamt über 150 Commits.
+
+Des Weiteren haben wir uns die Arbeit so aufgeteilt damit wir möglichst
+unabhängig voneinander arbeiten konnten und somit nicht aufeinander
+warten mussten.
+
+Andreas hat sich Hauptsächlich mit den SQL Scripts beschäftigt.
+Parallel dazu konnte sich Ismail in das Schreiben einer grafischen C\#
+Applikation einlesen. Sobald die SQL Skripte fertig waren konnte
+Ismail diese nutzen um die Applikation fertig zu stellen.
+
+Die Dokumentation wurde dabei fortlaufen erweitert. Da wir die
+Dokumentation in \LaTeX geschrieben haben und somit auch nur aus
+simplen Textdateien besteht konnten wir auch an dieser ohne Probleme
+gleichzeitig arbeiten und über Git versionieren.
+
+\subsection{ER Modell und ER Diagramm}
+Gleich zu Beginn des Projektes haben wir den Text zur Aufgabenstellung
+eingehend analysiert und daraus ein Entity-Relationship-Modell(ERM),
+Abbildung: (\ref{fig:rm}) erstellt.
+
+Wir haben dabei darauf verzichtet für jede Entität noch die jeweiligen
+Attribute einzuzeichnen da wir uns mit dem ERM Hauptsächlich einen
+Überblick über die Situation verschaffen wollten damit wir die
+Abhängigkeiten zwischen den Entitäten besser nachvollziehen konnten.
+
+Im Anschluss wurden dann das Entity-Relationship-Diagramm(ERD),
+Abbildung: (\ref{fig:erm}) erstellt. Dies wurde mit allen Details
+erstellt. Im ERD haben wir auch Eigenschaften von Attributen erfasst
+welche in der exportieren Übersicht hier in der Dokumentation nicht
+ersichtlich sind, wie etwa ``Unique'', ``Not Null'', etc. Aus dem ERD
+konnten dann relativ schnell die SQL Scripts abgeleitet werden.
+
+\subsection{SQL Datenbank}
+\begin{landscape}
+\begin{figure}
+  \centering
+  %\includegraphics[height=0.8\textheight]{diagrammes/rm.png}
+  \caption{Entity-Relationship-Modell\label{fig:rm}}
+\end{figure}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{figure}
+  \centering
+  %\includegraphics[scale=0.38]{diagrammes/erm.png}
+  \caption{Entity-Relationship-Diagramm\label{fig:erm}}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\section{Testfälle}
+
+%% -- start Test Case table --
+\footnotesize
+\begin{longtable}{|>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+%begin title row
+  \cellcolor[HTML]{C0C0C0}Testcase ID & \cellcolor[HTML]{C0C0C0}Objektive &
+  \cellcolor[HTML]{C0C0C0}Precondition & \cellcolor[HTML]{C0C0C0}Steps &
+  \cellcolor[HTML]{C0C0C0}Testdata & \cellcolor[HTML]{C0C0C0}Expected Result &
+  \cellcolor[HTML]{C0C0C0}Postcondition & \cellcolor[HTML]{C0C0C0}Result \\ \hline
+% end title row
+
+TC-01 & Registrierung am System & - & 1. Öffnen des Programms \newline
+2. Eingeben des Usernamens \newline
+3. Eingeben des Passworts\newline
+4. Klicken des ``Register'' Knopf & Username: muster@gmx.ch Passwort:
+123456 & Pop-up mit ``Member Registered'' Text erscheint & User
+registriert & Erfolgreich durchgeführt. 27.07.2017 A.Z. \\ \hline
+
+TC-02 & Registrierung am System & TC-01 ausgeführt. & 1. Öffnen des
+Programms \newline
+2. Eingeben des Usernamens \newline
+3. Eingeben des Passworts \newline
+4. Klicken des ``Register'' Knopf & Username: \newline
+muster@gmx.ch Passwort: \newline
+123456 & Fehlermeldung: \newline
+“User already exists.” & Login / Registrierung Wird wieder
+angezeigt & Beim ersten Durchführen fehlte Noch eine Try/Catch
+Funktion Was die Applikation zum Abstürzen brachte. Erfolgreich
+durchgeführt. 13.08.2017 I.C. \\ \hline
+
+TC-03 & Anmeldung am System & TC-01 ausgeführt. & 1. Öffnen des Programms \newline
+2. Eingeben des Usernamens \newline
+3. Eingeben des Passworts \newline
+4. Klicken des ``Login'' Knopf \newline
+5. Quittieren des Pop-Up & Username: \newline
+muster@gmx.ch Passwort: \newline
+123456 & Der User wird zum Dashboard weitergeleitet & Dashboard wird
+Angezeigt. & Erfolgreich durchgeführt. 27.07.2017 A.Z. \\ \hline
+
+TC-04 & Anmeldung am System & TC-01 ausgeführt. & 1. Öffnen des Programms \newline
+2. Eingeben des Usernamens \newline
+3. Eingeben des Passworts \newline
+4. Klicken des ``Login'' Knopf \newline
+5. Fehlermeldung quittieren & Username: \newline
+muster@gmx.ch Passwort: \newline
+WrongPassword & Fehlermeldung: \newline
+``Username or Password Not correct.'' & Login / Registrierung Wird
+wieder angezeigt & Erfolgreich durchgeführt. 27.07.2017 A.Z. \\ \hline
+
+TC-05 & Anmeldung am System & - & 1. Öffnen des Programms \newline
+2. Eingeben des Usernamens \newline
+3. Eingeben des Passworts \newline
+4. Klicken des ``Login'' Knopf \newline
+5. Fehlermeldung quittieren & Username: \newline
+muster@gmx.ch Passwort: \newline
+123456 & Fehlermeldung: \newline
+``Username or Password Not correct.'' & Login / Registrierung Wird
+wieder angezeigt & Erfolgreich durchgeführt. 27.07.2017 A.Z. \\ \hline
+
+TC-06 & Standorte anzeigen & TC-01 und TC-03 Ausgeführt & 1.
+Suchbegriff eingeben 2. ``Search'' Knopf klicken & Suchbegriff: \newline
+Markt & Suchresultat: \newline
+``Markstrasse 300 Testmarkt'' erscheint & Suchresultat wird Angezeigt.
+& Zuerst wurde mit ``equal'' gesucht was es sehr Schwierig machte zu
+suchen. Wurde zu ``like'' korrigiert. Erfolgreich durchgeführt.
+27.07.2017 A.Z. \\ \hline
+
+TC-07 & Standorte anzeigen & TC-01 und TC-03 Ausgeführt & 1. keinen
+Suchbegriff eingeben 2. ``Search'' Knopf klicken & & Suchresultat: \newline
+``Markstrasse 300 Testmarkt Teststrasse 450 Testmark2'' Erscheint &
+Suchresultat wird Angezeigt. & Erfolgreich durchgeführt. 27.07.2017
+A.Z. \\ \hline
+
+TC-08 & Standort mieten & TC-01, TC-03 und
+TC-06 ausgeführt. & 1. keinen Suchbegriff eingeben \newline
+2. ``Search'' Knopf klicken \newline
+3. beliebigen Standort wählen \newline
+4. Mietdatum auswählen \newline
+5. ``Rent'' Knopf klicken & & Miete wird in Datenbank Verbucht. & &
+Erfolgreich durchgeführt. 22.08.2017 I.C. \\ \hline
+
+TC-09 & Mieten anzeigen & TC-01, TC-03, TC-06 Und TC-08 ausgeführt &
+1. ``Refresh'' Knopf klicken & & Die ``Rents'' Liste wird Aktualisiert
+und gibt Die in TC-08 getätigte Miete aus. & Mietliste wurde Befüllt.
+& Erfolgreich durchgeführt. 22.08.2017 I.C. \\ \hline
+
+%	TC-11 &  &  &  &  &  &  &  \\ \hline
+\caption{Testfälle}
+\end{longtable}
+%% -- end test case table --
+\end{landscape}
+
+\section{Fazit}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

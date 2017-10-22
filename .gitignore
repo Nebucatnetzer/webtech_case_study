@@ -179,3 +179,5 @@ sympy-plots-for-*.tex/
 *.sav
 
 .vagrant
+auto/
+*.pdf
