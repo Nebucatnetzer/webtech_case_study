@@ -1,0 +1,42 @@
+#+TITLE: Casestudy Webtechnologien
+#+SETUPFILE: ~/git_repos/notes/settings/html_theme/setup/theme-readtheorg.setup
+#+AUTHOR: Andreas Zweili
+
+* Section
+
+** Subsection
+
+*** Subsubsection
+
+- List
+- List
+- List
+
+*** Subsubsection
+
+1. Numbered List
+2. Numbered List
+3. Numbered List
+
+*** Table
+
+| Name | Funktion | Beschreibung |
+|------+----------+--------------|
+|      |          |              |
+|      |          |              |
+|      |          |              |
+
+*** Code Block
+
+#+BEGIN_SRC python
+for var in collection:
+    while variable = True:
+#+END_SRC
+
+#+BEGIN_SRC sql
+create FUNCTION functionname()
+RETURNS varchar(100)
+AS BEGIN
+END
+go
+#+END_SRC
