@@ -6,6 +6,11 @@ Vagrant.configure("2") do |config|
 
     config.vm.box = BOX_IMAGE
     config.vm.hostname = "web-AI-5"
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 1024
+        v.cpus = 2
+    end
+
 
     # Der Webserver ist unter http://localhost:8000 erreichbar
     config.vm.network "forwarded_port", guest: 80, host: 8000
@@ -20,10 +25,8 @@ Vagrant.configure("2") do |config|
     apt-get update
 
     #zu installierende Pakete
-    apt-get install -y apache2 php7.0 php7.0-mysql php7.0-xml mariadb-server avahi-daemon libnss-mdns
-
-    #aktiviert das MySQL Modul für den Apache Webserver
-    phpenmod mysqli
+    apt-get install -y apache2 python3-django mariadb-server avahi-daemon \
+        libnss-mdns libapache2-mod-wsgi-py3
 
     #So würde der Code aussehen um SQL Scripts in die DB zu importieren.
     #mysql < /vagrant/sql/remove_db.sql
