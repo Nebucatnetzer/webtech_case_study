@@ -1,0 +1,12 @@
+---
+- include: tasks/apt_install.yml
+- include: tasks/ufw_tcp.yml
+
+- name: Configure Apache AllowOverride All
+  replace:
+    dest=/etc/apache2/apache2.conf
+    regexp='(<[dD]irectory /var/www/>[^<]*)AllowOverride None'
+    replace='\1AllowOverride All'
+
+- name: Restart apache service
+  service: name=apache2 state=restarted

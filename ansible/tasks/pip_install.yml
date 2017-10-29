@@ -1,0 +1,21 @@
+---
+- name: make sure that the .virtualenvs folder is present
+  file: path="{{ item }}" state=directory owner=andreas group=andreas
+  with_items:
+  - "/home/{{ user_name }}/.virtualenvs"
+  - "/home/{{ user_name }}/.virtualenvs/bin"
+  become_user: "{{ user_name }}"
+
+- name: Install pip3 packages
+  pip: name={{ item }}
+       virtualenv="/home/{{ user_name }}/.virtualenvs/{{ item }}"
+       virtualenv_python=python3
+  with_items: "{{ pip3_packages }}"
+  become_user: "{{ user_name }}"
+
+- name: Symlink packages binaries to ~/.virtualenvs/bin
+  file: src="/home/{{ user_name }}/.virtualenvs/{{ item }}/bin/{{ item }}"
+        dest="/home/{{ user_name }}/.virtualenvs/bin/{{ item }}" 
+        state=link
+  with_items: "{{ pip3_packages }}"
+  become_user: "{{ user_name }}"

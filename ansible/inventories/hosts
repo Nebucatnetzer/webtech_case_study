@@ -1,0 +1,5 @@
+[webserver]
+webtech.2li.local
+
+[rebootable:children]
+webserver

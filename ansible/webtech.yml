@@ -1,0 +1,6 @@
+---
+- hosts: webtech.2li.local
+  become: true
+  roles:
+    - common
+    - web_AI-5

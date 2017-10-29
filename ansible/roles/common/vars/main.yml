@@ -1,0 +1,19 @@
+---
+deploy_user_name: ansible                                                   
+
+apt_packages:
+  - apt-transport-https
+  - ntp
+  - sudo
+  - ufw
+  - unzip
+  - vim
+  - htop
+  - ca-certificates
+  - unattended-upgrades 
+  - apt-listchanges
+
+open_tcp_ports:
+  - 22
+
+timezone: Europe/Zurich

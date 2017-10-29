@@ -1,0 +1,7 @@
+---
+- name: Setup ufw
+  ufw: state=enabled policy=deny
+
+- name: Allow udp traffic on defined ports
+  ufw: rule=allow port={{ item }} proto=udp
+  with_items: "{{ open_udp_ports }}"

@@ -1,0 +1,9 @@
+---
+apt_packages:
+  - apache2
+  - python3-django
+  - mariadb-server
+  - libapache2-mod-wsgi-py3
+
+open_tcp_ports:
+  - 80

@@ -1,0 +1,4 @@
+---
+- name: Install packages without depencies
+  apt: state=installed pkg={{ item }} install_recommends=no
+  with_items: "{{ apt_no_recommends_packages }}"

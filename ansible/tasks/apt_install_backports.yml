@@ -1,0 +1,4 @@
+---
+- name: Install backports packages
+  apt: state=installed pkg={{ item }} default_release=jessie-backports
+  with_items: "{{ apt_backport_packages }}"

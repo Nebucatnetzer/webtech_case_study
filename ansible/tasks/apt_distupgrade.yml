@@ -1,0 +1,3 @@
+---
+- name: Upgrade APT to the latest packages
+  apt: upgrade=dist autoremove=yes
