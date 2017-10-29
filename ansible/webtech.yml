@@ -1,5 +1,5 @@
 ---
-- hosts: webtech.2li.local
+- hosts: webserver
   become: true
   roles:
     - common

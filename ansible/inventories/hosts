@@ -1,5 +1,5 @@
 [webserver]
-webtech.2li.local
+10.7.89.114
 
 [rebootable:children]
 webserver

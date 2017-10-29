@@ -1,13 +1,10 @@
 ---
 - name: reconfigure tzdata
   command: dpkg-reconfigure -f noninteractive tzdata
-  remote_user: ansible
   notify: Restart NTP service 
 
 - name: Restart NTP service
-  remote_user: ansible
   service: name=ntp state=restarted
 
 - name: rebuild locales
-  remote_user: ansible
   command: /usr/sbin/locale-gen
