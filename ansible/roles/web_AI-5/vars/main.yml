@@ -2,8 +2,12 @@
 apt_packages:
   - apache2
   - python3-django
-  - mariadb-server
   - libapache2-mod-wsgi-py3
 
 open_tcp_ports:
   - 80
+
+db_name: "webshopdb"                                                
+db_admin: "webshop"                                                 
+db_pwd: "2YKtY53F3HDDzPyExAaSh3jdVNh6VN"                              
+mysql_root_pwd: "4Dto2NaEpdoFg67eHXzpHWazG4MG3i"

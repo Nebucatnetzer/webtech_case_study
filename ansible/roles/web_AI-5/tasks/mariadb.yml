@@ -1,0 +1,77 @@
+---
+- name: "[mySQL] - Service is installed."
+  package: "name=mariadb-server state=present"
+  register: db_install
+
+- name: "[mySQL] - the python module mysqldb is present"
+  # needed by mysql_* ansible modules
+  package: name=python-mysqldb state=present
+
+- block:
+  - name: "[mySQL] - generate mysql root Password:"
+    set_fact: mysql_root_pwd="{{ lookup( '/mysql_root.pwd' ) }}"
+    when: mysql_root_pwd is not defined
+
+  - name: "[mySQL] - Update mysql root password"
+    mysql_user:
+      name: root
+      host: "{{ item }}"
+      password: "{{ mysql_root_pwd }}"
+      login_user: root
+      login_password: ""
+      check_implicit_admin: yes
+      priv: "*.*:ALL,GRANT"
+    with_items:
+      - 127.0.0.1
+      - ::1
+      - localhost
+    ignore_errors: yes
+  
+  - name: "[mySQL] - Delete the anonymous user."
+    mysql_user:
+      user: ""
+      state: "absent"
+      login_password: "{{ mysql_root_pwd }}"
+      login_user: root
+    ignore_errors: yes
+  
+  - name: "[mySQL] - Removes the MySQL test database"
+    mysql_db:
+      name: test
+      state: absent
+      login_password: "{{ mysql_root_pwd }}"
+      login_user: root
+    ignore_errors: yes
+  when: db_install.changed
+  
+- name: "[mySQL] - Check credentials"
+  stat: "path=/root/.my.cnf"
+  register: mycred
+
+- block:
+  - name: "[mySQL] - Make the file .my.cnf"
+    file: path=/root/.my.cnf state=touch mode="0640"
+  
+  - name: "[mySQL] - Add content to .my.cnf"
+    blockinfile:
+      dest: /root/.my.cnf
+      block: |
+        [client]
+        user=root
+        password="{{ mysql_root_pwd }}"
+  when: mycred.stat.exists is defined and not mycred.stat.exists
+
+- name: "[mySQL] - Generate database user Password."
+  set_fact: db_pwd="{{ lookup( '/db_admin.pwd' ) }}"
+  when: db_pwd is not defined
+
+- name: "[mySQL] - Add Database {{ db_name }}."
+  mysql_db: name={{ db_name }} state=present
+   
+- name: "[mySQL] - Configure the database user."
+  mysql_user:
+    name: "{{ db_admin }}"
+    password: "{{ db_pwd }}"
+    priv: "{{ db_name }}.*:ALL"
+    state: present
+
