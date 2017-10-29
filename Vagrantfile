@@ -19,6 +19,8 @@ Vagrant.configure("2") do |config|
     #Netzwerk anzuschliessen.
     #config.vm.network "private_network", type: "dhcp"
 
+    config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+
     #Begin des Installationsscripts
     config.vm.provision "shell", inline: <<-SHELL
     DEBIAN_FRONTEND=noninteractive
