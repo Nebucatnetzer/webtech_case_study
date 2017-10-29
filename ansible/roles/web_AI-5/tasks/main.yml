@@ -8,5 +8,7 @@
     regexp='(<[dD]irectory /var/www/>[^<]*)AllowOverride None'
     replace='\1AllowOverride All'
 
+- include: mariadb.yml
+
 - name: Restart apache service
   service: name=apache2 state=restarted
