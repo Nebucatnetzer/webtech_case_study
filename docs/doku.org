@@ -86,3 +86,11 @@ AS BEGIN
 END
 go
 #+END_SRC
+
+#+LATEX: \begin{sexylisting}{SQL Code Block}
+create FUNCTION functionname()
+RETURNS varchar(100)
+AS BEGIN
+END
+go
+#+LATEX: \end{sexylisting}
