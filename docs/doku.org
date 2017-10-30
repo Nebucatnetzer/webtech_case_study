@@ -1,6 +1,9 @@
 #+TITLE: Casestudy Webtechnologien
 #+SETUPFILE: ~/git_repos/notes/settings/html_theme/setup/theme-readtheorg.setup
-#+AUTHOR: Andreas Zweili
+#+AUTHOR: Ivan Hörler Andreas Zweili
+#+LaTeX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper,11pt]
+#+LaTeX_HEADER: \input{style}
 
 * Section
 
@@ -28,11 +31,13 @@
 
 *** Code Block
 
+#+CAPTION: Python Code Block
 #+BEGIN_SRC python
 for var in collection:
     while variable = True:
 #+END_SRC
 
+#+CAPTION: SQL Code Block
 #+BEGIN_SRC sql
 create FUNCTION functionname()
 RETURNS varchar(100)
