@@ -181,3 +181,5 @@ sympy-plots-for-*.tex/
 .vagrant
 auto/
 *.pdf
+/docs/doku.listing
+/docs/doku.tex
