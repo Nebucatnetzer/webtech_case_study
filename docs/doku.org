@@ -5,13 +5,162 @@
 #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \input{style}
 
+* Über dieses Dokument
+Im nachfolgenden Abschnitt finden Sie allgemeine Informationen zu
+diesem Dokument. Bei der Erstellung dieses Dokuments haben wir das
+Versionierungs-tool 'Git' mit dem passenden client 'magit' verwendet
+und das Dokument auf unseren Laptops lokal mit emacs org-mode
+bearbeitet.
+
+** Titel der Dokumentaion
+Die Gruppe hat verschiedene Varianten gelistet und sich für die
+lustigste entschieden.
+- Marktplatz
+- Shopshop
+- Barewahre-shop
+- Didgeridoo-shop
+
+** Beschreibung
+Planung und erstellung eines konfigurierbaren Webshops für
+didgeridoo's.
+
+** Zweck und Inhalt
+Zweck dieses Dokuments ist die vollständige und nachvollziehbare
+Dokumentation zu unserer Case Study Webtechnologie 3.
+
+** Aufbau
+Alle Inhalte sind chronologisch soriert, vom ältesten zum jüngsten
+Ereigniss, und nach Kapiteln getrennt.
+
+** Über die Autoren
+Dieses Dokument wurde von Ivan Hörler und Andreas Zweili im Auftrag
+der IBZ erstellt und darf ohne Einverständniss der Autoren
+kopiert und vervielfälltigt werden.
+
 * Projektanalyse und Planung
+
 ** Projektziele
+Der Student erarbeitet in einer Zweiergruppe einen selbstentwickelten
+Web-Shop. Die einzusezenden Technologien sollen Opensource sein. Die
+zur verfügungstehende Zeit ist pro Student mit 80h zu veranschlagen.
+Am ende dieser Zeitspanne soll ein Funktionaler Web-Shop mit minimaler
+Graphischer Userinterface entstehen, die dazugehörige Dokumentaion
+umfasst alle aspekte um die gewälte Lösung nachzuvollziehen.
+
+| Nr. | Beschreibung                                                       | Priorität |
+|-----+--------------------------------------------------------------------+-----------|
+|  1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch      |
+|  2. | Alle vorgehen müssen in diesem Dokument erläutert werden.          | Mittel    |
+|  3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief      |
+|  4. | Der Shop muss funktionstüchtig sein.                               | Mittel    |
+|  5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch      |
+|  6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel    |
+
+** Mittel und Methoden
+
+*** Werkzeuge
+Als Testumgebung wurde eine VM Lösung mit Vagrant gewählt. Diese über
+eine MIT-Lizenz frei verfügbare Lösung für containerautomation eignet
+sich durch seine crossplattform Anwendung hervorragend um die
+Entwicklung schnellstmöglich ohne lästige einzelkonfigurationen auf
+die Beine zu bringen.
+
+*** Methoden
+Die methodik die die Gruppe wählt ist aufgrund der nur zwei Personen
+im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden
+ist eine Itterative methodik unabdingbar. Daher wandte die Gruppe eine
+angepasste version von scrum an. In dieser wird jeweils während
+Sitzungen die Position des Product Owners und des Scrum Masters
+eingenommen und die Backlog-tasks dementsprechend erstellt resp.
+verteilt. Während der Woche arbeiten beide Team-Mitglieder an der
+Arbeit als Team-Kolegen.
+
+*** Vorkenntnisse
+Die benötigten Vorkenntnisse wurden in den vorangeganenen Semestern
+erarbeitet und sind in der Basis gefestigt.
+Diese Arbeit wird vorwiegend weiterführende elemente wie Frameworks neu einbringen
+deren verhalten letztendlich nicht abgeschätzt werden kann.
+
 ** Vision
+Wir wollen einen Webshop mit geeigneter Software erstellen. Dabei
+setzen wir nur frei verfügbare Software ein. (Frei in form der Freien
+Meinungsäuserung). Wir untersuchen die Anforderung und wählen die uns
+als geeignet erscheinenden frameworks. Jede noch so kleine
+Zeiteinsparung durch vorgefertigte Entwicklungen werden angenommen und
+dennoch wollen wir keine fertigen Software Produkte einsetzen.
+
 ** SWOT-Analyse
+Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
+Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
+
+Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
+haben.
+
+| SWOT     | Stärken                                                                                | Schwächen                                                                    |
+|----------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------|
+| Chancen  | Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken                  | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |
+|----------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------|
+| Gefahren | Die Umsetzung der Graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen                                        |
+|          |                                                                                        |                                                                              |
+
 ** Umweltanalyse
+Die Projektumwelt-Analyse ist eine Methode, die Beziehungen,
+Erwartungshaltungen und Einflüsse auf das Projekt durch interne und
+externe soziale Umwelten zu betrachten und zu bewerten. Auf Grundlage
+der Analyseergebnisse werden erfoderliche Massnahmen zur Gestaltung
+der Umweltbeziehnungen abgeleitet. Die Gestaltung der
+Projektumweltbeziehungen ist eine Projektmanagementaufgabe.
+In dieser Tabelle wurden die Anforderungen und Wünsche mit
+Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
+
+| Nr. | Stakeholder   | Einfluss | Anforderung/Wünsche                           | Warscheinlichkeit |
+|-----+---------------+----------+-----------------------------------------------+-------------------|
+|  1. | Auftraggeber  | hoch     | - Innovatives Produkt auf dem Markt anbieten. | hoch              |
+|     |               |          | - Einhaltung von Terminen und Qualität.       | hoch              |
+|-----+---------------+----------+-----------------------------------------------+-------------------|
+|  2. | Nutzer        | gering   | - Einfache Lösung die anpassungsfähig ist.    | hoch              |
+|     |               |          | - Schnell anfangen können.                    | hoch              |
+|     |               |          | - Viele Arbeitsschritte Automatisieren        | mittel            |
+|-----+---------------+----------+-----------------------------------------------+-------------------|
+|  3. | Nachfrager    | gering   | - Intuitiv bedienbare Webseite                | hoch              |
+|     |               |          | - schnell finden was gesucht wird.            | hoch              |
+|-----+---------------+----------+-----------------------------------------------+-------------------|
+|  4. | Projektleiter | hoch     | - Gutes Innovatives Produkt erschaffen.       | mittel            |
+|     |               |          | - Anerkennung im fachlichen Umfeld            | hoch              |
+|     |               |          |                                               |                   |
+** TODO Umweltgrafik
+-wie zeichnen??
 ** Risikomanagement
-** Projektabgrenzung
+*** Risikobeschreibung
+| Nr. | Beschreibung                                                                   | Massnahmen                                                                                                                | W^1 | A^2 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|  1. | Die Datenbank ist schlecht modeliert.                                          | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen.                             |   2 |   3 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|  2. | Viel Arbeit an der Arbeitsstelle, dabe bleibt wehniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen.                            |   1 |   2 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden.                        | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc.                                         |   2 |   2 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|  4. | Kommunikation innerhalb des Teams.                                             | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |   1 |   1 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|  5. | Die Programmierung des Shops benötigt zuviel Zeit                              | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen.   |   3 |   1 |
+|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+*** TODO Risikobewertung
+| Bewertung  | Beschreibung: Warscheinlichkeit (W) |
+|------------+-------------------------------------|
+| 1 = gering | Unwarscheinlich, <20%               |
+| 2 = mittel | Mässig warscheinlich, 20-50%        |
+| 3 = hoch   | Hohe warscheinlichkeit > 50%        |
+
+| Bewertung  | Beschreibung: Auswirkung (A)                    |
+|------------+-------------------------------------------------|
+| 1 = gering | geringe auswirkungen auf das Gesammtergebniss   |
+| 2 = mittel | Arbeitsumstellung oder grösserer Arbeitsaufwand |
+| 3 = hoch   | Projekt erfüllt nicht alle Anforderungen        |
+
+--> Graphik einfügen!!!
+** TODO Projektabgrenzung
+Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
+
 * Projektmanagement
 ** Organigram
 ** Projektstrukturplan
