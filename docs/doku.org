@@ -171,6 +171,7 @@ Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
 |  5. | Die Programmierung des Shops benötigt zuviel Zeit                              | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen.   |   3 |   1 |
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+#+CAPTION: Risikobeschreibung
 
 *** TODO Risikobewertung
 
@@ -179,12 +180,14 @@ Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 | 1 = gering | Unwarscheinlich, <20%               |
 | 2 = mittel | Mässig warscheinlich, 20-50%        |
 | 3 = hoch   | Hohe warscheinlichkeit > 50%        |
+#+CAPTION: Risikobewertung Wahrscheinlichkeit
 
 | Bewertung  | Beschreibung: Auswirkung (A)                    |
 |------------+-------------------------------------------------|
 | 1 = gering | geringe auswirkungen auf das Gesammtergebniss   |
 | 2 = mittel | Arbeitsumstellung oder grösserer Arbeitsaufwand |
 | 3 = hoch   | Projekt erfüllt nicht alle Anforderungen        |
+#+CAPTION: Risikobewertung Auswirkung
 
 --> Graphik einfügen!!!
 
