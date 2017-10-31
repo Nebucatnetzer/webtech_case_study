@@ -5,27 +5,32 @@
 #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \input{style}
 
-* Über dieses Dokument
+* TODO Über dieses Dokument
+
+- Note taken on [2017-10-31 Tue 21:49] \\
+  Macht dies Sinn am Anfang des Dokumentes oder ist das ein Text welcher
+  nur im .org File erscheinen soll?
 
 Im nachfolgenden Abschnitt finden Sie allgemeine Informationen zu
 diesem Dokument. Bei der Erstellung dieses Dokuments haben wir das
-Versionierungs-tool 'Git' mit dem passenden client 'magit' verwendet
-und das Dokument auf unseren Laptops lokal mit emacs org-mode
-bearbeitet.
+Versionierungs-Tool "Git" mit dem passenden Client "magit" verwendet
+und das Dokument auf unseren Laptops lokal mit dem Emacs Plugin
+org-mode bearbeitet.
 
-** Titel der Dokumentaion
+** Titel der Dokumentation
 
 Die Gruppe hat verschiedene Varianten gelistet und sich für die
 lustigste entschieden.
+
 - Marktplatz
 - Shopshop
-- Barewahre-shop
-- Didgeridoo-shop
+- Barewahre-Shop
+- Didgeridoo-Shop
 
 ** Beschreibung
 
-Planung und erstellung eines konfigurierbaren Webshops für
-didgeridoo's.
+Planung und Erstellung eines konfigurierbaren Web-Shops für
+Didgeridoo's.
 
 ** Zweck und Inhalt
 
@@ -34,14 +39,14 @@ Dokumentation zu unserer Case Study Webtechnologie 3.
 
 ** Aufbau
 
-Alle Inhalte sind chronologisch soriert, vom ältesten zum jüngsten
+Alle Inhalte sind chronologisch sortiert, vom ältesten zum jüngsten
 Ereigniss, und nach Kapiteln getrennt.
 
 ** Über die Autoren
 
 Dieses Dokument wurde von Ivan Hörler und Andreas Zweili im Auftrag
-der IBZ erstellt und darf ohne Einverständniss der Autoren
-kopiert und vervielfälltigt werden.
+der IBZ erstellt und darf ohne Einverständniss der Autoren kopiert und
+vervielfälltigt werden. Erwähnung der Autoren vorausgesetzt.
 
 * Projektanalyse und Planung
 ** Projektziele
@@ -49,57 +54,57 @@ kopiert und vervielfälltigt werden.
 Der Student erarbeitet in einer Zweiergruppe einen selbstentwickelten
 Web-Shop. Die einzusezenden Technologien sollen Opensource sein. Die
 zur verfügungstehende Zeit ist pro Student mit 80h zu veranschlagen.
-Am ende dieser Zeitspanne soll ein Funktionaler Web-Shop mit minimaler
-Graphischer Userinterface entstehen, die dazugehörige Dokumentaion
-umfasst alle aspekte um die gewälte Lösung nachzuvollziehen.
+Am Ende dieser Zeitspanne soll ein funktionaler Web-Shop mit minimalem
+graphischen Userinterface entstehen, die dazugehörige Dokumentation
+umfasst alle Aspekte um die gewählte Lösung nachzuvollziehen.
 
 | Nr. | Beschreibung                                                       | Priorität |
 |-----+--------------------------------------------------------------------+-----------|
 |  1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch      |
-|  2. | Alle vorgehen müssen in diesem Dokument erläutert werden.          | Mittel    |
+|  2. | Alle Vorgehen müssen in diesem Dokument erläutert werden.          | Mittel    |
 |  3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief      |
 |  4. | Der Shop muss funktionstüchtig sein.                               | Mittel    |
 |  5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch      |
 |  6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel    |
+#+CAPTION: Projektziele
 
 ** Mittel und Methoden
-
 *** Werkzeuge
 
 Als Testumgebung wurde eine VM Lösung mit Vagrant gewählt. Diese über
-eine MIT-Lizenz frei verfügbare Lösung für containerautomation eignet
+eine MIT-Lizenz frei verfügbare Lösung für Containerautomation eignet
 sich durch seine crossplattform Anwendung hervorragend um die
-Entwicklung schnellstmöglich ohne lästige einzelkonfigurationen auf
-die Beine zu bringen.
+Entwicklung schnellstmöglich ohne lästige Einzelkonfigurationen auf
+die Beine zu bringen. Der Hypervisor für Vagrant war dabei Virtualbox.
 
 *** Methoden
 
-Die methodik die die Gruppe wählt ist aufgrund der nur zwei Personen
+Die Methodik die die Gruppe wählt ist Aufgrund der nur zwei Personen
 im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden
-ist eine Itterative methodik unabdingbar. Daher wandte die Gruppe eine
-angepasste version von scrum an. In dieser wird jeweils während
+ist eine itterative Methodik unabdingbar. Daher wandte die Gruppe eine
+angepasste version von Scrum an. In dieser wird jeweils während
 Sitzungen die Position des Product Owners und des Scrum Masters
-eingenommen und die Backlog-tasks dementsprechend erstellt resp.
+eingenommen und die Backlog-Tasks dementsprechend erstellt resp.
 verteilt. Während der Woche arbeiten beide Team-Mitglieder an der
 Arbeit als Team-Kolegen.
 
 *** Vorkenntnisse
 
 Die benötigten Vorkenntnisse wurden in den vorangeganenen Semestern
-erarbeitet und sind in der Basis gefestigt.
-Diese Arbeit wird vorwiegend weiterführende elemente wie Frameworks neu einbringen
-deren verhalten letztendlich nicht abgeschätzt werden kann.
+erarbeitet und sind in der Basis gefestigt. Diese Arbeit wird
+vorwiegend weiterführende Elemente wie Frameworks neu einbringen deren
+Verhalten letztendlich nicht abgeschätzt werden kann.
 
 ** Vision
 
-Wir wollen einen Webshop mit geeigneter Software erstellen. Dabei
-setzen wir nur frei verfügbare Software ein. (Frei in form der Freien
-Meinungsäuserung). Wir untersuchen die Anforderung und wählen die uns
-als geeignet erscheinenden frameworks. Jede noch so kleine
-Zeiteinsparung durch vorgefertigte Entwicklungen werden angenommen und
-dennoch wollen wir keine fertigen Software Produkte einsetzen.
+Wir wollen einen Web-Shop mit geeigneter Software erstellen. Dabei
+setzen wir nur freie Software ein (frei im Bezug auf Freiheit nicht
+Preis). Wir untersuchen die Anforderung und wählen die uns als
+geeignet erscheinenden Frameworks. Jede noch so kleine Zeiteinsparung
+durch vorgefertigte Entwicklungen werden angenommen und dennoch wollen
+wir keine fertigen Software Produkte einsetzen.
 
-** SWOT-Analyse
+** TODO SWOT-Analyse
 
 Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
 Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
@@ -107,20 +112,21 @@ Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
 Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
 haben.
 
-| SWOT     | Stärken                                                                                | Schwächen                                                                    |
-|----------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------|
-| Chancen  | Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken                  | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |
-|----------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------|
-| Gefahren | Die Umsetzung der Graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen                                        |
-|----------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------|
+| Stärken                                                                                | Schwächen                                                                    | Chancen | Gefahren |
+|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
+| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken                  | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |         |          |
+|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
+| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen                                        |         |          |
+|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
+#+CAPTION: SWOT-Analyse
 
 ** Umweltanalyse
 
 Die Projektumwelt-Analyse ist eine Methode, die Beziehungen,
 Erwartungshaltungen und Einflüsse auf das Projekt durch interne und
 externe soziale Umwelten zu betrachten und zu bewerten. Auf Grundlage
-der Analyseergebnisse werden erfoderliche Massnahmen zur Gestaltung
-der Umweltbeziehnungen abgeleitet. Die Gestaltung der
+der Analyseergebnisse werden erforderliche Massnahmen zur Gestaltung
+der Umweltbeziehungen abgeleitet. Die Gestaltung der
 Projektumweltbeziehungen ist eine Projektmanagementaufgabe.
 In dieser Tabelle wurden die Anforderungen und Wünsche mit
 Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
@@ -140,19 +146,24 @@ Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 |  4. | Projektleiter | hoch     | - Gutes Innovatives Produkt erschaffen.       | mittel            |
 |     |               |          | - Anerkennung im fachlichen Umfeld            | hoch              |
 |     |               |          |                                               |                   |
+#+CAPTION: Umwelt-Analyse
 
 ** TODO Umweltgrafik
 
 -wie zeichnen??
+- Einfach in Visio oder ähnlichem (Libreoffice) und dann als PNG reinwerfen
 
-** Risikomanagement
-*** Risikobeschreibung
+** TODO Risikomanagement
+*** TODO Risikobeschreibung
+
+- Note taken on [2017-10-31 Tue 22:09] \\
+  Tönt noch sehr nach DB Case Study
 
 | Nr. | Beschreibung                                                                   | Massnahmen                                                                                                                | W^1 | A^2 |
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
 |  1. | Die Datenbank ist schlecht modeliert.                                          | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen.                             |   2 |   3 |
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  2. | Viel Arbeit an der Arbeitsstelle, dabe bleibt wehniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen.                            |   1 |   2 |
+|  2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen.                            |   1 |   2 |
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
 |  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden.                        | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc.                                         |   2 |   2 |
 |-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
@@ -203,7 +214,7 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 *** Mockup skizzieren
 *** Frontend Umsetzung
 *** Backend Umsetzung
-*** Testing
+*** TODO Testing
 **** Anwendungsfälle
 ***** Szenarienanalyse
 
