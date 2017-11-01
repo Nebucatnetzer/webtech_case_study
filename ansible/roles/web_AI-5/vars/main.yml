@@ -3,6 +3,7 @@ apt_packages:
   - apache2
   - python3-django
   - libapache2-mod-wsgi-py3
+  - python3-mysqldb
 
 open_tcp_ports:
   - 80
