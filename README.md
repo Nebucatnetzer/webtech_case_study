@@ -15,6 +15,10 @@ Inspiration falls jemand ähnlich Schulprojekte hat.
 
 WIP
 
+``` bash
+vagrant plugin install vagrant-vbguest
+```
+
 ### Support
 
 We don't provide any support for the content in this repository.
