@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
     apt-get install -y apache2 python3-django mariadb-server avahi-daemon \
         libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb 
 
+
     #So würde der Code aussehen um SQL Scripts in die DB zu importieren.
     #mysql < /vagrant/sql/remove_db.sql
     #mysql < /vagrant/sql/create_db.sql
@@ -40,6 +41,11 @@ Vagrant.configure("2") do |config|
         rm -rf /var/www/html
         ln -s /vagrant/html /var/www/html
     fi
+
+    #Copy the apache configuration for django to the correct place
+    cp /vagrant/apache/000-default.conf /etc/apache2/sites-available/
+    #restart the webserver
+    systemctl restart apache2.service
     SHELL
 
 end
