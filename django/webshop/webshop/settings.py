@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'webshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'webshopdb',
+        'USER': 'webshop',
+        'PASSWORD': '2YKtY53F3HDDzPyExAaSh3jdVNh6VN',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
