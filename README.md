@@ -13,11 +13,28 @@ Inspiration falls jemand ähnlich Schulprojekte hat.
 
 ##### Installation
 
-WIP
+To get started with this repository make sure that you have Virtualbox
+5.1.30 and Vagrant 2.0.0 installed. Vagrant 2.0.0 currently doesn't
+support Virtualbox 5.2.
+
+After you have installed Vagrant and Virtualbox run this command in a
+terminal to make sure that you have installed the Virtualbox plugin
+for Vagrant.
 
 ``` bash
 vagrant plugin install vagrant-vbguest
 ```
+
+To start the virtual machine then run this command from the root of
+the repository (where the file "Vagrantfile" is stored).
+
+``` bash
+vagrant up
+```
+
+Vagrant will then provision a virtual machine according to the
+specifications in the "Vagrantfile" file. After it's finished you
+should be able to access the web page under http://localhost:8000
 
 ### Support
 
