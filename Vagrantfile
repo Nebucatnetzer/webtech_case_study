@@ -28,13 +28,12 @@ Vagrant.configure("2") do |config|
 
     #zu installierende Pakete
     apt-get install -y apache2 python3-django mariadb-server avahi-daemon \
-        libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb 
+        libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb
 
 
-    #So würde der Code aussehen um SQL Scripts in die DB zu importieren.
-    #mysql < /vagrant/sql/remove_db.sql
-    #mysql < /vagrant/sql/create_db.sql
-    #mysql < /vagrant/sql/add_data.sql
+    #initialize the db
+    mysql < /vagrant/sql/04_remove_database.sql
+    mysql < /vagrant/sql/01_create_database.sql
 
     #löschen und verlinken der HTML root damit man diese nicht manuel kopieren muss.
     if ! [ -L /var/www/html ]; then
