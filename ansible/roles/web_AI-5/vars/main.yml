@@ -8,7 +8,7 @@ apt_packages:
 open_tcp_ports:
   - 80
 
-db_name: "webshopdb"                                                
-db_admin: "webshop"                                                 
-db_pwd: "2YKtY53F3HDDzPyExAaSh3jdVNh6VN"                              
+db_name: "webshopdb"
+db_admin: "webshop"
+db_pwd: "2YKtY53F3HDDzPyExAaSh3jdVNh6VN"
 mysql_root_pwd: "4Dto2NaEpdoFg67eHXzpHWazG4MG3i"
