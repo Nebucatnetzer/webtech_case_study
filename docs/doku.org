@@ -203,6 +203,9 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 ** Arbeitspakete definieren
 
 * Umsetzung
+** Spezifikation
+*** Anwendungsfälle
+
 ** Datenbank
 *** Anforderungsanalyse
 *** Relationen Model
@@ -218,8 +221,7 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 *** Frontend Umsetzung
 *** Backend Umsetzung
 *** TODO Testing
-**** Anwendungsfälle
-***** Szenarienanalyse
+**** Test Cases
 
 * Fazit
 ** Projektmanagement
