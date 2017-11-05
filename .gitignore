@@ -184,3 +184,13 @@ auto/
 /docs/doku.listing
 /docs/doku.tex
 /docs/diagrammes/rm.dia.autosave
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+local_settings.py
