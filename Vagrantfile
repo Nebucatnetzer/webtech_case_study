@@ -45,6 +45,7 @@ Vagrant.configure("2") do |config|
     cp /vagrant/apache/000-default.conf /etc/apache2/sites-available/
     #restart the webserver
     systemctl restart apache2.service
+    python3 /vagrant/django/didgeridoo/manage.py migrate
     SHELL
 
 end
