@@ -18,3 +18,4 @@ grant all on django_migrations.* to
     'webshop'@'localhost'
     identified by '2YKtY53F3HDDzPyExAaSh3jdVNh6VN';
 flush privileges;
+ALTER DATABASE `webshopdb` CHARACTER SET utf8;
