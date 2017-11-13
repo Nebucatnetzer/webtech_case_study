@@ -45,7 +45,12 @@ Vagrant.configure("2") do |config|
     cp /vagrant/apache/000-default.conf /etc/apache2/sites-available/
     #restart the webserver
     systemctl restart apache2.service
+    python3 /vagrant/django/didgeridoo/manage.py makemigrations webshop
     python3 /vagrant/django/didgeridoo/manage.py migrate
+    echo "from django.contrib.auth.models import User; \
+        User.objects.filter(email='admin@example.com').delete(); \
+        User.objects.create_superuser('admin', 'admin@example.com', 'password')" |
+        python3 /vagrant/django/didgeridoo/manage.py shell
     SHELL
 
 end
