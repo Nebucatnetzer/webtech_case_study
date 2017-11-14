@@ -1,19 +1,26 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
 
 # Register your models here.
-from .models import Article
-from .models import Order
-from .models import Person
-from .models import City
-from .models import Picture
-from .models import OrderOfGoods
-from .models import Category
-from .models import Option
-from .models import Settings
+from .models import (Article, Order, Person, City, Picture, OrderOfGoods,
+    Category, Option, Settings)
+
+class PersonInline(admin.StackedInline):
+    model = Person
+    can_delete = False
+    verbose_name_plural = 'person'
+
+
+class UserAdmin(BaseUserAdmin):
+    inlines = (PersonInline, )
+
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 
 admin.site.register(Article)
 admin.site.register(Order)
-admin.site.register(Person)
 admin.site.register(City)
 admin.site.register(Picture)
 admin.site.register(OrderOfGoods)
