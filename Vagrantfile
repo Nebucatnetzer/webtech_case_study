@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
 
 
     # Der Webserver ist unter http://localhost:8000 erreichbar
-    config.vm.network "forwarded_port", guest: 80, host: 8000
+    config.vm.network "forwarded_port", guest: 8000, host: 8000
+    config.vm.network "forwarded_port", guest: 80, host: 8080
 
     #Diese Option würde erlauben den Server an ein virtuelles
     #Netzwerk anzuschliessen.
