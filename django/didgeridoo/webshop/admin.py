@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 from .models import (Article, Order, Person, City, Picture, OrderOfGoods,
-    Category, Option, Settings)
+                     Category, Option, Settings)
+
 
 class PersonInline(admin.StackedInline):
     model = Person
@@ -13,7 +14,7 @@ class PersonInline(admin.StackedInline):
 
 
 class UserAdmin(BaseUserAdmin):
-    inlines = (PersonInline, )
+    inlines = (PersonInline,)
 
 
 admin.site.unregister(User)
