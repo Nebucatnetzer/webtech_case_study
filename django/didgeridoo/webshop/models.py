@@ -21,7 +21,7 @@ class Option(models.Model):
         return self.name
 
 
-class Settings(models.Model):
+class Setting(models.Model):
     option = models.ForeignKey(Option, on_delete=models.CASCADE)
     enabled = models.BooleanField(default=False)
 
