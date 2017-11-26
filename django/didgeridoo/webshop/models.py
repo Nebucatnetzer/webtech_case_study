@@ -52,6 +52,11 @@ class Article(models.Model):
         return self.name
 
 
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+
 class OrderStatus(models.Model):
     name = models.CharField(max_length=200, unique=True)
 
@@ -65,6 +70,9 @@ class OrderOfGoods(models.Model):
     delivery_date = models.DateField()
     order_date = models.DateTimeField(auto_now_add=True)
     order_status = models.ForeignKey(OrderStatus)
+
+    class Meta:
+        verbose_name_plural = "Order of Goods"
 
 
 class Picture(models.Model):
@@ -96,6 +104,9 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Cities"
 
 
 class Salutation(models.Model):
