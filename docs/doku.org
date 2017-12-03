@@ -146,8 +146,9 @@ Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 
 ** TODO Umweltgrafik
 
--wie zeichnen??
-- Einfach in Visio oder ähnlichem (Libreoffice) und dann als PNG reinwerfen
+#+CAPTION: Stakeholder Diagramm
+#+ATTR_LATEX: :width .9\textwidth
+[[file:diagrammes/stakeholder_diagramm.eps]]
 
 ** TODO Risikomanagement
 *** TODO Risikobeschreibung
