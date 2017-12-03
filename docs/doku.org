@@ -201,6 +201,91 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 * Umsetzung
 ** Spezifikation
 *** Anwendungsfälle
+*** Klassendiagramme der Models
+
+**** Category
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Kategorien
+[[file:pictures/class_category.png]]
+
+**** Option
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Optionen
+[[file:pictures/class_option.png][file:pictures/class_option.png]]
+
+**** Setting
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Einstellungen
+[[file:pictures/class_setting.png][file:pictures/class_setting.png]]
+
+**** ArticleStatus
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Artikelstatus
+[[file:pictures/class_articlestatus.png][file:pictures/class_articlestatus.png]]
+
+**** ExchangeRate
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Wechselkurse
+[[file:pictures/class_exchangerate.png][file:pictures/class_exchangerate.png]]
+
+**** Article
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Artikel
+[[file:pictures/class_article.png][file:pictures/class_article.png]]
+
+**** OrderStatus
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Bestellstatus
+[[file:pictures/class_orderstatus.png][file:pictures/class_orderstatus.png]]
+
+**** OrderOfGoods
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Warenbestellungen
+[[file:pictures/class_orderofgoods.png][file:pictures/class_orderofgoods.png]]
+
+**** Picture
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Bilder
+[[file:pictures/class_picture.png][file:pictures/class_picture.png]]
+
+**** Order
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Bestellungen
+[[file:pictures/class_order.png][file:pictures/class_order.png]]
+
+**** ShoppingCart
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Warenkörbe
+[[file:pictures/class_shoppingcart.png][file:pictures/class_shoppingcart.png]]
+
+**** City
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Städte
+[[file:pictures/class_city.png][file:pictures/class_city.png]]
+
+**** Salutation
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Anreden
+[[file:pictures/class_salutation.png][file:pictures/class_salutation.png]]
+
+**** Person
+
+#+ATTR_LATEX: :width 9cm
+#+CAPTION: Klassenmodel für Personen
+[[file:pictures/class_person.png][file:pictures/class_person.png]]
 
 ** Datenbank
 *** Anforderungsanalyse
