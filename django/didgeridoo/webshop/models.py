@@ -4,15 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-class Category(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    article = models.ForeignKey('self')
-
-    def __str__(self):
-        return self.name
-
-
 class Option(models.Model):
     name = models.CharField(max_length=200, unique=True)
     value = models.IntegerField(default=5)
@@ -41,6 +32,18 @@ class ExchangeRate(models.Model):
         return self.name
 
 
+# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    parent_category = models.ForeignKey('self', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+
 class Article(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
@@ -50,11 +53,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-    class Meta:
-        verbose_name_plural = "Categories"
 
 
 class OrderStatus(models.Model):
