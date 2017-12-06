@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     #zu installierende Pakete
     apt-get install -y apache2 python3-django mariadb-server avahi-daemon \
         libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb python3-pip
-    pip3 install django-extensions
+    pip3 install django-extensions Pillow
 
 
     #initialize the db
