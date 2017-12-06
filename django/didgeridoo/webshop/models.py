@@ -16,6 +16,9 @@ class Setting(models.Model):
     option = models.ForeignKey(Option, on_delete=models.CASCADE)
     enabled = models.BooleanField(default=False)
 
+    def __str__(self):
+        return str(self.option)
+
 
 class ArticleStatus(models.Model):
     name = models.CharField(max_length=50, unique=True)
