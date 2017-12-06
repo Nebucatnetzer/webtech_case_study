@@ -77,6 +77,7 @@ class OrderOfGoods(models.Model):
 class Picture(models.Model):
     name = models.CharField(max_length=200, unique=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="images")
 
     def __str__(self):
         return self.name
