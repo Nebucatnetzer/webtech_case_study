@@ -47,6 +47,7 @@ class Category(models.Model):
 class Article(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
+    category = models.ForeignKey(Category, null=True)
     stock = models.FloatField(max_length=5)
     status = models.ForeignKey(ArticleStatus)
     price_in_chf = models.DecimalField(max_digits=19, decimal_places=2)
