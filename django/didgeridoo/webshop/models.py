@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from decimal import Decimal
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -53,7 +55,10 @@ class Article(models.Model):
     description = models.TextField(max_length=2000)
     stock = models.FloatField(max_length=5)
     status = models.ForeignKey(ArticleStatus)
-    price_in_chf = models.DecimalField(max_digits=19, decimal_places=2)
+    price_in_chf = models.DecimalField(max_digits=19,
+                                       decimal_places=2,
+                                       validators=[MinValueValidator(
+                                           Decimal('0.00'))])
 
     def __str__(self):
         return self.name
