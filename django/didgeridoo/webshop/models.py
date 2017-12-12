@@ -111,7 +111,7 @@ class City(models.Model):
     zip_code = models.PositiveSmallIntegerField()
 
     def __str__(self):
-        return self.name
+        return '{} {}'.format(self.zip_code, self.name)
 
     class Meta:
         verbose_name_plural = "Cities"
