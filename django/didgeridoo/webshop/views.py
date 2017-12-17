@@ -36,3 +36,10 @@ def articles_in_category(request, category_id):
         'category': selected_category,
     }
     return HttpResponse(template.render(context, request))
+
+
+def article_details(request, article_id):
+        article = get_object_or_404(Article, pk=article_id)
+        return render(request,
+                      'webshop/article_details.html',
+                      {'article': article})
