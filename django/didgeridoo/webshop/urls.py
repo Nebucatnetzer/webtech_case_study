@@ -4,4 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^category/(?P<category_id>[0-9]+)/$',
+        views.articles_in_category,
+        name='category'),
 ]
