@@ -12,13 +12,12 @@ def index(request):
     category_list = {}
 
     for i in parent_category_list:
-            category = Category.objects.filter(parent_category=i.id)
-            category_list[i] = category
+            category_list.update(
+                {i: Category.objects.filter(parent_category=i.id)})
 
     template = loader.get_template('webshop/index.html')
     context = {
         'category_list': category_list,
-        'parent_category_list': parent_category_list,
     }
     return HttpResponse(template.render(context, request))
 
