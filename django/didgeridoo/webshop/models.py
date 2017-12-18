@@ -29,14 +29,6 @@ class ArticleStatus(models.Model):
         return self.name
 
 
-class ExchangeRate(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    exchange_rate_to_chf = models.FloatField(max_length=5)
-
-    def __str__(self):
-        return self.name
-
-
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=200, unique=True)
