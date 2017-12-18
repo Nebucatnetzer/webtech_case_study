@@ -1,5 +1,4 @@
 from django.db import models
-import exchange_rates
 
 
 class ExchangeRate(models.Model):

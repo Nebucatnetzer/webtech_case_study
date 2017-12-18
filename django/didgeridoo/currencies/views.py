@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+import exchange_rates
 
-# Create your views here.
+
+def index(request):
+    return HttpResponse(exchange_rates)
