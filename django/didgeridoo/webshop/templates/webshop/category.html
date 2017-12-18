@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
+</head>
+<body>
+
+<div id="content" class="flex">
+<h1>{{ category.name }}</h1>
+{% if article_list %}
+    <ul>
+    {% for article in article_list %}
+        <li><a href="{% url 'details' article.id %}">{{ article.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no articles in this category.</p>
+{% endif %}
+</div>
+</body>
+</html>

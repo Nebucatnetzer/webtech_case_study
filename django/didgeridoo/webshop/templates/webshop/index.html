@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
+</head>
+<body>
+    <div id="content" class="flex">
+        <h1>Music Shop</h1>
+        {% if category_list %}
+        <ul>
+            {% for category, sub_category in category_list.items %}
+                <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>
+                {% for i in sub_category %}
+                    <ul>
+                    <li><a href="{% url 'category' i.id %}">{{ i.name }}</a></li>
+                    </ul>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No categories are available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
