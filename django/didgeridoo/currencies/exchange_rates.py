@@ -20,15 +20,17 @@ def get_exchange_rate():
     # ~~~~~~~~~~~~~~~~~~~~~
     # Online Resource block:
     # ~~~~~~~~~~~~~~~~~~~~~
-    # SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
-    # urlsocket = urllib.request.urlopen(SNB_URL)
-    # root = ET.parse(urlsocket)
-    # root = ET.ElementTree(root)
+    SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
+    urlsocket = urllib.request.urlopen(SNB_URL)
+    root = ET.parse(urlsocket)
+    root = ET.ElementTree(root)
 
     # ~~~~~~~~~~~~~~~~~~~~~
     # development block:
     # ~~~~~~~~~~~~~~~~~~~~~
-    root = ET.ElementTree(file='rss')
+    # root = ET.ElementTree(file='rss')
+    # ~~~~~~~~~~~~~~~~~~~~~
+    # Namespaces
     ns = {'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
           'none': 'http://purl.org/rss/1.0/',
           'dc': 'http://purl.org/dc/elements/1.1/',
@@ -45,7 +47,7 @@ def get_exchange_rate():
     xml_datestring = xml_datetime_string.split('T')[0]
     # parse string to date object:
     xml_date = datetime.date(datetime.strptime(xml_datestring, "%Y-%m-%d"))
-
+    exchange_rates = {}
     for item in root.findall('none:item', ns):
         # THE CURRENCY DATE:
         datetime_str = item.find('dc:date', ns).text
@@ -107,11 +109,12 @@ def get_exchange_rate():
             # print("date:", date, " 1 ", target_currency, " costs: ",
             #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
             #       FOREIGNvalue_round, target_currency)
-            exchange_rates = {target_currency: FOREIGNvalue_round}
+            exchange_rates.update(
+                {target_currency: FOREIGNvalue_round})
             # Print the Dictionary:
             # print(exchange_rates)
-            return(exchange_rates)
         else:
             break
+    return(exchange_rates)
     # for development its preferable to see that the for loop is done:
     # print('no more fresh data!')
