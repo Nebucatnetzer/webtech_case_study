@@ -7,13 +7,3 @@ class ExchangeRate(models.Model):
 
     def __str__(self):
         return self.name
-
-    def exchange_rates():
-        exchange_rates = currencies.get_exchange_rate()
-
-        for i in exchange_rates:
-            if ExchangeRate.objects.filter(
-                    name='exchange_rates_data[dictionary_value]'):
-                ExchangeRate.objects.filter(
-                    name='exchange_rates_data[dictionary_key]',
-                    exchange_rate_to_chf=exchange_rates.value).save()

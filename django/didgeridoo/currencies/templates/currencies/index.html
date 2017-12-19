@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
+</head>
+<body>
+    <div id="content" class="flex">
+        <h1>Music Shop</h1>
+        {% if currency_list %}
+        <ul>
+            {% for currency in currency_list %}
+                <li>{{ currency.name }} : {{ currency.exchange_rate_to_chf }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No categories are available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
