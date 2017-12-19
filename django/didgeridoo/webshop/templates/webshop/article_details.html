@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<head>
-<link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
-</head>
-<body>
-<div id="content" class="flex">
-<h1>{{ article.name }}</h1>
-<h3>Description</h3>
-<p>{{ article.description }}</p>
-<p><b>Stock:</b> {{ article.stock }}</p>
-<p><b>Status:</b> {{ article.status}}</p>
-<p><b>Price:</b> {{ article.price_in_chf }}</p>
-</div>
-</body>
-</html>
+{% extends "webshop/base.html" %}
+{% block section_title %}{{ article.name }}{% endblock %}
+{% block content %}
+    <h3>Description</h3>
+    <p>{{ article.description }}</p>
+    <p><b>Stock:</b> {{ article.stock }}</p>
+    <p><b>Status:</b> {{ article.status}}</p>
+    <p><b>Price:</b> {{ article.price_in_chf }}</p>
+{% endblock %}

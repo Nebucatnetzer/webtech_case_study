@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
-</head>
-<body>
-    <div id="content" class="flex">
-        <h1>Music Shop</h1>
+{% extends "webshop/base.html" %}
+{% block content %}
         {% if category_list %}
         <ul>
             {% for category, sub_category in category_list.items %}
@@ -18,7 +13,5 @@
         </ul>
         {% else %}
             <p>No categories are available.</p>
-        {% endif %}
-    </div>
-</body>
-</html>
+            {% endif %}
+{% endblock %}
