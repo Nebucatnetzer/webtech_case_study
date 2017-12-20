@@ -115,6 +115,7 @@ class City(models.Model):
 
     class Meta:
         verbose_name_plural = "Cities"
+        ordering = ['zip_code']
 
 
 class Salutation(models.Model):
