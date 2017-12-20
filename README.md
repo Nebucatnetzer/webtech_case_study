@@ -34,7 +34,12 @@ vagrant up
 
 Vagrant will then provision a virtual machine according to the
 specifications in the "Vagrantfile" file. After it's finished you
-should be able to access the web page under http://localhost:8000
+should be able to access the web page under http://localhost:8080
+
+To access the admin panel visit http://localhost:8080/admin the
+default login is admin and the corresponding password is
+"password". By default the application contains no data, you can enter
+whatever you need.
 
 ### Support
 
