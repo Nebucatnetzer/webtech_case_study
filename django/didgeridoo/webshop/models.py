@@ -94,9 +94,19 @@ class Picture(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    article = models.ManyToManyField(Article)
-    order_status = models.ForeignKey(OrderStatus)
+    article = models.ManyToManyField(Article, through='OrderPosition')
+    status = models.ForeignKey(OrderStatus)
     date = models.DateTimeField(default=datetime.datetime.now())
+
+
+class OrderPosition(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    amount = models.FloatField(max_length=5)
+    price_in_chf = models.DecimalField(max_digits=19,
+                                       decimal_places=2,
+                                       validators=[MinValueValidator(
+                                            Decimal('0.00'))])
 
 
 class ShoppingCart(models.Model):
