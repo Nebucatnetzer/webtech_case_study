@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 
 class Option(models.Model):
@@ -95,6 +96,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     article = models.ManyToManyField(Article)
     order_status = models.ForeignKey(OrderStatus)
+    date = models.DateTimeField(default=datetime.datetime.now())
 
 
 class ShoppingCart(models.Model):
