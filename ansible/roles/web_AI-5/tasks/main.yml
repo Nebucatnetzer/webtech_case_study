@@ -22,5 +22,12 @@
     owner=ansible group=ansible
     recurse=yes
 
+- name: Install pip packages
+  pip:
+    name:
+      - django-extensions
+      - Pillow
+    executable: pip3
+
 - name: Restart apache service
   service: name=apache2 state=restarted
