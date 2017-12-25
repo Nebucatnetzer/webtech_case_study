@@ -129,3 +129,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/vagrant/django/didgeridoo/static/'
 MEDIA_ROOT = '/vagrant/django/didgeridoo/media/'
+
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'didgeridoo.ml'
+]
