@@ -30,7 +30,7 @@
     executable: pip3
 
 - name: Run the setup script to add some final touches
-  shell: "/vagrant/ansible/roles/web_AI-5/tasks/setup_scripts.sh"
+  shell: "/vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh"
 
 - name: Restart apache service
   service: name=apache2 state=restarted
