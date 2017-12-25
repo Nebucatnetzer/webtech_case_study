@@ -6,7 +6,7 @@
 
 - name: Copy apache config
   copy: src=000-default.conf
-        dest=/etc/apache2/site-available/
+        dest=/etc/apache2/sites-available/
         owner=root
         group=root
         mode=655
