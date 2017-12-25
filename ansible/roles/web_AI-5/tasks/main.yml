@@ -1,8 +1,8 @@
 ---
-- include: tasks/apt_install.yml
-- include: tasks/ufw_tcp.yml
+- import_tasks: tasks/apt_install.yml
+- import_tasks: tasks/ufw_tcp.yml
 
-- include: mariadb.yml
+- import_tasks: mariadb.yml
 
 - name: Copy apache config
   copy: src=000-default.conf

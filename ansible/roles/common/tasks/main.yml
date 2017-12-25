@@ -1,7 +1,7 @@
 # System Upgrade and package installation        
-- include: tasks/apt_update_cache.yml
-- include: tasks/apt_distupgrade.yml
-- include: tasks/apt_install.yml
+- import_tasks: tasks/apt_update_cache.yml
+- import_tasks: tasks/apt_distupgrade.yml
+- import_tasks: tasks/apt_install.yml
 
 # User configuration
 - name: Lock root user
@@ -16,7 +16,7 @@
               line='{{ deploy_user_name }} ALL=(ALL) NOPASSWD: ALL'
               state=present"
 
-- include: tasks/ufw_tcp.yml
+- import_tasks: tasks/ufw_tcp.yml
 
 - name: Copy over the sshd_config file
   template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root
