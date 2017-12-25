@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
         libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb python3-pip
     pip3 install django-extensions Pillow
 
-    ./vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh
+    /vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh
     SHELL
 
 end
