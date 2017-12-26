@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 
 class Option(models.Model):
@@ -85,8 +86,19 @@ class Picture(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    article = models.ManyToManyField(Article)
-    order_status = models.ForeignKey(OrderStatus)
+    article = models.ManyToManyField(Article, through='OrderPosition')
+    status = models.ForeignKey(OrderStatus)
+    date = models.DateTimeField(default=datetime.datetime.now())
+
+
+class OrderPosition(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    amount = models.FloatField(max_length=5)
+    price_in_chf = models.DecimalField(max_digits=19,
+                                       decimal_places=2,
+                                       validators=[MinValueValidator(
+                                            Decimal('0.00'))])
 
 
 class ShoppingCart(models.Model):
@@ -107,6 +119,7 @@ class City(models.Model):
 
     class Meta:
         verbose_name_plural = "Cities"
+        ordering = ['zip_code']
 
 
 class Salutation(models.Model):

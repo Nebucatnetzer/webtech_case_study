@@ -1,15 +1,36 @@
 ---
-- include: tasks/apt_install.yml
-- include: tasks/ufw_tcp.yml
+- import_tasks: tasks/apt_install.yml
+- import_tasks: tasks/ufw_tcp.yml
 
-- include: mariadb.yml
+- import_tasks: mariadb.yml
 
 - name: Copy apache config
   copy: src=000-default.conf
-        dest=/etc/apache2/site-available/
+        dest=/etc/apache2/sites-available/
         owner=root
         group=root
         mode=655
+
+- name: Clone repository
+  git: repo=https://git.2li.ch/ibz/web_AI-5.git
+       dest="/vagrant"
+       force=yes
+
+- name: Set Permissions on the repository
+  file:
+    dest=/vagrant
+    owner=ansible group=ansible
+    recurse=yes
+
+- name: Install pip packages
+  pip:
+    name:
+      - django-extensions
+      - Pillow
+    executable: pip3
+
+- name: Run the setup script to add some final touches
+  shell: "/vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh"
 
 - name: Restart apache service
   service: name=apache2 state=restarted

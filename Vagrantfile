@@ -32,29 +32,7 @@ Vagrant.configure("2") do |config|
         libnss-mdns libapache2-mod-wsgi-py3 python3-mysqldb python3-pip
     pip3 install django-extensions Pillow
 
-
-    #initialize the db
-    mysql < /vagrant/sql/04_remove_database.sql
-    mysql < /vagrant/sql/01_create_database.sql
-
-    #löschen und verlinken der HTML root damit man diese nicht manuel kopieren muss.
-    if ! [ -L /var/www/html ]; then
-        rm -rf /var/www/html
-        ln -s /vagrant/html /var/www/html
-    fi
-
-    #Copy the apache configuration for django to the correct place
-    cp /vagrant/apache/000-default.conf /etc/apache2/sites-available/
-    #restart the webserver
-    systemctl restart apache2.service
-    rm /vagrant/django/didgeridoo/webshop/migrations/*.py
-    python3 /vagrant/django/didgeridoo/manage.py makemigrations webshop
-    python3 /vagrant/django/didgeridoo/manage.py migrate
-    mysql < /vagrant/sql/02_insert_data.sql
-    echo "from django.contrib.auth.models import User; \
-        User.objects.filter(email='admin@example.com').delete(); \
-        User.objects.create_superuser('admin', 'admin@example.com', 'password')" |
-        python3 /vagrant/django/didgeridoo/manage.py shell
+    /vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh
     SHELL
 
 end
