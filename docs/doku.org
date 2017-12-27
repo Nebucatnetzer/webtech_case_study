@@ -201,6 +201,10 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * Umsetzung
 ** Spezifikation
+*** Mockup
+#+ATTR_LATEX: :width 18cm
+#+CAPTION: a early Mockup of the shop
+[[file:pictures/mockup-full-snipet.png][file:pictures/mockup-full-snipet.png]
 *** Anwendungsfälle
 *** Klassendiagramme der Models
 
