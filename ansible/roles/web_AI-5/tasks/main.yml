@@ -27,6 +27,7 @@
     name:
       - django-extensions
       - Pillow
+      - pyaml
     executable: pip3
 
 - name: Run the setup script to add some final touches
