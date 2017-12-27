@@ -110,7 +110,7 @@ def get_exchange_rate():
             #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
             #       FOREIGNvalue_round, target_currency)
             exchange_rates.update(
-                {target_currency: FOREIGNvalue_round})
+                {target_currency: FOREIGNvalue_round, "date": date})
             # Print the Dictionary:
             # print(exchange_rates)
         else:

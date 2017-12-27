@@ -8,11 +8,17 @@
         {% if currency_list %}
         <ul>
             {% for currency in currency_list %}
-                <li>{{ currency.name }} : {{ currency.exchange_rate_to_chf }}</li>
+                <li>
+                  {{ currency.date }} :
+                  {{ currency.name }} :
+                  {{ currency.exchange_rate_to_chf }}
+                </li>
             {% endfor %}
         </ul>
         {% else %}
-            <p>No categories are available.</p>
+            <p class="alert">
+              Something whent wrong, no currencies are available.
+            </p>
         {% endif %}
     </div>
 </body>
