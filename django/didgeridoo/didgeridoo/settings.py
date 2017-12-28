@@ -133,3 +133,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/vagrant/django/didgeridoo/static/'
 MEDIA_ROOT = '/vagrant/django/didgeridoo/media/'
+
+LOGIN_REDIRECT_URL = '/'
