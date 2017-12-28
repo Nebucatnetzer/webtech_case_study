@@ -25,7 +25,11 @@ SECRET_KEY = '(#4#-$$&mx7(%q+6&&@-c&g%i0dc4)zfks1%sy8b%lsxspou&%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'didgeridoo.ml'
+]
 
 
 # Application definition
@@ -129,10 +133,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/vagrant/django/didgeridoo/static/'
 MEDIA_ROOT = '/vagrant/django/didgeridoo/media/'
-
-
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'didgeridoo.ml'
-]
