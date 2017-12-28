@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Article, Category, ArticleStatus
+from webshop.models import Article, Category, ArticleStatus
 
 # Create your views here.
 
