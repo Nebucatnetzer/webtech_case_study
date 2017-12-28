@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-from webshop.models import Article, Category, ArticleStatus
+from django.contrib.auth.decorators import login_required
+from webshop.models import Article, Category, ArticleStatus, Person
 
 # Create your views here.
 
@@ -33,3 +34,10 @@ def article_details(request, article_id):
         article = get_object_or_404(Article, pk=article_id)
         return render(request, 'webshop/article_details.html',
                       {'article': article})
+
+
+@login_required
+def profile(request):
+    person = Person.objects.get(user=request.user)
+    return render(request, 'registration/profile.html',
+                  {'person': person})
