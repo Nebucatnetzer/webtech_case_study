@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 from decimal import Decimal
 from django.core.validators import MinValueValidator
 from django.db import models
