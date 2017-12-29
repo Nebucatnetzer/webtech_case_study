@@ -24,7 +24,7 @@ use webshopdb;
     insert into webshop_articlestatus (name)
     values ('out of stock'),
         ('hidden'),
-        ('on sale');
+        ('active');
 
 use webshopdb;
 insert into webshop_city (zip_code, name)

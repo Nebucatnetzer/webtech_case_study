@@ -3,8 +3,9 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 # Register your models here.
-from .models import (Article, Order, OrderPosition, Person, City, Picture,
-                     OrderOfGoods, Category, Option, Setting)
+from webshop.models import (Article, Order, OrderPosition,
+                            Person, City, Picture, OrderOfGoods,
+                            Category, Option, Setting)
 
 
 class PersonInline(admin.StackedInline):
