@@ -15,6 +15,7 @@
   git: repo=https://git.2li.ch/ibz/web_AI-5.git
        dest="/vagrant"
        force=yes
+       version=production
 
 - name: Set Permissions on the repository
   file:
