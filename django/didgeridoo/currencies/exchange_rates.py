@@ -55,9 +55,11 @@ def get_exchange_rate():
         # https://stackoverflow.com/a/12282040/4061870
         # seams like snb striked the microsecond somewhere between Nov. and
         # Dez. 2017 so maybe first check time type. "%Y-%m-%dT%H:%M:%S.%f%z"
-        date = datetime.strptime(''.join(datetime_str.rsplit(':', 1)),
-                                 "%Y-%m-%dT%H:%M:%S%z").strftime("%Y-%m-%d")
-        # only the values of today are used so check for date:
+        date = datetime.strptime(''.join(
+                                 datetime_str.rsplit(':', 1)),
+                                 "%Y-%m-%dT%H:%M:%S%z").strftime(
+                                 "%Y-%m-%d")
+        # only the values of today are used so check for date in XML:
         if date == today:
             title = item.find('none:title', ns).text
             base_currency = item.find(rate_path +
