@@ -1,6 +1,6 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
-from . import views
+from webshop import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -10,4 +10,7 @@ urlpatterns = [
     url(r'^category/(?P<category_id>[0-9]+)/$',
         views.articles_in_category,
         name='category'),
+    url('^', include('django.contrib.auth.urls')),
+    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^registration/$', views.registration, name='registration'),
 ]
