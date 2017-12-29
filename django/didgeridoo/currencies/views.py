@@ -5,23 +5,24 @@ from currencies import exchange_rates
 
 def currencies(request):
     # return HttpResponse("exchange_rates")
-    raw_data = exchange_rates.get_exchange_rate()
-    for i, j, k, l in raw_data.items():
-        if ExchangeRate.objects.filter(name=i):
+    raw_data, date = exchange_rates.get_exchange_rate()
+    for currency, rate in raw_data.items():
+        if ExchangeRate.objects.filter(name=currency):
             e = ExchangeRate.objects.filter(
-                name=i,
+                name=currency,
                 ).update(
-                exchange_rate_to_chf=j,
-                date=l
+                exchange_rate_to_chf=rate,
+                date=date
                 )
         else:
             e = ExchangeRate.objects.create(
-                name=i,
-                exchange_rate_to_chf=j,
-                date=l
+                name=currency,
+                exchange_rate_to_chf=rate,
+                date=date
                 )
             e.save()
     currency_list = ExchangeRate.objects.all()
     return render(request,
                   'currencies/index.html',
-                  {'currency_list': currency_list})
+                  {'currency_list': currency_list,
+                   'date': date})

@@ -6,6 +6,22 @@
     <div id="content" class="flex">
         <h1>Currencies in CHF</h1>
         {% if currency_list %}
+        <table>
+          <tr>
+            <th scope="col">DATE</th>
+            {% for currency in currency_list %}
+              <th scope="col">{{ currency.name }}</th>
+            {% endfor %}
+          </tr>
+          <tr>
+           <td>{{ date }}</td>
+           {% for currency in currency_list %}
+             <td>{{ currency.exchange_rate_to_chf }}</td>
+           {% endfor %}
+          </tr>
+        </table>
+        <br>
+        <br>
         <ul>
             {% for currency in currency_list %}
                 <li>

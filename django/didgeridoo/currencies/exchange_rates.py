@@ -53,8 +53,10 @@ def get_exchange_rate():
         datetime_str = item.find('dc:date', ns).text
         # convert string to date object:
         # https://stackoverflow.com/a/12282040/4061870
+        # seams like snb striked the microsecond somewhere between Nov. and
+        # Dez. 2017 so maybe first check time type. "%Y-%m-%dT%H:%M:%S.%f%z"
         date = datetime.strptime(''.join(datetime_str.rsplit(':', 1)),
-                                 "%Y-%m-%dT%H:%M:%S.%f%z").strftime("%Y-%m-%d")
+                                 "%Y-%m-%dT%H:%M:%S%z").strftime("%Y-%m-%d")
         # only the values of today are used so check for date:
         if date == today:
             title = item.find('none:title', ns).text
@@ -110,11 +112,11 @@ def get_exchange_rate():
             #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
             #       FOREIGNvalue_round, target_currency)
             exchange_rates.update(
-                {target_currency: FOREIGNvalue_round, "date": date})
+                {target_currency: FOREIGNvalue_round})
             # Print the Dictionary:
             # print(exchange_rates)
         else:
             break
-    return(exchange_rates)
+    return(exchange_rates, date)
     # for development its preferable to see that the for loop is done:
     # print('no more fresh data!')
