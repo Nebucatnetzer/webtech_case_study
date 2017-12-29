@@ -23,9 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(#4#-$$&mx7(%q+6&&@-c&g%i0dc4)zfks1%sy8b%lsxspou&%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'didgeridoo.ml'
+]
 
 
 # Application definition
@@ -39,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3'
-]
+    'currencies',
+    'bootstrap3',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,9 +136,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/vagrant/django/didgeridoo/static/'
 MEDIA_ROOT = '/vagrant/django/didgeridoo/media/'
 
-
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'didgeridoo.ml'
-]
+LOGIN_REDIRECT_URL = '/'

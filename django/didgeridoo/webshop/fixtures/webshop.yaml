@@ -1,0 +1,97 @@
+- model: webshop.Category
+  fields:
+    name: "First Parent Category"
+    parent_category:
+- model: webshop.Category
+  fields:
+    name: "Second Parent Category"
+    parent_category:
+- model: webshop.Category
+  fields:
+    name: "Third Parent Category"
+    parent_category:
+- model: webshop.Category
+  fields:
+    name: "Fourth Parent Category"
+    parent_category:
+- model: webshop.Category
+  fields:
+    name: "Child Category 1"
+    parent_category: 1
+- model: webshop.Category
+  fields:
+    name: "Child Category 2"
+    parent_category: 2
+- model: webshop.Category
+  fields:
+    name: "Child Category 3"
+    parent_category: 3
+- model: webshop.Category
+  fields:
+    name: "Child Category 4"
+    parent_category: 4
+
+- model: webshop.Article
+  fields:
+    name: "Article of First Parent Category"
+    category: 1
+    description: "An article sorted under the First Parent Category."
+    stock: 10
+    status: 3
+    price_in_chf: 10.1
+- model: webshop.Article
+  fields:
+    name: "Article of Second Parent Category"
+    category: 2
+    description: "An article sorted under the Second Parent Category."
+    stock: 20
+    status: 3
+    price_in_chf: 20.2
+- model: webshop.Article
+  fields:
+    name: "Article of Third Parent Category"
+    category: 3
+    description: "An article sorted under the Third Parent Category."
+    stock: 30
+    status: 3
+    price_in_chf: 30.3
+- model: webshop.Article
+  fields:
+    name: "Article of Fourth Parent Category"
+    category: 4
+    description: "An article sorted under the Fourth Parent Category."
+    stock: 40
+    status: 3
+    price_in_chf: 40.4
+- model: webshop.Article
+  fields:
+    name: "Article of Child Category 1"
+    category: 5
+    description: "An article sorted under the Child Category 1."
+    stock: 11
+    status: 3
+    price_in_chf: 11.1
+- model: webshop.Article
+  fields:
+    name: "Article of Child Category 2"
+    category: 6
+    description: "An article sorted under the Child Category 2."
+    stock: 22
+    status: 3
+    price_in_chf: 21.2
+- model: webshop.Article
+  fields:
+    name: "Article of Child Category 3"
+    category: 7
+    description: "An article sorted under the Child Category 3."
+    stock: 33
+    status: 3
+    price_in_chf: 31.3
+- model: webshop.Article
+  fields:
+    name: "Article of Child Category 4"
+    category: 8
+    description: "An article sorted under the Child Category 4."
+    stock: 44
+    status: 3
+    price_in_chf: 41.4

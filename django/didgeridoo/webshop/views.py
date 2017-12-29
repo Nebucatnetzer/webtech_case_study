@@ -1,5 +1,10 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from .models import Article, Category, ArticleStatus
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from webshop.models import Article, Category, ArticleStatus, Person, City
+from webshop.forms import RegistrationForm
 
 # Create your views here.
 
@@ -33,3 +38,39 @@ def article_details(request, article_id):
         article = get_object_or_404(Article, pk=article_id)
         return render(request, 'webshop/article_details.html',
                       {'article': article})
+
+
+@login_required
+def profile(request):
+    person = Person.objects.get(user=request.user)
+    return render(request, 'registration/profile.html',
+                  {'person': person})
+
+
+def registration(request):
+    if request.method == 'POST':
+            profile_form = RegistrationForm(request.POST)
+            user_form = UserCreationForm(request.POST)
+            if (profile_form.is_valid() and user_form.is_valid()):
+                pf = profile_form.cleaned_data
+                uf = user_form.cleaned_data
+                user = User.objects.create_user(uf['username'],
+                                                pf['email'],
+                                                uf['password2'])
+                user.last_name = pf['last_name']
+                user.first_name = pf['first_name']
+                user.save()
+                person = Person.objects.create(
+                    salutation=pf['salutation'],
+                    city=City.objects.get(zip_code=pf['zip_code'],
+                                          name=pf['city']),
+                    street_name=pf['street_name'],
+                    street_number=pf['street_number'],
+                    user=user)
+                return HttpResponseRedirect('/login/')
+    else:
+        profile_form = RegistrationForm
+        user_form = UserCreationForm
+    return render(request, 'registration/register.html',
+                  {'profile_form': profile_form,
+                   'user_form': user_form})

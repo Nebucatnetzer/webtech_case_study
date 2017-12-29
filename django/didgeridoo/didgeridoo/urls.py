@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'', include('webshop.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'', include('currencies.urls')),
     url(r'^admin/', admin.site.urls),
 ]
