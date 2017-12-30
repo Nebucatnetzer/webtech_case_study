@@ -135,3 +135,6 @@ STATIC_ROOT = '/vagrant/django/didgeridoo/static/'
 MEDIA_ROOT = '/vagrant/django/didgeridoo/media/'
 
 LOGIN_REDIRECT_URL = '/'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
