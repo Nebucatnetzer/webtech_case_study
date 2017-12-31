@@ -34,5 +34,13 @@
 - name: Run the setup script to add some final touches
   shell: "/vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh"
 
+- name: Creates directory
+  file:
+    path: /srv/media
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+
 - name: Restart apache service
   service: name=apache2 state=restarted
