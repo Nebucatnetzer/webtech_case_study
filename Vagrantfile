@@ -35,6 +35,9 @@ Vagrant.configure("2") do |config|
     #Copy the apache configuration for django to the correct place
     cp /vagrant/apache/000-default.conf /etc/apache2/sites-available/
 
+    mkdir /srv/media
+    chmod -R 777 /srv/media
+
     #restart the webserver
     systemctl restart apache2.service
 
