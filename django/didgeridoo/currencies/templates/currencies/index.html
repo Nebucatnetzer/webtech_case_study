@@ -6,20 +6,24 @@
     <div id="content" class="flex">
         <h1>Currencies in CHF</h1>
         {% if currency_list %}
-        <table>
+        <!-- <table>
           <tr>
             <th scope="col">DATE</th>
             {% for currency in currency_list %}
               <th scope="col">{{ currency.name }}</th>
             {% endfor %}
           </tr>
-            <tr>
-                <td>{{ date }}</td>
-                  {% for currency in currency_list %}
-                     <td>{{ currency.exchange_rate_to_chf }}</td>
-                  {% endfor %}
+          {% for currencydate in currency_list %}
+            {% ifchanged currencydate %}
+            <tr>{{ currency.date }}
+              {% for currency in currency_list %}
+                <td>{{ currency.exchange_rate_to_chf }}</td>
+              {% endfor %}
             </tr>
-        </table>
+            {% endifchanged %}
+          {% endfor %}
+        </table> -->
+
         <br>
         <p> {{ message }} </p>
         <br>
@@ -32,11 +36,81 @@
                 </li>
             {% endfor %}
         </ul>
+        <br>
+        <!-- Development helpers: -->
+        raw_data
+        <ul>
+            {% for key, value in raw_data.items %}
+                <li>
+                  {{ key }} :
+                  {{ value }}
+                </li>
+            {% endfor %}
+        </ul>
         {% else %}
             <p class="alert">
-              Something whent wrong, no currencies are available.
+              Something whent totaly wrong.
             </p>
         {% endif %}
+        <br>
+        today
+        <ul>
+            <li>
+              {{ today }}
+            </li>
+        </ul>
+        <br>
+        unique_dates_list
+        <ul>
+            {% for key in unique_dates_list %}
+                <li>
+                  {{ key }}
+                </li>
+            {% endfor %}
+        </ul>
+        <br>
+        unique_currencies_list
+        <ul>
+            {% for key in unique_currencies_list %}
+                <li>
+                  {{ key }}
+                </li>
+            {% endfor %}
+        </ul>
+        <br>
+        count_date
+        <ul>
+                <li>
+                  {{ count_date }}
+                </li>
+        </ul>
+        <br>
+        count_currencies
+        <ul>
+                <li>
+                  {{ count_currencies }}
+                </li>
+        </ul>
+        <br>
+        currencies_list
+        <ul>
+            {% for key in currencies_list.values %}
+                <li>
+                  {{ key }}
+                </li>
+            {% endfor %}
+        </ul>
+        currency_dict
+        <ul>
+            {% for key, value in currency_dict %}
+                <li>
+                  {{ key }}
+                </li>
+                <li>
+                  {{ value }}
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

@@ -37,7 +37,7 @@
     <title>CH: 1.3081 CHF = 1 GBP 2017-11-27 Tägliche Kurse (11:00)</title>
     <link>https://www.snb.ch</link>
     <description>1 GBP = 1.3081 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.767+01:00)</description>
-    <dc:date>2017-12-19T12:16:53.767+01:00</dc:date>
+    <dc:date>2018-01-02T12:16:53.767+01:00</dc:date>
     <dc:language>de</dc:language>
     <cb:statistics rdf:parseType="Resource">
       <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
@@ -66,7 +66,7 @@
     <title>CH: 0.8813 CHF = 100 JPY 2017-11-27 Tägliche Kurse (11:00)</title>
     <link>https://www.snb.ch</link>
     <description>100 JPY = 0.8813 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.760+01:00)</description>
-    <dc:date>2017-12-19T12:16:53.760+01:00</dc:date>
+    <dc:date>2018-01-02T12:16:53.760+01:00</dc:date>
     <dc:language>de</dc:language>
     <cb:statistics rdf:parseType="Resource">
       <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
@@ -96,7 +96,7 @@
     <title>CH: 1.1697 CHF = 1 EUR 2017-11-27 Tägliche Kurse (11:00)</title>
     <link>https://www.snb.ch</link>
     <description>1 EUR = 1.1697 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.750+01:00)</description>
-    <dc:date>2017-12-19T12:16:53.750+01:00</dc:date>
+    <dc:date>2018-01-02T12:16:53.750+01:00</dc:date>
     <dc:language>de</dc:language>
     <cb:statistics rdf:parseType="Resource">
       <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
@@ -125,7 +125,7 @@
     <title>CH: 0.9803 CHF = 1 USD 2017-11-27 Tägliche Kurse (11:00)</title>
     <link>https://www.snb.ch</link>
     <description>1 USD = 0.9803 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.737+01:00)</description>
-    <dc:date>2017-11-29T12:16:53.737+01:00</dc:date>
+    <dc:date>2018-01-02T12:16:53.737+01:00</dc:date>
     <dc:language>de</dc:language>
     <cb:statistics rdf:parseType="Resource">
       <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
