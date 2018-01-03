@@ -4,9 +4,11 @@ mysql < /vagrant/sql/01_create_database.sql
 
 #remove old migrations
 rm /vagrant/django/didgeridoo/webshop/migrations/*.py
+rm /vagrant/django/didgeridoo/currencies/migrations/*.py
 
 #create and insert the new migrations
 python3 /vagrant/django/didgeridoo/manage.py makemigrations webshop
+python3 /vagrant/django/didgeridoo/manage.py makemigrations currencies
 python3 /vagrant/django/didgeridoo/manage.py migrate
 
 #insert some default data into the database
