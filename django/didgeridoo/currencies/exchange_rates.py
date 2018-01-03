@@ -25,11 +25,12 @@ def get_exchange_rate():
     # urlsocket = urllib.request.urlopen(SNB_URL)
     # root = ET.parse(urlsocket)
     # root = ET.ElementTree(root)
-
+    # today = datetime.now().strftime("%Y-%m-%d")
     # ~~~~~~~~~~~~~~~~~~~~~
     # development block:
     # ~~~~~~~~~~~~~~~~~~~~~
     root = ET.ElementTree(file='rss')
+    today = "2018-01-01"
     # ~~~~~~~~~~~~~~~~~~~~~
 
     # Namespaces
@@ -42,8 +43,7 @@ def get_exchange_rate():
     # Pathvariables to XML Namespaces
     rate_path = 'cb:statistics/cb:exchangeRate/'
     observation_path = 'cb:statistics/cb:exchangeRate/cb:observation/'
-    # today = datetime.now().strftime("%Y-%m-%d")
-    today = "2018-01-02"
+
     exchange_rates = {}
 
     for item in root.findall('none:item', ns):

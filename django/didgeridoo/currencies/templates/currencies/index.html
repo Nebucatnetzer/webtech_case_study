@@ -23,15 +23,19 @@
             {% endifchanged %}
           {% endfor %}
         </table> -->
-
+        {% else %}
+            <p class="alert">
+              currency_list missing.
+            </p>
+        {% endif %}
         <br>
         <p> {{ message }} </p>
         <br>
         <ul>
             {% for currency in currency_list %}
                 <li>
-                  {{ currency.date }} :
-                  {{ currency.name }} :
+                  {{ currency.date.date }} :
+                  {{ currency.name.name }} :
                   {{ currency.exchange_rate_to_chf }}
                 </li>
             {% endfor %}
@@ -47,11 +51,6 @@
                 </li>
             {% endfor %}
         </ul>
-        {% else %}
-            <p class="alert">
-              Something whent totaly wrong.
-            </p>
-        {% endif %}
         <br>
         today
         <ul>
@@ -78,11 +77,9 @@
             {% endfor %}
         </ul>
         <br>
-        count_date
+        count_raw_data
         <ul>
-                <li>
-                  {{ count_date }}
-                </li>
+                <li>{{ count_raw_data }}</li>
         </ul>
         <br>
         count_currencies
