@@ -314,7 +314,7 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 ** Umsetzung
 ** Gelerntes
 
-* TODO samples [to be deleted]
+* TODO samples [to be deleted] :noexport:
 *** Subsubsection
 
 - List
