@@ -3,7 +3,12 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from webshop.models import Article, Category, ArticleStatus, Person, City
+from webshop.models import (Article,
+                            Category,
+                            ArticleStatus,
+                            Person,
+                            City,
+                            Picture)
 from webshop.forms import RegistrationForm
 
 # Create your views here.
@@ -36,8 +41,10 @@ def articles_in_category(request, category_id):
 
 def article_details(request, article_id):
         article = get_object_or_404(Article, pk=article_id)
+        picture_list = Picture.objects.filter(article=article_id)
         return render(request, 'webshop/article_details.html',
-                      {'article': article})
+                      {'article': article,
+                       'picture_list': picture_list})
 
 
 @login_required
