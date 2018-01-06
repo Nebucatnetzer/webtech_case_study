@@ -235,19 +235,18 @@ Das Hauptwerkzeug von jedem Entwickler ist sein Text Editor. Dabei
 hat jeder meistens seine ganz eigene Präferenzen wenn es um die Wahl
 des Editors geht.
 
-***** Atom
+- Atom :: Ivan hat während der Case Study hauptsächlich mit
+          Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
+          entwickelt und basiert auf dem Electron Framework welches
+          seinerseit auf Webtechnologien wie Node.js und Chromium
+          basiert. Atom ist freie Software unter der MIT Lizenz.
 
-Ivan hat während der Case Study hauptsächlich mit Atom\footcite{atom}
-gearbeitet. Atom wird von Github Inc. entwickelt und ist freie
-Software unter der MIT Lizenz.
-
-***** GNU Emacs
-
-Andreas arbeitet hauptsächlich mit dem Editor GNU
-Emacs\footcite{emacs}. GNU Emacs ist mit 32 Jahren (obwohl seine
-Wurzeln bis ins Jahre 1976 zurückgehen) wohl eines der ältesten noch
-aktiven Software Projekte. Emacs ist freie Software unter der GNU
-Public License v3.
+- GNU Emacs :: Andreas arbeitet hauptsächlich mit dem Editor GNU
+               Emacs\footcite{emacs}. GNU Emacs ist mit 32 Jahren
+               (obwohl seine Wurzeln bis ins Jahre 1976 zurückgehen)
+               wohl eines der ältesten noch "aktiven" Software
+               Projekte. Emacs ist freie Software unter der GNU Public
+               License v3.
 
 **** Dokumentation
 
