@@ -428,9 +428,47 @@ die Wünsche und Ziele der Rollen welche die Software verwenden.
 
 **** NEXT Auftraggeber/Verwaltung
 
+Als Anbieter möchte ich...
+- Artikel in Kategorien strukturieren damit Kunden sich orientieren können.
+- Bilder zu meinen Artikeln hinzufügen damit sich Kunden das Produkt
+  anschauen können.
+- Artikel aktiv oder versteckt schalten können damit ich Produkte auch
+  temporär aus dem Verkauf nehmen kann.
+- Lagerbestände verwalten können damit ich rechzeitig nachbestellen kann.
+- Nachbestellungen von Artikeln erfassen können damit ich weiss was
+  bestellt wurde.
+- eine komplette Liste meiner Artikel einsehen können damit ich einen
+  Überblick über meine Produkte habe.
+- eine Liste aller Bestellungen einsehen können um allenfalls
+  Anpassungen vornehmen zu können.
+- Produkte und Kategorien in einer Admin Seite editieren können um
+  diese einfach administrieren zu können.
+
 **** NEXT Kunde
 
+Als Kunde möchte ich...
+- durch Kategorien zu den Produkten navigieren um diese einfacher zu finden.
+- Artikel einem Warenkorb hinzufügen können damit ich ungestört
+  stöbern kann und erst am Schluss den administrativen Teil erledigen muss.
+- meinen Warenkorb anzeigen und editieren können um allenfalls
+  Korrekturen vornehmen zu können.
+- die Artikel in meinem Warenkorb bestellen können.
+- vor dem Abschluss des Kaufs eine Zusammenstellung der Bestellung
+  einsehen um die Richtigkeit der Daten zu überprüfen.
+- mich registrieren können damit ich meine Adresse nicht jedes Mal neu
+  eingeben muss.
+- in einem Bereich der Webseite meine Profildaten zur Überprüfung
+  einsehen können.
+- Artikel in meiner bevorzugten Währung kaufen können damit ich die
+  Preise nicht umrechnen muss.
+
 **** NEXT Interessenten
+
+Als Interessent möchte ich...
+- die angebotenen Artikel einsehen können um mir ein Bild über das
+  Angebot machen zu können.
+- die Preise in einer anderen Währung anzeigen können um die
+  Preise in einer mir bekannten Währung vergleichen zu können.
 
 *** TODO Use Cases
 
