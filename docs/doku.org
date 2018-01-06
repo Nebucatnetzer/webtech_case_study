@@ -206,6 +206,8 @@ PHP basierten Framework entschieden:
 - Python ist in dem von uns gewählten Hostsystem wie in den meisten
   Linux Distributionen bereits integriert.
 
+Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
+
 **** Webserver
 
 Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
