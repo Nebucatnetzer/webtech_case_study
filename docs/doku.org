@@ -420,13 +420,13 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * TODO Umsetzung
 ** TODO Spezifikation
-*** TODO User Stories
+*** User Stories
 
 User Stories sind eine in Alltagssprache geschriebenen
 Software-Anforderungen. Sie sind bewusst kurzgehalten und beschreiben
 die Wünsche und Ziele der Rollen welche die Software verwenden.
 
-**** NEXT Auftraggeber/Verwaltung
+**** Auftraggeber/Verwaltung
 
 Als Anbieter möchte ich...
 - Artikel in Kategorien strukturieren damit Kunden sich orientieren können.
@@ -444,7 +444,7 @@ Als Anbieter möchte ich...
 - Produkte und Kategorien in einer Admin Seite editieren können um
   diese einfach administrieren zu können.
 
-**** NEXT Kunde
+**** Kunde
 
 Als Kunde möchte ich...
 - durch Kategorien zu den Produkten navigieren um diese einfacher zu finden.
@@ -462,7 +462,7 @@ Als Kunde möchte ich...
 - Artikel in meiner bevorzugten Währung kaufen können damit ich die
   Preise nicht umrechnen muss.
 
-**** NEXT Interessenten
+**** Interessenten
 
 Als Interessent möchte ich...
 - die angebotenen Artikel einsehen können um mir ein Bild über das
