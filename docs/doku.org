@@ -5,6 +5,7 @@
 #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \input{style}
 #+OPTIONS: H:5
+#+STARTUP: align
 
 
 * TODO Über dieses Dokument
@@ -311,13 +312,14 @@ Tabelle: ([[tab:swot]]) zu sehen.
 #+CAPTION: SWOT-Analyse
 #+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
 #+NAME: tab:swot
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+-----------+------------|
-| *Stärken*                                                                              | *Schwächen*                                                                  | *Chancen* | *Gefahren* |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+-----------+------------|
-| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken                  | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |           |            |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+-----------+------------|
-| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen                                        |           |            |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+-----------+------------|
+|----------------------+----------------------+----------------------+----------------------|
+| *Stärken*            | *Schwächen*          | *Chancen*            | *Gefahren*           |
+| <20>                 | <20>                 | <20>                 | <20>                 |
+|----------------------+----------------------+----------------------+----------------------|
+| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |                      |                      |
+|----------------------+----------------------+----------------------+----------------------|
+| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen |                      |                      |
+|----------------------+----------------------+----------------------+----------------------|
 
 ** Umweltanalyse
 
@@ -363,19 +365,20 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 #+CAPTION: Risikobeschreibung
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|p{5cm}|p{5cm}|p{0.8cm}|p{0.8cm}|
 #+NAME: tab:risikobeschreibung
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-| Nr. | Beschreibung                                                                   | Massnahmen                                                                                                                | W^1 | A^2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  1. | Die Datenbank ist schlecht modeliert.                                          | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen.                             |   2 |   3 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen.                            |   1 |   2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden.                        | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc.                                         |   2 |   2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  4. | Kommunikation innerhalb des Teams.                                             | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |   1 |   1 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  5. | Die Programmierung des Shops benötigt zuviel Zeit                              | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen.   |   3 |   1 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
+|-----+--------------------------------+--------------------------------+-----+-----|
+|     | <30>                           | <30>                           |     |     |
+| Nr. | Beschreibung                   | Massnahmen                     | W^1 | A^2 |
+|-----+--------------------------------+--------------------------------+-----+-----|
+|  1. | Die Datenbank ist schlecht modeliert. | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |   2 |   3 |
+|-----+--------------------------------+--------------------------------+-----+-----|
+|  2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |   1 |   2 |
+|-----+--------------------------------+--------------------------------+-----+-----|
+|  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc. |   2 |   2 |
+|-----+--------------------------------+--------------------------------+-----+-----|
+|  4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |   1 |   1 |
+|-----+--------------------------------+--------------------------------+-----+-----|
+|  5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |   3 |   1 |
+|-----+--------------------------------+--------------------------------+-----+-----|
 
 *** NEXT Risikobewertung
 
