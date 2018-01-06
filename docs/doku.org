@@ -265,6 +265,7 @@ reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
 in die Versionskontrollsoftware einchecken und somit auf einfache
 Weise zusammen daran arbeiten und die Entwicklung im Log
 zurückverfolgen kann.
+LaTeX ist freie Software unter der LaTeX Project Public License.
 
 Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
 Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
