@@ -4,7 +4,7 @@
 #+LaTeX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \input{style}
-#+OPTIONS: H:5
+#+OPTIONS: H:5 todo:t
 #+STARTUP: align
 
 
@@ -345,7 +345,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 |  1. | Auftraggeber  | hoch     | - Innovatives Produkt auf dem Markt anbieten. | hoch              |
 |     |               |          | - Einhaltung von Terminen und Qualität.       | hoch              |
 |-----+---------------+----------+-----------------------------------------------+-------------------|
-|  2. | Nutzer        | gering   | - Einfache Lösung die anpassungsfähig ist.    | hoch              |
+|  2. | Kunden        | gering   | - Einfache Lösung die anpassungsfähig ist.    | hoch              |
 |     |               |          | - Schnell anfangen können.                    | hoch              |
 |     |               |          | - Viele Arbeitsschritte Automatisieren        | mittel            |
 |-----+---------------+----------+-----------------------------------------------+-------------------|
