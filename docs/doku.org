@@ -65,23 +65,24 @@ nach Prioritäten gewichtet.
 #+CAPTION: Projektziele
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|l|p{1.5cm}|
 #+NAME: tab:projektziele
-|-------+--------------------------------------------------------------------+-------------|
-| *Nr.* | *Beschreibung*                                                     | *Priorität* |
-|-------+--------------------------------------------------------------------+-------------|
-|    1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch        |
-|-------+--------------------------------------------------------------------+-------------|
-|    2. | Alle Vorgehen müssen in diesem Dokument erläutert werden.          | Mittel      |
-|-------+--------------------------------------------------------------------+-------------|
-|    3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief        |
-|-------+--------------------------------------------------------------------+-------------|
-|    4. | Der Shop muss funktionstüchtig sein.                               | Mittel      |
-|-------+--------------------------------------------------------------------+-------------|
-|    5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch        |
-|-------+--------------------------------------------------------------------+-------------|
-|    6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel      |
-|-------+--------------------------------------------------------------------+-------------|
-|    7. | Die Punkte der Bewertung werden erfüllt.                           | Hoch        |
-|-------+--------------------------------------------------------------------+-------------|
+|-------+--------------------------------------------------------------------+----------------------|
+|   <5> |                                                                    | <20>                 |
+| *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0}                             | *Priorität*\cellcolor[HTML]{C0C0C0} |
+|-------+--------------------------------------------------------------------+----------------------|
+|    1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    2. | Alle Vorgehen müssen in diesem Dokument erläutert werden.          | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    4. | Der Shop muss funktionstüchtig sein.                               | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    7. | Die Punkte der Bewertung werden erfüllt.                           | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
 
 ** Mittel und Methoden
 *** Werkzeuge
@@ -315,7 +316,7 @@ Tabelle: ([[tab:swot]]) zu sehen.
 #+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
 #+NAME: tab:swot
 |----------------------+----------------------+----------------------+----------------------|
-| *Stärken*            | *Schwächen*          | *Chancen*            | *Gefahren*           |
+| *Stärken*\cellcolor[HTML]{C0C0C0} | *Schwächen*\cellcolor[HTML]{C0C0C0} | *Chancen*\cellcolor[HTML]{C0C0C0} | *Gefahren*\cellcolor[HTML]{C0C0C0} |
 | <20>                 | <20>                 | <20>                 | <20>                 |
 |----------------------+----------------------+----------------------+----------------------|
 | Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |                      |                      |
@@ -336,25 +337,29 @@ mit Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 Zusätzlich ist die Beziehung der Stakeholder zum Projekt noch in der
 Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
 #+CAPTION: Umwelt-Analyse
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|l|l|p{8cm}|l|
 #+NAME: tab:umweltanalyse
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-| Nr. | Stakeholder   | Einfluss | Anforderung/Wünsche                           | Warscheinlichkeit |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  1. | Auftraggeber  | hoch     | - Innovatives Produkt auf dem Markt anbieten. | hoch              |
-|     |               |          | - Einhaltung von Terminen und Qualität.       | hoch              |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  2. | Kunden        | gering   | - Einfache Lösung die anpassungsfähig ist.    | hoch              |
-|     |               |          | - Schnell anfangen können.                    | hoch              |
-|     |               |          | - Viele Arbeitsschritte Automatisieren        | mittel            |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  3. | Interessenten | gering   | - Intuitiv bedienbare Webseite                | hoch              |
-|     |               |          | - schnell finden was gesucht wird.            | hoch              |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  4. | Projektleiter | hoch     | - Gutes Innovatives Produkt erschaffen.       | mittel            |
-|     |               |          | - Anerkennung im fachlichen Umfeld            | hoch              |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|   <5> | <20>                 | <20>                 |                                               |                                             |
+| *Nr*.\cellcolor[HTML]{C0C0C0} | *Stakeholder*\cellcolor[HTML]{C0C0C0} | *Einfluss*\cellcolor[HTML]{C0C0C0} | *Anforderung/Wünsche*\cellcolor[HTML]{C0C0C0} | *Warscheinlichkeit*\cellcolor[HTML]{C0C0C0} |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    1. | Auftraggeber         | hoch                 | - Innovatives Produkt auf dem Markt anbieten. | hoch                                        |
+|       |                      |                      | - Einhaltung von Terminen und Qualität.       | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    2. | Kunden               | gering               | - Einfache Lösung die anpassungsfähig ist.    | hoch                                        |
+|       |                      |                      | - Schnell anfangen können.                    | hoch                                        |
+|       |                      |                      | - Viele Arbeitsschritte Automatisieren        | mittel                                      |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    3. | Interessenten        | gering               | - Intuitiv bedienbare Webseite                | hoch                                        |
+|       |                      |                      | - schnell finden was gesucht wird.            | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    4. | Projektleiter        | hoch                 | - Gutes Innovatives Produkt erschaffen.       | mittel                                      |
+|       |                      |                      | - Anerkennung im fachlichen Umfeld            | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+#+LATEX:\end{landscape}
 
 #+CAPTION: Stakeholder Diagramm
 #+ATTR_LATEX: :width .9\textwidth
@@ -367,43 +372,43 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 #+CAPTION: Risikobeschreibung
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|p{5cm}|p{5cm}|p{0.8cm}|p{0.8cm}|
 #+NAME: tab:risikobeschreibung
-|-----+--------------------------------+--------------------------------+-----+-----|
-|     | <30>                           | <30>                           |     |     |
-| Nr. | Beschreibung                   | Massnahmen                     | W^1 | A^2 |
-|-----+--------------------------------+--------------------------------+-----+-----|
-|  1. | Die Datenbank ist schlecht modeliert. | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |   2 |   3 |
-|-----+--------------------------------+--------------------------------+-----+-----|
-|  2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |   1 |   2 |
-|-----+--------------------------------+--------------------------------+-----+-----|
-|  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc. |   2 |   2 |
-|-----+--------------------------------+--------------------------------+-----+-----|
-|  4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |   1 |   1 |
-|-----+--------------------------------+--------------------------------+-----+-----|
-|  5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |   3 |   1 |
-|-----+--------------------------------+--------------------------------+-----+-----|
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|       <10> | <30>                           | <30>                           |                               |                               |
+| *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0} | *Massnahmen*\cellcolor[HTML]{C0C0C0} | *W^1*\cellcolor[HTML]{C0C0C0} | *A^2*\cellcolor[HTML]{C0C0C0} |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         1. | Die Datenbank ist schlecht modeliert. | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |                             1 |                             2 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc. |                             2 |                             2 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |                             1 |                             1 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |                             3 |                             1 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 
 *** NEXT Risikobewertung
 
 #+CAPTION: Risikobewertung Wahrscheinlichkeit
 #+ATTR_LATEX: :align l|l
 #+NAME: tab:wahrscheinlichkeit
-| Bewertung  | Beschreibung: Warscheinlichkeit (W) |
-|------------+-------------------------------------|
-| 1 = gering | Unwarscheinlich, <20%               |
-| 2 = mittel | Mässig warscheinlich, 20-50%        |
-| 3 = hoch   | Hohe warscheinlichkeit > 50%        |
+| *Bewertung* | *Beschreibung: Warscheinlichkeit (W)* |
+|-------------+---------------------------------------|
+| 1 = gering  | Unwarscheinlich, <20%                 |
+| 2 = mittel  | Mässig warscheinlich, 20-50%          |
+| 3 = hoch    | Hohe warscheinlichkeit > 50%          |
 
 #+CAPTION: Risikobewertung Auswirkung
 #+ATTR_LATEX: :align l|l
 #+NAME: tab:auswirkung
-| Bewertung  | Beschreibung: Auswirkung (A)                    |
-|------------+-------------------------------------------------|
-| 1 = gering | geringe auswirkungen auf das Gesammtergebniss   |
-| 2 = mittel | Arbeitsumstellung oder grösserer Arbeitsaufwand |
-| 3 = hoch   | Projekt erfüllt nicht alle Anforderungen        |
+| *Bewertung* | *Beschreibung: Auswirkung (A)*                  |
+|-------------+-------------------------------------------------|
+| 1 = gering  | geringe auswirkungen auf das Gesammtergebniss   |
+| 2 = mittel  | Arbeitsumstellung oder grösserer Arbeitsaufwand |
+| 3 = hoch    | Projekt erfüllt nicht alle Anforderungen        |
 
 #+CAPTION: Grafische Darstellung der Risikoanalyse
-#+ATTR_LATEX: :width \textwidth
+#+ATTR_LATEX: :width 9cm
 #+NAME: fig:risk
 [[file:diagrammes/risk_analysis.eps]]
 
@@ -506,35 +511,35 @@ Webshops beschränkt.
 #+CAPTION: Use Case
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}|
 #+NAME: tab:login
-|-------------------+-----------------------------|
-| Identifier + Name |                             |
-|-------------------+-----------------------------|
-| Description       |                             |
-|-------------------+-----------------------------|
-| Actors            |                             |
-|-------------------+-----------------------------|
-| Status            | Freigegeben                 |
-|-------------------+-----------------------------|
-| Includes          | -                           |
-|-------------------+-----------------------------|
-| Trigger           |                             |
-|-------------------+-----------------------------|
-| Preconditions     |                             |
-|-------------------+-----------------------------|
-| Postconditions    |                             |
-|-------------------+-----------------------------|
-| Normal Flow       |                             |
-|-------------------+-----------------------------|
-| Alternative Flow  | -                           |
-|-------------------+-----------------------------|
-| Notes             | -                           |
-|-------------------+-----------------------------|
-| UC History        | 1.0 Darft erstellt durch AZ |
-|-------------------+-----------------------------|
-| Author            | A. Zweili & I.              |
-|-------------------+-----------------------------|
-| Date              |                             |
-|-------------------+-----------------------------|
+|---------------------+-----------------------------|
+| *Identifier + Name* |                             |
+|---------------------+-----------------------------|
+| *Description*       |                             |
+|---------------------+-----------------------------|
+| *Actors*            |                             |
+|---------------------+-----------------------------|
+| *Status*            | Freigegeben                 |
+|---------------------+-----------------------------|
+| *Includes*          | -                           |
+|---------------------+-----------------------------|
+| *Trigger*           |                             |
+|---------------------+-----------------------------|
+| *Preconditions*     |                             |
+|---------------------+-----------------------------|
+| *Postconditions*    |                             |
+|---------------------+-----------------------------|
+| *Normal Flow*       |                             |
+|---------------------+-----------------------------|
+| *Alternative Flow*  | -                           |
+|---------------------+-----------------------------|
+| *Notes*             | -                           |
+|---------------------+-----------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ |
+|---------------------+-----------------------------|
+| *Author*            | A. Zweili & I.              |
+|---------------------+-----------------------------|
+| *Date*              |                             |
+|---------------------+-----------------------------|
 
 *** NEXT Mockup
 
@@ -649,37 +654,41 @@ Webshops beschränkt.
 
 ** Testfälle
 
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
 #+CAPTION: Testfälle
 #+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|
 #+NAME: tab:testcases
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| Testcase | Objective | Precondition | Steps | Testdata | Expected | Postcondition | Result |
-| ID       |           |              |       |          | Result   |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-01    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-02    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-03    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-04    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-05    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-06    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-07    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-08    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-09    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-10    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-11    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
-| TC-12    |           |              |       |          |          |               |        |
-|----------+-----------+--------------+-------+----------+----------+---------------+--------|
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 |
+| *Testcase ID*\cellcolor[HTML]{C0C0C0} | *Objective*\cellcolor[HTML]{C0C0C0} | *Precondition*\cellcolor[HTML]{C0C0C0} | *Steps*\cellcolor[HTML]{C0C0C0} | *Testdata*\cellcolor[HTML]{C0C0C0} | *Expected Result*\cellcolor[HTML]{C0C0C0} | *Postcondition*\cellcolor[HTML]{C0C0C0} | *Result*\cellcolor[HTML]{C0C0C0} |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-01*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-02*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-03*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-04*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-05*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-06*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-07*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-08*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-09*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-10*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-11*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-12*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
 
 * Fazit
 ** Projektmanagement
