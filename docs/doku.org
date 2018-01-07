@@ -480,7 +480,7 @@ ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Pass- wort beim
 Login). Dabei wird die technische Lösung nicht konkret beschrieben.
 Die Detailstufe kann dabei sehr unterschiedlich sein.\footcite{usecase}
 
-**** TODO Use Case Diagramm
+**** TODO Anwendungsfalliagramm
 
 "Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
 Unified Modeling Language (UML), einer Sprache für die Modellierung
@@ -488,10 +488,18 @@ der Strukturen und des Verhaltens von Software- und anderen Systemen.
 Es stellt Anwendungsfälle und Akteure mit ihren jeweiligen
 Abhängigkeiten und Beziehungen dar."\footcite{usecasediagramm}
 
+Das Anwendungsfalldiagramm für unseren Webshop ist in der Abbildung:
+([[fig:usecase]]) zu sehen. Wir haben uns dabei auf die Hauptaspekte des
+Webshops beschränkt.
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
 #+CAPTION: Anwendungsfalldiagramm
-#+ATTR_LATEX: :width .9\textwidth
+#+ATTR_LATEX: :height.9\textwidth
 #+NAME: fig:usecase
-[[file:diagrammes/use_case.esp]]
+[[file:diagrammes/use_case.eps]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
 
 **** NEXT Use Case Detailbeschreibung
 
