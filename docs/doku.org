@@ -488,6 +488,11 @@ der Strukturen und des Verhaltens von Software- und anderen Systemen.
 Es stellt Anwendungsfälle und Akteure mit ihren jeweiligen
 Abhängigkeiten und Beziehungen dar."\footcite{usecasediagramm}
 
+#+CAPTION: Anwendungsfalldiagramm
+#+ATTR_LATEX: :width .9\textwidth
+#+NAME: fig:usecase
+[[file:diagrammes/use_case.esp]]
+
 **** NEXT Use Case Detailbeschreibung
 
 #+CAPTION: Use Case
