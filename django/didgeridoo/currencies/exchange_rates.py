@@ -18,19 +18,26 @@ def get_exchange_rate():
     # To develop i need a testresource.
     # In that case i comment the Online Resource block and uncomment the
     # development Block...
+
     # ~~~~~~~~~~~~~~~~~~~~~
     # Online Resource block:
     # ~~~~~~~~~~~~~~~~~~~~~
-    # SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
-    # urlsocket = urllib.request.urlopen(SNB_URL)
-    # root = ET.parse(urlsocket)
-    # root = ET.ElementTree(root)
-    # today = datetime.now().strftime("%Y-%m-%d")
+    today = datetime.now().strftime("%Y-%m-%d")
+    SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
+    urlsocket = urllib.request.urlopen(SNB_URL)
+    root = ET.parse(urlsocket)
+    root = ET.ElementTree(root)
+
     # ~~~~~~~~~~~~~~~~~~~~~
     # development block:
     # ~~~~~~~~~~~~~~~~~~~~~
-    root = ET.ElementTree(file='rss')
-    today = "2018-01-01"
+    # today = "2018-01-03"
+    # try:
+    #     root = ET.ElementTree(file='rss')
+    # except Exception as e:
+    #     print('exchange_rates.py_urlsocket failed %s (
+    #           %s) on date: %s for %s'
+    #           % (e, type(e), root))
     # ~~~~~~~~~~~~~~~~~~~~~
 
     # Namespaces
@@ -43,9 +50,7 @@ def get_exchange_rate():
     # Pathvariables to XML Namespaces
     rate_path = 'cb:statistics/cb:exchangeRate/'
     observation_path = 'cb:statistics/cb:exchangeRate/cb:observation/'
-
     exchange_rates = {}
-
     for item in root.findall('none:item', ns):
         # THE CURRENCY DATE:
         datetime_str = item.find('dc:date', ns).text
@@ -56,17 +61,16 @@ def get_exchange_rate():
         try:
             date = datetime.strptime(''.join(
                          datetime_str.rsplit(':', 1)),
-                         "%Y-%m-%dT%H:%M:%S.%f%z").strftime(
-                         "%Y-%m-%d")
-        except Exception as e:
-            print('%s (%s)' % (e, type(e)))
-        try:
-            date = datetime.strptime(''.join(
-                         datetime_str.rsplit(':', 1)),
                          "%Y-%m-%dT%H:%M:%S%z").strftime(
                          "%Y-%m-%d")
-        except Exception as e:
-            print('%s (%s)' % (e, type(e)))
+        except:
+            try:
+                date = datetime.strptime(''.join(
+                             datetime_str.rsplit(':', 1)),
+                             "%Y-%m-%dT%H:%M:%S.%f%z").strftime(
+                             "%Y-%m-%d")
+            except Exception as e:
+                print('%s (%s)' % (e, type(e)))
         # Print dates for development:
         # print("date:", date, "today:", today)
         # only the values of today are used so check for date in XML:
@@ -122,7 +126,8 @@ def get_exchange_rate():
             # Print the Dictionary:
             # print(exchange_rates)
         else:
-            break
+            exchange_rates = "SNB did not update the currencies for today."
     return(exchange_rates, today)
+
     # for development its preferable to see that the for loop is done:
     # print('no more fresh data!')
