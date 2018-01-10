@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
+</head>
+<body>
+  <div id="content" class="flex">
+    <h1>Currencies in CHF</h1>
+    <p> {{ message }} </p>
+    <h2> Frühere Daten: </h2>
+    <br>
+    <h3> US Dollars: </h3>
+      {% if currency_USD_list %}
+        <table>
+          <tr>
+            {% for element in currency_USD_list %}
+              {% for key, value in element.items %}
+                <th scope="col">{{ key }}</th>
+              {% endfor %}
+            {% endfor %}
+          <tr>
+          {% for element in currency_USD_list %}
+            <tr>
+              {% for key, value in element.items %}
+                <td scope="col">{{ value }}</td>
+              {% endfor %}
+            <tr>
+          {% endfor %}
+        </table>
+      {% else %}
+          <p class="alert">
+            currency_USD_list missing.
+          </p>
+      {% endif %}
+      <br>
+      <h3> EURO: </h3>
+        {% if currency_EUR_list %}
+          <table>
+            <tr>
+              {% for element in currency_EUR_list %}
+                {% for key, value in element.items %}
+                  <th scope="col">{{ key }}</th>
+                {% endfor %}
+              {% endfor %}
+            <tr>
+            {% for element in currency_EUR_list %}
+              <tr>
+                {% for key, value in element.items %}
+                  <td scope="col">{{ value }}</td>
+                {% endfor %}
+              <tr>
+            {% endfor %}
+          </table>
+        {% else %}
+            <p class="alert">
+              currency_EUR_list missing.
+            </p>
+        {% endif %}
+        <br>
+      <h3> Japanese Yenn: </h3>
+        {% if currency_JPY_list %}
+          <table>
+            <tr>
+              {% for element in currency_JPY_list %}
+                {% for key, value in element.items %}
+                  <th scope="col">{{ key }}</th>
+                {% endfor %}
+              {% endfor %}
+            <tr>
+            {% for element in currency_JPY_list %}
+              <tr>
+                {% for key, value in element.items %}
+                  <td scope="col">{{ value }}</td>
+                {% endfor %}
+              <tr>
+            {% endfor %}
+          </table>
+        {% else %}
+            <p class="alert">
+              currency_JPY_list missing.
+            </p>
+        {% endif %}
+        <br>
+        <h3> Great Britain Pounds: </h3>
+          {% if currency_GBP_list %}
+            <table>
+              <tr>
+                {% for element in currency_GBP_list %}
+                  {% for key, value in element.items %}
+                    <th scope="col">{{ key }}</th>
+                  {% endfor %}
+                {% endfor %}
+              <tr>
+              {% for element in currency_GBP_list %}
+                <tr>
+                  {% for key, value in element.items %}
+                    <td scope="col">{{ value }}</td>
+                  {% endfor %}
+                <tr>
+              {% endfor %}
+            </table>
+          {% else %}
+              <p class="alert">
+                currency_GBP_list missing.
+              </p>
+          {% endif %}
+          <br>
+        <!-- <br>
+        <h2> The full List of Currencies </h2>
+        <ul>
+            {% for currency in currency_list %}
+                <li>
+                  {{ currency.date.date }} :
+                  {{ currency.name.name }} :
+                  {{ currency.exchange_rate_to_chf }}
+                </li>
+            {% endfor %}
+        </ul>
+        count_raw_data
+        <br>
+        {{ count_raw_data }} -->
+    </div>
+</body>
+</html>
