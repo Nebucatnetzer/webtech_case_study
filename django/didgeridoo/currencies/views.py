@@ -12,7 +12,7 @@ def currencies(request):
     # prepares the view all dynamicaly.
     # It can grow in terms of more Currencies over time automaticaly.
     # try:
-    today = '1970-01-01'
+    today = ''
     raw_data = ''
     raw_data, today = exchange_rates.get_exchange_rate()
     # except Exception as e:
@@ -21,9 +21,7 @@ def currencies(request):
     message_no = "Already querried today: "
     message_yes = " Updated successfully: "
     count_raw_data = 0
-    if raw_data == "SNB did not update the currencies for today.":
-        message = """Die SNB hat die Währungsliste noch nicht aktualisiert."""
-    else:
+    if raw_data != "SNB did not update the currencies for today.":
         for currency, rate in raw_data.items():
             count_raw_data += 1
             if ExchangeRate.objects.filter(
@@ -91,7 +89,7 @@ def currencies(request):
         message_no = message_no.replace(",", "!", 1)  # replace first , with !
         message_no = message_no[::-1]  # invert the string back
         message_yes = message_yes[::-1]  # invert the string
-        message_yes = message_yes.replace(",", "!", 1)  # replace first , with !
+        message_yes = message_yes.replace(",", "!", 1)  # replace f. , with !
         message_yes = message_yes[::-1]  # invert the string back
 
         if len(message_no) > 24 and len(message_yes) > 23:
@@ -102,21 +100,26 @@ def currencies(request):
             message = message_yes
         elif datetime.datetime.today().isoweekday() == 6:
             message = """Die Abfrage wurde ohne ergebniss beendet.
-            Es ist Samstag, die SNB publiziert nur an Arbeitstagen neue Kurse...
+            Es ist Samstag, die SNB publiziert nur an Arbeitstagen
+            neue Kurse...
             """
         elif datetime.datetime.today().isoweekday() == 7:
             message = """Die Abfrage wurde ohne ergebniss beendet.
-            Es ist Sonntag, die SNB publiziert nur an Arbeitstagen neue Kurse...
+            Es ist Sonntag, die SNB publiziert nur an Arbeitstagen
+            neue Kurse...
             """
         else:
             message = """Die Abfrage wurde ohne ergebniss beendet.
-            Kann es sein dass die SNB aufgrund eines Feiertages geschlossen ist?
+            Kann es sein dass die SNB aufgrund eines Feiertages
+            geschlossen ist?
             """
+    else:
+        message = "Die SNB hat die Währungsliste noch nicht aktualisiert."
     currency_list = ExchangeRate.objects.all()
-    currency_USD_list = ExchangeRate.objects.filter(name__name='USD').values()
-    currency_EUR_list = ExchangeRate.objects.filter(name__name='EUR').values()
-    currency_JPY_list = ExchangeRate.objects.filter(name__name='JPY').values()
-    currency_GBP_list = ExchangeRate.objects.filter(name__name='GBP').values()
+    currency_USD_list = ExchangeRate.objects.filter(name__name='USD')
+    currency_EUR_list = ExchangeRate.objects.filter(name__name='EUR')
+    currency_JPY_list = ExchangeRate.objects.filter(name__name='JPY')
+    currency_GBP_list = ExchangeRate.objects.filter(name__name='GBP')
     # -------------------------------------------------------------------
     # -------------------------------------------------------------------
     # I leave this part in the document as history.

@@ -1,8 +1,6 @@
 from datetime import datetime
 import urllib.request
 import xml.etree.ElementTree as ET
-import datetime as dt
-
 
 """
 this method calls a rss/XML Resource
@@ -14,6 +12,8 @@ Key:Value pairs of new currencys.
 
 
 def get_exchange_rate():
+    # zweitweise kann die resource nicht geladen werden.
+    # https://stackoverflow.com/a/43523497/4061870
     # During weekends there are no updates.
     # To develop i need a testresource.
     # In that case i comment the Online Resource block and uncomment the
@@ -22,6 +22,7 @@ def get_exchange_rate():
     # ~~~~~~~~~~~~~~~~~~~~~
     # Online Resource block:
     # ~~~~~~~~~~~~~~~~~~~~~
+    error = "SNB did not update the currencies for today."
     today = datetime.now().strftime("%Y-%m-%d")
     SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
     urlsocket = urllib.request.urlopen(SNB_URL)
@@ -63,14 +64,17 @@ def get_exchange_rate():
                          datetime_str.rsplit(':', 1)),
                          "%Y-%m-%dT%H:%M:%S%z").strftime(
                          "%Y-%m-%d")
-        except:
+        except Exception as e:
+            print('%s (%s)' % (e, type(e)))
             try:
                 date = datetime.strptime(''.join(
                              datetime_str.rsplit(':', 1)),
                              "%Y-%m-%dT%H:%M:%S.%f%z").strftime(
                              "%Y-%m-%d")
+                continue
             except Exception as e:
                 print('%s (%s)' % (e, type(e)))
+                continue
         # Print dates for development:
         # print("date:", date, "today:", today)
         # only the values of today are used so check for date in XML:
@@ -126,7 +130,8 @@ def get_exchange_rate():
             # Print the Dictionary:
             # print(exchange_rates)
         else:
-            exchange_rates = "SNB did not update the currencies for today."
+            exchange_rates = error
+    assert False
     return(exchange_rates, today)
 
     # for development its preferable to see that the for loop is done:
