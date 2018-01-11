@@ -14,13 +14,13 @@
           <tr>
               <th scope="col">DATE</th>
               <th scope="col">RATE</th>
-          <tr>
+          </tr>
             {% for currency in currency_USD_list %}
+            <tr>
               <td scope="col">{{ currency.date.date }}</td>
               <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-
+            </tr>
             {% endfor %}
-          <tr>
         </table>
       {% else %}
           <p class="alert">
@@ -34,13 +34,13 @@
         <tr>
             <th scope="col">DATE</th>
             <th scope="col">RATE</th>
-        <tr>
+        </tr>
           {% for currency in currency_EUR_list %}
+          <tr>
             <td scope="col">{{ currency.date.date }}</td>
             <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-
+          </tr>
           {% endfor %}
-        <tr>
       </table>
       {% else %}
           <p class="alert">
@@ -54,11 +54,12 @@
         <tr>
             <th scope="col">DATE</th>
             <th scope="col">RATE</th>
-        <tr>
+        </tr>
           {% for currency in currency_JPY_list %}
+          <tr>
             <td scope="col">{{ currency.date.date }}</td>
             <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-
+          </tr>
           {% endfor %}
         <tr>
       </table>
@@ -74,11 +75,12 @@
           <tr>
               <th scope="col">DATE</th>
               <th scope="col">RATE</th>
-          <tr>
+          </tr>
             {% for currency in currency_GBP_list %}
+            <tr>
               <td scope="col">{{ currency.date.date }}</td>
               <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-
+            </tr>
             {% endfor %}
           <tr>
         </table>
