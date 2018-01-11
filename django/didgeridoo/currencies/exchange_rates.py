@@ -22,7 +22,6 @@ def get_exchange_rate():
     # ~~~~~~~~~~~~~~~~~~~~~
     # Online Resource block:
     # ~~~~~~~~~~~~~~~~~~~~~
-    error = "SNB did not update the currencies for today."
     today = datetime.now().strftime("%Y-%m-%d")
     SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
     urlsocket = urllib.request.urlopen(SNB_URL)
@@ -53,12 +52,16 @@ def get_exchange_rate():
     observation_path = 'cb:statistics/cb:exchangeRate/cb:observation/'
     exchange_rates = {}
     for item in root.findall('none:item', ns):
+        # for eatch item n the list we grab the release date
+        # to evaluate if its fresh data or old:
+
         # THE CURRENCY DATE:
         datetime_str = item.find('dc:date', ns).text
         # convert string to date object:
         # https://stackoverflow.com/a/12282040/4061870
-        # seams like snb striked the microsecond somewhere between Nov. and
-        # Dez. 2017 so maybe first check time type is with milliseconds:
+        # seams like snb striked the microsecond somewhere
+        # between Nov. and Dez. 2017 so maybe first check
+        # time type is with milliseconds:
         try:
             date = datetime.strptime(''.join(
                          datetime_str.rsplit(':', 1)),
@@ -79,15 +82,18 @@ def get_exchange_rate():
         # print("date:", date, "today:", today)
         # only the values of today are used so check for date in XML:
         if date == today:
+            # now search for the currency exchange rate:
             target_currency = item.find(rate_path +
                                         'cb:targetCurrency', ns).text
             value = float(item.find(observation_path +
                                     'cb:value', ns).text)
             value = float(value)  # convert to float
             foreign_value = value  # copy to new value to have both.
-            # because it's dangerous to check for present, i check for none
-            # here and have to do something in there so i set the target to 1.
+
             if item.find(observation_path + 'cb:unit_mult', ns) is None:
+                # because it's dangerous to check for present,
+                # i check for none here and have to set the target
+                # to 1. as im multiplying it later.
                 unit_mult = float("1.0")
             else:
                 # shift left by 2 digits with "/"
@@ -121,7 +127,7 @@ def get_exchange_rate():
             value = value / unit_mult
             # truncate it to decimal values provided by the xml:
             foreign_value_round = round(foreign_value, 5)
-            # Print nice setup of all calculated currencys for Dev:
+            # Print nice setup of all calculated currencys for development:
             # print("date:", date, " 1 ", target_currency, " costs: ",
             #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
             #       FOREIGNvalue_round, target_currency)
@@ -130,9 +136,5 @@ def get_exchange_rate():
             # Print the Dictionary:
             # print(exchange_rates)
         else:
-            exchange_rates = error
-    assert False
+            break
     return(exchange_rates, today)
-
-    # for development its preferable to see that the for loop is done:
-    # print('no more fresh data!')

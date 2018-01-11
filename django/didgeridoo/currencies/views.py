@@ -11,110 +11,100 @@ def currencies(request):
     # evaluates if the values are already stored and
     # prepares the view all dynamicaly.
     # It can grow in terms of more Currencies over time automaticaly.
-    # try:
     today = ''
     raw_data = ''
     raw_data, today = exchange_rates.get_exchange_rate()
-    # except Exception as e:
-    #     print('get_exchange_rate() %s (%s) on %s'
-    #           % (e, type(e), today))
+    print('views raw_data: ', raw_data)  # assert False
     message_no = "Already querried today: "
     message_yes = " Updated successfully: "
-    count_raw_data = 0
-    if raw_data != "SNB did not update the currencies for today.":
-        for currency, rate in raw_data.items():
-            count_raw_data += 1
-            if ExchangeRate.objects.filter(
-                    date__date=today,
-                    name__name=currency):
-                message_no += currency + ", "
-            # A: https://stackoverflow.com/a/27802801/4061870
-            else:
-                if ExchangeRate_date.objects.filter(date=today)[:1]:
-                    try:
-                        # lustigerweise gibt .values() den value und den id
-                        # zurück. Ohne .values() gibts nur den "value"
-                        date_dict = ExchangeRate_date.objects.filter(
-                            date=today).values()
-                        date = date_dict[0]['date']
-                        date_id = date_dict[0]['id']
-                    except Exception as e:
-                        print('exdate_exists %s (%s) on %s'
-                              % (e, type(e), today))
-                else:
-                    try:
-                        exdate = ExchangeRate_date.objects.create(
-                            date=today)
-                        exdate.save()
-                    except Exception as e:
-                        print('exdate_not_exists %s (%s) for %s'
-                              % (e, type(e), today))
-                if ExchangeRate_name.objects.filter(
-                        name=currency)[:1]:
-                    try:
-                        name_dict = ExchangeRate_name.objects.filter(
-                            name=currency).values()
-                        name = name_dict[0]['name']
-                        name_id = name_dict[0]['id']
-                    except Exception as e:
-                        print('exname_exists %s (%s) on %s'
-                              % (e, type(e), currency))
-                else:
-                    try:
-                        exname = ExchangeRate_name.objects.create(
-                            name=currency)
-                        exname.save()
-                    except Exception as e:
-                        print('exname_not_exists %s (%s) on %s'
-                              % (e, type(e), currency))
-                try:
-                    exrate = ExchangeRate.objects.create(
-                        # name_id=name_id,
-                        name_id=ExchangeRate_name.objects.get(
-                            name=currency).id,
-                        # date_id=date_id,
-                        date_id=ExchangeRate_date.objects.get(
-                            date=today).id,
-                        exchange_rate_to_chf=rate,
-                        )
-                    exrate.save()
-                    message_yes += currency + ", "
-
-                except Exception as e:
-                    print('exrate_create %s (%s) on %s for %s'
-                          % (e, type(e), currency, today))
-
-        # prepare messages:
-        message_no = message_no[::-1]  # invert the string
-        message_no = message_no.replace(",", "!", 1)  # replace first , with !
-        message_no = message_no[::-1]  # invert the string back
-        message_yes = message_yes[::-1]  # invert the string
-        message_yes = message_yes.replace(",", "!", 1)  # replace f. , with !
-        message_yes = message_yes[::-1]  # invert the string back
-
-        if len(message_no) > 24 and len(message_yes) > 23:
-            message = message_no + message_yes
-        elif len(message_no) > 24:
-            message = message_no
-        elif len(message_yes) > 23:
-            message = message_yes
-        elif datetime.datetime.today().isoweekday() == 6:
-            message = """Die Abfrage wurde ohne ergebniss beendet.
-            Es ist Samstag, die SNB publiziert nur an Arbeitstagen
-            neue Kurse...
-            """
-        elif datetime.datetime.today().isoweekday() == 7:
-            message = """Die Abfrage wurde ohne ergebniss beendet.
-            Es ist Sonntag, die SNB publiziert nur an Arbeitstagen
-            neue Kurse...
-            """
+    for currency, rate in raw_data.items():
+        if ExchangeRate.objects.filter(
+                date__date=today,
+                name__name=currency):
+            message_no += currency + ", "
+        # A: https://stackoverflow.com/a/27802801/4061870
         else:
-            message = """Die Abfrage wurde ohne ergebniss beendet.
-            Kann es sein dass die SNB aufgrund eines Feiertages
-            geschlossen ist?
-            """
+            if ExchangeRate_date.objects.filter(date=today)[:1]:
+                try:
+                    # lustigerweise gibt .values() den value und die id
+                    # zurück. Ohne .values() gibts nur den "value"
+                    date_dict = ExchangeRate_date.objects.filter(
+                        date=today).values()
+                except Exception as e:
+                    print('exdate_exists %s (%s) on %s'
+                          % (e, type(e), today))
+            else:
+                try:
+                    exdate = ExchangeRate_date.objects.create(
+                        date=today)
+                    exdate.save()
+                except Exception as e:
+                    print('exdate_not_exists %s (%s) for %s'
+                          % (e, type(e), today))
+            if ExchangeRate_name.objects.filter(
+                    name=currency)[:1]:
+                try:
+                    name_dict = ExchangeRate_name.objects.filter(
+                        name=currency).values()
+                except Exception as e:
+                    print('exname_exists %s (%s) on %s'
+                          % (e, type(e), currency))
+            else:
+                try:
+                    exname = ExchangeRate_name.objects.create(
+                        name=currency)
+                    exname.save()
+                except Exception as e:
+                    print('exname_not_exists %s (%s) on %s'
+                          % (e, type(e), currency))
+            try:
+                exrate = ExchangeRate.objects.create(
+                    # name_id=name_id,
+                    name_id=ExchangeRate_name.objects.get(
+                        name=currency).id,
+                    # date_id=date_id,
+                    date_id=ExchangeRate_date.objects.get(
+                        date=today).id,
+                    exchange_rate_to_chf=rate,
+                    )
+                exrate.save()
+                message_yes += currency + ", "
+
+            except Exception as e:
+                print('exrate_create %s (%s) on %s for %s'
+                      % (e, type(e), currency, today))
+
+    # prepare messages:
+    # python can not swap a char insinde a sting so i have
+    # to invert and swap and then invert back:
+    message_no = message_no[::-1]  # invert the string
+    message_no = message_no.replace(",", "!", 1)  # replace first , with !
+    message_no = message_no[::-1]  # invert the string back
+    message_yes = message_yes[::-1]  # invert the string
+    message_yes = message_yes.replace(",", "!", 1)  # replace f. , with !
+    message_yes = message_yes[::-1]  # invert the string back
+
+    if len(message_no) > 24 and len(message_yes) > 23:
+        message = message_no + message_yes
+    elif len(message_no) > 24:
+        message = message_no
+    elif len(message_yes) > 23:
+        message = message_yes
+    elif datetime.datetime.today().isoweekday() == 6:
+        message = """Die Abfrage wurde ohne ergebniss beendet.
+        Es ist Samstag, die SNB publiziert nur an Arbeitstagen
+        neue Kurse...
+        """
+    elif datetime.datetime.today().isoweekday() == 7:
+        message = """Die Abfrage wurde ohne ergebniss beendet.
+        Es ist Sonntag, die SNB publiziert nur an Arbeitstagen
+        neue Kurse...
+        """
     else:
-        message = "Die SNB hat die Währungsliste noch nicht aktualisiert."
+        message = """Die Abfrage wurde ohne ergebniss beendet.
+        Kann es sein dass die SNB aufgrund eines Feiertages
+        geschlossen ist?
+        """
     currency_list = ExchangeRate.objects.all()
     currency_USD_list = ExchangeRate.objects.filter(name__name='USD')
     currency_EUR_list = ExchangeRate.objects.filter(name__name='EUR')
@@ -174,5 +164,4 @@ def currencies(request):
                    'currency_EUR_list': currency_EUR_list,
                    'currency_JPY_list': currency_JPY_list,
                    'currency_GBP_list': currency_GBP_list,
-                   'count_raw_data': count_raw_data,
                    'message': message})
