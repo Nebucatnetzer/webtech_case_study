@@ -5,10 +5,9 @@
 <body>
   <div id="content" class="flex">
     <h1>Currencies in CHF</h1>
-    <p> {{ message }} </p>
-    <h2> Frühere Daten: </h2>
-    <br>
-    <h3> US Dollars: </h3>
+    <h2> {{ message }} </h2>
+    <h3> Frühere Daten: </h3>
+    <h4> US Dollars: </h4>
       {% if currency_USD_list %}
         <table>
           <tr>
@@ -28,7 +27,7 @@
           </p>
       {% endif %}
       <br>
-      <h3> EURO: </h3>
+      <h4> EURO: </h4>
       {% if currency_EUR_list %}
       <table>
         <tr>
@@ -48,7 +47,7 @@
           </p>
       {% endif %}
       <br>
-      <h3> Japanese Yenn: </h3>
+      <h4> Japanese Yenn: </h4>
       {% if currency_JPY_list %}
       <table>
         <tr>
@@ -69,7 +68,7 @@
           </p>
       {% endif %}
       <br>
-      <h3> Great Britain Pounds: </h3>
+      <h4> Great Britain Pounds: </h4>
         {% if currency_GBP_list %}
         <table>
           <tr>
