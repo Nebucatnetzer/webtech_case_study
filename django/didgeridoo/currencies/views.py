@@ -110,10 +110,14 @@ def currencies(request):
         geschlossen ist?
         """
     currency_list = ExchangeRate.objects.all()
-    currency_USD_list = ExchangeRate.objects.filter(name__name='USD')
-    currency_EUR_list = ExchangeRate.objects.filter(name__name='EUR')
-    currency_JPY_list = ExchangeRate.objects.filter(name__name='JPY')
-    currency_GBP_list = ExchangeRate.objects.filter(name__name='GBP')
+    currency_USD_list = ExchangeRate.objects.filter(
+        name__name='USD').order_by('date__date')
+    currency_EUR_list = ExchangeRate.objects.filter(
+        name__name='EUR').order_by('date__date')
+    currency_JPY_list = ExchangeRate.objects.filter(
+        name__name='JPY').order_by('date__date')
+    currency_GBP_list = ExchangeRate.objects.filter(
+        name__name='GBP').order_by('date__date')
     # -------------------------------------------------------------------
     # -------------------------------------------------------------------
     # I leave this part in the document as history.
