@@ -1,17 +1,32 @@
 {% extends "webshop/base.html" %}
+{% block section_title %}Articles{% endblock %}
 {% block content %}
-        {% if category_list %}
-        <ul>
-            {% for category, sub_category in category_list.items %}
-                <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>
-                {% for i in sub_category %}
-                    <ul>
-                    <li><a href="{% url 'category' i.id %}">{{ i.name }}</a></li>
-                    </ul>
-                {% endfor %}
-            {% endfor %}
-        </ul>
-        {% else %}
-            <p>No categories are available.</p>
-            {% endif %}
+  {% if articles_list %}
+    <table class="table">
+      <tr class="table_header">
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">CATHEGORY</th>
+        <th scope="col">STOCK</th>
+        <th scope="col">PRICE</th>
+      </tr>
+      {% for article in articles_list %}
+        <tr class="table_content">
+          <td scope="col">{{ article.id }}</td>
+          <td scope="col">
+            <a href="{% url 'details' article.id %}">
+            {{ article.name }}
+            </a>
+          </td>
+          <td scope="col">{{ article.category }}</td>
+          <td scope="col">{{ article.stock }}</td>
+          <td scope="col">{{ article.price_in_chf }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="alert">
+      Something whent wrong, no articles are stored.
+    </p>
+  {% endif %}
 {% endblock %}
