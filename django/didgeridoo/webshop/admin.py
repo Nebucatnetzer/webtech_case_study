@@ -14,8 +14,18 @@ class PersonInline(admin.StackedInline):
     verbose_name_plural = 'person'
 
 
+class PictureInline(admin.StackedInline):
+    model = Picture
+    can_delete = False
+    verbose_name_plural = 'pictures'
+
+
 class UserAdmin(BaseUserAdmin):
     inlines = (PersonInline,)
+
+
+class ArticleAdmin(admin.ModelAdmin):
+    inlines = (PictureInline,)
 
 
 class OrderPositionInline(admin.StackedInline):
@@ -42,10 +52,9 @@ class OrderOfGoodsAdmin(admin.ModelAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
-admin.site.register(Article)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(City)
-admin.site.register(Picture)
 admin.site.register(OrderOfGoods, OrderOfGoodsAdmin)
 admin.site.register(Category)
 admin.site.register(Option)
