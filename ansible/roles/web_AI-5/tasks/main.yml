@@ -29,6 +29,7 @@
       - django-extensions
       - Pillow
       - pyaml
+      - django-bootstrap3
     executable: pip3
 
 - name: Run the setup script to add some final touches

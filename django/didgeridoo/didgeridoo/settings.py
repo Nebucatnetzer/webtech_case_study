@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(#4#-$$&mx7(%q+6&&@-c&g%i0dc4)zfks1%sy8b%lsxspou&%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'currencies',
     'webshop.apps.WebshopConfig',
     'django_extensions',
     'django.contrib.admin',
@@ -43,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'currencies',
+    'bootstrap3',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

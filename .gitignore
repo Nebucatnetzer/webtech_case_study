@@ -266,3 +266,4 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/pycharm
 /django/.idea/workspace.xml
+/docs/main.listing

@@ -1,9 +1,27 @@
 \documentclass[a4paper, 11pt]{article}
 \include{style}
+\bibliography{bib,andreas_general,andreas}
 %\include{glossary}
 \begin{document}
 
 \include{titlepage}
+
+\newpage
+\renewcommand{\abstractname}{Management Summary}
+\begin{abstract}
+Dies ist die Dokumentation für die zweite Case Study im Fach
+Webtechnologien von Ivan Hörler und Andreas Zweili. Welche diese im
+Rahmen ihres 5. Semesters an der IBZ Schule in Aarau erarbeiteten. Die
+Case Study behandelt dabei das Erstellen eines Web-Shops und der dafür
+gewählten Werkzeuge, die Projektplanung sowie die dabei aufgetretenen
+Probleme.
+
+Zusätzlich sollen auch die Erfahrungen der Studenten im Zusammenhang
+des verwendeten Frameworks Django aufgezeigt werden. Dieses ist nicht
+Teil des Kurikulums weshalb diese Arbeit interessante zusätzliche
+Möglichkeiten im Bereich der Entwicklung von Webapplikationen
+aufzeigen kann.
+\end{abstract}
 
 \newpage
 \microtypesetup{protrusion=false} % disables protrusion locally in the document
@@ -11,14 +29,14 @@
 \microtypesetup{protrusion=true} % enables protrusion
 \newpage
 
+
 \include{doku}
 
 \newpage
-  \nocite{*}
-  \bibliographystyle{acm}
-  \bibliography{bib}
-\include{latex}
+\nocite{*}
+\printbibliography[heading=bibintoc]
 
+\newpage
 \microtypesetup{protrusion=false}
 \listoffigures
 \microtypesetup{protrusion=true}

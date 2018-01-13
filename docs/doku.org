@@ -4,16 +4,20 @@
 #+LaTeX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \input{style}
+#+OPTIONS: H:5 todo:t
+#+STARTUP: align
 
-* Über dieses Dokument
+
+* TODO Über dieses Dokument
 
 Im nachfolgenden Abschnitt finden Sie allgemeine Informationen zu
-diesem Dokument. Bei der Erstellung dieses Dokuments haben wir das
-Versionierungs-Tool "Git" mit dem passenden Client "magit" verwendet
-und das Dokument auf unseren Laptops lokal mit dem Emacs Plugin
-org-mode bearbeitet.
+diesem Dokument.
 
-** Titel der Dokumentation
+** TODO Titel der Dokumentation
+
+- Note taken on [2018-01-03 Mit 16:30] \\
+  Müssen wir wohl überarbeiten da wir mal angedacht haben das ein
+  Musikinstrumene-Shop allenfalls einfacher ist.
 
 Die Gruppe hat verschiedene Varianten gelistet und sich für die
 lustigste entschieden.
@@ -38,40 +42,239 @@ Dokumentation zu unserer Case Study Webtechnologie 3.
 Alle Inhalte sind chronologisch sortiert, vom ältesten zum jüngsten
 Ereigniss, und nach Kapiteln getrennt.
 
-** Über die Autoren
+** Lizenz
 
-Dieses Dokument wurde von Ivan Hörler und Andreas Zweili im Auftrag
-der IBZ erstellt und darf ohne Einverständniss der Autoren kopiert und
-vervielfälltigt werden. Erwähnung der Autoren vorausgesetzt.
+Dieses Dokument sowie der dazugehörige Code wurde von Ivan Hörler und
+Andreas Zweili im Rahmen einer Arbeit an der IBZ Schule erstellt und
+steht unter einer GPLv3\footcite{gplv3} Lizenz. Dadurch darf die
+Arbeit kopiert und weiterverarbeitet unter Einhaltung der Regeln der
+GPLv3.
 
-* Projektanalyse und Planung
+* TODO Projektanalyse und Planung
 ** Projektziele
 
 Der Student erarbeitet in einer Zweiergruppe einen selbstentwickelten
 Web-Shop. Die einzusezenden Technologien sollen Opensource sein. Die
 zur verfügungstehende Zeit ist pro Student mit 80h zu veranschlagen.
 Am Ende dieser Zeitspanne soll ein funktionaler Web-Shop mit minimalem
-graphischen Userinterface entstehen, die dazugehörige Dokumentation
+graphischen User Interface entstehen, die dazugehörige Dokumentation
 umfasst alle Aspekte um die gewählte Lösung nachzuvollziehen.
+Die Projekt wurden in der Tabelle: ([[tab:projektziele]]) zusätzlich noch
+nach Prioritäten gewichtet.
 
-| Nr. | Beschreibung                                                       | Priorität |
-|-----+--------------------------------------------------------------------+-----------|
-|  1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch      |
-|  2. | Alle Vorgehen müssen in diesem Dokument erläutert werden.          | Mittel    |
-|  3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief      |
-|  4. | Der Shop muss funktionstüchtig sein.                               | Mittel    |
-|  5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch      |
-|  6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel    |
 #+CAPTION: Projektziele
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|l|p{1.5cm}|
+#+NAME: tab:projektziele
+|-------+--------------------------------------------------------------------+----------------------|
+|   <5> |                                                                    | <20>                 |
+| *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0}                             | *Priorität*\cellcolor[HTML]{C0C0C0} |
+|-------+--------------------------------------------------------------------+----------------------|
+|    1. | Das Datenmodel muss korrekt konzipiert sein.                       | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    2. | Alle Vorgehen müssen in diesem Dokument erläutert werden.          | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    3. | Die Arbeitsstunden müssen eingehalten werden.                      | Tief                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    4. | Der Shop muss funktionstüchtig sein.                               | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    5. | Die Applikation muss vor der Übergabe vollständig getestet werden. | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
+|    6. | Problemstellungen müssen ersichtlich dokumentiert werden.          | Mittel               |
+|-------+--------------------------------------------------------------------+----------------------|
+|    7. | Die Punkte der Bewertung werden erfüllt.                           | Hoch                 |
+|-------+--------------------------------------------------------------------+----------------------|
 
 ** Mittel und Methoden
 *** Werkzeuge
 
-Als Testumgebung wurde eine VM Lösung mit Vagrant gewählt. Diese über
-eine MIT-Lizenz frei verfügbare Lösung für Containerautomation eignet
-sich durch seine crossplattform Anwendung hervorragend um die
-Entwicklung schnellstmöglich ohne lästige Einzelkonfigurationen auf
-die Beine zu bringen. Der Hypervisor für Vagrant war dabei Virtualbox.
+Während dem Erstellen dieser Arbeit wurde eine Vielzahl an Werkzeugen
+eingesetzt. Nachfolgend werden diese Werkzeuge kurz beschrieben sowie
+ihre Verwendung begründet. Wir haben dabei darauf geachtet soviel Open
+Source Software wie möglich zu verwenden. Nicht nur für den Web-Shop an
+sich sondern generell für alle Tasks im Projekt.
+
+**** Versionkontrolle
+
+Eine Versionskontrollsoftware erschien uns als notwendig um den Code
+auf einfache und zuverlässige Weise untereinander austauschen zu
+können. Andere Lösungen wie Dropbox, etc. hätten es uns nicht erlaubt
+Konflikte zu vermeinden.
+
+Als Software für die Versionskontrolle wurde Git \footcite{git} gewählt.
+Git wurde aus diversen Gründen gewählt:
+
+- Ist der de facto Standard bei Versionskontrollsoftware
+- Läuft auf allen gängigen Betriebsystemen
+- Es gäbe gratis Services die man nutzen könnte (Github, Gitlab)
+- Man kann offline arbeiten und Commits erstellen
+- Das Team hat bereits einen eigenen Git Server zur Verfügung
+- Das Team ist bereits mit Git aus vorhergehenden Projekten vertraut
+  dadurch muss man keine Ressourcen aufwenden eine neue Software zu lernen.
+  Zusätzlich hat sich Git in den vorhergehenden Projekten als robuste
+  und schnelle Software erwiesen.
+- Git ist freie Software unter GNU Public License v2.
+
+**** Entwicklungsumgebung
+
+Damit beide Studenten auf der gleichen Basis arbeiten haben wir uns
+dazu entschieden den Web-Shop in einer virtuellen Maschine zu
+entwickeln. Dies führt jedoch in der Regel zum Problem das die
+Änderungen in der virtuellen Maschine miteinander abgesprochen und
+ausgetauscht werden müssen. Um dieses Problem zu beheben haben wir uns
+dazu entschieden Vagrant\footcite{vagrant} zu verwenden.
+Vagrant ist freie Software unter der MIT Lizenz.
+
+Vagrant erlaubt es einem den Zustand einer virtuellen Maschine in
+einer Text Datei zu beschreiben und diese dann gemäss der Beschreibung
+automatisiert aufzusetzen. Dies hat den Vorteil das die Konfiguration
+der virtuellen Maschine auch ohne weiteres mit dem restlichen Code in
+der Versionskontrollsoftware gepflegt werden kann.
+
+Desweiteren hilft das automatisierte Aufsetzen das vermeiden von
+menschlichen Fehlern. Somit kann davon ausgegangen werden dass, das
+System in der virtuellen Maschine immer den korrekten Stand zum
+entwickeln sein. Sollte dies nicht mehr der Fall sein lässt sich die
+virtuelle Maschine mit einem maxmimal zwei Befehlen wieder in den
+Ursprungszustand zurücksetzen.
+
+Als Hypervisor der virtuellen Maschine wurde
+Virtualbox\footcite{virtualbox} eingesetzt. Virtualbox ist im Kern
+freie Software unter der GNU Public License v2. Das unter einer
+proprietären Lizenz erhältliche Erweiterungspacket ist für unser Setup
+nicht notwendig.
+
+**** Hostsystem
+
+Als Hostsystem für unseren Web-Shop haben wir uns für die Linux
+Distribution Debian\footcite{debian} in der Version 9 (Stretch)
+entschieden. Für Debian haben wir uns vor allem aus folgenden Gründen
+entschieden:
+
+- Stabiles System
+- Sehr guter Packetmanager was einem das Scripting vereinfacht.
+- Gilt als sehr sicher
+- Hat sich in vorhergehenden Projekten bereits als gute Basis bewiesen
+- Enthält in der Grundkonfiguration nur freie Software (nicht freie
+  Software muss aktiv hinzugefügt werden)
+- In der Linux Welt sehr verbreitet
+- Im Gegensatz zu Ubuntu nicht von einer Firma abhängig
+
+**** Deployment Software für Produktionsserver
+
+Auch auf dem produktiven Server haben wir uns für Debian entschieden.
+Um diesen aufzusetzen hatten wir in etwa die ähnlichen Anforderungen
+wie für die Entwicklungsumgebung. Also einen Weg um das System
+möglichst automatisch und reproduzierbar aufzusetzen. Die für die
+Entwicklungsumgebung verwendete Software Vagrant ist für produktive
+System allerdings eher weniger geeignet.
+
+Für solche Fälle bietet sich eine Software Namens
+"Ansible"\footcite{ansible} an. Diese bietet einem ähnlich wie Vagrant
+die Möglichkeit den Zustand eines Systems in Text Dateien zu
+beschreiben. Allerdings bietet einem Ansible noch zusätzliche
+Möglichkeiten und bietet einem ein standardisiertes Interface um
+unterschiedliche Systeme auf die selbe Weise zu konfigurieren.
+
+Der Vorteil gegenüber anderen System ist vorallem das Ansible mit sehr
+wenig Abhängigkeiten für das zu konfigurierende System daherkommt. Auf
+einem Linux System ist nur SSH Zugriff und Python notwendig. Einen
+Client braucht man nicht zu installieren.
+Ansible ist freie Software unter der GNU Public License v3.
+
+**** Framework
+
+Um die Entwicklung der Applikation zu vereinfachen haben wir uns dazu
+entschlossen ein Framework einzusetzen. Frameworks bringen einem in
+der Entwicklung diverse Vorteile. Unter anderem bieten sie Hilfen bei
+sich wiederholenden Programmieraufgaben und bieten je nachdem die
+Möglichkeit die Applikation in einer einzigen Sprache zu schreiben da
+sich das Framework auch um die Datenbank kümmert. In der
+Webentwicklung helfen sie einem insbesondere auch dabei
+Sicherheitslücken wie Cross Site Scripting und SQL Injections
+abzufangen.
+
+Wir haben uns dabei für das Framework Django\footcite{django}
+entschieden. Django ist ein Python basiertest Framework. Django ist
+freie Software unter der drei Klausen BSD Lizenz. Wir haben uns aus
+folgenden Gründen für ein Python basiertes Framework gegenüber einem
+PHP basierten Framework entschieden:
+
+- Python gilt als die Sprache mit der schöneren Syntax
+- Wir wollten im Bezug auf das Programmieren etwas neues ausprobieren
+  was sich im Rahmen einer Case Study sehr gut machen lässt. Da man
+  ein "realistisches" Szenarium erhält und dieses in einem relativ
+  kontrollierten Rahmen ausführen kann.
+- Python ist in dem von uns gewählten Hostsystem wie in den meisten
+  Linux Distributionen bereits integriert.
+
+Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
+
+**** Webserver
+
+Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
+Dies vorallem aus dem Grund das wir Apache aus diversen vorhergehenden
+Projekten bereits sehr gut kennen und sich der Webserver dort sehr gut
+bewährt hat. Apache wird dabei auch noch gut von Django unterstützt.
+Der Apache Webserver ist freie Software unter der Apache License 2.0
+und gehört der gemeinnützigen Organisation "Apache Foundation".
+
+**** Datenbank
+
+Bei der Datenbank haben wir uns für MariaDB\footcite{mariadb}
+entschieden. Auch hier hauptsächlich weil wir MariaDB bereits aus
+vorhergehenden Projekt kennen. MariaDB ist ein Fork von MySQL welcher
+gegenüber MySQL rückwärtskompatibel ist. MariaDB ist dabei jedoch viel
+Community näher als MySQL und wird dabei auch sehr demokratisch
+entwickelt\footcite{mariadbgov}. MariaDB gehört dabei keiner einzelnen
+Firma oder Person sonder der gemeinnützigen Organisation "MariaDB
+Foundation". Was für zusätzliche Stabilität sorgen sollte.
+MariaDB ist freie Software unter GNU Public License v2.
+
+**** Editoren
+
+Das Hauptwerkzeug von jedem Entwickler ist sein Text Editor. Dabei
+hat jeder meistens seine ganz eigene Präferenzen wenn es um die Wahl
+des Editors geht.
+
+- Atom :: Ivan hat während der Case Study hauptsächlich mit
+          Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
+          entwickelt und basiert auf dem Electron Framework welches
+          seinerseit auf Webtechnologien wie Node.js und Chromium
+          basiert. Atom ist freie Software unter der MIT Lizenz.
+
+- GNU Emacs :: Andreas arbeitet hauptsächlich mit dem Editor GNU
+               Emacs\footcite{emacs}. GNU Emacs ist mit 32 Jahren
+               (obwohl seine Wurzeln bis ins Jahre 1976 zurückgehen)
+               wohl eines der ältesten noch "aktiven" Software
+               Projekte. Emacs ist freie Software unter der GNU Public
+               License v3.
+
+**** Dokumentation
+
+Diese Dokumentation wurde in Org-mode\footcite{orgmode} einer
+Erweiterung für den Text Editor Emacs geschrieben. Anschliessend wurde
+die Dokumentation in LaTeX\footcite{latex} Code konvertiert und
+finalisiert. Der Zwischenschritt über Org-mode wurde gewählt weil
+Org-mode etwas einfacher zu schreiben ist als reines LaTeX.
+
+LaTeX ist eine Software welche einem die Benutzung des Textsatzsystems
+TeXs vereinfacht. Wir haben LaTeX gegenüber einem "What You See Is
+What You Get" Editor gewählt weil es einem mit seiner Markup Sprache
+erlaubt das Dokument in Text Dateien zu erstellen. Was wir als
+Programmierer sehr angenehm finden. Dadurch das LaTeX auch nur aus
+reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
+in die Versionskontrollsoftware einchecken und somit auf einfache
+Weise zusammen daran arbeiten und die Entwicklung im Log
+zurückverfolgen kann.
+LaTeX ist freie Software unter der LaTeX Project Public License.
+
+Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
+Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
+Software unter der GNU Public License v3.
+
+Die Klassen Diagramme haben wir mit der Django Erweiterung
+"Django-Extensions"\footcite{django_extensions} erstellt.
+Django-Extensions ist freie Software unter der MIT Lizenz.
 
 *** Methoden
 
@@ -106,15 +309,20 @@ Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
 Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
 
 Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
-haben.
+haben. Die ausegfüllte SWOT-Analyse für dieses Projekt ist in der
+Tabelle: ([[tab:swot]]) zu sehen.
 
-| Stärken                                                                                | Schwächen                                                                    | Chancen | Gefahren |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
-| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken                  | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |         |          |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
-| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen                                        |         |          |
-|----------------------------------------------------------------------------------------+------------------------------------------------------------------------------+---------+----------|
 #+CAPTION: SWOT-Analyse
+#+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
+#+NAME: tab:swot
+|----------------------+----------------------+----------------------+----------------------|
+| *Stärken*\cellcolor[HTML]{C0C0C0} | *Schwächen*\cellcolor[HTML]{C0C0C0} | *Chancen*\cellcolor[HTML]{C0C0C0} | *Gefahren*\cellcolor[HTML]{C0C0C0} |
+| <20>                 | <20>                 | <20>                 | <20>                 |
+|----------------------+----------------------+----------------------+----------------------|
+| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |                      |                      |
+|----------------------+----------------------+----------------------+----------------------|
+| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen |                      |                      |
+|----------------------+----------------------+----------------------+----------------------|
 
 ** Umweltanalyse
 
@@ -123,70 +331,86 @@ Erwartungshaltungen und Einflüsse auf das Projekt durch interne und
 externe soziale Umwelten zu betrachten und zu bewerten. Auf Grundlage
 der Analyseergebnisse werden erforderliche Massnahmen zur Gestaltung
 der Umweltbeziehungen abgeleitet. Die Gestaltung der
-Projektumweltbeziehungen ist eine Projektmanagementaufgabe.
-In dieser Tabelle wurden die Anforderungen und Wünsche mit
-Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
+Projektumweltbeziehungen ist eine Projektmanagementaufgabe. In dieser
+Tabelle: ([[tab:umweltanalyse]]) wurden die Anforderungen und Wünsche
+mit Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
+Zusätzlich ist die Beziehung der Stakeholder zum Projekt noch in der
+Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 
-| Nr. | Stakeholder   | Einfluss | Anforderung/Wünsche                           | Warscheinlichkeit |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  1. | Auftraggeber  | hoch     | - Innovatives Produkt auf dem Markt anbieten. | hoch              |
-|     |               |          | - Einhaltung von Terminen und Qualität.       | hoch              |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  2. | Nutzer        | gering   | - Einfache Lösung die anpassungsfähig ist.    | hoch              |
-|     |               |          | - Schnell anfangen können.                    | hoch              |
-|     |               |          | - Viele Arbeitsschritte Automatisieren        | mittel            |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  3. | Nachfrager    | gering   | - Intuitiv bedienbare Webseite                | hoch              |
-|     |               |          | - schnell finden was gesucht wird.            | hoch              |
-|-----+---------------+----------+-----------------------------------------------+-------------------|
-|  4. | Projektleiter | hoch     | - Gutes Innovatives Produkt erschaffen.       | mittel            |
-|     |               |          | - Anerkennung im fachlichen Umfeld            | hoch              |
-|     |               |          |                                               |                   |
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
 #+CAPTION: Umwelt-Analyse
-
-** TODO Umweltgrafik
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|l|l|p{8cm}|l|
+#+NAME: tab:umweltanalyse
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|   <5> | <20>                 | <20>                 |                                               |                                             |
+| *Nr*.\cellcolor[HTML]{C0C0C0} | *Stakeholder*\cellcolor[HTML]{C0C0C0} | *Einfluss*\cellcolor[HTML]{C0C0C0} | *Anforderung/Wünsche*\cellcolor[HTML]{C0C0C0} | *Warscheinlichkeit*\cellcolor[HTML]{C0C0C0} |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    1. | Auftraggeber         | hoch                 | - Innovatives Produkt auf dem Markt anbieten. | hoch                                        |
+|       |                      |                      | - Einhaltung von Terminen und Qualität.       | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    2. | Kunden               | gering               | - Einfache Lösung die anpassungsfähig ist.    | hoch                                        |
+|       |                      |                      | - Schnell anfangen können.                    | hoch                                        |
+|       |                      |                      | - Viele Arbeitsschritte Automatisieren        | mittel                                      |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    3. | Interessenten        | gering               | - Intuitiv bedienbare Webseite                | hoch                                        |
+|       |                      |                      | - schnell finden was gesucht wird.            | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|    4. | Projektleiter        | hoch                 | - Gutes Innovatives Produkt erschaffen.       | mittel                                      |
+|       |                      |                      | - Anerkennung im fachlichen Umfeld            | hoch                                        |
+|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+#+LATEX:\end{landscape}
 
 #+CAPTION: Stakeholder Diagramm
 #+ATTR_LATEX: :width .9\textwidth
+#+NAME: fig:umweltgrafik
 [[file:diagrammes/stakeholder_diagramm.eps]]
 
 ** TODO Risikomanagement
-*** TODO Risikobeschreibung
+*** NEXT Risikobeschreibung
 
-- Note taken on [2017-10-31 Tue 22:09] \\
-  Tönt noch sehr nach DB Case Study
-
-| Nr. | Beschreibung                                                                   | Massnahmen                                                                                                                | W^1 | A^2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  1. | Die Datenbank ist schlecht modeliert.                                          | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen.                             |   2 |   3 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen.                            |   1 |   2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  3. | Know-How zur Umsetzung ist nicht vollständig vorhanden.                        | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc.                                         |   2 |   2 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  4. | Kommunikation innerhalb des Teams.                                             | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |   1 |   1 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
-|  5. | Die Programmierung des Shops benötigt zuviel Zeit                              | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen.   |   3 |   1 |
-|-----+--------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+-----+-----|
 #+CAPTION: Risikobeschreibung
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|p{5cm}|p{5cm}|p{0.8cm}|p{0.8cm}|
+#+NAME: tab:risikobeschreibung
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|       <10> | <30>                           | <30>                           |                               |                               |
+| *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0} | *Massnahmen*\cellcolor[HTML]{C0C0C0} | *W^1*\cellcolor[HTML]{C0C0C0} | *A^2*\cellcolor[HTML]{C0C0C0} |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         1. | Die Datenbank ist schlecht modeliert. | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |                             1 |                             2 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc. |                             2 |                             2 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |                             1 |                             1 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
+|         5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |                             3 |                             1 |
+|------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 
-*** TODO Risikobewertung
+*** NEXT Risikobewertung
 
-| Bewertung  | Beschreibung: Warscheinlichkeit (W) |
-|------------+-------------------------------------|
-| 1 = gering | Unwarscheinlich, <20%               |
-| 2 = mittel | Mässig warscheinlich, 20-50%        |
-| 3 = hoch   | Hohe warscheinlichkeit > 50%        |
 #+CAPTION: Risikobewertung Wahrscheinlichkeit
+#+ATTR_LATEX: :align l|l
+#+NAME: tab:wahrscheinlichkeit
+| *Bewertung* | *Beschreibung: Warscheinlichkeit (W)* |
+|-------------+---------------------------------------|
+| 1 = gering  | Unwarscheinlich, <20%                 |
+| 2 = mittel  | Mässig warscheinlich, 20-50%          |
+| 3 = hoch    | Hohe warscheinlichkeit > 50%          |
 
-| Bewertung  | Beschreibung: Auswirkung (A)                    |
-|------------+-------------------------------------------------|
-| 1 = gering | geringe auswirkungen auf das Gesammtergebniss   |
-| 2 = mittel | Arbeitsumstellung oder grösserer Arbeitsaufwand |
-| 3 = hoch   | Projekt erfüllt nicht alle Anforderungen        |
 #+CAPTION: Risikobewertung Auswirkung
+#+ATTR_LATEX: :align l|l
+#+NAME: tab:auswirkung
+| *Bewertung* | *Beschreibung: Auswirkung (A)*                  |
+|-------------+-------------------------------------------------|
+| 1 = gering  | geringe auswirkungen auf das Gesammtergebniss   |
+| 2 = mittel  | Arbeitsumstellung oder grösserer Arbeitsaufwand |
+| 3 = hoch    | Projekt erfüllt nicht alle Anforderungen        |
 
---> Graphik einfügen!!!
+#+CAPTION: Grafische Darstellung der Risikoanalyse
+#+ATTR_LATEX: :width 9cm
+#+NAME: fig:risk
+[[file:diagrammes/risk_analysis.eps]]
 
 ** TODO Projektabgrenzung
 
@@ -199,122 +423,279 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 ** Architektur vorbereiten
 ** Arbeitspakete definieren
 
-* Umsetzung
-** Spezifikation
-*** Mockup
-#+ATTR_LATEX: :width 18cm
-#+CAPTION: a early Mockup of the shop
-[[file:pictures/mockup-full-snipet.png][file:pictures/mockup-full-snipet.png]
-*** Anwendungsfälle
-*** Klassendiagramme der Models
+* TODO Umsetzung
+** TODO Spezifikation
+*** User Stories
 
-**** Category
+User Stories sind eine in Alltagssprache geschriebenen
+Software-Anforderungen. Sie sind bewusst kurzgehalten und beschreiben
+die Wünsche und Ziele der Rollen welche die Software verwenden.
+
+**** Auftraggeber/Verwaltung
+
+Als Anbieter möchte ich...
+- Artikel in Kategorien strukturieren damit Kunden sich orientieren können.
+- Bilder zu meinen Artikeln hinzufügen damit sich Kunden das Produkt
+  anschauen können.
+- Artikel aktiv oder versteckt schalten können damit ich Produkte auch
+  temporär aus dem Verkauf nehmen kann.
+- Lagerbestände verwalten können damit ich rechzeitig nachbestellen kann.
+- Nachbestellungen von Artikeln erfassen können damit ich weiss was
+  bestellt wurde.
+- eine komplette Liste meiner Artikel einsehen können damit ich einen
+  Überblick über meine Produkte habe.
+- eine Liste aller Bestellungen einsehen können um allenfalls
+  Anpassungen vornehmen zu können.
+- Produkte und Kategorien in einer Admin Seite editieren können um
+  diese einfach administrieren zu können.
+
+**** Kunde
+
+Als Kunde möchte ich...
+- durch Kategorien zu den Produkten navigieren um diese einfacher zu finden.
+- Artikel einem Warenkorb hinzufügen können damit ich ungestört
+  stöbern kann und erst am Schluss den administrativen Teil erledigen muss.
+- meinen Warenkorb anzeigen und editieren können um allenfalls
+  Korrekturen vornehmen zu können.
+- die Artikel in meinem Warenkorb bestellen können.
+- vor dem Abschluss des Kaufs eine Zusammenstellung der Bestellung
+  einsehen um die Richtigkeit der Daten zu überprüfen.
+- mich registrieren können damit ich meine Adresse nicht jedes Mal neu
+  eingeben muss.
+- in einem Bereich der Webseite meine Profildaten zur Überprüfung
+  einsehen können.
+- Artikel in meiner bevorzugten Währung kaufen können damit ich die
+  Preise nicht umrechnen muss.
+
+**** Interessenten
+
+Als Interessent möchte ich...
+- die angebotenen Artikel einsehen können um mir ein Bild über das
+  Angebot machen zu können.
+- die Preise in einer anderen Währung anzeigen können um die
+  Preise in einer mir bekannten Währung vergleichen zu können.
+
+*** TODO Use Cases
+
+Ein Use Case sammelt alle möglichen Szenarien, die eintreten können,
+wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
+bestimmtes Ziel zu erreichen. Dabei beschreibt er was beim Versuch der
+Zielerreichung passieren kann. Je nach Ablauf kann auch ein Fehlschlag
+ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Pass- wort beim
+Login). Dabei wird die technische Lösung nicht konkret beschrieben.
+Die Detailstufe kann dabei sehr unterschiedlich sein.\footcite{usecase}
+
+**** TODO Anwendungsfalliagramm
+
+"Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
+Unified Modeling Language (UML), einer Sprache für die Modellierung
+der Strukturen und des Verhaltens von Software- und anderen Systemen.
+Es stellt Anwendungsfälle und Akteure mit ihren jeweiligen
+Abhängigkeiten und Beziehungen dar."\footcite{usecasediagramm}
+
+Das Anwendungsfalldiagramm für unseren Webshop ist in der Abbildung:
+([[fig:usecase]]) zu sehen. Wir haben uns dabei auf die Hauptaspekte des
+Webshops beschränkt.
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+CAPTION: Anwendungsfalldiagramm
+#+ATTR_LATEX: :height.9\textwidth
+#+NAME: fig:usecase
+[[file:diagrammes/use_case.eps]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
+
+**** NEXT Use Case Detailbeschreibung
+
+#+CAPTION: Use Case
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}|
+#+NAME: tab:login
+|---------------------+-----------------------------|
+| *Identifier + Name* |                             |
+|---------------------+-----------------------------|
+| *Description*       |                             |
+|---------------------+-----------------------------|
+| *Actors*            |                             |
+|---------------------+-----------------------------|
+| *Status*            | Freigegeben                 |
+|---------------------+-----------------------------|
+| *Includes*          | -                           |
+|---------------------+-----------------------------|
+| *Trigger*           |                             |
+|---------------------+-----------------------------|
+| *Preconditions*     |                             |
+|---------------------+-----------------------------|
+| *Postconditions*    |                             |
+|---------------------+-----------------------------|
+| *Normal Flow*       |                             |
+|---------------------+-----------------------------|
+| *Alternative Flow*  | -                           |
+|---------------------+-----------------------------|
+| *Notes*             | -                           |
+|---------------------+-----------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ |
+|---------------------+-----------------------------|
+| *Author*            | A. Zweili & I.              |
+|---------------------+-----------------------------|
+| *Date*              |                             |
+|---------------------+-----------------------------|
+
+*** NEXT Mockup
+
+#+CAPTION: Ein frühes Mockup des Shop
+#+ATTR_LATEX: :width \textwidth
+#+NAME: mockup
+[[file:pictures/mockup-full-snipet.png][file:pictures/mockup-full-snipet.png]]
+
+*** TODO Klassendiagramme der Models
+**** NEXT Category
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Kategorien
+#+NAME: fig:category
 [[file:pictures/class_category.png]]
 
-**** Option
+**** NEXT Option
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Optionen
+#+NAME: fig:option
 [[file:pictures/class_option.png][file:pictures/class_option.png]]
 
-**** Setting
+**** NEXT Setting
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Einstellungen
+#+NAME: fig:umweltgrafik
 [[file:pictures/class_setting.png][file:pictures/class_setting.png]]
 
-**** ArticleStatus
+**** NEXT ArticleStatus
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Artikelstatus
+#+NAME: fig:articlestatus
 [[file:pictures/class_articlestatus.png][file:pictures/class_articlestatus.png]]
 
-**** ExchangeRate
+**** TODO ExchangeRate
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Wechselkurse
+#+NAME: fig:exchangerate
 [[file:pictures/class_exchangerate.png][file:pictures/class_exchangerate.png]]
 
-**** Article
+**** NEXT Article
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Artikel
+#+NAME: fig:article
 [[file:pictures/class_article.png][file:pictures/class_article.png]]
 
-**** OrderStatus
+**** NEXT OrderStatus
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bestellstatus
+#+NAME: fig:orderstatus
 [[file:pictures/class_orderstatus.png][file:pictures/class_orderstatus.png]]
 
-**** OrderOfGoods
+**** NEXT OrderOfGoods
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Warenbestellungen
+#+NAME: fig:orderofgoods
 [[file:pictures/class_orderofgoods.png][file:pictures/class_orderofgoods.png]]
 
-**** Picture
+**** NEXT Picture
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bilder
+#+NAME: fig:picture
 [[file:pictures/class_picture.png][file:pictures/class_picture.png]]
 
-**** Order
+**** NEXT Order
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bestellungen
+#+NAME: fig:order
 [[file:pictures/class_order.png][file:pictures/class_order.png]]
 
-**** ShoppingCart
+**** NEXT ShoppingCart
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Warenkörbe
+#+NAME: fig:shoppingcart
 [[file:pictures/class_shoppingcart.png][file:pictures/class_shoppingcart.png]]
 
-**** City
+**** NEXT City
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Städte
+#+NAME: fig:city
 [[file:pictures/class_city.png][file:pictures/class_city.png]]
 
-**** Salutation
+**** NEXT Salutation
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Anreden
+#+NAME: fig:salutation
 [[file:pictures/class_salutation.png][file:pictures/class_salutation.png]]
 
-**** Person
+**** NEXT Person
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Personen
+#+NAME: fig:person
 [[file:pictures/class_person.png][file:pictures/class_person.png]]
-
-** Datenbank
-*** Anforderungsanalyse
-*** Relationen Model
-*** Relationen Diagramm
-*** SQL Create DB
-*** SQL Insert Testdaten
-*** SQL Restriktionen erarbeiten
-*** SQL Views erstellen
-*** SQL Prozeduren und Funktionen erarbeiten
 
 ** Benutzerinterface
 *** Mockup skizzieren
 *** Frontend Umsetzung
 *** Backend Umsetzung
-*** TODO Testing
-**** Test Cases
+
+** Testfälle
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+CAPTION: Testfälle
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|
+#+NAME: tab:testcases
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 |
+| *Testcase ID*\cellcolor[HTML]{C0C0C0} | *Objective*\cellcolor[HTML]{C0C0C0} | *Precondition*\cellcolor[HTML]{C0C0C0} | *Steps*\cellcolor[HTML]{C0C0C0} | *Testdata*\cellcolor[HTML]{C0C0C0} | *Expected Result*\cellcolor[HTML]{C0C0C0} | *Postcondition*\cellcolor[HTML]{C0C0C0} | *Result*\cellcolor[HTML]{C0C0C0} |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-01*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-02*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-03*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-04*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-05*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-06*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-07*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-08*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-09*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-10*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-11*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-12*              |                      |                      |                      |                      |                      |                      |                      |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
 
 * Fazit
 ** Projektmanagement
 ** Umsetzung
 ** Gelerntes
 
-* TODO samples [to be deleted]
+* TODO samples [to be deleted] :noexport:
 *** Subsubsection
 
 - List

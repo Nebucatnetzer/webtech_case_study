@@ -1,23 +1,93 @@
 <!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="{{ STATIC_URL }}/static/admin/css/base.css" />
-</head>
-<body>
-    <div id="content" class="flex">
-        <a href="{% url 'index' %}">Home</a> |
-        {% if user.is_authenticated %}
-        <a href="{% url 'profile' %}">Profile</a> | <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-        <h1>{% block section_title %}Music Instrument Shop{% endblock %}</h1>
-        {% block content %}{% endblock %}
-    </div>
-</body>
-<footer>
-    {% block footer %}
-    <p><font size="1">This is a case study project of Ivan Hörler and Andreas Zweili.
-    It is a school project/excercise and has no commercial intent.</font></p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/webshop/css/base.css" />
+    {% block title %}
+      <title>
+        Casestudy 'Webshop' IBZ TIAE-5(2017/18)
+      </title>
     {% endblock %}
-</footer>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>
+            {% block shop_name %}Music Instruments Inc.{% endblock %}
+          </h1>
+          <div>
+            {% block search %}{% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            HOME
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="#">CART</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">PROFILE</a></li>
+          <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+          {% endif %}
+          <li><a href="#">CURRENCY</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          {% block sidebar %}
+            {% if category_list %}
+            <ul>
+                {% for category, sub_category in category_list.items %}
+                    <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>
+                    {% for i in sub_category %}
+                        <ul>
+                        <li><a href="{% url 'category' i.id %}">{{ i.name }}</a></li>
+                        </ul>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>No categories are available.</p>
+            {% endif %}
+          {% endblock %}
+        </div>
+        <div class="col-sm-10 ">
+            <h1>
+              {% block section_title %}{% endblock %}
+            </h1>
+        </div>
+        <div class="col-sm-10 ">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            {% block footer %}
+              This is a case study project of Ivan Hörler and Andreas Zweili. </br>
+              It is a school project/excercise and has no commercial intent.
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
