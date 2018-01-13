@@ -43,6 +43,10 @@ Vagrant.configure("2") do |config|
     systemctl restart apache2.service
 
     /vagrant/ansible/roles/web_AI-5/tasks/setup_script.sh
+
+    #insert the currency update cronjob
+    echo "wget -O /dev/null http://localhost:8080" > /etc/cron.hourly/currency_update
+    chmod +x /etc/cron.hourly/currency_update
     SHELL
 
 end
