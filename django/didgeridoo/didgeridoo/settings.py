@@ -35,7 +35,6 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'currencies',
     'webshop.apps.WebshopConfig',
     'django_extensions',
     'django.contrib.admin',
