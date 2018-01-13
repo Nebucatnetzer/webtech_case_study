@@ -41,6 +41,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 
+%number everything down to paragraphs
+\setcounter{secnumdepth}{5}
+
 %Enable Microtyping which improves justification
 \usepackage{microtype}
 
@@ -55,6 +58,10 @@
 %footnotes
 \setlength{\skip\footins}{0.5cm}
 \usepackage[bottom,hang]{footmisc}
+
+%each section should start on a new page
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 
 %European style paragraphs
 \setlength{\parskip}{\baselineskip}%
@@ -124,10 +131,13 @@
   listing options={basicstyle=\ttfamily,language=bash},
   title=\thetcbcounter #2, #1
 }
+\usepackage{tocbibind}
+\usepackage[citestyle=verbose,bibstyle=numeric,sorting=none,backend=bibtex8]{biblatex}
+\DefineBibliographyStrings{german}{%
+  references = {Referenzen},
+}
 
-%sort the bibliography by appearance
-\usepackage[numbers,sort]{natbib}
-
-%Number Bibliography and include in ToC
-\usepackage[nottoc]{tocbibind}
-
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

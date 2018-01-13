@@ -29,6 +29,7 @@
       - django-extensions
       - Pillow
       - pyaml
+      - django-bootstrap3
     executable: pip3
 
 - name: Run the setup script to add some final touches
@@ -41,6 +42,14 @@
     owner: www-data
     group: www-data
     mode: 0755
+
+
+- name: Add currency refresh cronjob
+  cron:
+    name: "refresh currencies"
+    minute: "0"
+    job: "wget -O /dev/null https://didgeridoo.ml/currencies"
+
 
 - name: Restart apache service
   service: name=apache2 state=restarted
