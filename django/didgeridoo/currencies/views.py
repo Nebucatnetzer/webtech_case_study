@@ -10,11 +10,11 @@ from currencies.forms import CurrencyForm
 from django.http import JsonResponse
 
 
-def CurrencyUpdate(request):
-    currency = request.GET.get('CurrencyUpdate', None)
+def currency_update(request):
+    currency = request.GET.get('currency_update', None)
     data = {
-        'currency': ExchangeRate_name.objects.get(
-                    currency).id
+        'currency': ExchangeRate.objects.filter(
+            name__name=currency).latest('date')
     }
     print('currency: ', currency, 'data: ', data)
     return JsonResponse(data)
