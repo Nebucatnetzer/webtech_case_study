@@ -7,6 +7,8 @@ from webshop.models import (Article, Order, OrderPosition,
                             Person, City, Picture, OrderOfGoods,
                             Category, Option)
 
+from webshop.forms import PictureForm
+
 
 class PersonInline(admin.StackedInline):
     model = Person
@@ -14,9 +16,15 @@ class PersonInline(admin.StackedInline):
     verbose_name_plural = 'person'
 
 
+class PictureAdmin(admin.ModelAdmin):
+    form = PictureForm
+    ordering = ('name',)
+    list_display = ('name', 'article',)
+
+
 class PictureInline(admin.StackedInline):
     model = Picture
-    can_delete = False
+    form = PictureForm
     verbose_name_plural = 'pictures'
 
 
@@ -74,6 +82,7 @@ admin.site.register(User, UserAdmin)
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(Picture, PictureAdmin)
 admin.site.register(City)
 admin.site.register(OrderOfGoods, OrderOfGoodsAdmin)
 admin.site.register(Category)
