@@ -11,12 +11,12 @@ from django.http import JsonResponse
 
 
 def CurrencyUpdate(request):
-    assert False
     currency = request.GET.get('CurrencyUpdate', None)
     data = {
-        'currency': ExchangeRate_name.objects.filter(
-                    name=currency)
+        'currency': ExchangeRate_name.objects.get(
+                    currency).id
     }
+    print('currency: ', currency, 'data: ', data)
     return JsonResponse(data)
 
 
