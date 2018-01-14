@@ -1,7 +1,7 @@
-  $("#currency_update").change(function () {
+  $("#CurrencyUpdate").change(function () {
     var currency = $(this).val();
     $.ajax({
-      url: '/ajax/currency_update/',
+      url: '/ajax/CurrencyUpdate/',
       data: {
         'currency': currency
       },

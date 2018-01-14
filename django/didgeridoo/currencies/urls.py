@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from currencies.views import currencies, currency_update
+from currencies.views import currencies, CurrencyUpdate
 
 
 urlpatterns = [
     url(r'^currencies/$', currencies),
-    url(r'^ajax/currency_update/$',
-        currency_update,
-        name='currency_update'),
+    url(r'^ajax/CurrencyUpdate/$',
+        CurrencyUpdate,
+        name='CurrencyUpdate'),
 ]
