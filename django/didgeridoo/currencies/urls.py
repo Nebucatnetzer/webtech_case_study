@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from currencies.views import currencies, currency_update
-from core import views
+
 
 urlpatterns = [
     url(r'^currencies/$', currencies),
