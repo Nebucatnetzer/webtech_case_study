@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Register your models here.
 from webshop.models import (Article, Order, OrderPosition,
                             Person, City, Picture, OrderOfGoods,
-                            Category, Option, Setting)
+                            Category, Option)
 
 
 class PersonInline(admin.StackedInline):
@@ -58,4 +58,3 @@ admin.site.register(City)
 admin.site.register(OrderOfGoods, OrderOfGoodsAdmin)
 admin.site.register(Category)
 admin.site.register(Option)
-admin.site.register(Setting)
