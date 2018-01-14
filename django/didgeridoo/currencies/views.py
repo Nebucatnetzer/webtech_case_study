@@ -12,8 +12,15 @@ from django.http import JsonResponse
 
 def currency_update(request):
     # https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html
-    currency = request.POST.get('currency_update', None)
-    data = ExchangeRate.objects.values('exchange_rate_to_chf').latest()
+    if request.method == 'GET':
+        print('its get method')
+    else:
+        print('its not get method')
+    currency = request.GET.get('currency', None)
+    data = ExchangeRate.objects.filter(
+                                name__name=currency).values(
+                                'exchange_rate_to_chf').latest(
+                                'date__date')
     print('currency: ', currency, 'data: ', data)
     return JsonResponse(data)
 
