@@ -95,3 +95,9 @@
     stock: 44
     status: 3
     price_in_chf: 41.4
+
+- model: webshop.Option
+  fields:
+    name: max_pictures
+    value: 5
+    enabled: True

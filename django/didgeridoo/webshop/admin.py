@@ -20,6 +20,26 @@ class PictureInline(admin.StackedInline):
     verbose_name_plural = 'pictures'
 
 
+class OptionAdmin(admin.ModelAdmin):
+    model = Option
+    list_display = ('name', 'description',)
+    readonly_fields = ('name','description',)
+
+
+    def get_actions(self, request):
+        #Disable delete
+        actions = super(OptionAdmin, self).get_actions(request)
+        del actions['delete_selected']
+        return actions
+
+    def has_delete_permission(self, request, obj=None):
+        #Disable delete
+        return False
+
+    def has_add_permission(self, request):
+        return False
+
+
 class UserAdmin(BaseUserAdmin):
     inlines = (PersonInline,)
 
@@ -57,4 +77,4 @@ admin.site.register(Order, OrderAdmin)
 admin.site.register(City)
 admin.site.register(OrderOfGoods, OrderOfGoodsAdmin)
 admin.site.register(Category)
-admin.site.register(Option)
+admin.site.register(Option, OptionAdmin)
