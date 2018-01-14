@@ -7,17 +7,18 @@ from currencies.models import (ExchangeRate,
                                ExchangeRate_name)
 from currencies import exchange_rates
 from currencies.forms import CurrencyForm
+from django.http import JsonResponse
 
 
 def CurrencyUpdate(request):
-    if request.method == 'POST':
-        currency_form = CurrencyForm
-        assert False
-    else:
-        currency_form = CurrencyForm
-        assert False
-    return render(request,
-                  {'currency_form': currency_form})
+    assert False
+    currency = request.GET.get('CurrencyUpdate', None)
+    data = {
+        'currency': ExchangeRate_name.objects.filter(
+                    name=currency)
+    }
+    return JsonResponse(data)
+
 
 def currencies(request):
     # this function fetches the data from exchange_rates.py

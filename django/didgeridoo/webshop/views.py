@@ -11,6 +11,7 @@ from webshop.models import (Article,
                             Picture)
 from webshop.forms import RegistrationForm
 
+
 # Create your views here.
 
 
