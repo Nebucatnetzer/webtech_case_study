@@ -7,18 +7,12 @@ from django.utils import timezone
 
 class Option(models.Model):
     name = models.CharField(max_length=200, unique=True)
+    description = models.CharField(max_length=200, unique=True)
     value = models.IntegerField(default=5)
-
-    def __str__(self):
-        return self.name
-
-
-class Setting(models.Model):
-    option = models.ForeignKey(Option, on_delete=models.CASCADE)
     enabled = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.option)
+        return self.name
 
 
 class ArticleStatus(models.Model):
@@ -74,8 +68,8 @@ class OrderOfGoods(models.Model):
 
 
 class Picture(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    article = models.ForeignKey(Article)
     image = models.ImageField(upload_to="images")
 
     def __str__(self):
