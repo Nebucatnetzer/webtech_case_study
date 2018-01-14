@@ -16,7 +16,7 @@ def currency_update(request):
         print('its get method')
     else:
         print('its not get method')
-    currency = request.GET.get('currency', None)
+    currency = request.GET.get('currency_update', None)
     data = ExchangeRate.objects.filter(
                                 name__name=currency).values(
                                 'exchange_rate_to_chf').latest(
