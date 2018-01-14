@@ -34,27 +34,31 @@
           <a class="navbar-brand" href="{% url 'index' %}">
             HOME
           </a>
+          <ul class="nav navbar-nav">
+            <li><a href="#">CART</a></li>
+            {% if user.is_authenticated %}
+              <li>
+                <a href="{% url 'profile' %}">PROFILE</a>
+              </li>
+              <li>
+                <a href="{% url 'logout' %}">LOGOUT</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{% url 'login' %}">LOGIN</a>
+              </li>
+            {% endif %}
+          </ul>
+          <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            <select name="CurrencyUpdate" id="CurrencyUpdate" onchange="this.form.submit()">
+                <option value="CHF">CHF</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+          </form>
         </div>
-        <ul class="nav navbar-nav">
-          <li><a href="#">CART</a></li>
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">PROFILE</a></li>
-          <li><a href="{% url 'logout' %}">LOGOUT</a></li>
-          {% else %}
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
-          {% endif %}
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Currency:
-              <span class="caret"></span>
-            </button>
-             <ul class="dropdown-menu dropdown-menu-center">
-               <li class="disabled"><a href="#">CHF</a></li>
-               <li class="active"><a href="#">USD</a></li>
-               <li class="active"><a href="#">JPYS</a></li>
-               <li class="active"><a href="#">GBP</a></li>
-             </ul>
-           </div>
-        </ul>
       </div>
     </nav>
     <div class="container-fluid">

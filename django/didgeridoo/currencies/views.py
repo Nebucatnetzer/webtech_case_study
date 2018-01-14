@@ -9,11 +9,15 @@ from currencies import exchange_rates
 from currencies.forms import CurrencyForm
 
 
-class CurrencyUpdate(UpdateView):
-    model = ExchangeRate_name
-    currency_form = CurrencyForm
-    template_name = 'webshop/base.html'
-    success_url = 'webshop/base.html'
+def CurrencyUpdate(request):
+    if request.method == 'POST':
+        currency_form = CurrencyForm
+        assert False
+    else:
+        currency_form = CurrencyForm
+        assert False
+    return render(request,
+                  {'currency_form': currency_form})
 
 def currencies(request):
     # this function fetches the data from exchange_rates.py
