@@ -134,9 +134,6 @@ USE_TZ = True
 # seams like it changed with 1.13+ (14.1.18|IH)
 # https://stackoverflow.com/a/14800489/4061870
 
-STATIC_URL = '/static/'
-STATIC_ROOT = ''
-
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
