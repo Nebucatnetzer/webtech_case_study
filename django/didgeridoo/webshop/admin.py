@@ -25,6 +25,7 @@ class PictureAdmin(admin.ModelAdmin):
 class PictureInline(admin.StackedInline):
     model = Picture
     form = PictureForm
+    can_delete = False
     verbose_name_plural = 'pictures'
 
 
