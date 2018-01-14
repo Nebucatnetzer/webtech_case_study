@@ -7,6 +7,7 @@ from django.utils import timezone
 
 class Option(models.Model):
     name = models.CharField(max_length=200, unique=True)
+    description = models.CharField(max_length=200, unique=True)
     value = models.IntegerField(default=5)
     enabled = models.BooleanField(default=False)
 

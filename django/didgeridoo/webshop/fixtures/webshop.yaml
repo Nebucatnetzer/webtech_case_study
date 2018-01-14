@@ -99,5 +99,6 @@
 - model: webshop.Option
   fields:
     name: max_pictures
+    description: "Maximum number of Pictures a user is allowed to upload."
     value: 5
     enabled: True
