@@ -7,7 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Add additional CSS in static file -->
-    {% load static %}
+    {% load staticfiles %}
     <link rel="stylesheet" href="{{ STATIC_URL }}/static/webshop/css/base.css" />
     {% block title %}
       <title>
@@ -28,39 +28,7 @@
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'index' %}">
-            HOME
-          </a>
-          <ul class="nav navbar-nav">
-            <li><a href="#">CART</a></li>
-            {% if user.is_authenticated %}
-              <li>
-                <a href="{% url 'profile' %}">PROFILE</a>
-              </li>
-              <li>
-                <a href="{% url 'logout' %}">LOGOUT</a>
-              </li>
-            {% else %}
-              <li>
-                <a href="{% url 'login' %}">LOGIN</a>
-              </li>
-            {% endif %}
-          </ul>
-          <form action="" method="POST" novalidate>
-            {% csrf_token %}
-            <select name="CurrencyUpdate" id="CurrencyUpdate" onchange="this.form.submit()">
-                <option value="CHF">CHF</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
-                <option value="JPY">JPY</option>
-            </select>
-          </form>
-        </div>
-      </div>
-    </nav>
+    {% block nav %}{% include "webshop/nav.html" %}{% endblock %}
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-2">
@@ -127,5 +95,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script>{% block javascript %}{% endblock %}</script>
   </body>
 </html>
