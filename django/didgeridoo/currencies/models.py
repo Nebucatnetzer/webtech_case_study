@@ -28,4 +28,4 @@ class ExchangeRate(models.Model):
 
     class Meta:
         # https://simpleisbetterthancomplex.com/tips/2016/10/06/django-tip-17-earliest-and-latest.html
-        get_latest_by = 'name__name'
+            get_latest_by = 'name__name'
