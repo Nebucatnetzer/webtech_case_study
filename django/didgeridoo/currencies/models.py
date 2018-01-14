@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.urlresolvers import reverse
 from decimal import Decimal
 import datetime
 
@@ -21,7 +20,8 @@ class ExchangeRate_date(models.Model):
 class ExchangeRate(models.Model):
     name = models.ForeignKey(ExchangeRate_name)
     date = models.ForeignKey(ExchangeRate_date)
-    exchange_rate_to_chf = models.DecimalField(max_digits=12, decimal_places=5)
+    exchange_rate_to_chf = models.DecimalField(max_digits=12,
+                                               decimal_places=5)
 
     def __str__(self):
         return str(self.name)
