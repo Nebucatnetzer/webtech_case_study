@@ -1,5 +1,5 @@
 from django import forms
-from webshop.models import Salutation, City
+from webshop.models import Salutation, City, Picture, Article, Option
 
 
 class RegistrationForm(forms.Form):
@@ -22,3 +22,32 @@ class RegistrationForm(forms.Form):
             raise forms.ValidationError(
                 "The zip code and the city don't match.")
         return city
+
+
+class PictureForm(forms.ModelForm):
+    def max_pictures(self):
+        try:
+            option = Option.objects.get(name='max_pictures')
+            if option.enabled:
+                return option.value
+            else:
+                return False
+        except:
+            return False
+
+    def count_pictures(self, _article):
+        count = Picture.objects.filter(article=_article.id).count()
+        return count
+
+    def clean(self):
+        article = self.cleaned_data.get('article')
+        print(self.max_pictures())
+        if self.max_pictures():
+            if (self.count_pictures(article) >= self.max_pictures()):
+                raise forms.ValidationError("Only " + str(self.max_pictures())
+                                            + " pictures per article allowed.")
+        return self.cleaned_data
+
+    class Meta:
+        model = Picture
+        fields = ['name', 'article', 'image']
