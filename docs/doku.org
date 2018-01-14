@@ -485,7 +485,7 @@ ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Pass- wort beim
 Login). Dabei wird die technische Lösung nicht konkret beschrieben.
 Die Detailstufe kann dabei sehr unterschiedlich sein.\footcite{usecase}
 
-**** TODO Anwendungsfalliagramm
+**** Anwendungsfalliagramm
 
 "Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
 Unified Modeling Language (UML), einer Sprache für die Modellierung
