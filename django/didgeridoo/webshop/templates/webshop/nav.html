@@ -8,31 +8,35 @@
       <ul class="nav navbar-nav">
         <li><a href="#">CART</a></li>
         {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'profile' %}">PROFILE</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}">LOGOUT</a>
-          </li>
+        <li>
+          <a href="{% url 'profile' %}">PROFILE</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">LOGOUT</a>
+        </li>
         {% else %}
-          <li>
-            <a href="{% url 'login' %}">LOGIN</a>
-          </li>
+        <li>
+          <a href="{% url 'login' %}">LOGIN</a>
+        </li>
         {% endif %}
+        <!-- https://pypi.python.org/pypi/django-select-multiple-field -->
+        <form method="POST" novalidate>
+          <select name="currency_update" id="id_currency_update">
+              <option value="CHF">CHF</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="JPY">JPY</option>
+          </select>
+          {% csrf_token %}
+        </form>
       </ul>
-      <form action="" method="POST" novalidate>
-        {% csrf_token %}
-        <select name="currency_update" id="currency_update" onchange="this.form.submit()">
-            <option value="CHF">CHF</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
-            <option value="JPY">JPY</option>
-        </select>
-        <ul class="nav navbar-nav">
-        {{ form.as_li }}
-      </ul>
-      </form>
     </div>
+    <!--
+    Es wird auf id im app.js file gemached.
+    die URL wird im app.js gesetzt
+    und mit urls.py weitergereicht.
+    dann auf name im views.py gemached und ausgeführt.
+    -->
   </div>
 </nav>
 {% endblock %}
