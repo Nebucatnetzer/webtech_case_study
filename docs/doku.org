@@ -548,7 +548,7 @@ Webshops beschränkt.
 #+NAME: mockup
 [[./pictures/mockup-full-snipet.png]]
 
-*** TODO Klassendiagramme der Models
+*** TODO Models
 **** NEXT Category
 
 #+ATTR_LATEX: :width 9cm :placement [H]
