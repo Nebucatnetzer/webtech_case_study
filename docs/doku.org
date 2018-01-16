@@ -671,7 +671,7 @@ Webshops beschränkt.
 *** Testfälle
 
 #+CAPTION: Testfälle
-#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}| :placement [H]
 #+NAME: tab:testcases
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 |
