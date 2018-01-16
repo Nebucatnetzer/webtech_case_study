@@ -390,7 +390,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 *** NEXT Risikobewertung
 
 #+CAPTION: Risikobewertung Wahrscheinlichkeit
-#+ATTR_LATEX: :align l|l
+#+ATTR_LATEX: :align l|l :placement [H]
 #+NAME: tab:wahrscheinlichkeit
 | *Bewertung* | *Beschreibung: Warscheinlichkeit (W)* |
 |-------------+---------------------------------------|
@@ -399,7 +399,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 | 3 = hoch    | Hohe warscheinlichkeit > 50%          |
 
 #+CAPTION: Risikobewertung Auswirkung
-#+ATTR_LATEX: :align l|l
+#+ATTR_LATEX: :align l|l :placement [H]
 #+NAME: tab:auswirkung
 | *Bewertung* | *Beschreibung: Auswirkung (A)*                  |
 |-------------+-------------------------------------------------|
@@ -408,7 +408,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 | 3 = hoch    | Projekt erfüllt nicht alle Anforderungen        |
 
 #+CAPTION: Grafische Darstellung der Risikoanalyse
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+NAME: fig:risk
 [[file:diagrammes/risk_analysis.eps]]
 
@@ -551,14 +551,14 @@ Webshops beschränkt.
 *** TODO Klassendiagramme der Models
 **** NEXT Category
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Kategorien
 #+NAME: fig:category
 [[./pictures/class_category.png]]
 
 **** NEXT Option
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Optionen
 #+NAME: fig:option
 
@@ -571,77 +571,77 @@ Webshops beschränkt.
 
 **** NEXT ArticleStatus
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikelstatus
 #+NAME: fig:articlestatus
 [[./pictures/class_articlestatus.png]]
 
 **** TODO ExchangeRate
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate
 [[./pictures/class_exchangerate.png]]
 
 **** NEXT Article
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikel
 #+NAME: fig:article
 [[./pictures/class_article.png]]
 
 **** NEXT OrderStatus
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellstatus
 #+NAME: fig:orderstatus
 [[./pictures/class_orderstatus.png]]
 
 **** NEXT OrderOfGoods
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenbestellungen
 #+NAME: fig:orderofgoods
 [[./pictures/class_orderofgoods.png]]
 
 **** NEXT Picture
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bilder
 #+NAME: fig:picture
 [[./pictures/class_picture.png]]
 
 **** NEXT Order
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungen
 #+NAME: fig:order
 [[./pictures/class_order.png]]
 
 **** NEXT ShoppingCart
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
 #+NAME: fig:shoppingcart
 [[./pictures/class_shoppingcart.png]]
 
 **** NEXT City
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Städte
 #+NAME: fig:city
 [[./pictures/class_city.png]]
 
 **** NEXT Salutation
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Anreden
 #+NAME: fig:salutation
 [[./pictures/class_salutation.png]]
 
 **** NEXT Person
 
-#+ATTR_LATEX: :width 9cm
+#+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Personen
 #+NAME: fig:person
 [[./pictures/class_person.png]]
