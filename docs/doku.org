@@ -561,12 +561,6 @@ Webshops beschränkt.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Optionen
 #+NAME: fig:option
-
-**** NEXT Setting
-
-#+ATTR_LATEX: :width 9cm
-#+CAPTION: Klassenmodel für Einstellungen
-#+NAME: fig:umweltgrafik
 [[./pictures/class_option.png]]
 
 **** NEXT ArticleStatus
