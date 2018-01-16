@@ -546,7 +546,7 @@ Webshops beschränkt.
 #+CAPTION: Ein frühes Mockup des Shop
 #+ATTR_LATEX: :width \textwidth
 #+NAME: mockup
-[[file:pictures/mockup-full-snipet.png][file:pictures/mockup-full-snipet.png]]
+[[./pictures/mockup-full-snipet.png]]
 
 *** TODO Klassendiagramme der Models
 **** NEXT Category
@@ -554,98 +554,97 @@ Webshops beschränkt.
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Kategorien
 #+NAME: fig:category
-[[file:pictures/class_category.png]]
+[[./pictures/class_category.png]]
 
 **** NEXT Option
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Optionen
 #+NAME: fig:option
-[[file:pictures/class_option.png][file:pictures/class_option.png]]
 
 **** NEXT Setting
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Einstellungen
 #+NAME: fig:umweltgrafik
-[[file:pictures/class_setting.png][file:pictures/class_setting.png]]
+[[./pictures/class_option.png]]
 
 **** NEXT ArticleStatus
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Artikelstatus
 #+NAME: fig:articlestatus
-[[file:pictures/class_articlestatus.png][file:pictures/class_articlestatus.png]]
+[[./pictures/class_articlestatus.png]]
 
 **** TODO ExchangeRate
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate
-[[file:pictures/class_exchangerate.png][file:pictures/class_exchangerate.png]]
+[[./pictures/class_exchangerate.png]]
 
 **** NEXT Article
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Artikel
 #+NAME: fig:article
-[[file:pictures/class_article.png][file:pictures/class_article.png]]
+[[./pictures/class_article.png]]
 
 **** NEXT OrderStatus
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bestellstatus
 #+NAME: fig:orderstatus
-[[file:pictures/class_orderstatus.png][file:pictures/class_orderstatus.png]]
+[[./pictures/class_orderstatus.png]]
 
 **** NEXT OrderOfGoods
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Warenbestellungen
 #+NAME: fig:orderofgoods
-[[file:pictures/class_orderofgoods.png][file:pictures/class_orderofgoods.png]]
+[[./pictures/class_orderofgoods.png]]
 
 **** NEXT Picture
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bilder
 #+NAME: fig:picture
-[[file:pictures/class_picture.png][file:pictures/class_picture.png]]
+[[./pictures/class_picture.png]]
 
 **** NEXT Order
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Bestellungen
 #+NAME: fig:order
-[[file:pictures/class_order.png][file:pictures/class_order.png]]
+[[./pictures/class_order.png]]
 
 **** NEXT ShoppingCart
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Warenkörbe
 #+NAME: fig:shoppingcart
-[[file:pictures/class_shoppingcart.png][file:pictures/class_shoppingcart.png]]
+[[./pictures/class_shoppingcart.png]]
 
 **** NEXT City
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Städte
 #+NAME: fig:city
-[[file:pictures/class_city.png][file:pictures/class_city.png]]
+[[./pictures/class_city.png]]
 
 **** NEXT Salutation
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Anreden
 #+NAME: fig:salutation
-[[file:pictures/class_salutation.png][file:pictures/class_salutation.png]]
+[[./pictures/class_salutation.png]]
 
 **** NEXT Person
 
 #+ATTR_LATEX: :width 9cm
 #+CAPTION: Klassenmodel für Personen
 #+NAME: fig:person
-[[file:pictures/class_person.png][file:pictures/class_person.png]]
+[[./pictures/class_person.png]]
 
 ** Benutzerinterface
 *** Mockup skizzieren
