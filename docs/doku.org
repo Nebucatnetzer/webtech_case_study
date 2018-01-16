@@ -549,14 +549,24 @@ Webshops beschränkt.
 [[./pictures/mockup-full-snipet.png]]
 
 *** TODO Models
+
+\footcite{djangoextensions}
+
 **** NEXT Category
+
+\footcite{tree}
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Kategorien
 #+NAME: fig:category
 [[./pictures/class_category.png]]
 
+
 **** NEXT Option
+
+\footcite{readonly}
+\footcite{removeadd}
+\footcite{removedelete}
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Optionen
@@ -571,6 +581,8 @@ Webshops beschränkt.
 [[./pictures/class_articlestatus.png]]
 
 **** TODO ExchangeRate
+
+\footcite{timezone}
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
@@ -599,6 +611,9 @@ Webshops beschränkt.
 [[./pictures/class_orderofgoods.png]]
 
 **** NEXT Picture
+
+\footcite{upload}
+\footcite{images}
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bilder
@@ -634,6 +649,8 @@ Webshops beschränkt.
 [[./pictures/class_salutation.png]]
 
 **** NEXT Person
+
+\footcite{usermodel}
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Personen
