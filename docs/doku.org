@@ -508,38 +508,344 @@ Webshops beschränkt.
 
 **** NEXT Use Case Detailbeschreibung
 
-#+CAPTION: Use Case
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}|
+***** Artikel durchstöbern
+
+#+CAPTION: Use 1.0 Artikel durchstöbern
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:browse_article
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 1.0 Artikel durchstöbern       |
+|---------------------+--------------------------------|
+| *Description*       | Durchklicken der verschiedenen Kategorieren und ansehen der Artikel Details und Bilder. |
+|---------------------+--------------------------------|
+| *Actors*            | Kunden, Interessenten          |
+|---------------------+--------------------------------|
+| *Status*            | Freigegeben                    |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | User möchte Artikel einsehen   |
+|---------------------+--------------------------------|
+| *Preconditions*     | Website aufgerufen             |
+|---------------------+--------------------------------|
+| *Postconditions*    | -                              |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Website aufrufen            |
+|                     | 2. Kategorienen durchsehen     |
+|                     | 3. Artikel anklicken           |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | -                              |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** Registration
+
+#+CAPTION: Use Case 2.0 Registration
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:registration
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 2.0 Registration               |
+|---------------------+--------------------------------|
+| *Description*       | Ein User registriert sich einen Account. |
+|---------------------+--------------------------------|
+| *Actors*            | Interessent                    |
+|---------------------+--------------------------------|
+| *Status*            | Freigebgen                     |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | User möchte einen Account erstellen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Email Adresse vorhanden        |
+|---------------------+--------------------------------|
+| *Postconditions*    | Account wurde erfolgreich erstellt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. User klickt auf den Link "Go to registration.". |
+|                     | 2. User füllt das Registrations Formular aus. |
+|                     | 3. User schliesst die Registrierung mit Klick auf "Register" ab. |
+|                     | 4. Die Website leitet ihn in den Login Bereich um. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. User klickt auf den Link "Go to registration.". |
+|                     | 2. User füllt das Registrations Formular mir falschen Daten aus. |
+|                     | 3. Die Website gibt die entsprechenden Fehler aus. |
+|                     | 4. Der User korrigiert die Angaben. |
+|                     | 5. User schliesst die Registrierung mit Klick auf "Register" ab. |
+|                     | 6. Die Website leitet ihn in den Login Bereich um. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** User Login
+
+#+CAPTION: Use Case 2.1 User Login
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:login
-|---------------------+-----------------------------|
-| *Identifier + Name* |                             |
-|---------------------+-----------------------------|
-| *Description*       |                             |
-|---------------------+-----------------------------|
-| *Actors*            |                             |
-|---------------------+-----------------------------|
-| *Status*            | Freigegeben                 |
-|---------------------+-----------------------------|
-| *Includes*          | -                           |
-|---------------------+-----------------------------|
-| *Trigger*           |                             |
-|---------------------+-----------------------------|
-| *Preconditions*     |                             |
-|---------------------+-----------------------------|
-| *Postconditions*    |                             |
-|---------------------+-----------------------------|
-| *Normal Flow*       |                             |
-|---------------------+-----------------------------|
-| *Alternative Flow*  | -                           |
-|---------------------+-----------------------------|
-| *Notes*             | -                           |
-|---------------------+-----------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ |
-|---------------------+-----------------------------|
-| *Author*            | A. Zweili & I.              |
-|---------------------+-----------------------------|
-| *Date*              |                             |
-|---------------------+-----------------------------|
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 2.1 User Login                 |
+|---------------------+--------------------------------|
+| *Description*       | Ein Kunde logt sich auf der Website ein. |
+|---------------------+--------------------------------|
+| *Actors*            | Kunde                          |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Kunde möchte sich einloggen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | UC 2.0 erfolgreich abgeschlossen. |
+|---------------------+--------------------------------|
+| *Postconditions*    | User hat sich erfolgreich eingeloggt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. User klickt in der Navigation auf "Login". |
+|                     | 2. User gibt Zugangsdaten ein. |
+|                     | 3. User beendet Login mit Klick auf "Login". |
+|                     | 4. Die Website leitet ihn auf die Index Seite um und zeigt neu eine "Profil" und "Logout" Schaltfläche. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. User klickt in der Navigation auf "Login". |
+|                     | 2. User gibt falsche Zugangsdaten ein. |
+|                     | 3. User beendet Login mit Klick auf "Login". |
+|                     | 4. Die Website gibt entsprechende Fehlermeldungen aus. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** Artikel in Warenkorb legen
+
+#+CAPTION: Use Case 3.0 Artikel in Warenkorb legen
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:cart
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 3.0 Artikel in Warenkorb legen |
+|---------------------+--------------------------------|
+| *Description*       | Ein Kunde legt einen Artikel in den Warenkorb. |
+|---------------------+--------------------------------|
+| *Actors*            | Kunde                          |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Kunde möchte einen Artikel kaufen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | UC2.1 erfolgreich abgeschlossen. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Artikel wurde im Warenkorb gespeichert. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. User klickt einen Artikel an. |
+|                     | 2. User klickt auf "Add to cart". |
+|                     | 3. Die Website speichert den Artikel im Warenkorb. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. User klickt einen Artikel mit Stock "0.0" an. |
+|                     | 2. User klickt auf "Add to cart". |
+|                     | 3. Die Website meldet "We are sorry but this item is out of stock.". |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** Währung ändern
+
+#+CAPTION: Use Case 3.1 Währung ändern
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:currency
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 3.1 Währung ändern             |
+|---------------------+--------------------------------|
+| *Description*       | Ein User ändert die Währung für die Preise. |
+|---------------------+--------------------------------|
+| *Actors*            | Kunde, Interessent             |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein User möchte sich die Preise in einer anderen Währung anzeigen lassen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | -                              |
+|---------------------+--------------------------------|
+| *Postconditions*    | Die Preise werden in der gewünschten Währung angezeigt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der User wählt im Drop-Down die gewünschte Währung aus. |
+|                     | 2. Die Website aktualisiert und zeigt die neu berechneten Preise an. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | -                              |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** Checkout
+
+#+CAPTION: Use Case 3.2 Checkout
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:checkout
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 3.2 Checkout                   |
+|---------------------+--------------------------------|
+| *Description*       | User gibt seinen Warenkorb als Bestellung auf. |
+|---------------------+--------------------------------|
+| *Actors*            | Kunde                          |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Kunde möchte seine Artikel im Warenkorb bestellen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | UC2.1 und UC3.0 erfolgreich abgeschlossen. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Die Bestellung wurde von der Website gespeichert. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der User klickt in der Navigation auf "Cart". |
+|                     | 2. Die Website leitet ihn zum Warenkorb um. |
+|                     | 3. Der User klickt dort auf "Checkout". |
+|                     | 4. Die Website gibt ihm eine komplette Übersicht der Bestellung sowie der Empfängeradresse. |
+|                     | 5. User klickt auf "Send order". |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. Der User klickt in der Navigation auf "Cart". |
+|                     | 2. Die Website leitet ihn zum Warenkorb um. |
+|                     | 3. Der User klickt dort auf "Checkout". |
+|                     | 4. Die Website gibt ihm eine komplette Übersicht der Bestellung sowie der Empfängeradresse. |
+|                     | 5. Der User bricht die Bestellung mit Klick auf "Cancel" ab. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** User Passwort ändern
+
+#+CAPTION: 4.0 User Passwort ändern
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:password
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 4.0 User Passwort ändern       |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator ändert ein User Kennwort. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Administrator möchte ein Passwort zurücksetzen weil es vergessen wurde. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Auf dem User Account wurde ein neues Passwort gesetzt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt auf "Users".   |
+|                     | 3. Admin wählt den passenden Account aus. |
+|                     | 4. Klickt unterhalb des Passwort Hashes auf "this form". |
+|                     | 5. Gibt zweimal das neue Passwort ein und klickt "Change password". |
+|                     | 6. Die Website leitet den Admin zurück zu den User Details. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klicht auf "Users".   |
+|                     | 3. Admin wählt den passenden Account aus. |
+|                     | 4. Klickt unterhalb des Passwort Hashes auf "this form". |
+|                     | 5. Gibt zweimal ein invalides Passwort ein und klickt "Change password". |
+|                     | 6. Die Website gibt eine entsprechende Fehlermeldung aus. |
+|                     | 7. Der Admin korrigiert die Passwörter und klickt auf "Change password". |
+|                     | 8. Die Website leitet den Admin zurück zu den User Details. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+
+***** Artikel erfassen
+
+#+CAPTION: 5.0 Artikel erfassen
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:create_article
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 5.0 Artikel erfassen           |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator erfasst einen neuen Artikel mit Bildern. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Um das Sortiment zu erweitern möchte der Administrator einen neuen Artikel erfassen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Der Artikel wir im Webshop angezeigt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt neben "Articles" auf "+ Add". |
+|                     | 3. Admin füllt das Formular aus und lädt ein Bild hoch. |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website speichert den Artikel in der Datenbank. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt neben "Articles" auf "+ Add". |
+|                     | 3. Admin füllt das Formular aus, vergisst jedoch ein Feld und lädt ein Bild hoch. |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website gibt eine entsprechende Fehlermeldung aus. |
+|                     | 6. Der Admin füllt die Felder aus und klickt auf "Save". |
+|                     | 7. Die Website speichert den Artikel in der Datenbank. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
 
 *** NEXT Mockup
 
