@@ -880,6 +880,97 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
+
+***** max_pictures Option anpassen
+
+#+LATEX:{\footnotesize
+#+CAPTION: Use Case 6.0 max_pictures Option anpassen
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:max_pictures
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 6.0 max_pictures Option anpassen |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator ändert die max_pictures Option. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Administrator möchte die maximale Anzahl Bilder pro Artikel anpassen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Der neue Wert wurde von der Website gespeichert. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt auf "Options" und anschliessend auf "max_pictures". |
+|                     | 3. Admin ändert den Wert "Value" zu einer Ganzzahl seiner Wahl. |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website speichert den Wert in der Datenbank. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt auf "Options" und anschliessend auf "max_pictures". |
+|                     | 3. Admin ändert den Wert "Value" zu einer Gleitzahl seiner Wahl. |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website gibt eine entsprechende Fehlermeldung aus. |
+|                     | 6. Der Admin korrigiert den Wert und klickt "Save". |
+|                     | 7. Die Website speichert den Wert in der Datenbank. |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+#+LATEX:}
+
+***** Bestellung ändern/korrigieren
+
+#+LATEX:{\footnotesize
+#+CAPTION: Use Case 7.0 Bestellung ändern/korrigieren
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:change_order
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 7.0 Bestellung ändern/korrigieren |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator korrigiert eine Bestellung. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Administrator ändert auf Wunsch eines Kunden eine Bestellung. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Die Bestellung hat eine angepasste Artikel Menge. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin klickt auf "Orders" und anschliessend auf die passende Order ID. |
+|                     | 3. Admin ändert den Wert "Amount" des ersten Artikels zu 0. |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website speichert die Bestellung in der Datenbank. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | -                              |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+#+LATEX:}
 
 *** NEXT Mockup
 
