@@ -522,16 +522,16 @@ ausprogrammiert haben. Die gesamte Liste an Use Cases sieht wie folgt
 aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 
 #+LATEX: {\footnotesize
-| - 1.0 Artikel durchstöbern                               | - Kategorie erfassen (Admin Funktion)                |
-| - 2.0 Registration                                       | - Kategorie ändern (Admin Funktion)                  |
-| - 2.1 User Login                                         | - Kategorie löschen (Admin Funktion)                 |
+| - [[*Artikel durchst%C3%B6bern][1.0 Artikel durchstöbern]]                               | - Kategorie erfassen (Admin Funktion)                |
+| - [[Registration][2.0 Registration]]                                       | - Kategorie ändern (Admin Funktion)                  |
+| - [[User Login][2.1 User Login]]                                         | - Kategorie löschen (Admin Funktion)                 |
 | - User Profil ansehen                                    | - Bild hochladen (Admin Funktion)                    |
-| - 3.0 Artikel in Warenkorb legen                         | - Bild ändern (Admin Funktion)                       |
-| - 3.1 Währung ändern                                     | - Bild löschen (Admin Funktion)                      |
+| - [[Artikel in Warenkorb legen][3.0 Artikel in Warenkorb legen]]                         | - Bild ändern (Admin Funktion)                       |
+| - [[W%C3%A4hrung %C3%A4ndern][3.1 Währung ändern]]                                     | - Bild löschen (Admin Funktion)                      |
 | - Währung aktualisieren (Admin Funktion)                 | - Bestellung erfassen (Admin Funktion)               |
-| - 3.2 Checkout                                           | - 7.0 Bestellung ändern/korrigieren (Admin Funktion) |
-| - 4.0 User Passwort ändern (Admin Funktion)              | - Bestellung löschen (Admin Funktion)                |
-| - 5.0 Artikel erfassen (Admin Funktion)                  | - 6.0 max_pictures Option anpassen (Admin Funktion)  |
+| - [[Checkout][3.2 Checkout]]                                           | - [[Bestellung %C3%A4ndern/korrigieren][7.0 Bestellung ändern/korrigieren (Admin Funktion)]] |
+| - [[User Passwort %C3%A4ndern][4.0 User Passwort ändern (Admin Funktion)]]              | - Bestellung löschen (Admin Funktion)                |
+| - [[Artikel erfassen][5.0 Artikel erfassen (Admin Funktion)]]                  | - [[max_pictures Option anpassen][6.0 max_pictures Option anpassen (Admin Funktion)]]  |
 | - Artikel ändern (Admin Funktion)                        | - max_pictures Option deaktivieren (Admin Funktion)  |
 | - Artikel löschen (Admin Funktion)                       | - User erfassen (Admin Funktion)                     |
 | - Materialbestellung erfassen (Admin Funktion)           | - User/Personen Daten ändern (Admin Funktion)        |
