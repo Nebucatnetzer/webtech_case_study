@@ -508,10 +508,44 @@ Webshops beschränkt.
 
 **** NEXT Use Case Detailbeschreibung
 
+Use Cases werden in der Regel mit Hilfe einer sogenannten Use Case
+Schablone im Detail beschrieben damit klar ist wie der Ablauf jeweils
+genau aussieht. Die von uns verwendete Schablone wurde von Alistair
+Cockburn definiert.
+
+Da ein Web-Shop eine sehr umfangreiche Applikation ist gibt es sehr
+viele Use Cases welche beschrieben und umgesetzt werden müssen. Aus
+zeitlichen Gründen haben wir nur einen kleinen Teil der Use Cases im
+Detail ausgearbeitet. Insbesondere diese welche wir selber
+ausprogrammiert haben. Die gesamte Liste an Use Cases sieht wie folgt
+aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
+
+#+LATEX: {\footnotesize
+| - 1.0 Artikel durchstöbern                               | - Kategorie erfassen (Admin Funktion)                |
+| - 2.0 Registration                                       | - Kategorie ändern (Admin Funktion)                  |
+| - 2.1 User Login                                         | - Kategorie löschen (Admin Funktion)                 |
+| - User Profil ansehen                                    | - Bild hochladen (Admin Funktion)                    |
+| - 3.0 Artikel in Warenkorb legen                         | - Bild ändern (Admin Funktion)                       |
+| - 3.1 Währung ändern                                     | - Bild löschen (Admin Funktion)                      |
+| - Währung aktualisieren (Admin Funktion)                 | - Bestellung erfassen (Admin Funktion)               |
+| - 3.2 Checkout                                           | - 7.0 Bestellung ändern/korrigieren (Admin Funktion) |
+| - 4.0 User Passwort ändern (Admin Funktion)              | - Bestellung löschen (Admin Funktion)                |
+| - 5.0 Artikel erfassen (Admin Funktion)                  | - 6.0 max_pictures Option anpassen (Admin Funktion)  |
+| - Artikel ändern (Admin Funktion)                        | - max_pictures Option deaktivieren (Admin Funktion)  |
+| - Artikel löschen (Admin Funktion)                       | - User erfassen (Admin Funktion)                     |
+| - Materialbestellung erfassen (Admin Funktion)           | - User/Personen Daten ändern (Admin Funktion)        |
+| - Materialbestellung ändern/korrigieren (Admin Funktion) | - User löschen (Admin Funktion)                      |
+| - Materialbestellung löschen (Admin Funktion)            | - User Berechtigungen anpassen (Admin Funktion)      |
+| - Stadt hinzufügen (Admin Funktion)                      |                                                      |
+| - Stadt ändern (Admin Funktion)                          |                                                      |
+| - Stadt löschen (Admin Funktion)                         |                                                      |
+#+LATEX:}
+
 ***** Artikel durchstöbern
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use 1.0 Artikel durchstöbern
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX::environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:browse_article
 |---------------------+--------------------------------|
 |                     | <30>                           |
