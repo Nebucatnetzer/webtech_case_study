@@ -476,7 +476,7 @@ Als Interessent möchte ich...
 - die Preise in einer anderen Währung anzeigen können um die
   Preise in einer mir bekannten Währung vergleichen zu können.
 
-*** TODO Use Cases
+*** Use Cases
 
 Ein Use Case sammelt alle möglichen Szenarien, die eintreten können,
 wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
@@ -507,7 +507,7 @@ Webshops beschränkt.
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
 
-**** NEXT Use Case Detailbeschreibung
+**** Use Case Detailbeschreibung
 
 Use Cases werden in der Regel mit Hilfe einer sogenannten Use Case
 Schablone im Detail beschrieben damit klar ist wie der Ablauf jeweils
