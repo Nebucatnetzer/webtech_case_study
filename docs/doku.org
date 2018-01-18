@@ -579,11 +579,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** Registration
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use Case 2.0 Registration
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:registration
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -623,11 +625,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** User Login
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use Case 2.1 User Login
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:login
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -665,11 +669,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** Artikel in Warenkorb legen
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.0 Artikel in Warenkorb legen
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:cart
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -705,11 +711,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** Währung ändern
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.1 Währung ändern
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:currency
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -742,11 +750,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** Checkout
 
+#+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.2 Checkout
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:checkout
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -786,11 +796,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** User Passwort ändern
 
+#+LATEX:{\footnotesize
 #+CAPTION: 4.0 User Passwort ändern
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:password
 |---------------------+--------------------------------|
 |                     | <30>                           |
@@ -834,11 +846,13 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
 |---------------------+--------------------------------|
+#+LATEX:}
 
 ***** Artikel erfassen
 
+#+LATEX:{\footnotesize
 #+CAPTION: 5.0 Artikel erfassen
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
 #+NAME: tab:create_article
 |---------------------+--------------------------------|
 |                     | <30>                           |
