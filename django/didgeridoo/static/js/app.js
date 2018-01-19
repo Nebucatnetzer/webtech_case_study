@@ -8,7 +8,8 @@
       },
       dataType: 'json',
       success: function (data) {
-        alert("es pop auf! --dies kommt von: static/js/app.js--.");
+        var foo = jQuery.parseJSON(data);
+        alert("es pop auf! --dies kommt von: static/js/app.js--." + foo.currency_update);
 
       }
     });

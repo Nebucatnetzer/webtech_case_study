@@ -1,5 +1,5 @@
 {% extends "webshop/base.html" %}
-
+{% load customfilters %}
 {% block section_title %}Articles{% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
           </td>
           <td scope="col">{{ article.category }}</td>
           <td scope="col">{{ article.stock }}</td>
-          <td scope="col">{{ article.price_in_chf }}</td>
+          <td scope="col">{{ article.price_in_chf|boldcoffee }}</td>
         </tr>
       {% endfor %}
     </table>

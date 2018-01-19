@@ -9,7 +9,3 @@ class CurrencyForm(forms.Form):
 
     CURRENCY_CHOICES = [(t.name, t.name) for t in
                         ExchangeRate_name.objects.all()]
-
-    type = forms.ChoiceField(choices=CURRENCY_CHOICES,
-                             widget=forms.Select(attrs={
-                                'onchange': 'get_vehicle_color();'}))
