@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import datetime
+from datetime import datetime
 from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse_lazy
 from currencies.models import (ExchangeRate,
@@ -25,82 +25,111 @@ def currency_update(request):
 
 
 def currencies(request):
-    # this function fetches the data from exchange_rates.py
-    # evaluates if the values are already stored and
-    # prepares the view all dynamicaly.
-    # It can grow in terms of more Currencies over time automaticaly.
-    today = ''
-    raw_data = []
+
+    """this function fetches the data from swiss national bank
+    evaluates if the values are already stored and
+    prepares a view all dynamicaly.
+    It can grow in terms of more Currencies over time automaticaly."""
+
+    # Namespaces
+    ns = {'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+          'none': 'http://purl.org/rss/1.0/',
+          'dc': 'http://purl.org/dc/elements/1.1/',
+          'dcterms': 'http://purl.org/dc/terms/',
+          'cb': 'http://www.cbwiki.net/wiki/index.php/Specification_1.2/'
+          }
+    SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
     try:
-        raw_data, today = exchange_rates.get_exchange_rate()
+        urlsocket = exchange_rates.get_rss(SNB_URL)
     except Exception as e:
-        print('views raw_data: ', raw_data, 'error:', e)  # assert False
-    message_no = "Already querried today: "
+        print('currencies/views get_rss(): ', urlsocket, 'error:', e)
+    try:
+        rss_tree = exchange_rates.parse_rss(urlsocket)
+    except Exception as e:
+        print('currencies/views parse_rss(): ', rss_tree, 'error:', e)
+    try:
+        raw_data = exchange_rates.get_exchange_rate(rss_tree, ns)
+    except Exception as e:
+        print('currencies/views get_exchange_rate(): ', raw_data, 'error:', e)
+
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    message_no = "Already querried: "
+    length_of_message_no = len(message_no)
     message_yes = " Updated successfully: "
+    length_of_message_yes = len(message_yes)
     # raw_data can be empty. In this case skip:
     if raw_data:
-        # if raw_data is not empty iterate over items in it:
-        for currency, rate in raw_data.items():
-            # check for already existing exrates per day and add
-            # to message that its already been saved.
-            if ExchangeRate.objects.filter(
-                    date__date=today,
-                    name__name=currency):
-                message_no += currency + ", "
-            else:
-                if ExchangeRate_date.objects.filter(date=today)[:1]:
-                    # if data and currency is not yet present, save it.
-                    try:
-                        # A: https://stackoverflow.com/a/27802801/4061870
-                        # lustigerweise gibt .values() den value und die id
-                        # zurück. Ohne .values() gibts nur den "value"
-                        date_dict = ExchangeRate_date.objects.filter(
-                            date=today).values()
-                    except Exception as e:
-                        print('exdate_exists %s (%s) on %s'
-                              % (e, type(e), today))
+        for one_obj_of_list in raw_data:
+            for exchange_rate_of_one_day in one_obj_of_list:
+                date = exchange_rate_of_one_day['date']
+                currency = exchange_rate_of_one_day['currency']
+                exchangerate = exchange_rate_of_one_day['exchangerate']
+                # check for already existing exrates per day and add
+                # to message that its already been saved.
+                if ExchangeRate.objects.filter(
+                        date__date=date,
+                        name__name=currency):
+                    message_no += currency + ' on ' + date + ", "
                 else:
+                    if ExchangeRate_date.objects.filter(date=date)[:1]:
+                        # if data and currency is not yet present, save it.
+                        try:
+                            # A: https://stackoverflow.com/a/27802801/4061870
+                            # lustigerweise gibt .values() den value und die id
+                            # zurück. Ohne .values() gibts nur den "value"
+                            date_dict = ExchangeRate_date.objects.filter(
+                                date=date).values()
+                        except Exception as e:
+                            print('currencies/views/exdate_exists \
+                                %s (%s) on %s'
+                                  % (e, type(e), today))
+                    else:
+                        try:
+                            exdate = ExchangeRate_date.objects.create(
+                                date=date)
+                            exdate.save()
+                        except Exception as e:
+                            print('currencies/views/exdate_not_exists \
+                                %s (%s) for %s'
+                                  % (e, type(e), date))
+                    if ExchangeRate_name.objects.filter(
+                            name=currency)[:1]:
+                        # if data and currency is not yet present, save it.
+                        try:
+                            name_dict = ExchangeRate_name.objects.filter(
+                                name=currency).values()
+                        except Exception as e:
+                            print('currencies/views/exname_exists \
+                                %s (%s) on %s'
+                                  % (e, type(e), currency))
+                    else:
+                        try:
+                            exname = ExchangeRate_name.objects.create(
+                                name=currency)
+                            exname.save()
+                        except Exception as e:
+                            print('currencies/views/exname_not_exists \
+                                %s (%s) on %s'
+                                  % (e, type(e), currency))
                     try:
-                        exdate = ExchangeRate_date.objects.create(
-                            date=today)
-                        exdate.save()
-                    except Exception as e:
-                        print('exdate_not_exists %s (%s) for %s'
-                              % (e, type(e), today))
-                if ExchangeRate_name.objects.filter(
-                        name=currency)[:1]:
-                    # if data and currency is not yet present, save it.
-                    try:
-                        name_dict = ExchangeRate_name.objects.filter(
-                            name=currency).values()
-                    except Exception as e:
-                        print('exname_exists %s (%s) on %s'
-                              % (e, type(e), currency))
-                else:
-                    try:
-                        exname = ExchangeRate_name.objects.create(
-                            name=currency)
-                        exname.save()
-                    except Exception as e:
-                        print('exname_not_exists %s (%s) on %s'
-                              % (e, type(e), currency))
-                try:
-                    # save item to where id's match.
-                    exrate = ExchangeRate.objects.create(
-                        # name_id=name_id,
-                        name_id=ExchangeRate_name.objects.get(
-                            name=currency).id,
-                        # date_id=date_id,
-                        date_id=ExchangeRate_date.objects.get(
-                            date=today).id,
-                        exchange_rate_to_chf=rate,
-                        )
-                    exrate.save()
-                    message_yes += currency + ", "
+                        # save item to where id's match.
+                        exrate = ExchangeRate.objects.create(
+                            # name_id=name_id,
+                            name_id=ExchangeRate_name.objects.get(
+                                name=currency).id,
+                            # date_id=date_id,
+                            date_id=ExchangeRate_date.objects.get(
+                                date=date).id,
+                            exchange_rate_to_chf=exchangerate,
+                            )
+                        exrate.save()
+                        message_yes += currency + ' on ' + date + ", "
 
-                except Exception as e:
-                    print('exrate_create %s (%s) on %s for %s'
-                          % (e, type(e), currency, today))
+                    except Exception as e:
+                        print('currencies/views/exrate_create \
+                            %s (%s) on %s for %s'
+                              % (e, type(e), currency, date))
 
     # prepare messages:
     # python can not swap a char insinde a sting so i have
@@ -112,11 +141,12 @@ def currencies(request):
     message_yes = message_yes.replace(",", "!", 1)  # replace f. , with !
     message_yes = message_yes[::-1]  # invert the string back
     # here we evaluate what kind of message is valid:
-    if len(message_no) > 24 and len(message_yes) > 23:
+    if len(message_no) > length_of_message_no\
+            and len(message_yes) > length_of_message_yes:
         message = message_no + message_yes
     elif len(message_no) > 24:
         message = message_no
-    elif len(message_yes) > 23:
+    elif len(message_yes) > 18:
         message = message_yes
     elif datetime.datetime.today().isoweekday() == 6:
         message = """Die Abfrage wurde ohne ergebniss beendet.
@@ -130,8 +160,6 @@ def currencies(request):
         """
     else:
         message = """Die Abfrage wurde ohne ergebniss beendet.
-        Kann es sein dass die SNB aufgrund eines Feiertages
-        geschlossen ist?
         """
     # know we can query our data for presentaton:
     currency_list = ExchangeRate.objects.all()
