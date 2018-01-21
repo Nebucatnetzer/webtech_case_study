@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from datetime import datetime
 from django.views.generic.edit import UpdateView
-from django.core.urlresolvers import reverse_lazy
 from currencies.models import (ExchangeRate,
                                ExchangeRate_date,
                                ExchangeRate_name)
 from currencies import exchange_rates
-from currencies.forms import CurrencyForm
 from django.http import JsonResponse
 
 
