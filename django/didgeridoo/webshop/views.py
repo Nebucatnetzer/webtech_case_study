@@ -20,6 +20,12 @@ def get_categories():
                 {i: Category.objects.filter(parent_category=i.id)})
     return category_list
 
+
+def get_hidden_status_id():
+    hidden_status = ArticleStatus.objects.get(name="hidden")
+    return hidden_status.id
+
+
     category_list = get_categories()
     return render(request,
                   'webshop/index.html',
