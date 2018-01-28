@@ -67,7 +67,6 @@ def index(request):
 def articles_in_category(request, category_id):
     category_list = get_categories()
     selected_category = Category.objects.get(id=category_id)
-    hidden = ArticleStatus.objects.get(name="hidden")
 
     articles_list = Article.objects.filter(
         category=selected_category.id).exclude(status=get_hidden_status_id())
