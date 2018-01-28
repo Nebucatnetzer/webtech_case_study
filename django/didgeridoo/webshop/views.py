@@ -69,12 +69,12 @@ def articles_in_category(request, category_id):
     selected_category = Category.objects.get(id=category_id)
     hidden = ArticleStatus.objects.get(name="hidden")
 
-    article_list = Article.objects.filter(
-        category=selected_category.id).exclude(status=hidden.id)
+    articles_list = Article.objects.filter(
+        category=selected_category.id).exclude(status=get_hidden_status_id())
 
 
     return render(request, 'webshop/category.html',
-                  {'article_list': article_list,
+                  {'articles_list': articles_list,
                    'category_list': category_list,
                    'category': selected_category})
 
