@@ -8,19 +8,19 @@ from webshop.models import (Article, Category, ArticleStatus, Person,
 from webshop.forms import RegistrationForm
 
 
+
 # Create your views here.
 
-
-def index(request):
+def get_categories():
     parent_category_list = Category.objects.filter(parent_category=None)
     category_list = {}
-    hidden = ArticleStatus.objects.get(name="hidden")
-    articles_list = Article.objects.all().exclude(status=hidden.id)
 
     for i in parent_category_list:
             category_list.update(
                 {i: Category.objects.filter(parent_category=i.id)})
+    return category_list
 
+    category_list = get_categories()
     return render(request,
                   'webshop/index.html',
                   {'category_list': category_list,
@@ -28,18 +28,13 @@ def index(request):
 
 
 def articles_in_category(request, category_id):
+    category_list = get_categories()
     selected_category = Category.objects.get(id=category_id)
     hidden = ArticleStatus.objects.get(name="hidden")
 
     article_list = Article.objects.filter(
         category=selected_category.id).exclude(status=hidden.id)
 
-    parent_category_list = Category.objects.filter(parent_category=None)
-    category_list = {}
-
-    for i in parent_category_list:
-            category_list.update(
-                {i: Category.objects.filter(parent_category=i.id)})
 
     return render(request, 'webshop/category.html',
                   {'article_list': article_list,
@@ -48,12 +43,7 @@ def articles_in_category(request, category_id):
 
 
 def article_details(request, article_id):
-    parent_category_list = Category.objects.filter(parent_category=None)
-    category_list = {}
-
-    for i in parent_category_list:
-            category_list.update(
-                {i: Category.objects.filter(parent_category=i.id)})
+    category_list = get_categories()
 
     article = get_object_or_404(Article, pk=article_id)
     picture_list = Picture.objects.filter(article=article_id)
@@ -98,4 +88,5 @@ def registration(request):
         user_form = UserCreationForm
     return render(request, 'registration/register.html',
                   {'profile_form': profile_form,
+                   'category_list': category_list,
                    'user_form': user_form})
