@@ -8,7 +8,7 @@
             Please correct the error{{ form.errors|pluralize }} below.
         </p>
  {% endif %}
-  <form action="" method="post" novalidate>
+  <form id="register" name="register" action="" method="post" novalidate>
     <table>
       {{ user_form.as_table }}
       {{ profile_form.as_table }}
