@@ -11,6 +11,10 @@ urlpatterns = [
         views.articles_in_category,
         name='category'),
     url('^', include('django.contrib.auth.urls')),
-    url(r'^profile/$', views.profile, name='profile'),
-    url(r'^registration/$', views.registration, name='registration'),
+    url(r'^profile/$',
+        views.profile,
+        name='profile'),
+    url(r'^registration/$',
+        views.registration,
+        name='registration'),
 ]

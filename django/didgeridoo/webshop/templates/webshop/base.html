@@ -28,28 +28,10 @@
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'index' %}">
-            HOME
-          </a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="#">CART</a></li>
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">PROFILE</a></li>
-          <li><a href="{% url 'logout' %}">LOGOUT</a></li>
-          {% else %}
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
-          {% endif %}
-          <li><a href="#">CURRENCY</a></li>
-        </ul>
-      </div>
-    </nav>
+    {% block nav %}{% include "webshop/nav.html" %}{% endblock %}
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-md-2">
           {% block sidebar %}
             {% if category_list %}
             <ul>
@@ -67,13 +49,15 @@
             {% endif %}
           {% endblock %}
         </div>
-        <div class="col-sm-10 ">
+        <div class="col-md-8 panel panel-default">
+          <div class="panel-heading">
             <h1>
               {% block section_title %}{% endblock %}
             </h1>
-        </div>
-        <div class="col-sm-10 ">
-          {% block content %}{% endblock %}
+          </div>
+          <div class="panel-body">
+            {% block content %}{% endblock %}
+          </div>
         </div>
       </div>
     </div>
@@ -82,12 +66,37 @@
         <div class="row">
           <div class="col-sm-12">
             {% block footer %}
-              This is a case study project of Ivan Hörler and Andreas Zweili. </br>
-              It is a school project/excercise and has no commercial intent.
+              <div class="container text-center">
+              <hr>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <ul class="nav nav-pills nav-justified">
+                      <li>
+                        <a id='school'
+                          target='_blank'
+                          href='http://www.ibz.ch'
+                          >This is a case study project of Ivan Hörler and Andreas Zweili.
+                          </br>
+                          It is a school project/excercise and has no commercial intent.
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/currencies">Currencies</a>
+                      </li>
+                      <li>
+                        <a href="#">How to use</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             {% endblock %}
           </div>
         </div>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script>{% block javascript %}{% endblock %}</script>
   </body>
 </html>

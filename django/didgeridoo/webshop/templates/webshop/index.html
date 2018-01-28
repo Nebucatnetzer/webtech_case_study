@@ -1,5 +1,7 @@
 {% extends "webshop/base.html" %}
+{% load customfilters %}
 {% block section_title %}Articles{% endblock %}
+
 {% block content %}
   {% if articles_list %}
     <table class="table">

@@ -1,0 +1,42 @@
+{% block nav %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        HOME
+      </a>
+      <ul class="nav navbar-nav">
+        <li><a href="#">CART</a></li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'profile' %}">PROFILE</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">LOGOUT</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url 'login' %}">LOGIN</a>
+        </li>
+        {% endif %}
+        <!-- https://pypi.python.org/pypi/django-select-multiple-field -->
+        <form method="POST" novalidate>
+          <select name="currency_update" id="id_currency_update">
+              <option value="CHF">CHF</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+              <option value="JPY">JPY</option>
+          </select>
+          {% csrf_token %}
+        </form>
+      </ul>
+    </div>
+    <!--
+    Es wird auf id im app.js file gemached.
+    die URL wird im app.js gesetzt
+    und mit urls.py weitergereicht.
+    dann auf name im views.py gemached und ausgeführt.
+    -->
+  </div>
+</nav>
+{% endblock %}

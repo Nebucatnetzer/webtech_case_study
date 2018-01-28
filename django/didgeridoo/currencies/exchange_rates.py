@@ -11,134 +11,99 @@ Key:Value pairs of new currencys.
 """
 
 
-def get_exchange_rate():
-    # zweitweise kann die resource nicht geladen werden.
-    # https://stackoverflow.com/a/43523497/4061870
-    # During weekends there are no updates.
-    # To develop i need a testresource.
-    # In that case i comment the Online Resource block and uncomment the
-    # development Block...
-
-    # ~~~~~~~~~~~~~~~~~~~~~
-    # Online Resource block:
-    # ~~~~~~~~~~~~~~~~~~~~~
-    today = datetime.now().strftime("%Y-%m-%d")
-    SNB_URL = 'https://www.snb.ch/selector/de/mmr/exfeed/rss'
+def get_rss(url):
     urlsocket = ''
     try:
-        urlsocket = urllib.request.urlopen(SNB_URL)
+        urlsocket = urllib.request.urlopen(url)
+        return(urlsocket)
     except urllib.error.URLError as e:
         print('err: urllib.request.urlopen: ', e.reason)
+
+
+def parse_rss(urlsocket):
     if urlsocket:
         root = ET.parse(urlsocket)
-        root = ET.ElementTree(root)
-        # ~~~~~~~~~~~~~~~~~~~~~
-        # development block:
-        # ~~~~~~~~~~~~~~~~~~~~~
-        # today = "2018-01-08"
-        # try:
-        #     root = ET.ElementTree(file='rss')
-        # except Exception as e:
-        #     print('exchange_rates.py_urlsocket failed %s (
-        #           %s) on date: %s for %s'
-        #           % (e, type(e), root))
-        # ~~~~~~~~~~~~~~~~~~~~~
+        rss_tree = ET.ElementTree(root)
+    return(rss_tree)
 
-        # Namespaces
-        ns = {'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-              'none': 'http://purl.org/rss/1.0/',
-              'dc': 'http://purl.org/dc/elements/1.1/',
-              'dcterms': 'http://purl.org/dc/terms/',
-              'cb': 'http://www.cbwiki.net/wiki/index.php/Specification_1.2/'
-              }
-        # Pathvariables to XML Namespaces
-        rate_path = 'cb:statistics/cb:exchangeRate/'
-        observation_path = 'cb:statistics/cb:exchangeRate/cb:observation/'
-        exchange_rates = {}
-        for item in root.findall('none:item', ns):
-            # for eatch item n the list we grab the release date
-            # to evaluate if its fresh data or old:
 
-            # THE CURRENCY DATE:
-            datetime_str = item.find('dc:date', ns).text
-            # convert string to date object:
-            # https://stackoverflow.com/a/12282040/4061870
-            # seams like snb striked the microsecond somewhere
-            # between Nov. and Dez. 2017 so maybe first check
-            # time type is with milliseconds:
+def get_exchange_rate(rss_tree, ns):
+    # Pathvariables to XML Namespaces with
+    rate_path = 'cb:statistics/cb:exchangeRate/'
+    observation_path = 'cb:statistics/cb:exchangeRate/cb:observation/'
+    exchange_rates = []
+
+    for item in rss_tree.findall('none:item', ns):
+        datetime_str = item.find('dc:date', ns).text
+        try:
+            date = datetime.strptime(''.join(
+                         datetime_str.rsplit(':', 1)),
+                         "%Y-%m-%dT%H:%M:%S%z").strftime(
+                         "%Y-%m-%d")
+        except Exception as e:
+            print('%s (%s)' % (e, type(e)))
             try:
                 date = datetime.strptime(''.join(
                              datetime_str.rsplit(':', 1)),
-                             "%Y-%m-%dT%H:%M:%S%z").strftime(
+                             "%Y-%m-%dT%H:%M:%S.%f%z").strftime(
                              "%Y-%m-%d")
+                continue
             except Exception as e:
                 print('%s (%s)' % (e, type(e)))
-                try:
-                    date = datetime.strptime(''.join(
-                                 datetime_str.rsplit(':', 1)),
-                                 "%Y-%m-%dT%H:%M:%S.%f%z").strftime(
-                                 "%Y-%m-%d")
-                    continue
-                except Exception as e:
-                    print('%s (%s)' % (e, type(e)))
-                    continue
-            # Print dates for development:
-            # print("date:", date, "today:", today)
-            # only the values of today are used so check for date in XML:
-            if date == today:
-                # now search for the currency exchange rate:
-                target_currency = item.find(rate_path +
-                                            'cb:targetCurrency', ns).text
-                value = float(item.find(observation_path +
-                                        'cb:value', ns).text)
-                value = float(value)  # convert to float
-                foreign_value = value  # copy to new value to have both.
-
-                if item.find(observation_path + 'cb:unit_mult', ns) is None:
-                    # because it's dangerous to check for present,
-                    # i check for none here and have to set the target
-                    # to 1. as im multiplying it later.
-                    unit_mult = float("1.0")
-                else:
-                    # shift left by 2 digits with "/"
-                    # https://stackoverflow.com/questions/8362792/
-                    # because some currencys differ widly from CHF
-                    unit_mult = item.find(observation_path +
-                                          'cb:unit_mult', ns).text
-                    # unit_mult defaults to '0' so we check for 8 decimal
-                    # values (2..-6) they represent the fracton value to
-                    # calculate the correct decimalpoint.
-                    if unit_mult == '2':  # thinking of Bitcoins
-                        unit_mult = '0.01'
-                    if unit_mult == '1':
-                        unit_mult = '0.10'
-                    if unit_mult == '-1':
-                        unit_mult = '10'
-                    if unit_mult == '-2':  # Japan Yen
-                        unit_mult = '100'
-                    if unit_mult == '-3':
-                        unit_mult = '1000'
-                    if unit_mult == '-4':
-                        unit_mult = '10000'
-                    if unit_mult == '-5':
-                        unit_mult = '100000'
-                    if unit_mult == '-6':  # indian rupies
-                        unit_mult = '1000000'
-                    unit_mult = float(unit_mult)  # convert to float
-                # calculate the Currency to CHF:
-                foreign_value = 1 / value
-                foreign_value *= unit_mult
-                value = value / unit_mult
-                # truncate it to decimal values provided by the xml:
-                foreign_value_round = round(foreign_value, 5)
-                # Print nice setup of all calculated currencys for development:
-                # print("date:", date, " 1 ", target_currency, " costs: ",
-                #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
-                #       FOREIGNvalue_round, target_currency)
-                exchange_rates.update(
-                    {target_currency: foreign_value_round})
-                # Print the Dictionary:
-                # print(exchange_rates)
-            else:
                 continue
-        return(exchange_rates, today)
+        # now search for the currency exchange rate:
+        target_currency = item.find(rate_path +
+                                    'cb:targetCurrency', ns).text
+        value = float(item.find(observation_path +
+                                'cb:value', ns).text)
+        value = float(value)  # convert to float
+        foreign_value = value  # copy to new value to have both.
+
+        if item.find(observation_path + 'cb:unit_mult', ns) is None:
+            # because it's dangerous to check for present,
+            # i check for none here and have to set the target
+            # to 1. as im multiplying it later.
+            unit_mult = float("1.0")
+        else:
+            # shift left by 2 digits with "/"
+            # https://stackoverflow.com/questions/8362792/
+            # because some currencys differ widly from CHF
+            unit_mult = item.find(observation_path +
+                                  'cb:unit_mult', ns).text
+            # unit_mult defaults to '0' so we check for 8 decimal
+            # values (2..-6) they represent the fracton value to
+            # calculate the correct decimalpoint.
+            if unit_mult == '2':  # thinking of Bitcoins
+                unit_mult = '0.01'
+            if unit_mult == '1':
+                unit_mult = '0.10'
+            if unit_mult == '-1':
+                unit_mult = '10'
+            if unit_mult == '-2':  # Japan Yen
+                unit_mult = '100'
+            if unit_mult == '-3':
+                unit_mult = '1000'
+            if unit_mult == '-4':
+                unit_mult = '10000'
+            if unit_mult == '-5':
+                unit_mult = '100000'
+            if unit_mult == '-6':  # indian rupies
+                unit_mult = '1000000'
+            unit_mult = float(unit_mult)  # convert to float
+        # calculate the Currency to CHF:
+        foreign_value = 1 / value
+        foreign_value *= unit_mult
+        value = value / unit_mult
+        # truncate it to decimal values provided by the xml:
+        foreign_value_round = round(foreign_value, 5)
+        # Print nice setup of all calculated currencys for development:
+        # print("date:", date, " 1 ", target_currency, " costs: ",
+        #       CHFvalue, "CHF and 1 ", base_currency, " costs: ",
+        #       FOREIGNvalue_round, target_currency)
+        data = [{'date': date,
+                 'currency': target_currency,
+                 'exchangerate': foreign_value_round}]
+        exchange_rates.append(data)
+        # Print the Dictionary:
+    print(exchange_rates)
+    return(exchange_rates)
