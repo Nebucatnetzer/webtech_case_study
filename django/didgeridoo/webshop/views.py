@@ -104,12 +104,36 @@ def articles_in_category(request, category_id):
 
 def article_details(request, article_id):
     category_list = get_categories()
+    currencies_form = CurrenciesForm
+    rate=ExchangeRate
+    article_view = True
+    currency_name = "CHF"
 
     article = get_object_or_404(Article, pk=article_id)
     picture_list = Picture.objects.filter(article=article_id)
+
+    if request.method == 'POST':
+        currencies_form = CurrenciesForm(request.POST)
+        if currencies_form.is_valid():
+            cf = currencies_form.cleaned_data
+            if cf['currencies']:
+                selection = cf['currencies']
+                request.session['currency'] = selection.id
+                currency_name=ExchangeRate_name.objects.get(id=selection.id)
+            else:
+                request.session['currency'] = None
+
+    if request.session['currency']:
+        currency = request.session['currency']
+        article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+        currency_name=ExchangeRate_name.objects.get(id=currency)
+
     return render(request, 'webshop/article_details.html',
                   {'article': article,
                    'category_list': category_list,
+                   'currencies_form': currencies_form,
+                   'article_view': article_view,
+                   'currency_name': currency_name,
                    'picture_list': picture_list})
 
 @login_required

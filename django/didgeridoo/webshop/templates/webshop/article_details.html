@@ -4,8 +4,8 @@
     <h3>Description</h3>
     <p>{{ article.description }}</p>
     <p><b>Stock:</b> {{ article.stock }}</p>
-    <p><b>Status:</b> {{ article.status}}</p>
-    <p><b>Price:</b> {{ article.price_in_chf }}</p>
+    <p><b>Status:</b> {{ article.status }}</p>
+    <p><b>Price:</b> {{ article.price_in_chf }} {{ currency_name }}</p>
     {% for picture in picture_list %}
         <p><img src="{{ MEDIA_URL }}{{ picture.image }}" width="200" /></p>
     {% endfor %}
