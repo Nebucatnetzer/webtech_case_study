@@ -7,6 +7,8 @@ from webshop.models import (Article, Category, ArticleStatus, Person,
                             City, Picture)
 from webshop.forms import RegistrationForm
 
+from currencies.models import ExchangeRate, ExchangeRate_name
+from currencies.forms import CurrenciesForm
 
 
 # Create your views here.
@@ -26,11 +28,40 @@ def get_hidden_status_id():
     return hidden_status.id
 
 
+def index(request):
     category_list = get_categories()
+    articles = Article.objects.all().exclude(status=get_hidden_status_id())
+    articles_list = list(articles)
+    currencies_form = CurrenciesForm
+    rate=ExchangeRate
+    article_view = True
+    currency_name = "CHF"
+
+    if request.method == 'POST':
+        currencies_form = CurrenciesForm(request.POST)
+        if currencies_form.is_valid():
+            cf = currencies_form.cleaned_data
+            if cf['currencies']:
+                selection = cf['currencies']
+                request.session['currency'] = selection.id
+                currency_name=ExchangeRate_name.objects.get(id=selection.id)
+            else:
+                request.session['currency'] = None
+
+    if request.session['currency']:
+        currency = request.session['currency']
+        for idx, article in enumerate(articles_list):
+            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+            articles_list[idx] = article
+            currency_name=ExchangeRate_name.objects.get(id=currency)
+
     return render(request,
-                  'webshop/index.html',
-                  {'category_list': category_list,
-                   'articles_list': articles_list})
+                'webshop/index.html',
+                {'category_list': category_list,
+                 'articles_list': articles_list,
+                 'currencies_form': currencies_form,
+                 'article_view': article_view,
+                 'currency_name': currency_name})
 
 
 def articles_in_category(request, category_id):
