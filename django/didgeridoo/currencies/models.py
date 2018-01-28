@@ -23,5 +23,9 @@ class ExchangeRate(models.Model):
     exchange_rate_to_chf = models.DecimalField(max_digits=12,
                                                decimal_places=5)
 
+    def exchange(_currency_id, _base_currency):
+        rate = ExchangeRate.objects.filter(name=_currency_id).latest('date')
+        return round(rate.exchange_rate_to_chf * _base_currency,2)
+
     def __str__(self):
         return str(self.name)
