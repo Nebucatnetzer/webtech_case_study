@@ -3,12 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from webshop.models import (Article,
-                            Category,
-                            ArticleStatus,
-                            Person,
-                            City,
-                            Picture)
+from webshop.models import (Article, Category, ArticleStatus, Person,
+                            City, Picture)
 from webshop.forms import RegistrationForm
 
 
