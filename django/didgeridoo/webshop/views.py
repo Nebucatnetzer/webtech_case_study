@@ -37,6 +37,9 @@ def index(request):
     article_view = True
     currency_name = "CHF"
 
+    if not 'currency' in request.session:
+        request.session['currency'] = None
+
     if request.method == 'POST':
         currencies_form = CurrenciesForm(request.POST)
         if currencies_form.is_valid():
@@ -75,6 +78,9 @@ def articles_in_category(request, category_id):
     article_view = True
     currency_name = "CHF"
 
+    if not 'currency' in request.session:
+        request.session['currency'] = None
+
     if request.method == 'POST':
         currencies_form = CurrenciesForm(request.POST)
         if currencies_form.is_valid():
@@ -108,6 +114,9 @@ def article_details(request, article_id):
     rate=ExchangeRate
     article_view = True
     currency_name = "CHF"
+
+    if not 'currency' in request.session:
+        request.session['currency'] = None
 
     article = get_object_or_404(Article, pk=article_id)
     picture_list = Picture.objects.filter(article=article_id)
