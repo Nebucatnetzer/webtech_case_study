@@ -1,7 +1,7 @@
 {% extends "webshop/base.html" %}
 {% block section_title %}Category Overview{% endblock %}
 {% block content %}
-  {% if article_list %}
+  {% if articles_list %}
     <table class="table">
       <tr class="table_header">
         <th scope="col">ID</th>
@@ -10,7 +10,7 @@
         <th scope="col">STOCK</th>
         <th scope="col">PRICE</th>
       </tr>
-      {% for article in article_list %}
+      {% for article in articles_list %}
         <tr class="table_content">
           <td scope="col">{{ article.id }}</td>
           <td scope="col">
@@ -19,7 +19,7 @@
             </a></td>
           <td scope="col">{{ article.category }}</td>
           <td scope="col">{{ article.stock }}</td>
-          <td scope="col">{{ article.price_in_chf }}</td>
+          <td scope="col">{{ article.price_in_chf }} {{ currency_name }}</td>
         </tr>
       {% endfor %}
     </table>

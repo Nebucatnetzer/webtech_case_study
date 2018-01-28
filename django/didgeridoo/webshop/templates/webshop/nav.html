@@ -19,24 +19,19 @@
           <a href="{% url 'login' %}">LOGIN</a>
         </li>
         {% endif %}
-        <!-- https://pypi.python.org/pypi/django-select-multiple-field -->
-        <form method="POST" novalidate>
-          <select name="currency_update" id="id_currency_update">
-              <option value="CHF">CHF</option>
-              <option value="USD">USD</option>
-              <option value="GBP">GBP</option>
-              <option value="JPY">JPY</option>
-          </select>
+        <li>
+            {% if article_view %}
+          <form id="currency" name="currency" action="" method="POST" novalidate>
+            {{ currencies_form.as_ul }}
+            <li>
+              <input type="submit" value="Select">
+            </li>
           {% csrf_token %}
-        </form>
+          </form>
+          {% endif %}
+        </li>
       </ul>
     </div>
-    <!--
-    Es wird auf id im app.js file gemached.
-    die URL wird im app.js gesetzt
-    und mit urls.py weitergereicht.
-    dann auf name im views.py gemached und ausgeführt.
-    -->
   </div>
 </nav>
 {% endblock %}
