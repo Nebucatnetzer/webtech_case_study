@@ -68,12 +68,15 @@ def article_details(request, article_id):
 
 @login_required
 def profile(request):
+    category_list = get_categories()
     person = Person.objects.get(user=request.user)
     return render(request, 'registration/profile.html',
-                  {'person': person})
+                  {'person': person,
+                   'category_list': category_list})
 
 
 def registration(request):
+    category_list = get_categories()
     if request.method == 'POST':
             profile_form = RegistrationForm(request.POST)
             user_form = UserCreationForm(request.POST)
