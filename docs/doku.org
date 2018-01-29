@@ -996,7 +996,44 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 
 *** TODO Models
 
-\footcite{djangoextensions}
+Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
+Erstellung der Tabellen in der Datenbank. Zu Begin der Arbeit waren
+wir uns desen noch nicht ganz bewusst. Weshalb wir zuerst ein
+klassisches Entity Relation Diagramm, zu sehen in Abbildung:([[fig:erd]])
+erstellt haben.
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+ATTR_LATEX: :height.9\textwidth
+#+CAPTION: Entity Relation Diagramm
+#+NAME: fig:erd
+[[file:diagrammes/erd.eps]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
+
+Als wir dann lernten wie Django konkret funktioniert war das ERD nur
+noch bedingt von Nutzen. In den groben Zügen diente es uns jedoch für
+den Grund Aufbau der Modells. Der finalle Aufbau ist in der
+Abbildung:([[fig:final_erd]]) zu sehen. Dieses Entity Relation Diagramm
+wurde mithilfe der Django Applikation
+"Djangoextensions"\footcite{djangoextensions} erstellt.
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+ATTR_LATEX: :height.9\textheight
+#+CAPTION: Entity Relation Diagramm
+#+NAME: fig:final_erd
+[[file:diagrammes/final_erd.png]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
+
+Der Hauptgrund warum wir das finalle ERD durch Django haben generieren
+lassen ist das Django bereits mit diversen Modells und somit Tabellen
+daher kommt. Zum Teil auch solche wir zuvor selbst geplant hatten und unser ERD
+somit nicht mehr wirklich akurat war.
+
+Nachfolgend werden wir die von uns erstellten Modells im Detail
+beschreiben und auf jeweils spezifische Probleme eingehen.
 
 **** NEXT Category
 
