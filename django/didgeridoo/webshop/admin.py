@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 # Register your models here.
-from webshop.models import (Article, Order, OrderPosition,
+from webshop.models import (Article, Order, CartOfGoods,
                             Person, City, Picture, OrderOfGoods,
                             Category, Option)
 
@@ -57,10 +57,10 @@ class ArticleAdmin(admin.ModelAdmin):
     inlines = (PictureInline,)
 
 
-class OrderPositionInline(admin.StackedInline):
-    model = OrderPosition
+class CartOfGoodsInline(admin.StackedInline):
+    model = CartOfGoods
     can_delete = False
-    verbose_name_plural = 'Order Positions'
+    verbose_name_plural = 'Cart Items'
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -68,7 +68,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ('date',)
     date_hierarchy = 'date'
     ordering = ('-date',)
-    inlines = (OrderPositionInline,)
+    inlines = (CartOfGoodsInline,)
 
 
 class OrderOfGoodsAdmin(admin.ModelAdmin):
