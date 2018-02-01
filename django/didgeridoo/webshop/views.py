@@ -132,12 +132,10 @@ def article_details(request, article_id):
             currencies_form = CurrenciesForm(request.POST)
             print("currencies_form")
             if currencies_form.is_valid():
-                cf = currencies_form.cleaned_data
-                if cf['currencies']:
-                    selection = cf['currencies']
-                    request.session['currency'] = selection.id
-                    currency_name = ExchangeRate_name.objects.get(
-                        id=selection.id)
+                selection = currencies_form.cleaned_data['currencies']
+                request.session['currency'] = selection.id
+                currency_name = ExchangeRate_name.objects.get(
+                    id=selection.id)
 
         # hier wird der Artikel in den Wahrenkorb transferiert:
         if 'amount' in request.POST:
@@ -145,11 +143,9 @@ def article_details(request, article_id):
             print("add_to_cart_form")
             if amount.is_valid():
                 print("is valid")
-                af = amount.cleaned_data
-                if af['amount']:
-                    amount = af['amount']
-                    print("amount:", amount, "article_id:", article_id)
-                    amount = AddToCartForm()
+                amount = amount.cleaned_data['amount']
+                print("amount:", amount, "article_id:", article_id)
+                amount = AddToCartForm()
         else:
             amount = AddToCartForm()
 
