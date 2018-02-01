@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from webshop.models import (Article, Category, ArticleStatus, Person,
                             City, Picture)
-from webshop.forms import RegistrationForm
+from webshop.forms import RegistrationForm, AddToCartForm
 
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
@@ -33,7 +33,7 @@ def index(request):
     articles = Article.objects.all().exclude(status=get_hidden_status_id())
     articles_list = list(articles)
     currencies_form = CurrenciesForm
-    rate=ExchangeRate
+    rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
 
@@ -47,24 +47,26 @@ def index(request):
             if cf['currencies']:
                 selection = cf['currencies']
                 request.session['currency'] = selection.id
-                currency_name=ExchangeRate_name.objects.get(id=selection.id)
+                currency_name = ExchangeRate_name.objects.get(id=selection.id)
             else:
                 request.session['currency'] = None
 
     if request.session['currency']:
         currency = request.session['currency']
         for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+            article.price_in_chf = rate.exchange(
+                currency, article.price_in_chf
+                )
             articles_list[idx] = article
-            currency_name=ExchangeRate_name.objects.get(id=currency)
+            currency_name = ExchangeRate_name.objects.get(id=currency)
 
     return render(request,
-                'webshop/index.html',
-                {'category_list': category_list,
-                 'articles_list': articles_list,
-                 'currencies_form': currencies_form,
-                 'article_view': article_view,
-                 'currency_name': currency_name})
+                  'webshop/index.html',
+                  {'category_list': category_list,
+                   'articles_list': articles_list,
+                   'currencies_form': currencies_form,
+                   'article_view': article_view,
+                   'currency_name': currency_name})
 
 
 def articles_in_category(request, category_id):
@@ -74,7 +76,7 @@ def articles_in_category(request, category_id):
         category=selected_category.id).exclude(status=get_hidden_status_id())
     articles_list = list(articles)
     currencies_form = CurrenciesForm
-    rate=ExchangeRate
+    rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
 
@@ -88,16 +90,17 @@ def articles_in_category(request, category_id):
             if cf['currencies']:
                 selection = cf['currencies']
                 request.session['currency'] = selection.id
-                currency_name=ExchangeRate_name.objects.get(id=selection.id)
+                currency_name = ExchangeRate_name.objects.get(id=selection.id)
             else:
                 request.session['currency'] = None
 
     if request.session['currency']:
         currency = request.session['currency']
         for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+            article.price_in_chf = rate.exchange(
+                currency, article.price_in_chf)
             articles_list[idx] = article
-            currency_name=ExchangeRate_name.objects.get(id=currency)
+            currency_name = ExchangeRate_name.objects.get(id=currency)
 
     return render(request, 'webshop/category.html',
                   {'articles_list': articles_list,
@@ -111,7 +114,8 @@ def articles_in_category(request, category_id):
 def article_details(request, article_id):
     category_list = get_categories()
     currencies_form = CurrenciesForm
-    rate=ExchangeRate
+    amount = AddToCartForm
+    rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
 
@@ -122,20 +126,37 @@ def article_details(request, article_id):
     picture_list = Picture.objects.filter(article=article_id)
 
     if request.method == 'POST':
-        currencies_form = CurrenciesForm(request.POST)
-        if currencies_form.is_valid():
-            cf = currencies_form.cleaned_data
-            if cf['currencies']:
-                selection = cf['currencies']
-                request.session['currency'] = selection.id
-                currency_name=ExchangeRate_name.objects.get(id=selection.id)
-            else:
-                request.session['currency'] = None
+        print(request.POST)
+        # hier wird das Currency dropdown bearbeitet:
+        if 'currencies' in request.POST:
+            currencies_form = CurrenciesForm(request.POST)
+            print("currencies_form")
+            if currencies_form.is_valid():
+                cf = currencies_form.cleaned_data
+                if cf['currencies']:
+                    selection = cf['currencies']
+                    request.session['currency'] = selection.id
+                    currency_name = ExchangeRate_name.objects.get(
+                        id=selection.id)
+
+        # hier wird der Artikel in den Wahrenkorb transferiert:
+        if 'amount' in request.POST:
+            amount = AddToCartForm(request.POST)
+            print("add_to_cart_form")
+            if amount.is_valid():
+                print("is valid")
+                af = amount.cleaned_data
+                if af['amount']:
+                    amount = af['amount']
+                    print("amount:", amount, "article_id:", article_id)
+                    amount = AddToCartForm()
+        else:
+            amount = AddToCartForm()
 
     if request.session['currency']:
         currency = request.session['currency']
         article.price_in_chf = rate.exchange(currency, article.price_in_chf)
-        currency_name=ExchangeRate_name.objects.get(id=currency)
+        currency_name = ExchangeRate_name.objects.get(id=currency)
 
     return render(request, 'webshop/article_details.html',
                   {'article': article,
@@ -143,7 +164,10 @@ def article_details(request, article_id):
                    'currencies_form': currencies_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
-                   'picture_list': picture_list})
+                   'picture_list': picture_list,
+                   'amount': amount
+                   })
+
 
 @login_required
 def profile(request):

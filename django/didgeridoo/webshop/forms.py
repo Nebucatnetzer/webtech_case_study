@@ -51,3 +51,11 @@ class PictureForm(forms.ModelForm):
     class Meta:
         model = Picture
         fields = ['name', 'article', 'image']
+
+
+class AddToCartForm(forms.Form):
+    amount = forms.IntegerField(
+        label='Amount in piece.',
+        help_text="Enter a Value between 1 and 99.",
+        initial=1)
+    print("in AddToCartForm() printing")

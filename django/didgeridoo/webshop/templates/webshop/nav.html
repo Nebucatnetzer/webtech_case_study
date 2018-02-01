@@ -19,9 +19,9 @@
           <a href="{% url 'login' %}">LOGIN</a>
         </li>
         {% endif %}
-        <li>
+        <li class="dropdown">
             {% if article_view %}
-          <form id="currency" name="currency" action="" method="POST" novalidate>
+          <form id="currency" action="" method="POST" novalidate>
             {{ currencies_form.as_ul }}
             <li>
               <input type="submit" value="Select">
