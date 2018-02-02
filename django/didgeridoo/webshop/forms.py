@@ -58,4 +58,3 @@ class AddToCartForm(forms.Form):
         label='Amount in piece.',
         help_text="Enter a Value between 1 and 99.",
         initial=1)
-    print("in AddToCartForm() printing")
