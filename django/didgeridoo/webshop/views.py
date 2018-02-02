@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from webshop.models import (Article, Category, ArticleStatus, Person,
-                            City, Picture, CartOfGoods)
+                            City, Picture)
 from webshop.forms import RegistrationForm, AddToCartForm
 
 from currencies.models import ExchangeRate, ExchangeRate_name
@@ -144,12 +144,7 @@ def article_details(request, article_id):
             if amount.is_valid():
                 print("is valid")
                 amount = amount.cleaned_data['amount']
-                cart = CartOfGoods.objects.create(
-                    article=article_id,
-                    amount=amount,
-                    cart="",
-                    )
-                cart.save()
+                print("amount:", amount, "article_id:", article_id)
                 amount = AddToCartForm()
         else:
             amount = AddToCartForm()
