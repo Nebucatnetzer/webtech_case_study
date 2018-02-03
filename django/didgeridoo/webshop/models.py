@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from currencies.models import ExchangeRate
 
 
 class Option(models.Model):
@@ -81,9 +82,9 @@ class Picture(models.Model):
 class Order(models.Model):
     """ Submitted Orders """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # article = models.ManyToManyField(Article, through='OrderPosition')
     status = models.ForeignKey(OrderStatus)
     date = models.DateTimeField(default=timezone.now)
+    exchange_rate = models.ForeignKey(ExchangeRate)
 
 
 class OrderPosition(models.Model):
