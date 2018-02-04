@@ -251,15 +251,19 @@ def cart(request):
         cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
         message = "You have no items in the Basket"
-    if cart_id:
+    if cart_id and request.session['currency']:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
+        currency = request.session['currency']
         for idx, article in enumerate(articles_list):
             article.price_in_chf = rate.exchange(
                 currency, article.article.price_in_chf)
             articles_list[idx] = article
             currency_name = ExchangeRate_name.objects.get(id=currency)
             article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+    else:
+        articles = CartPosition.objects.filter(cart=cart_id)
+        articles_list = list(articles)
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
