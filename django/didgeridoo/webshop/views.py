@@ -262,7 +262,7 @@ def cart(request):
             article.price_in_chf = rate.exchange(currency, article.price_in_chf)
 
     return render(request, 'webshop/cart.html',
-                  {'article': article,
+                  {'articles_list': articles_list,
                    'currencies_form': currencies_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
