@@ -148,12 +148,19 @@ def article_details(request, article_id):
                 print("amount:", amount,
                       "article_id:", article_id,
                       "currency_id:", currency_id)
-                cart_position = CartPosition.objects.create(
-                    article=article_id,
-                    amount=amount,
-                    cart=ShoppingCart.objects.get(user=request.user)
-                    )
-                cart_position.save()
+                article = Article.objects.get(id=article_id)
+                try:
+                    cart_id = ShoppingCart.objects.get(user=request.user)
+                except:
+                    cart_id = ShoppingCart.objects.create(user=request.user)
+                    cart_id.save()
+                if cart_id:
+                    cart_position = CartPosition.objects.create(
+                        article=article,
+                        amount=amount,
+                        cart=ShoppingCart.objects.get(user=request.user)
+                        )
+                    cart_position.save()
                 amount = AddToCartForm()
         else:
             amount = AddToCartForm()
@@ -215,6 +222,7 @@ def registration(request):
 
 
 def cart(request):
+    category_list = get_categories()
     currencies_form = CurrenciesForm
     rate = ExchangeRate
     article_view = True
@@ -234,20 +242,25 @@ def cart(request):
             else:
                 request.session['currency'] = None
 
-    cart_id = ShoppingCart.objects.get(user=request.user)
-    articles = CartPosition.objects.filter(cart=cart_id)
-    articles_list = list(articles)
-    for idx, article in enumerate(articles_list):
-        article.price_in_chf = rate.exchange(
-            currency, article.price_in_chf)
-        articles_list[idx] = article
-
-        currency_name = ExchangeRate_name.objects.get(id=currency)
-        article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+    try:
+        cart_id = ShoppingCart.objects.filter(user=request.user)
+    except Exception as e:
+        message = "You have no items in the Basket"
+    if cart_id:
+        articles = CartPosition.objects.filter(cart=cart_id)
+        articles_list = list(articles)
+        for idx, article in enumerate(articles_list):
+            article.price_in_chf = rate.exchange(
+                currency, article.price_in_chf)
+            articles_list[idx] = article
+            currency_name = ExchangeRate_name.objects.get(id=currency)
+            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
 
     return render(request, 'webshop/cart.html',
                   {'article': article,
                    'currencies_form': currencies_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
+                   'category_list': category_list,
+                   'message': message,
                    })

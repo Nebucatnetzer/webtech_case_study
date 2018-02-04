@@ -111,7 +111,7 @@ class CartPosition(models.Model):
     """ Items in Cart """
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     amount = models.FloatField(max_length=5)
-    cart = models.ForeignKey(ShoppingCart)
+    cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE)
 
 
 class City(models.Model):
