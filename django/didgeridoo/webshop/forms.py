@@ -8,7 +8,7 @@ class RegistrationForm(forms.Form):
     first_name = forms.CharField()
     last_name = forms.CharField()
     street_name = forms.CharField()
-    street_number = forms.CharField()
+    street_number = forms.CharField(max_length=4)
     zip_code = forms.IntegerField(min_value=1000, max_value=9999)
     city = forms.CharField()
 
