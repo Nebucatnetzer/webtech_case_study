@@ -251,7 +251,7 @@ def cart(request):
         articles_list = list(articles)
         for idx, article in enumerate(articles_list):
             article.price_in_chf = rate.exchange(
-                currency, article.price_in_chf)
+                currency, article.article.price_in_chf)
             articles_list[idx] = article
             currency_name = ExchangeRate_name.objects.get(id=currency)
             article.price_in_chf = rate.exchange(currency, article.price_in_chf)
