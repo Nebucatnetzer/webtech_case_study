@@ -227,6 +227,7 @@ def cart(request):
     rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
+    message = ""
 
     if not 'currency' in request.session:
         request.session['currency'] = None
@@ -243,7 +244,7 @@ def cart(request):
                 request.session['currency'] = None
 
     try:
-        cart_id = ShoppingCart.objects.filter(user=request.user)
+        cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
         message = "You have no items in the Basket"
     if cart_id:
