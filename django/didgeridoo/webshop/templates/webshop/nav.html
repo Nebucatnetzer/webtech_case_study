@@ -6,7 +6,7 @@
         HOME
       </a>
       <ul class="nav navbar-nav">
-        <li><a href="#">CART</a></li>
+        <li><a href="{% url 'cart' %}">CART</a></li>
         {% if user.is_authenticated %}
         <li>
           <a href="{% url 'profile' %}">PROFILE</a>

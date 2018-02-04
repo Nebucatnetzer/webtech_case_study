@@ -100,9 +100,8 @@ class OrderPosition(models.Model):
 
 class ShoppingCart(models.Model):
     """ Cart to User Relationships """
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    article = models.ManyToManyField(Article)
 
     def __str__(self):
         return self.name

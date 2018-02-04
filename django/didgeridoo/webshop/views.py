@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from webshop.models import (Article, Category, ArticleStatus, Person,
-                            City, Picture)
+                            City, Picture, CartPosition, ShoppingCart)
 from webshop.forms import RegistrationForm, AddToCartForm
 
 from currencies.models import ExchangeRate, ExchangeRate_name
@@ -144,7 +144,16 @@ def article_details(request, article_id):
             if amount.is_valid():
                 print("is valid")
                 amount = amount.cleaned_data['amount']
-                print("amount:", amount, "article_id:", article_id)
+                currency_id = request.session['currency']
+                print("amount:", amount,
+                      "article_id:", article_id,
+                      "currency_id:", currency_id)
+                cart_position = CartPosition.objects.create(
+                    article=article_id,
+                    amount=amount,
+                    cart=ShoppingCart.objects.get(user=request.user)
+                    )
+                cart_position.save()
                 amount = AddToCartForm()
         else:
             amount = AddToCartForm()
@@ -203,3 +212,42 @@ def registration(request):
                   {'profile_form': profile_form,
                    'category_list': category_list,
                    'user_form': user_form})
+
+
+def cart(request):
+    currencies_form = CurrenciesForm
+    rate = ExchangeRate
+    article_view = True
+    currency_name = "CHF"
+
+    if not 'currency' in request.session:
+        request.session['currency'] = None
+    currency = request.session['currency']
+    if request.method == 'POST':
+        currencies_form = CurrenciesForm(request.POST)
+        if currencies_form.is_valid():
+            cf = currencies_form.cleaned_data
+            if cf['currencies']:
+                selection = cf['currencies']
+                request.session['currency'] = selection.id
+                currency_name = ExchangeRate_name.objects.get(id=selection.id)
+            else:
+                request.session['currency'] = None
+
+    cart_id = ShoppingCart.objects.get(user=request.user)
+    articles = CartPosition.objects.filter(cart=cart_id)
+    articles_list = list(articles)
+    for idx, article in enumerate(articles_list):
+        article.price_in_chf = rate.exchange(
+            currency, article.price_in_chf)
+        articles_list[idx] = article
+
+        currency_name = ExchangeRate_name.objects.get(id=currency)
+        article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+
+    return render(request, 'webshop/cart.html',
+                  {'article': article,
+                   'currencies_form': currencies_form,
+                   'article_view': article_view,
+                   'currency_name': currency_name,
+                   })

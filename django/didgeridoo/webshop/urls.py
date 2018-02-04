@@ -17,4 +17,7 @@ urlpatterns = [
     url(r'^registration/$',
         views.registration,
         name='registration'),
+    url(r'^cart/$',
+        views.cart,
+        name='cart'),
 ]

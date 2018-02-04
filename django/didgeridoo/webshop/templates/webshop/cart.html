@@ -1,0 +1,9 @@
+{% extends "webshop/base.html" %}
+{% block section_title %}<h1>Cart</h1>{% endblock %}
+{% block content %}
+    <h3>List of Items in your Shopping Cart:</h3>
+    <p>{{ article.description }}</p>
+    <p><b>in Stock:</b> {{ article.stock }}</p>
+    <p><b>Amount you whant:</b> {{ article.amount }}</p>
+    <p><b>Price:</b> {{ article.price_in_chf }} {{ currency_name }}</p>
+{% endblock %}
