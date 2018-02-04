@@ -17,12 +17,21 @@
             <td scope="col">
               <a href="{% url 'details' article.id %}">
                 {{ article.article.name }}
-              </a></td>
+              </a>
+            </td>
             <td scope="col">{{ article.article.stock }}</td>
             <td scope="col">{{ article.amount }}</td>
-            <td scope="col">{{ article.article.price_in_chf }} {{ currency_name }}</td>
+            <td scope="col">
+              {{ article.article.price_in_chf }}
+              {{ currency_name }}
+            </td>
           </tr>
         {% endfor %}
+        <tr>
+          <td scope="col" colspan="5" class="text-right">
+            Total: {{ total }}
+          </td>
+        </tr>
       </table>
     {% else %}
       <p class="alert">

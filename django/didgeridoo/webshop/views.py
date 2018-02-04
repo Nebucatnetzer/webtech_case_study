@@ -9,9 +9,8 @@ from webshop.forms import RegistrationForm, AddToCartForm
 
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
+from decimal import Decimal
 
-
-# Create your views here.
 
 def get_categories():
     parent_category_list = Category.objects.filter(parent_category=None)
@@ -234,6 +233,7 @@ def cart(request):
     message = ""
     cart_id = False
     articles_list = ""
+    total = Decimal(0)
 
     if not 'currency' in request.session:
         request.session['currency'] = None
@@ -262,13 +262,17 @@ def cart(request):
                 currency, article.article.price_in_chf)
             articles_list[idx] = article
             currency_name = ExchangeRate_name.objects.get(id=currency)
-            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+            article.price_in_chf = rate.exchange(
+                currency,
+                article.price_in_chf)
+            total += article.price_in_chf
     else:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
+                   'total': total,
                    'currencies_form': currencies_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
