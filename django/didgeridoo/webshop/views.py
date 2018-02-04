@@ -235,7 +235,7 @@ def cart(request):
 
     if not 'currency' in request.session:
         request.session['currency'] = None
-    currency = request.session['currency']
+
     if request.method == 'POST':
         currencies_form = CurrenciesForm(request.POST)
         if currencies_form.is_valid():
