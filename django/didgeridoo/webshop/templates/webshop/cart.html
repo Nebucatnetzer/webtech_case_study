@@ -1,0 +1,32 @@
+{% extends "webshop/base.html" %}
+{% block section_title %}<h1>Cart</h1>{% endblock %}
+{% block content %}
+    <h3>List of Items in your Shopping Cart:</h3>
+    {% if articles_list %}
+      <table class="table">
+        <tr class="table_header">
+          <th scope="col">ID</th>
+          <th scope="col">NAME</th>
+          <th scope="col">STOCK</th>
+          <th scope="col">AMOUNT</th>
+          <th scope="col">PRICE</th>
+        </tr>
+        {% for article in articles_list %}
+          <tr class="table_content">
+            <td scope="col">{{ article.id }}</td>
+            <td scope="col">
+              <a href="{% url 'details' article.id %}">
+                {{ article.article.name }}
+              </a></td>
+            <td scope="col">{{ article.article.stock }}</td>
+            <td scope="col">{{ article.amount }}</td>
+            <td scope="col">{{ article.article.price_in_chf }} {{ currency_name }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p class="alert">
+        There are currently no articles in your cart.
+      </p>
+    {% endif %}
+{% endblock %}

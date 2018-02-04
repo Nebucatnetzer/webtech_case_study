@@ -8,7 +8,7 @@ class RegistrationForm(forms.Form):
     first_name = forms.CharField()
     last_name = forms.CharField()
     street_name = forms.CharField()
-    street_number = forms.CharField()
+    street_number = forms.CharField(max_length=4)
     zip_code = forms.IntegerField(min_value=1000, max_value=9999)
     city = forms.CharField()
 
@@ -51,3 +51,10 @@ class PictureForm(forms.ModelForm):
     class Meta:
         model = Picture
         fields = ['name', 'article', 'image']
+
+
+class AddToCartForm(forms.Form):
+    amount = forms.IntegerField(
+        label='Amount in piece.',
+        help_text="Enter a Value between 1 and 99.",
+        initial=1)

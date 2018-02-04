@@ -6,26 +6,18 @@
         HOME
       </a>
       <ul class="nav navbar-nav">
-        <li><a href="#">CART</a></li>
         {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'profile' %}">PROFILE</a>
-        </li>
-        <li>
-          <a href="{% url 'logout' %}">LOGOUT</a>
-        </li>
+        <li><a href="{% url 'cart' %}">CART</a></li>
+        <li><a href="{% url 'profile' %}">PROFILE</a></li>
+        <li><a href="{% url 'logout' %}">LOGOUT</a></li>
         {% else %}
-        <li>
-          <a href="{% url 'login' %}">LOGIN</a>
-        </li>
+        <li><a href="{% url 'login' %}">LOGIN</a></li>
         {% endif %}
-        <li>
+        <li class="dropdown">
             {% if article_view %}
-          <form id="currency" name="currency" action="" method="POST" novalidate>
+          <form id="currency" action="" method="POST" novalidate>
             {{ currencies_form.as_ul }}
-            <li>
-              <input type="submit" value="Select">
-            </li>
+            <li><input type="submit" value="Select"></li>
           {% csrf_token %}
           </form>
           {% endif %}
