@@ -232,6 +232,8 @@ def cart(request):
     article_view = True
     currency_name = "CHF"
     message = ""
+    cart_id = False
+    articles_list = ""
 
     if not 'currency' in request.session:
         request.session['currency'] = None
