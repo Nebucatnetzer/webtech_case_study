@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.db import transaction
 from webshop.models import (Article, Category, ArticleStatus, Person,
                             City, Picture, CartPosition, ShoppingCart)
 from webshop.forms import RegistrationForm, AddToCartForm
@@ -200,21 +201,22 @@ def registration(request):
             profile_form = RegistrationForm(request.POST)
             user_form = UserCreationForm(request.POST)
             if (profile_form.is_valid() and user_form.is_valid()):
-                pf = profile_form.cleaned_data
-                uf = user_form.cleaned_data
-                user = User.objects.create_user(uf['username'],
-                                                pf['email'],
-                                                uf['password2'])
-                user.last_name = pf['last_name']
-                user.first_name = pf['first_name']
-                user.save()
-                person = Person.objects.create(
-                    salutation=pf['salutation'],
-                    city=City.objects.get(zip_code=pf['zip_code'],
-                                          name=pf['city']),
-                    street_name=pf['street_name'],
-                    street_number=pf['street_number'],
-                    user=user)
+                with transaction.atomic():
+                    pf = profile_form.cleaned_data
+                    uf = user_form.cleaned_data
+                    user = User.objects.create_user(uf['username'],
+                                                    pf['email'],
+                                                    uf['password2'])
+                    user.last_name = pf['last_name']
+                    user.first_name = pf['first_name']
+                    user.save()
+                    person = Person.objects.create(
+                        salutation=pf['salutation'],
+                        city=City.objects.get(zip_code=pf['zip_code'],
+                                            name=pf['city']),
+                        street_name=pf['street_name'],
+                        street_number=pf['street_number'],
+                        user=user)
                 return HttpResponseRedirect('/login/')
     else:
         profile_form = RegistrationForm
