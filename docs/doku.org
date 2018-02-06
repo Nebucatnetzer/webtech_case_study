@@ -1224,10 +1224,24 @@ nachvollzogen werden zu welchem Preis die Ware bezogen wurde.
 
 **** ShoppingCart und ShoppingCartPosition
 
+Bevor die Bestellungen erfasst werden kann der Kunde die Artikel in
+einem Warenkorb sammeln. Dieser funktioniert sehr ähnlich wie die
+Bestellungen. Über das Modell "ShoppingCart",
+Abbildung:([[fig:shoppingcart]]), und das Modell "ShoppingCartPosition",
+Abbildung:([[fig:shoppingcartposition]]), werden die ausgewählten Artikel
+sowie ihre Mengen einem User zugewiesen. Im Gegensatz zur Bestellung
+wird im Artikel jedoch der Preis nicht gespeichert da sich der Preis
+vor der Bestellung noch ändern könnte.
+
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
 #+NAME: fig:shoppingcart
 [[./pictures/class_shoppingcart.png]]
+
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Warenkorbs Positionen
+#+NAME: fig:shoppingcartposition
+[[./pictures/class_shoppingcartposition.png]]
 
 **** NEXT City
 
