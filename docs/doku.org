@@ -271,7 +271,9 @@ LaTeX ist freie Software unter der LaTeX Project Public License.
 
 Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
 Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
-Software unter der GNU Public License v3.
+Software unter der GNU Public License v3. Für das Entity Relation
+Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
+ist freie Software unter der GNU Public License v2.
 
 Die Klassen Diagramme haben wir mit der Django Erweiterung
 "Django-Extensions"\footcite{django_extensions} erstellt.
@@ -997,9 +999,14 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 *** TODO Models
 
 Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
-Erstellung der Tabellen in der Datenbank. Zu Begin der Arbeit waren
-wir uns desen noch nicht ganz bewusst. Weshalb wir zuerst ein
-klassisches Entity Relation Diagramm, zu sehen in Abbildung:([[fig:erd]])
+Erstellung der Tabellen in der Datenbank. Für den Aufbau der Anwendung
+und der Kommunikation im Team ist es jedoch von absoluter
+Notwendigkeit das man sich über die Beziehung zwischen den Objekten
+Gedanken macht. Insbesondere wenn die Anwendung nach wie vor auf einer
+relationalen Datenbank basiert. Aus diesem Grund haben wir vor Beginn
+der Arbeit ein klassisches Entity Relation Diagramm aufgezeichnet.
+Während der Entwicklung haben wir es dann kontinuierlich erweitert und
+korrigiert. Das finale Ergebnis ist in der Abbildung:([[fig:erd]]) zu sehen.
 erstellt haben.
 
 #+LATEX:\newpage
@@ -1011,26 +1018,21 @@ erstellt haben.
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
 
-Als wir dann lernten wie Django konkret funktioniert war das ERD nur
-noch bedingt von Nutzen. In den groben Zügen diente es uns jedoch für
-den Grund Aufbau der Modells. Der finalle Aufbau ist in der
-Abbildung:([[fig:final_erd]]) zu sehen. Dieses Entity Relation Diagramm
-wurde mithilfe der Django Applikation
-"Djangoextensions"\footcite{djangoextensions} erstellt.
+Django übernimmt dann jedoch das erstellen der Tabellen und benennen
+derjenigen weshalb das Resultat in der Datenbank dann etwas anders
+aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
+daher. Der finale Aufbau der Datenbank ist in der
+Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
+Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
 
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
 #+ATTR_LATEX: :height.9\textheight
-#+CAPTION: Entity Relation Diagramm
+#+CAPTION: Django Datenbank Aufbau
 #+NAME: fig:final_erd
 [[file:diagrammes/final_erd.png]]
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
-
-Der Hauptgrund warum wir das finalle ERD durch Django haben generieren
-lassen ist das Django bereits mit diversen Modells und somit Tabellen
-daher kommt. Zum Teil auch solche wir zuvor selbst geplant hatten und unser ERD
-somit nicht mehr wirklich akkurat war.
 
 Nachfolgend werden wir die von uns erstellten Modells im Detail
 beschreiben und auf jeweils spezifische Probleme eingehen.
@@ -1107,10 +1109,7 @@ anderen Währung zurückrechnen.
 #+NAME: fig:exchangerate
 [[./pictures/class_exchangerate.png]]
 
-**** NEXT ExchangeRate_name
-
-- Note taken on [2018-02-01 Don 21:08] \\
-  Bild hinterlegen.
+**** ExchangeRate_name
 
 Im Modell ExchangeRate_name, Abbildung:([[fig:exchangerate_name]]), ist nur
 eine Liste mit allen möglichen Währungsnamen abgelegt.
@@ -1118,11 +1117,9 @@ eine Liste mit allen möglichen Währungsnamen abgelegt.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate_name
+[[file:pictures/exchangerate_name.png]]
 
-**** NEXT ExchangeRate_date
-
-- Note taken on [2018-02-01 Don 21:08] \\
-  Bild hinterlegen.
+**** ExchangeRate_date
 
 Damit die Wechselkurse des Tages einfacher auf einer Zeile angezeigt
 werden können haben wir das Datum in ein eigenes Modell,
@@ -1138,6 +1135,7 @@ Erstellen des Objekt evaluiert wird.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate_date
+[[file:pictures/exchangerate_date.png]]
 
 **** Article
 
@@ -1164,36 +1162,67 @@ Status angedacht:
 - cancelled -> Bestellung storniert
 - on hold -> Bestellung pausiert
 
+Der "OrderStatus" wird vom "Order" sowie auch dem "OrderOfGoods" Modell
+verwendet.
+
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellstatus
 #+NAME: fig:orderstatus
 [[./pictures/class_orderstatus.png]]
 
-**** NEXT OrderOfGoods
+**** OrderOfGoods
+
+Das Modell "OrderOfGoods", Abbildung:([[fig:orderofgoods]]), bildet die
+Nachbestellungen fürs Warenlager ab. Dabei wird es hauptsächlich für
+die Verwaltung verwendet um die Nachbestellungen im Griff zu haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenbestellungen
 #+NAME: fig:orderofgoods
 [[./pictures/class_orderofgoods.png]]
 
-**** NEXT Picture
+**** Picture
 
-\footcite{upload}
-\footcite{images}
+Über das Modell "Picture", Abbildung:([[fig:picture]]) können Bilder für
+einen Artikel hochgeladen werden. Grundsätzlich kann man Bilder
+relativ einfach über das Attribut "models.ImageField" zu einem Modell
+hinzufügen. Wir hatten allerdings noch einige Probleme mit dem
+Konfigurieren von Django damit der Upload funktionierte und wir die
+Bilder in den Templates verwenden konnten. Die Lösungen für den Upload
+fanden wir in einem Stackoverflow Post\footcite{upload}. Auch für das
+verwenden der Bilder in den Templates fanden wir in einem Post auf
+Stackoverflow\footcite{images} die Lösung.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bilder
 #+NAME: fig:picture
 [[./pictures/class_picture.png]]
 
-**** NEXT Order
+**** Order und OrderPosition
+
+Bestellungen der Kunden werden im Modell "Order",
+Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
+ID gespeichert wird. Da sich bei der Beziehung zwischen den Artikeln
+und dem Kunden um eine "Viele zu Viele" Beziehung handelt braucht es
+noch ein zusätzliches Modell welches die Beziehung abbildet. Dies
+realisieren wir über das Modell "OrderPostion",
+Abbildung:([[fig:orderposition]]).
+
+In diesem Modell werden dann noch zusätzlich die bestellte Menge sowie
+der Preis zur Zeit der Bestellung erfasst. Somit kann auch später noch
+nachvollzogen werden zu welchem Preis die Ware bezogen wurde.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungen
 #+NAME: fig:order
 [[./pictures/class_order.png]]
 
-**** NEXT ShoppingCart
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Bestellungens Positionen
+#+NAME: fig:orderposition
+[[file:pictures/class_orderposition.png]]
+
+**** ShoppingCart und ShoppingCartPosition
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
