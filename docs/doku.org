@@ -1202,15 +1202,20 @@ Stackoverflow\footcite{images} die Lösung.
 
 Bestellungen der Kunden werden im Modell "Order",
 Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
-ID gespeichert wird. Da sich bei der Beziehung zwischen den Artikeln
-und dem Kunden um eine "Viele zu Viele" Beziehung handelt braucht es
-noch ein zusätzliches Modell welches die Beziehung abbildet. Dies
-realisieren wir über das Modell "OrderPostion",
-Abbildung:([[fig:orderposition]]).
+ID gespeichert wird, sowie, gemäss der Anforderung FA\_3.3, der
+Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
+Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
+hergestellt.
+
+Da sich bei der Beziehung zwischen den Artikeln und dem Kunden um eine
+"Viele zu Viele" Beziehung handelt braucht es noch ein zusätzliches
+Modell welches die Beziehung abbildet. Dies realisieren wir über das
+Modell "OrderPostion", Abbildung:([[fig:orderposition]]).
 
 In diesem Modell werden dann noch zusätzlich die bestellte Menge sowie
-der Preis zur Zeit der Bestellung erfasst. Somit kann auch später noch
-nachvollzogen werden zu welchem Preis die Ware bezogen wurde.
+der Preis zur Zeit der Bestellung in schweizer Franken des jeweiligen
+Artikels erfasst. Somit kann auch später noch nachvollzogen werden zu
+welchem Preis die Ware bezogen wurde.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungen
@@ -1231,7 +1236,8 @@ Abbildung:([[fig:shoppingcart]]), und das Modell "ShoppingCartPosition",
 Abbildung:([[fig:shoppingcartposition]]), werden die ausgewählten Artikel
 sowie ihre Mengen einem User zugewiesen. Im Gegensatz zur Bestellung
 wird im Artikel jedoch der Preis nicht gespeichert da sich der Preis
-vor der Bestellung noch ändern könnte.
+vor der Bestellung noch ändern könnte. Wenn die Verwaltung etwa die
+Preise anpasst oder die Währungen den Kurs ändern.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
