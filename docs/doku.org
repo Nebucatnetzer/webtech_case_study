@@ -1249,23 +1249,56 @@ Preise anpasst oder die Währungen den Kurs ändern.
 #+NAME: fig:shoppingcartposition
 [[./pictures/class_shoppingcartposition.png]]
 
-**** NEXT City
+**** City
+
+Das "City" Modell speichert Städte Namen und die dazugehörige
+Postleizahl. Die Städte werden als Teil der Adresse auf dem "Person"
+Modell hinterlegt. Im aktuellen Zustand der Applikation enthält die
+Tabelle die Daten aller schweizer Städte.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Städte
 #+NAME: fig:city
 [[./pictures/class_city.png]]
 
-**** NEXT Salutation
+**** Salutation
+
+"Salutation", zu Deutsch Anrede, ist das Modell welches die möglichen
+Anreden beinhaltet die ein User für sich hinterlegen kann.
+Für den Moment haben wir die folgenden Auswahlmöglichkeiten
+hinterlegt:
+- Herr
+- Frau
+- Dr.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Anreden
 #+NAME: fig:salutation
 [[./pictures/class_salutation.png]]
 
-**** NEXT Person
+**** Person
 
-\footcite{usermodel}
+Das "Person" Modell dient dazu Informationen über einen User zu
+speichern die nicht relevant sind für die Authentifizierung.
+
+Es gibt mehrere Möglichkeiten wie man das "User" Modell in Django
+erweitern kann. In einem Post\footcite{usermodel} von Vitor Freitas
+werden die möglichen vier Varianten aufgeführt und erklärt. Eine davon
+ist nicht dafür gemacht zusätzliche Informationen zu speichern. Zwei
+weitere Varianten bauen darauf auf von einer Basis "User" Klasse
+abzuleiten. Die erste Variante war für unsere Zwecke nicht geeignet da
+wir zwingend zusätzliche Informationen speichern wollten. Die
+Varianten mit Vererbungen erschienen uns ungeeignet da die Möglichkeit
+besteht die Sicherheit der Authentifizierung zu schwächen. Aus diesem
+Grund wird in der Django Dokumentation eher davor abgeraten diese
+Varianten wenn man nicht genau weiss was man macht.
+
+Die verbeiblende Variante erweitert das "User" Modell über eine
+"One-to-One" Beziehung ein sogenanntes "Profil". Dadurch bleibt das
+"User" Modell intakt und man kann zusätzliche Informationen über den
+User speichern. Man sollte im Profil jedoch nur Daten speichern welche
+nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist das
+die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Personen
