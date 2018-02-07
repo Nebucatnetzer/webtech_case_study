@@ -994,7 +994,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 #+CAPTION: Ein frühes Mockup des Shop
 #+ATTR_LATEX: :width \textwidth
 #+NAME: mockup
-[[./pictures/mockup-full-snipet.png]]
+[[file:pictures/mockup-full-snipet.png]]
 
 #+LATEX:\newpage
 *** Models
@@ -1051,7 +1051,7 @@ Somit konnten wir dann über die Kategorie iterieren.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Kategorien
 #+NAME: fig:category
-[[./pictures/class_category.png]]
+[[file:pictures/class_category.png]]
 
 **** Option
 
@@ -1075,7 +1075,7 @@ noch der Wert editierbar.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Optionen
 #+NAME: fig:option
-[[./pictures/class_option.png]]
+[[file:pictures/class_option.png]]
 
 **** ArticleStatus
 
@@ -1089,7 +1089,7 @@ angezeigt werden welche nicht den Status "hidden" haben.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikelstatus
 #+NAME: fig:articlestatus
-[[./pictures/class_articlestatus.png]]
+[[file:pictures/class_articlestatus.png]]
 
 **** ExchangeRate
 
@@ -1108,7 +1108,7 @@ anderen Währung zurückrechnen.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate
-[[./pictures/class_exchangerate.png]]
+[[file:pictures/class_exchangerate.png]]
 
 **** ExchangeRate_name
 
@@ -1150,7 +1150,7 @@ Produktbilder.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikel
 #+NAME: fig:article
-[[./pictures/class_article.png]]
+[[file:pictures/class_article.png]]
 
 **** OrderStatus
 
@@ -1169,7 +1169,7 @@ verwendet.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellstatus
 #+NAME: fig:orderstatus
-[[./pictures/class_orderstatus.png]]
+[[file:pictures/class_orderstatus.png]]
 
 **** OrderOfGoods
 
@@ -1180,7 +1180,7 @@ die Verwaltung verwendet um die Nachbestellungen im Griff zu haben.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenbestellungen
 #+NAME: fig:orderofgoods
-[[./pictures/class_orderofgoods.png]]
+[[file:pictures/class_orderofgoods.png]]
 
 **** Picture
 
@@ -1197,7 +1197,7 @@ Stackoverflow\footcite{images} die Lösung.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bilder
 #+NAME: fig:picture
-[[./pictures/class_picture.png]]
+[[file:pictures/class_picture.png]]
 
 **** Order und OrderPosition
 
@@ -1221,7 +1221,7 @@ welchem Preis die Ware bezogen wurde.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungen
 #+NAME: fig:order
-[[./pictures/class_order.png]]
+[[file:pictures/class_order.png]]
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungens Positionen
@@ -1243,12 +1243,12 @@ Preise anpasst oder die Währungen den Kurs ändern.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
 #+NAME: fig:shoppingcart
-[[./pictures/class_shoppingcart.png]]
+[[file:pictures/class_shoppingcart.png]]
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkorbs Positionen
 #+NAME: fig:shoppingcartposition
-[[./pictures/class_shoppingcartposition.png]]
+[[file:pictures/class_shoppingcartposition.png]]
 
 **** City
 
@@ -1260,7 +1260,7 @@ Tabelle die Daten aller schweizer Städte.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Städte
 #+NAME: fig:city
-[[./pictures/class_city.png]]
+[[file:pictures/class_city.png]]
 
 **** Salutation
 
@@ -1275,7 +1275,7 @@ hinterlegt:
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Anreden
 #+NAME: fig:salutation
-[[./pictures/class_salutation.png]]
+[[file:pictures/class_salutation.png]]
 
 **** Person
 
@@ -1304,7 +1304,7 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Personen
 #+NAME: fig:person
-[[./pictures/class_person.png]]
+[[file:pictures/class_person.png]]
 
 ** Benutzerinterface
 *** Mockup skizzieren
