@@ -996,7 +996,8 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 #+NAME: mockup
 [[./pictures/mockup-full-snipet.png]]
 
-*** TODO Models
+#+LATEX:\newpage
+*** Models
 
 Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
 Erstellung der Tabellen in der Datenbank. Für den Aufbau der Anwendung
@@ -1009,6 +1010,16 @@ Während der Entwicklung haben wir es dann kontinuierlich erweitert und
 korrigiert. Das finale Ergebnis ist in der Abbildung:([[fig:erd]]) zu sehen.
 erstellt haben.
 
+Django übernimmt dann jedoch das erstellen der Tabellen und benennen
+derjenigen weshalb das Resultat in der Datenbank dann etwas anders
+aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
+daher. Der finale Aufbau der Datenbank ist in der
+Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
+Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
+
+Nachfolgend werden wir die von uns erstellten Modells im Detail
+beschreiben und auf jeweils spezifische Probleme eingehen.
+
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
 #+ATTR_LATEX: :height.9\textwidth
@@ -1018,13 +1029,6 @@ erstellt haben.
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
 
-Django übernimmt dann jedoch das erstellen der Tabellen und benennen
-derjenigen weshalb das Resultat in der Datenbank dann etwas anders
-aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
-daher. Der finale Aufbau der Datenbank ist in der
-Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
-Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
-
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
 #+ATTR_LATEX: :height.9\textheight
@@ -1033,9 +1037,6 @@ Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
 [[file:diagrammes/final_erd.png]]
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
-
-Nachfolgend werden wir die von uns erstellten Modells im Detail
-beschreiben und auf jeweils spezifische Probleme eingehen.
 
 **** Category
 
