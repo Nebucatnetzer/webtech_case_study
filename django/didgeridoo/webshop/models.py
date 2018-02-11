@@ -112,6 +112,15 @@ class CartPosition(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     amount = models.FloatField(max_length=5)
     cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE)
+    position_price = models.DecimalField(max_digits=19,
+                                         decimal_places=2,
+                                         validators=[MinValueValidator(
+                                             Decimal('0.00'))],
+                                         null=True)
+
+    def calculate_position_price(self):
+        decimal_amount = Decimal.from_float(self.amount)
+        self.position_price = decimal_amount * self.article.price_in_chf
 
 
 class City(models.Model):

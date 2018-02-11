@@ -1,4 +1,5 @@
 {% extends "webshop/base.html" %}
+{% load cart_filters %}
 {% block section_title %}<h1>Cart</h1>{% endblock %}
 {% block content %}
     <h3>List of Items in your Shopping Cart:</h3>
@@ -11,7 +12,8 @@
           <th scope="col">STOCK</th>
           <th scope="col">AMOUNT</th>
           <th scope="col">PRICE p.pce.</th>
-          <th scope="col">PRICE</th>
+          <th scope="col">PRICE through Model</th>
+          <th scope="col">PRICE through Filter</th>
         </tr>
         {% for article in articles_list %}
           <tr class="table_content">
@@ -28,7 +30,8 @@
               {{ article.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ totalprice_of_one }}</td>
+            <td scope="col">{{ article.position_price }}</td>
+            <td scope="col">{{ totalprice_list|lookup:article.article.id }}</td>
           </tr>
         {% endfor %}
         <tr>

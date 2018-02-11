@@ -234,6 +234,7 @@ def cart(request):
     cart_id = False
     articles_list = ""
     prices_in_cart = []
+    totalprice_list = {}
     total = 0
 
     if not 'currency' in request.session:
@@ -262,18 +263,19 @@ def cart(request):
         articles_list = list(articles)
         for idx, article in enumerate(articles_list):
             print(article, idx)
-            if currency is not None:
+            article.calculate_position_price()
+            if currency:
                 article.price_in_chf = rate.exchange(
                     currency, article.article.price_in_chf)
                 currency_name = ExchangeRate_name.objects.get(id=currency)
                 article.price_in_chf = rate.exchange(
                     currency,
                     article.price_in_chf)
-            amount = article.amount
-            totalprice_of_one = Decimal(amount) * article.article.price_in_chf
+            amount = Decimal.from_float(article.amount)
+            totalprice_list.update({
+                article.article.id:amount * article.article.price_in_chf
+            })
             articles_list[idx] = article
-
-            prices_in_cart.append(article.article.price_in_chf)
 
     # if cart_id and request.session['currency']:
     #     articles = CartPosition.objects.filter(cart=cart_id)
@@ -295,11 +297,11 @@ def cart(request):
     #     for idx, article in enumerate(articles_list):
     #         prices_in_cart.append(article.article.price_in_chf)
 
-    total = sum(prices_in_cart)
+    total = sum(totalprice_list.values())
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
-                   'totalprice_of_one': totalprice_of_one,
+                   'totalprice_list': totalprice_list,
                    'total': total,
                    'currencies_form': currencies_form,
                    'article_view': article_view,
