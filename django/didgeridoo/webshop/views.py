@@ -233,7 +233,8 @@ def cart(request):
     message = ""
     cart_id = False
     articles_list = ""
-    total = Decimal(0)
+    prices_in_cart = []
+    total = 0
 
     if not 'currency' in request.session:
         request.session['currency'] = None
@@ -266,13 +267,15 @@ def cart(request):
                 currency,
                 article.price_in_chf)
     else:
-        articles = CartPosition.objects.filter(cart=cart_id)
-        articles_list = list(articles)
-        for idx, article in enumerate(articles_list):
-            articles_list[idx] = article
-            article.price_in_chf = CartPosition.objects.get(article.article.id)
-
-    total += article.price_in_chf
+        cart_position = CartPosition.objects.filter(cart=cart_id)
+        if len(cart_position) > 0:
+            cart_position_list = list(cart_position)
+            for idx, cart_position in enumerate(cart_position_list):
+                prices_in_cart.append(cart_position.article.price_in_chf)
+            prices_sum = sum(prices_in_cart)
+            prices_length = len(prices_in_cart)
+            total = prices_sum / prices_length
+        articles_list = cart_position_list
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
