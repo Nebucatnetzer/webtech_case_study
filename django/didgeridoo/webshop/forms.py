@@ -1,5 +1,12 @@
 from django import forms
-from webshop.models import Salutation, City, Picture, Article, Option
+from webshop.models import (
+                        Salutation,
+                        City,
+                        Picture,
+                        Article,
+                        Option,
+                        OrderPosition
+                        )
 
 
 class RegistrationForm(forms.Form):
@@ -58,3 +65,14 @@ class AddToCartForm(forms.Form):
         label='Amount in piece.',
         help_text="Enter a Value between 1 and 99.",
         initial=1)
+
+
+class CartForm(forms.Form):
+    def ChangeAmount(self):
+        article = OrderPosition.objects.filter(pk=self.id)
+        amountfield = forms.IntegerField(
+            label='pce',
+            help_text='Enter a Value between 1 and 99.',
+            initial=article.amount
+        )
+        return amountfield
