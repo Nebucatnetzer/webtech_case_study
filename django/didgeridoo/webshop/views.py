@@ -3,9 +3,17 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from webshop.models import (Article, Category, ArticleStatus, Person,
-                            City, Picture, CartPosition, ShoppingCart)
-from webshop.forms import RegistrationForm, AddToCartForm
+from webshop.models import (Article,
+                            Category,
+                            ArticleStatus,
+                            Person,
+                            City,
+                            Picture,
+                            CartPosition,
+                            ShoppingCart)
+from webshop.forms import (RegistrationForm,
+                           AddToCartForm,
+                           CartForm)
 
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
@@ -125,11 +133,9 @@ def article_details(request, article_id):
     picture_list = Picture.objects.filter(article=article_id)
 
     if request.method == 'POST':
-        print(request.POST)
         # hier wird das Currency dropdown bearbeitet:
         if 'currencies' in request.POST:
             currencies_form = CurrenciesForm(request.POST)
-            print("currencies_form")
             if currencies_form.is_valid():
                 cf = currencies_form.cleaned_data
                 if cf['currencies']:
@@ -143,14 +149,9 @@ def article_details(request, article_id):
         # hier wird der Artikel in den Wahrenkorb transferiert:
         if 'amount' in request.POST:
             amount = AddToCartForm(request.POST)
-            print("add_to_cart_form")
             if amount.is_valid():
-                print("is valid")
                 amount = amount.cleaned_data['amount']
                 currency_id = request.session['currency']
-                print("amount:", amount,
-                      "article_id:", article_id,
-                      "currency_id:", currency_id)
                 article = Article.objects.get(id=article_id)
                 try:
                     cart_id = ShoppingCart.objects.get(user=request.user)
@@ -243,16 +244,41 @@ def cart(request):
         currency = request.session['currency']
 
     if request.method == 'POST':
-        currencies_form = CurrenciesForm(request.POST)
-        if currencies_form.is_valid():
-            cf = currencies_form.cleaned_data
-            if cf['currencies']:
-                selection = cf['currencies']
-                request.session['currency'] = selection.id
-                currency_name = ExchangeRate_name.objects.get(id=selection.id)
-            else:
-                request.session['currency'] = None
-
+        # here we react to a currency dropdown change:
+        if 'currencies' in request.POST:
+            currencies_form = CurrenciesForm(request.POST)
+            if currencies_form.is_valid():
+                cf = currencies_form.cleaned_data
+                if cf['currencies']:
+                    selection = cf['currencies']
+                    request.session['currency'] = selection.id
+                    currency_name = ExchangeRate_name.objects.get(
+                        id=selection.id)
+                else:
+                    request.session['currency'] = None
+        # here we react to a change of amount per item in the Cart:
+        if 'amount' in request.POST:
+            print(request.POST)
+            amount = CartForm.ChangeAmount(request.POST)
+            if amount.is_valid():
+                amount = amount.cleaned_data['amount']
+                article = Article.objects.get(id=article_id)
+                try:
+                    cart_id = ShoppingCart.objects.get(user=request.user)
+                except:
+                    cart_id = ShoppingCart.objects.create(user=request.user)
+                    cart_id.save()
+                if cart_id:
+                    cart_position = CartPosition.objects.create(
+                        article=article,
+                        amount=amount,
+                        cart=ShoppingCart.objects.get(user=request.user)
+                        )
+                    cart_position.save()
+                amount = CartForm.ChangeAmount()
+        else:
+            amount = AddToCartForm()
+    # if the cart_id is set the user has already added items to cart.
     try:
         cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
@@ -261,13 +287,16 @@ def cart(request):
     if cart_id:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
+        # scrap out the details to calculate Total of item and Summ of All:
         for idx, article in enumerate(articles_list):
             print(article, idx)
             article.calculate_position_price()
             if currency:
                 article.price_in_chf = rate.exchange(
                     currency, article.article.price_in_chf)
+                # get currencyname to display:
                 currency_name = ExchangeRate_name.objects.get(id=currency)
+                # get exchange_rate multiplyed:
                 article.price_in_chf = rate.exchange(
                     currency,
                     article.price_in_chf)
