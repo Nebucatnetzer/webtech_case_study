@@ -238,6 +238,8 @@ def cart(request):
 
     if not 'currency' in request.session:
         request.session['currency'] = None
+    else:
+        currency = request.session['currency']
 
     if request.method == 'POST':
         currencies_form = CurrenciesForm(request.POST)
@@ -254,31 +256,50 @@ def cart(request):
         cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
         message = "You have no items in the Basket"
-    if cart_id and request.session['currency']:
+
+    if cart_id:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
-        currency = request.session['currency']
         for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(
-                currency, article.article.price_in_chf)
+            print(article, idx)
+            if currency is not None:
+                article.price_in_chf = rate.exchange(
+                    currency, article.article.price_in_chf)
+                currency_name = ExchangeRate_name.objects.get(id=currency)
+                article.price_in_chf = rate.exchange(
+                    currency,
+                    article.price_in_chf)
+            amount = article.amount
+            totalprice_of_one = Decimal(amount) * article.article.price_in_chf
             articles_list[idx] = article
-            currency_name = ExchangeRate_name.objects.get(id=currency)
-            article.price_in_chf = rate.exchange(
-                currency,
-                article.price_in_chf)
-    else:
-        cart_position = CartPosition.objects.filter(cart=cart_id)
-        if len(cart_position) > 0:
-            cart_position_list = list(cart_position)
-            for idx, cart_position in enumerate(cart_position_list):
-                prices_in_cart.append(cart_position.article.price_in_chf)
-            prices_sum = sum(prices_in_cart)
-            prices_length = len(prices_in_cart)
-            total = prices_sum / prices_length
-        articles_list = cart_position_list
+
+            prices_in_cart.append(article.article.price_in_chf)
+
+    # if cart_id and request.session['currency']:
+    #     articles = CartPosition.objects.filter(cart=cart_id)
+    #     articles_list = list(articles)
+    #     currency = request.session['currency']
+    #     for idx, article in enumerate(articles_list):
+    #         article.price_in_chf = rate.exchange(
+    #             currency, article.article.price_in_chf)
+    #         articles_list[idx] = article
+    #         currency_name = ExchangeRate_name.objects.get(id=currency)
+    #         article.price_in_chf = rate.exchange(
+    #             currency,
+    #             article.price_in_chf)
+    #         prices_in_cart.append(article.article.price_in_chf)
+    #
+    # if cart_id:
+    #     articles = CartPosition.objects.filter(cart=cart_id)
+    #     articles_list = list(articles)
+    #     for idx, article in enumerate(articles_list):
+    #         prices_in_cart.append(article.article.price_in_chf)
+
+    total = sum(prices_in_cart)
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
+                   'totalprice_of_one': totalprice_of_one,
                    'total': total,
                    'currencies_form': currencies_form,
                    'article_view': article_view,
