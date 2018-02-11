@@ -154,17 +154,31 @@ def article_details(request, article_id):
                 currency_id = request.session['currency']
                 article = Article.objects.get(id=article_id)
                 try:
+                    # lookup if cart_id is already existent:
                     cart_id = ShoppingCart.objects.get(user=request.user)
                 except:
+                    # if cart_id is not existent create a cart:
                     cart_id = ShoppingCart.objects.create(user=request.user)
                     cart_id.save()
                 if cart_id:
-                    cart_position = CartPosition.objects.create(
-                        article=article,
-                        amount=amount,
-                        cart=ShoppingCart.objects.get(user=request.user)
-                        )
-                    cart_position.save()
+                    # check if the article is existent in cart already:
+                    try:
+                        article_amount = CartPosition.objects.get(
+                            article=article_id)
+                        new_amount = article_amount.amount + amount
+                        # if article is in cart already update amount:
+                        cart_position = CartPosition.objects.update(
+                            amount=new_amount
+                            )
+                    except Exception as e:
+                        # if the article is not in cart yet add full item:
+                        cart_position = CartPosition.objects.create(
+                            article=article,
+                            amount=amount,
+                            cart=ShoppingCart.objects.get(user=request.user)
+                            )
+                        cart_position.save()
+                # write default value (1) to form field:
                 amount = AddToCartForm()
         else:
             amount = AddToCartForm()
@@ -303,26 +317,6 @@ def cart(request):
             amount = Decimal.from_float(article.amount)
             totalprice_list.append(article.position_price)
             articles_list[idx] = article
-
-    # if cart_id and request.session['currency']:
-    #     articles = CartPosition.objects.filter(cart=cart_id)
-    #     articles_list = list(articles)
-    #     currency = request.session['currency']
-    #     for idx, article in enumerate(articles_list):
-    #         article.price_in_chf = rate.exchange(
-    #             currency, article.article.price_in_chf)
-    #         articles_list[idx] = article
-    #         currency_name = ExchangeRate_name.objects.get(id=currency)
-    #         article.price_in_chf = rate.exchange(
-    #             currency,
-    #             article.price_in_chf)
-    #         prices_in_cart.append(article.article.price_in_chf)
-    #
-    # if cart_id:
-    #     articles = CartPosition.objects.filter(cart=cart_id)
-    #     articles_list = list(articles)
-    #     for idx, article in enumerate(articles_list):
-    #         prices_in_cart.append(article.article.price_in_chf)
 
     total = sum(totalprice_list)
 
