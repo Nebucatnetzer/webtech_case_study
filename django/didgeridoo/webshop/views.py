@@ -278,7 +278,7 @@ def cart(request):
                 amount = CartForm.ChangeAmount()
         else:
             amount = AddToCartForm()
-
+    # if the cart_id is set the user has already added items to cart.
     try:
         cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
@@ -287,40 +287,26 @@ def cart(request):
     if cart_id:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
+        # scrap out the details to calculate Total of item and Summ of All:
         for idx, article in enumerate(articles_list):
+            # only recalculate prices if currency is not CHF:
             if currency is not None:
+                # no idea what this does: (!!!)
                 articles_list[idx] = article
+                # get price of item in CHF:
                 article.price_in_chf = rate.exchange(
                     currency, article.article.price_in_chf)
+                # get currencyname to display:
                 currency_name = ExchangeRate_name.objects.get(id=currency)
+                # get exchange_rate multiplyed:
                 article.price_in_chf = rate.exchange(
                     currency,
                     article.price_in_chf)
-            amount = article.amount
-            totalprice_of_one = Decimal(amount) * article.article.price_in_chf
-
+            # calculate item * price for one row in cart:
+            totalprice_of_one = Decimal(article.amount) * article.article.price_in_chf
+            # add to a list of total prices per item
             prices_in_cart.append(article.article.price_in_chf)
-
-    # if cart_id and request.session['currency']:
-    #     articles = CartPosition.objects.filter(cart=cart_id)
-    #     articles_list = list(articles)
-    #     currency = request.session['currency']
-    #     for idx, article in enumerate(articles_list):
-    #         article.price_in_chf = rate.exchange(
-    #             currency, article.article.price_in_chf)
-    #         articles_list[idx] = article
-    #         currency_name = ExchangeRate_name.objects.get(id=currency)
-    #         article.price_in_chf = rate.exchange(
-    #             currency,
-    #             article.price_in_chf)
-    #         prices_in_cart.append(article.article.price_in_chf)
-    #
-    # if cart_id:
-    #     articles = CartPosition.objects.filter(cart=cart_id)
-    #     articles_list = list(articles)
-    #     for idx, article in enumerate(articles_list):
-    #         prices_in_cart.append(article.article.price_in_chf)
-
+    # sum the list of totalprices of items to a summ of all items in cart.
     total = sum(prices_in_cart)
 
     return render(request, 'webshop/cart.html',
