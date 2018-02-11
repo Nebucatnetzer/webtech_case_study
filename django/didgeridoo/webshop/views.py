@@ -265,10 +265,14 @@ def cart(request):
             article.price_in_chf = rate.exchange(
                 currency,
                 article.price_in_chf)
-            total += article.price_in_chf
     else:
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
+        for idx, article in enumerate(articles_list):
+            articles_list[idx] = article
+            article.price_in_chf = CartPosition.objects.get(article.article.id)
+
+    total += article.price_in_chf
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
