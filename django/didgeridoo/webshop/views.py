@@ -235,7 +235,7 @@ def cart(request):
     cart_id = False
     articles_list = ""
     prices_in_cart = []
-    totalprice_list = {}
+    totalprice_list = []
     total = 0
 
     if not 'currency' in request.session:
@@ -301,9 +301,7 @@ def cart(request):
                     currency,
                     article.price_in_chf)
             amount = Decimal.from_float(article.amount)
-            totalprice_list.update({
-                article.article.id:amount * article.article.price_in_chf
-            })
+            totalprice_list.append(article.position_price)
             articles_list[idx] = article
 
     # if cart_id and request.session['currency']:
@@ -326,7 +324,7 @@ def cart(request):
     #     for idx, article in enumerate(articles_list):
     #         prices_in_cart.append(article.article.price_in_chf)
 
-    total = sum(totalprice_list.values())
+    total = sum(totalprice_list)
 
     return render(request, 'webshop/cart.html',
                   {'articles_list': articles_list,
