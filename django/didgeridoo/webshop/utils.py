@@ -12,9 +12,6 @@ def process_article_prices(request, articles):
 
     if not 'currency' in request.session:
         request.session['currency'] = None
-        return {'request':request,
-                'currency_name':currency_name,
-                'articles_list':articles_list}
 
     if request.method == 'POST':
         currencies_form = CurrenciesForm(request.POST)
@@ -26,9 +23,6 @@ def process_article_prices(request, articles):
                 currency_name = ExchangeRate_name.objects.get(id=selection.id)
             else:
                 request.session['currency'] = None
-                return {'request':request,
-                        'currency_name':currency_name,
-                        'articles_list':articles_list}
 
     if request.session['currency']:
         currency = request.session['currency']
@@ -36,9 +30,6 @@ def process_article_prices(request, articles):
             article.price_in_chf = rate.exchange(currency, article.price_in_chf)
             articles_list[idx] = article
             currency_name = ExchangeRate_name.objects.get(id=currency)
-        return {'request':request,
-                'articles_list':articles_list,
-                'currency_name':currency_name}
 
     return {'request':request,
             'currency_name':currency_name,
