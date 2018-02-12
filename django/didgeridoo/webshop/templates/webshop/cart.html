@@ -5,24 +5,37 @@
     {% if articles_list %}
       <table class="table">
         <tr class="table_header">
-          <th scope="col">ID</th>
+          <th scope="col">POS.</th>
+          <th scope="col">ART#</th>
           <th scope="col">NAME</th>
           <th scope="col">STOCK</th>
           <th scope="col">AMOUNT</th>
-          <th scope="col">PRICE</th>
+          <th scope="col">PRICE p.pce.</th>
+          <th scope="col">POSITION PRICE</th>
         </tr>
         {% for article in articles_list %}
           <tr class="table_content">
             <td scope="col">{{ article.id }}</td>
+            <td scope="col">{{ article.article.id }}</td>
             <td scope="col">
-              <a href="{% url 'details' article.id %}">
+              <a href="{% url 'details' article.article.id %}">
                 {{ article.article.name }}
-              </a></td>
+              </a>
+            </td>
             <td scope="col">{{ article.article.stock }}</td>
             <td scope="col">{{ article.amount }}</td>
-            <td scope="col">{{ article.article.price_in_chf }} {{ currency_name }}</td>
+            <td scope="col">
+              {{ article.article.price_in_chf }}
+              {{ currency_name }}
+            </td>
+            <td scope="col">{{ article.position_price }}</td>
           </tr>
         {% endfor %}
+        <tr>
+          <td scope="col" colspan="7" class="text-right">
+            Total: {{ total }}
+          </td>
+        </tr>
       </table>
     {% else %}
       <p class="alert">
