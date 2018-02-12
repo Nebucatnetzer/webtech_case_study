@@ -40,16 +40,16 @@ def currencies(request):
     try:
         urlsocket = exchange_rates.get_rss(SNB_URL)
     except Exception as e:
-        print('currencies/views get_rss(): ', urlsocket, 'error:', e)
+        print('currencies/views.currencies() get_rss() error:', e)
     try:
         rss_tree = exchange_rates.parse_rss(urlsocket)
     except Exception as e:
-        print('currencies/views parse_rss(): ', rss_tree, 'error:', e)
+        print('currencies/views.currencies() parse_rss() error:', e)
     try:
         raw_data = exchange_rates.get_exchange_rate(rss_tree, ns)
     except Exception as e:
-        print('currencies/views get_exchange_rate(): ', raw_data, 'error:', e)
-
+        print('currencies/views.currencies() get_exchange_rate() error:', e)
+        raw_data = None
     today = datetime.now().strftime("%Y-%m-%d")
 
     message_no = "Already querried: "

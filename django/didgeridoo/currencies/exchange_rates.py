@@ -21,6 +21,7 @@ def get_rss(url):
 
 
 def parse_rss(urlsocket):
+    rss_tree = ''
     if urlsocket:
         root = ET.parse(urlsocket)
         rss_tree = ET.ElementTree(root)
