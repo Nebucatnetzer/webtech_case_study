@@ -1,8 +1,11 @@
+from decimal import Decimal
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+
 from webshop.models import (Article,
                             Category,
                             ArticleStatus,
@@ -14,58 +17,22 @@ from webshop.models import (Article,
 from webshop.forms import (RegistrationForm,
                            AddToCartForm,
                            CartForm)
+from webshop.utils import (get_categories,
+                           get_hidden_status_id,
+                           process_article_prices)
 
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
-from decimal import Decimal
-
-
-def get_categories():
-    parent_category_list = Category.objects.filter(parent_category=None)
-    category_list = {}
-
-    for i in parent_category_list:
-            category_list.update(
-                {i: Category.objects.filter(parent_category=i.id)})
-    return category_list
-
-
-def get_hidden_status_id():
-    hidden_status = ArticleStatus.objects.get(name="hidden")
-    return hidden_status.id
-
 
 def index(request):
     category_list = get_categories()
-    articles = Article.objects.all().exclude(status=get_hidden_status_id())
-    articles_list = list(articles)
     currencies_form = CurrenciesForm
-    rate = ExchangeRate
     article_view = True
-    currency_name = "CHF"
 
-    if not 'currency' in request.session:
-        request.session['currency'] = None
-
-    if request.method == 'POST':
-        currencies_form = CurrenciesForm(request.POST)
-        if currencies_form.is_valid():
-            cf = currencies_form.cleaned_data
-            if cf['currencies']:
-                selection = cf['currencies']
-                request.session['currency'] = selection.id
-                currency_name = ExchangeRate_name.objects.get(id=selection.id)
-            else:
-                request.session['currency'] = None
-
-    if request.session['currency']:
-        currency = request.session['currency']
-        for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(
-                currency, article.price_in_chf
-                )
-            articles_list[idx] = article
-            currency_name = ExchangeRate_name.objects.get(id=currency)
+    articles = Article.objects.all().exclude(status=get_hidden_status_id())
+    return_values = process_article_prices(request, articles)
+    articles_list = return_values['articles_list']
+    currency_name = return_values['currency_name']
 
     return render(request,
                   'webshop/index.html',
@@ -79,35 +46,15 @@ def index(request):
 def articles_in_category(request, category_id):
     category_list = get_categories()
     selected_category = Category.objects.get(id=category_id)
+
+    currencies_form = CurrenciesForm
+    article_view = True
+
     articles = Article.objects.filter(
         category=selected_category.id).exclude(status=get_hidden_status_id())
-    articles_list = list(articles)
-    currencies_form = CurrenciesForm
-    rate = ExchangeRate
-    article_view = True
-    currency_name = "CHF"
-
-    if not 'currency' in request.session:
-        request.session['currency'] = None
-
-    if request.method == 'POST':
-        currencies_form = CurrenciesForm(request.POST)
-        if currencies_form.is_valid():
-            cf = currencies_form.cleaned_data
-            if cf['currencies']:
-                selection = cf['currencies']
-                request.session['currency'] = selection.id
-                currency_name = ExchangeRate_name.objects.get(id=selection.id)
-            else:
-                request.session['currency'] = None
-
-    if request.session['currency']:
-        currency = request.session['currency']
-        for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(
-                currency, article.price_in_chf)
-            articles_list[idx] = article
-            currency_name = ExchangeRate_name.objects.get(id=currency)
+    return_values = process_article_prices(request, articles)
+    articles_list = return_values['articles_list']
+    currency_name = return_values['currency_name']
 
     return render(request, 'webshop/category.html',
                   {'articles_list': articles_list,
