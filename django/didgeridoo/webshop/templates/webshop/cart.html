@@ -28,12 +28,12 @@
               {{ article.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ article.position_price }}</td>
+            <td scope="col">{{ article.position_price }} {{ currency_name }}</td>
           </tr>
         {% endfor %}
         <tr>
           <td scope="col" colspan="7" class="text-right">
-            Total: {{ total }}
+            Total: {{ total }} {{ currency_name }}
           </td>
         </tr>
       </table>
