@@ -123,7 +123,6 @@ def article_details(request, article_id):
                         cart_position = CartPosition.objects.create(
                             article=article,
                             amount=amount,
-                            position_price=article.price_in_chf,
                             cart=ShoppingCart.objects.get(user=request.user)
                             )
                         cart_position.save()
@@ -194,33 +193,12 @@ def cart(request):
     currencies_form = CurrenciesForm
     rate = ExchangeRate
     article_view = True
-    currency_name = "CHF"
     message = ""
     cart_id = False
-    articles_list = ""
-    prices_in_cart = []
     totalprice_list = []
     total = 0
 
-    if not 'currency' in request.session:
-        request.session['currency'] = None
-    else:
-        currency = request.session['currency']
-
     if request.method == 'POST':
-        # here we react to a currency dropdown change:
-        if 'currencies' in request.POST:
-            currencies_form = CurrenciesForm(request.POST)
-            if currencies_form.is_valid():
-                cf = currencies_form.cleaned_data
-                if cf['currencies']:
-                    selection = cf['currencies']
-                    request.session['currency'] = selection.id
-                    currency_name = ExchangeRate_name.objects.get(
-                        id=selection.id)
-                else:
-                    request.session['currency'] = None
-        # here we react to a change of amount per item in the Cart:
         if 'amount' in request.POST:
             print(request.POST)
             amount = CartForm.ChangeAmount(request.POST)
@@ -243,40 +221,42 @@ def cart(request):
         else:
             amount = AddToCartForm()
     # if the cart_id is set the user has already added items to cart.
+
     try:
         cart_id = ShoppingCart.objects.get(user=request.user)
     except Exception as e:
         message = "You have no items in the Basket"
+        return render(request, 'webshop/cart.html',
+                      {'currencies_form': currencies_form,
+                       'article_view': article_view,
+                       'currency_name': "CHF",
+                       'category_list': category_list,
+                       'message': message})
 
-    if cart_id:
-        articles = CartPosition.objects.filter(cart=cart_id)
-        articles_list = list(articles)
-        # scrap out the details to calculate Total of item and Summ of All:
-        for idx, article in enumerate(articles_list):
-            print(article, idx)
-            article.calculate_position_price()
-            if currency:
-                article.price_in_chf = rate.exchange(
-                    currency, article.article.price_in_chf)
-                # get currencyname to display:
-                currency_name = ExchangeRate_name.objects.get(id=currency)
-                # get exchange_rate multiplyed:
-                article.price_in_chf = rate.exchange(
-                    currency,
-                    article.price_in_chf)
-            amount = Decimal.from_float(article.amount)
-            totalprice_list.append(article.position_price)
-            articles_list[idx] = article
+    articles = []
+    cart_position = CartPosition.objects.filter(cart=cart_id)
+    cart_position_list = list(cart_position)
+    for idx, cart_position in enumerate(cart_position_list):
+            articles.append(cart_position.article)
+
+    return_values = process_article_prices(request, articles)
+    articles_list = return_values['articles_list']
+    currency_name = return_values['currency_name']
+
+    for idx, cart_position in enumerate(cart_position_list):
+        cart_position.calculate_position_price()
+        cart_position.article = articles_list[idx]
+        totalprice_list.append(cart_position.position_price)
 
     total = sum(totalprice_list)
-
     return render(request, 'webshop/cart.html',
-                  {'articles_list': articles_list,
-                   'totalprice_list': totalprice_list,
-                   'total': total,
-                   'currencies_form': currencies_form,
-                   'article_view': article_view,
-                   'currency_name': currency_name,
-                   'category_list': category_list,
-                   'message': message,
-                   })
+                {'articles_list': articles_list,
+                'totalprice_list': totalprice_list,
+                'cart_position_list': cart_position_list,
+                'total': total,
+                'currencies_form': currencies_form,
+                'article_view': article_view,
+                'currency_name': currency_name,
+                'category_list': category_list,
+                'message': message,
+                })

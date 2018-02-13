@@ -13,22 +13,22 @@
           <th scope="col">PRICE p.pce.</th>
           <th scope="col">POSITION PRICE</th>
         </tr>
-        {% for article in articles_list %}
+        {% for position in cart_position_list %}
           <tr class="table_content">
-            <td scope="col">{{ article.id }}</td>
-            <td scope="col">{{ article.article.id }}</td>
+            <td scope="col">{{ position.id }}</td>
+            <td scope="col">{{ position.article.id }}</td>
             <td scope="col">
-              <a href="{% url 'details' article.article.id %}">
-                {{ article.article.name }}
+              <a href="{% url 'details' position.article.id %}">
+                {{ position.article.name }}
               </a>
             </td>
-            <td scope="col">{{ article.article.stock }}</td>
-            <td scope="col">{{ article.amount }}</td>
+            <td scope="col">{{ position.article.stock }}</td>
+            <td scope="col">{{ position.amount }}</td>
             <td scope="col">
-              {{ article.article.price_in_chf }}
+              {{ position.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ article.position_price }} {{ currency_name }}</td>
+            <td scope="col">{{ position.position_price }} {{ currency_name }}</td>
           </tr>
         {% endfor %}
         <tr>
