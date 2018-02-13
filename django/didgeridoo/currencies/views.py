@@ -29,6 +29,8 @@ def currencies(request):
     prepares a view all dynamicaly.
     It can grow in terms of more Currencies over time automaticaly."""
 
+    message_offline = ''
+
     # Namespaces
     ns = {'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
           'none': 'http://purl.org/rss/1.0/',
@@ -49,7 +51,19 @@ def currencies(request):
         raw_data = exchange_rates.get_exchange_rate(rss_tree, ns)
     except Exception as e:
         print('currencies/views.currencies() get_exchange_rate() error:', e)
-        raw_data = None
+        # because url seams to be not avalable we fetch a local file in root
+        # didgeridoo/rss to get some older currencies.
+        rss_tree = exchange_rates.pass_local_file()
+        message_offline = """
+        Are you offline? - useing stored currencies.
+        This does not efect you, but your purchase prices will be
+        recalculated as soon as you submit your Order.
+        """
+        try:
+            raw_data = exchange_rates.get_exchange_rate(rss_tree, ns)
+        except Exception as e:
+            print("""currencies/views.currencies()
+                get_exchange_rate.pass_local_file() error:""", e)
     today = datetime.now().strftime("%Y-%m-%d")
 
     message_no = "Already querried: "
@@ -141,11 +155,11 @@ def currencies(request):
     # here we evaluate what kind of message is valid:
     if len(message_no) > length_of_message_no\
             and len(message_yes) > length_of_message_yes:
-        message = message_no + message_yes
+        message = message_offline + message_no + message_yes
     elif len(message_no) > 24:
-        message = message_no
+        message = message_offline + message_no
     elif len(message_yes) > 18:
-        message = message_yes
+        message = message_offline + message_yes
     elif datetime.datetime.today().isoweekday() == 6:
         message = """Die Abfrage wurde ohne ergebniss beendet.
         Es ist Samstag, die SNB publiziert nur an Arbeitstagen

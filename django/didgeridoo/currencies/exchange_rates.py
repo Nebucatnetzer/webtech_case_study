@@ -28,6 +28,11 @@ def parse_rss(urlsocket):
     return(rss_tree)
 
 
+def pass_local_file():
+    rss_tree = ET.ElementTree(file='rss')
+    return(rss_tree)
+    
+
 def get_exchange_rate(rss_tree, ns):
     # Pathvariables to XML Namespaces with
     rate_path = 'cb:statistics/cb:exchangeRate/'
