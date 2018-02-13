@@ -114,7 +114,8 @@ def article_details(request, article_id):
                             article=article_id)
                         new_amount = article_amount.amount + amount
                         # if article is in cart already update amount:
-                        cart_position = CartPosition.objects.update(
+                        cart_position = CartPosition.objects.filter(
+                            id=article_id).update(
                             amount=new_amount
                             )
                     except Exception as e:
@@ -122,6 +123,7 @@ def article_details(request, article_id):
                         cart_position = CartPosition.objects.create(
                             article=article,
                             amount=amount,
+                            position_price=article.price_in_chf,
                             cart=ShoppingCart.objects.get(user=request.user)
                             )
                         cart_position.save()
