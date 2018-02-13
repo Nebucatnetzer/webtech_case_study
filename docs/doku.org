@@ -271,7 +271,9 @@ LaTeX ist freie Software unter der LaTeX Project Public License.
 
 Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
 Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
-Software unter der GNU Public License v3.
+Software unter der GNU Public License v3. Für das Entity Relation
+Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
+ist freie Software unter der GNU Public License v2.
 
 Die Klassen Diagramme haben wir mit der Django Erweiterung
 "Django-Extensions"\footcite{django_extensions} erstellt.
@@ -486,7 +488,7 @@ ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Pass- wort beim
 Login). Dabei wird die technische Lösung nicht konkret beschrieben.
 Die Detailstufe kann dabei sehr unterschiedlich sein.\footcite{usecase}
 
-**** Anwendungsfalliagramm
+**** Anwendungsfalldiagramm
 
 "Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
 Unified Modeling Language (UML), einer Sprache für die Modellierung
@@ -507,7 +509,7 @@ Webshops beschränkt.
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
 
-**** Use Case Detailbeschreibung
+**** Use Cases Detailbeschreibung
 
 Use Cases werden in der Regel mit Hilfe einer sogenannten Use Case
 Schablone im Detail beschrieben damit klar ist wie der Ablauf jeweils
@@ -518,7 +520,7 @@ Da ein Web-Shop eine sehr umfangreiche Applikation ist gibt es sehr
 viele Use Cases welche beschrieben und umgesetzt werden müssen. Aus
 zeitlichen Gründen haben wir nur einen kleinen Teil der Use Cases im
 Detail ausgearbeitet. Insbesondere diese welche wir selber
-ausprogrammiert haben. Die gesamte Liste an Use Cases sieht wie folgt
+aus programmiert haben. Die gesamte Liste an Use Cases sieht wie folgt
 aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 
 #+LATEX: {\footnotesize
@@ -992,116 +994,317 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 #+CAPTION: Ein frühes Mockup des Shop
 #+ATTR_LATEX: :width \textwidth
 #+NAME: mockup
-[[./pictures/mockup-full-snipet.png]]
+[[file:pictures/mockup-full-snipet.png]]
 
-*** TODO Models
+#+LATEX:\newpage
+*** Models
 
-\footcite{djangoextensions}
+Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
+Erstellung der Tabellen in der Datenbank. Für den Aufbau der Anwendung
+und der Kommunikation im Team ist es jedoch von absoluter
+Notwendigkeit das man sich über die Beziehung zwischen den Objekten
+Gedanken macht. Insbesondere wenn die Anwendung nach wie vor auf einer
+relationalen Datenbank basiert. Aus diesem Grund haben wir vor Beginn
+der Arbeit ein klassisches Entity Relation Diagramm aufgezeichnet.
+Während der Entwicklung haben wir es dann kontinuierlich erweitert und
+korrigiert. Das finale Ergebnis ist in der Abbildung:([[fig:erd]]) zu sehen.
+erstellt haben.
 
-**** NEXT Category
+Django übernimmt dann jedoch das erstellen der Tabellen und benennen
+derjenigen weshalb das Resultat in der Datenbank dann etwas anders
+aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
+daher. Der finale Aufbau der Datenbank ist in der
+Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
+Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
 
-\footcite{tree}
+Nachfolgend werden wir die von uns erstellten Modells im Detail
+beschreiben und auf jeweils spezifische Probleme eingehen.
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+ATTR_LATEX: :height.9\textwidth
+#+CAPTION: Entity Relation Diagramm
+#+NAME: fig:erd
+[[file:diagrammes/erd.eps]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+ATTR_LATEX: :height.9\textheight
+#+CAPTION: Django Datenbank Aufbau
+#+NAME: fig:final_erd
+[[file:diagrammes/final_erd.png]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
+
+**** Category
+
+Das "Category" Modell, Abbildung:([[fig:category]]) ist der Kernpunkt der
+Artikelnavigation und vom Aufbau her eigentlich eher simpel.
+Allerdings hatten wir etwas Mühe die hierarchische Darstellung im
+Template sauber abzubilden. Hier half uns ein Artikel\footcite{tree}
+von Stackoverflow auf die richtige Lösung zu kommen. Nämlich das sich
+das ganze um zwei in einander verschachtelte Dictionaries handelt.
+Somit konnten wir dann über die Kategorie iterieren.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Kategorien
 #+NAME: fig:category
-[[./pictures/class_category.png]]
+[[file:pictures/class_category.png]]
 
+**** Option
 
-**** NEXT Option
+Gemäss der Anforderung FA\_1.4 muss es möglich sein für einen Artikel 0-5
+Bilder hochzuladen. Wir stellen dies über eine Variabel im "Option"
+Modell, Abbildung:([[fig:option]]), sicher gegen welche beim Speichern
+überprüft wird. Die Variabel ist als Option im Admin Interface
+hinterlegt. Dadurch ist es möglich den Wert auch nachträglich
+noch zu ändern oder ganz zu deaktivieren.
 
-\footcite{readonly}
-\footcite{removeadd}
-\footcite{removedelete}
+Da diese Variabel jedoch essentiell für die Funktion des Webshops ist
+mussten wir sicherstellen das sie von einem Administrator nicht aus
+Versehen gelöscht oder umbenannt wird. Des weiteren macht es in der
+Applikation im Momentan wenig Sinn wenn der User selber Optionen
+hinzufügen kann. Aus diesen Gründen haben wir für das "Option" Modell
+den "Add" Button\footcite{removeadd} und die "Delete"
+Option\footcite{removedelete} entfernt sowie den Namen im Admin
+Interface nur lesbar gemacht\footcite{readonly}. Somit ist nun nur
+noch der Wert editierbar.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Optionen
 #+NAME: fig:option
-[[./pictures/class_option.png]]
+[[file:pictures/class_option.png]]
 
-**** NEXT ArticleStatus
+**** ArticleStatus
+
+Das Modell "ArticleStatus", Abbildung:([[fig:articlestatus]]), wird über
+einen Fremdschlüssel mit dem "Article" Modell verbunden und gibt
+diesem verschiedene Status. Gemäss der Anforderung FA\_1.4 muss ein
+Artikel die Status "active" und "hidden" haben. Wir haben dies in der
+Applikation dann auch gleich so umgesetzt das nur die Artikel
+angezeigt werden welche nicht den Status "hidden" haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikelstatus
 #+NAME: fig:articlestatus
-[[./pictures/class_articlestatus.png]]
+[[file:pictures/class_articlestatus.png]]
 
-**** TODO ExchangeRate
+**** ExchangeRate
 
-\footcite{timezone}
+Wir legen die Wechselkurse im Modell "ExchangeRate",
+Abbildung:([[fig:exchangerate]]), ab. Um Manipulationen aufs Datum und den
+Namen einfacher zu machen werden diese beiden Attribute als
+Fremdschlüssel hinterlegt. Die Wechselkurse werden dabei aus dem RSS
+Feed\footcite{snb} der Schweizerischen Nationalbank stündlich
+abgeholt. Vor dem Ablegen in der Datenbank wird dann noch überprüft ob
+sich die Werte geändert haben oder nicht.
+Wir haben uns für den die Daten der SNB entschieden da sie einerseits
+die benötigten Wechselkurse anbieten und anderseit bereits von unserer
+Basiswährung CHF ausgehen. Dadurch müssen wir nicht zuerst aus einer
+anderen Währung zurückrechnen.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Wechselkurse
 #+NAME: fig:exchangerate
-[[./pictures/class_exchangerate.png]]
+[[file:pictures/class_exchangerate.png]]
 
-**** NEXT Article
+**** ExchangeRate_name
+
+Im Modell ExchangeRate_name, Abbildung:([[fig:exchangerate_name]]), ist nur
+eine Liste mit allen möglichen Währungsnamen abgelegt.
+
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Wechselkurse
+#+NAME: fig:exchangerate_name
+[[file:pictures/exchangerate_name.png]]
+
+**** ExchangeRate_date
+
+Damit die Wechselkurse des Tages einfacher auf einer Zeile angezeigt
+werden können haben wir das Datum in ein eigenes Modell,
+Abbildung:([[fig:exchangerate_date]]), ausgelagert. Dabei wird das Datum
+als Standardwert mitgegeben. Wir hatten dies zu Beginn noch falsch
+implementiert und das Datum als Funktion übergeben. Das führte jedoch
+dazu, dass die Funktion einmal beim Starten des Servers ausgeführt
+wurde und alle Wechselkurse immer das gleiche Datum hatten. Auf
+Stackoverflow fanden wir dann die Lösung\footcite{timezone} das wir
+die Datumsfunktion als Variabel übergeben müssen damit sie bei jedem
+Erstellen des Objekt evaluiert wird.
+
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Wechselkurse
+#+NAME: fig:exchangerate_date
+[[file:pictures/exchangerate_date.png]]
+
+**** Article
+
+Das Modell "Article", Abbildung([[fig:article]]), ist als solches nicht
+sehr komplex und widerspiegelt einen Artikel aus der realen Welt.
+Gemäss der Anforderung FA\_1.4 hat er eine eindeutige ID (den
+Primärschlüssel), einen Namen von maximal 200 Zeichen, eine
+Beschreibung von maximal 2000 Zeichen, Status sowie 0 - 5
+Produktbilder.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Artikel
 #+NAME: fig:article
-[[./pictures/class_article.png]]
+[[file:pictures/class_article.png]]
 
-**** NEXT OrderStatus
+**** OrderStatus
+
+Damit nachvollzogen werden kann in welchen Zustand sich eine
+Bestellung gerade befindet haben wir ein Modell "OrderStatus",
+Abbildung:([[fig:orderstatus]]), erstellt. Für dieses Modell sind folgende
+Status angedacht:
+- ordered -> vom Kunden bestellt
+- delivered -> Bestellung wurde versandt
+- cancelled -> Bestellung storniert
+- on hold -> Bestellung pausiert
+
+Der "OrderStatus" wird vom "Order" sowie auch dem "OrderOfGoods" Modell
+verwendet.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellstatus
 #+NAME: fig:orderstatus
-[[./pictures/class_orderstatus.png]]
+[[file:pictures/class_orderstatus.png]]
 
-**** NEXT OrderOfGoods
+**** OrderOfGoods
+
+Das Modell "OrderOfGoods", Abbildung:([[fig:orderofgoods]]), bildet die
+Nachbestellungen fürs Warenlager ab. Dabei wird es hauptsächlich für
+die Verwaltung verwendet um die Nachbestellungen im Griff zu haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenbestellungen
 #+NAME: fig:orderofgoods
-[[./pictures/class_orderofgoods.png]]
+[[file:pictures/class_orderofgoods.png]]
 
-**** NEXT Picture
+**** Picture
 
-\footcite{upload}
-\footcite{images}
+Über das Modell "Picture", Abbildung:([[fig:picture]]) können Bilder für
+einen Artikel hochgeladen werden. Grundsätzlich kann man Bilder
+relativ einfach über das Attribut "models.ImageField" zu einem Modell
+hinzufügen. Wir hatten allerdings noch einige Probleme mit dem
+Konfigurieren von Django damit der Upload funktionierte und wir die
+Bilder in den Templates verwenden konnten. Die Lösungen für den Upload
+fanden wir in einem Stackoverflow Post\footcite{upload}. Auch für das
+verwenden der Bilder in den Templates fanden wir in einem Post auf
+Stackoverflow\footcite{images} die Lösung.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bilder
 #+NAME: fig:picture
-[[./pictures/class_picture.png]]
+[[file:pictures/class_picture.png]]
 
-**** NEXT Order
+**** Order und OrderPosition
+
+Bestellungen der Kunden werden im Modell "Order",
+Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
+ID gespeichert wird, sowie, gemäss der Anforderung FA\_3.3, der
+Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
+Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
+hergestellt.
+
+Da sich bei der Beziehung zwischen den Artikeln und dem Kunden um eine
+"Viele zu Viele" Beziehung handelt braucht es noch ein zusätzliches
+Modell welches die Beziehung abbildet. Dies realisieren wir über das
+Modell "OrderPostion", Abbildung:([[fig:orderposition]]).
+
+In diesem Modell werden dann noch zusätzlich die bestellte Menge sowie
+der Preis zur Zeit der Bestellung in schweizer Franken des jeweiligen
+Artikels erfasst. Somit kann auch später noch nachvollzogen werden zu
+welchem Preis die Ware bezogen wurde.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Bestellungen
 #+NAME: fig:order
-[[./pictures/class_order.png]]
+[[file:pictures/class_order.png]]
 
-**** NEXT ShoppingCart
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Bestellungens Positionen
+#+NAME: fig:orderposition
+[[file:pictures/class_orderposition.png]]
+
+**** ShoppingCart und ShoppingCartPosition
+
+Bevor die Bestellungen erfasst werden kann der Kunde die Artikel in
+einem Warenkorb sammeln. Dieser funktioniert sehr ähnlich wie die
+Bestellungen. Über das Modell "ShoppingCart",
+Abbildung:([[fig:shoppingcart]]), und das Modell "ShoppingCartPosition",
+Abbildung:([[fig:shoppingcartposition]]), werden die ausgewählten Artikel
+sowie ihre Mengen einem User zugewiesen. Im Gegensatz zur Bestellung
+wird im Artikel jedoch der Preis nicht gespeichert da sich der Preis
+vor der Bestellung noch ändern könnte. Wenn die Verwaltung etwa die
+Preise anpasst oder die Währungen den Kurs ändern.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Warenkörbe
 #+NAME: fig:shoppingcart
-[[./pictures/class_shoppingcart.png]]
+[[file:pictures/class_shoppingcart.png]]
 
-**** NEXT City
+#+ATTR_LATEX: :width 9cm :placement [H]
+#+CAPTION: Klassenmodel für Warenkorbs Positionen
+#+NAME: fig:shoppingcartposition
+[[file:pictures/class_shoppingcartposition.png]]
+
+**** City
+
+Das "City" Modell speichert Städte Namen und die dazugehörige
+Postleizahl. Die Städte werden als Teil der Adresse auf dem "Person"
+Modell hinterlegt. Im aktuellen Zustand der Applikation enthält die
+Tabelle die Daten aller schweizer Städte.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Städte
 #+NAME: fig:city
-[[./pictures/class_city.png]]
+[[file:pictures/class_city.png]]
 
-**** NEXT Salutation
+**** Salutation
+
+"Salutation", zu Deutsch Anrede, ist das Modell welches die möglichen
+Anreden beinhaltet die ein User für sich hinterlegen kann.
+Für den Moment haben wir die folgenden Auswahlmöglichkeiten
+hinterlegt:
+- Herr
+- Frau
+- Dr.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Anreden
 #+NAME: fig:salutation
-[[./pictures/class_salutation.png]]
+[[file:pictures/class_salutation.png]]
 
-**** NEXT Person
+**** Person
 
-\footcite{usermodel}
+Das "Person" Modell dient dazu Informationen über einen User zu
+speichern die nicht relevant sind für die Authentifizierung.
+
+Es gibt mehrere Möglichkeiten wie man das "User" Modell in Django
+erweitern kann. In einem Post\footcite{usermodel} von Vitor Freitas
+werden die möglichen vier Varianten aufgeführt und erklärt. Eine davon
+ist nicht dafür gemacht zusätzliche Informationen zu speichern. Zwei
+weitere Varianten bauen darauf auf von einer Basis "User" Klasse
+abzuleiten. Die erste Variante war für unsere Zwecke nicht geeignet da
+wir zwingend zusätzliche Informationen speichern wollten. Die
+Varianten mit Vererbungen erschienen uns ungeeignet da die Möglichkeit
+besteht die Sicherheit der Authentifizierung zu schwächen. Aus diesem
+Grund wird in der Django Dokumentation eher davor abgeraten diese
+Varianten wenn man nicht genau weiss was man macht.
+
+Die verbeiblende Variante erweitert das "User" Modell über eine
+"One-to-One" Beziehung ein sogenanntes "Profil". Dadurch bleibt das
+"User" Modell intakt und man kann zusätzliche Informationen über den
+User speichern. Man sollte im Profil jedoch nur Daten speichern welche
+nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist das
+die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodel für Personen
 #+NAME: fig:person
-[[./pictures/class_person.png]]
+[[file:pictures/class_person.png]]
 
 ** Benutzerinterface
 *** Mockup skizzieren
