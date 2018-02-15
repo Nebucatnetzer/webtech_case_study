@@ -9,16 +9,12 @@
 #+STARTUP: align
 
 
-* TODO Über dieses Dokument
+* Über dieses Dokument
 
 Im nachfolgenden Abschnitt finden Sie allgemeine Informationen zu
 diesem Dokument.
 
-** TODO Titel der Dokumentation
-
-- Note taken on [2018-01-03 Mit 16:30] \\
-  Müssen wir wohl überarbeiten da wir mal angedacht haben das ein
-  Musikinstrumene-Shop allenfalls einfacher ist.
+** Titel der Dokumentation
 
 Die Gruppe hat verschiedene Varianten gelistet und sich für die
 lustigste entschieden.
