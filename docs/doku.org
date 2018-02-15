@@ -286,8 +286,8 @@ Sprache ist. Dafür ist das Setup sehr einfach und man kann eine PHP
 basierte Applikation ohne spezielle Werkzeuge entwickeln. Da wir
 jedoch bereits sehr intensiv mit PHP und MySQL in Berürung kamen haben
 wir beim Lernfaktor abstriche gemacht. In Zusammenhang mit einem
-Framework hätten wir sich auch viel dazugelernt im Vergleich zu den
-anderen Varianten jedoch sicher weniger.
+Framework hätten wir sicher auch viel dazugelernt im Vergleich zu den
+anderen Varianten jedoch auf jeden Fall weniger.
 
 #+CAPTION: Bewertung der Variante PHP und MySQL
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4cm}|c|p{2cm}|p{2cm}|p{2cm}|
