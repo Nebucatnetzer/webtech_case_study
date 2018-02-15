@@ -242,20 +242,20 @@ Punktzahl(/EP/) ergibt das Kriteriumsergebnis(/KE/).
 
 **** ASP.NET und SQL Server
 
-ASP.NET und SQL Server haben vorallem viele Punkte verloren da C\# nur
-in Teilen und SQL Server gar nicht unter einer freien Lizenz steht.
-Desweiteren läuft .NET Core zwar auch auf Unix Systemen allerdings ist
-das verhältnismässig ein relativ kleiner Teil der gesamten Sprache.
-SQL Server läuft hingegen nur unter Windows und Linux.
-Desweiteren ist es sehr schwierig C\# Applikationen ohne Visual Studio
-zu entwickeln. Es geht in der Theorie, in der Praxis ist es jedoch
-eher umständlich. Die Vorkenntnisse wurden mit 6 von Punkten bewertet
-da wir C\# zwar im Rahmen der Ausbildung lernen. Allerdings noch nicht
-das Gefühl haben sonderlich gut mit C\# umgehen zu können.
+ASP.NET und SQL Server, Tabelle:([[tab:asp-net]]), haben vorallem viele
+Punkte verloren da C# nur in Teilen und SQL Server gar nicht unter
+einer freien Lizenz steht. Desweiteren läuft .NET Core zwar auch auf
+Unix Systemen allerdings ist das verhältnismässig ein relativ kleiner
+Teil der gesamten Sprache. SQL Server läuft hingegen nur unter Windows
+und Linux. Desweiteren ist es sehr schwierig C# Applikationen ohne
+Visual Studio zu entwickeln. Es geht in der Theorie, in der Praxis ist
+es jedoch eher umständlich. Die Vorkenntnisse wurden mit 6 von Punkten
+bewertet da wir C# zwar im Rahmen der Ausbildung lernen. Allerdings
+noch nicht das Gefühl haben sonderlich gut mit C# umgehen zu können.
 
 #+CAPTION: Bewertung der Variante ASP.NET und SQL Server
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4cm}|c|p{2cm}|p{2cm}|p{2cm}|
-#+NAME: tab:asp\_net
+#+NAME: tab:asp-net
 |----------------------+----------------------+----------------------+----------------------+----------------------|
 | <20>                 |                 <20> |                 <20> |                 <20> |                 <20> |
 | *Kriterium*\cellcolor[HTML]{C0C0C0} | *Gewichtung*\cellcolor[HTML]{C0C0C0} | *max. Punktzahl*\cellcolor[HTML]{C0C0C0} | *erreichte Punktzahl*\cellcolor[HTML]{C0C0C0} | *Kriteriums- ergebnis*\cellcolor[HTML]{C0C0C0} |
@@ -275,19 +275,19 @@ das Gefühl haben sonderlich gut mit C\# umgehen zu können.
 
 **** PHP und MySQL
 
-Die Variante PHP und MySQL hat insgesamt ein sehr gute Bewertung
-erhalten. Beide Projekte sind zumindest teilweise unter einer freien
-Lizenz verfügbar und sind sowohl unter Windows, wie auch Mac und Linux
-einsetzbar. Allerdings gibt es von MySQL noch eine proprietäre
-Enterprise Variante weshalb wir hier nicht die volle Punktzahl
-vergeben konnten. Abstriche gab es bei der Lesbarkeit des Codes. Da
-PHP insgesamt eine ziemlich inkonsistente und ausschweifende Sprache
-ist. Dafür ist das Setup sehr einfach und man kann eine PHP basierte
-Applikation ohne spezielle Werkzeuge entwickeln. Da wir jedoch bereits
-sehr intensiv mit PHP und MySQL in Berürung kamen haben wir beim
-Lernfaktor abstriche gemacht. In Zusammenhang mit einem Framework
-hätten wir sich auch viel dazugelernt im Vergleich zu den anderen
-Varianten jedoch sicher weniger.
+Die Variante PHP und MySQL, Tabelle:([[tab:php]]), hat insgesamt ein sehr
+gute Bewertung erhalten. Beide Projekte sind zumindest teilweise unter
+einer freien Lizenz verfügbar und sind sowohl unter Windows, wie auch
+Mac und Linux einsetzbar. Allerdings gibt es von MySQL noch eine
+proprietäre Enterprise Variante weshalb wir hier nicht die volle
+Punktzahl vergeben konnten. Abstriche gab es bei der Lesbarkeit des
+Codes. Da PHP insgesamt eine ziemlich inkonsistente und ausschweifende
+Sprache ist. Dafür ist das Setup sehr einfach und man kann eine PHP
+basierte Applikation ohne spezielle Werkzeuge entwickeln. Da wir
+jedoch bereits sehr intensiv mit PHP und MySQL in Berürung kamen haben
+wir beim Lernfaktor abstriche gemacht. In Zusammenhang mit einem
+Framework hätten wir sich auch viel dazugelernt im Vergleich zu den
+anderen Varianten jedoch sicher weniger.
 
 #+CAPTION: Bewertung der Variante PHP und MySQL
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4cm}|c|p{2cm}|p{2cm}|p{2cm}|
@@ -311,11 +311,11 @@ Varianten jedoch sicher weniger.
 
 **** Django(Python) und MariaDB
 
-Diese Variante hat am meisten Punkte erhalten. Wie bei der Variante "PHP
-und MySQL" sind auch hier beide Komponenten freie Software. Im
-Gegensatz zu der vorherigen Variante gibt es bei diesen Komponenten
-nur eine mögliche Lizenz Form. Womit sie die volle Punktzahl in dieser
-Kategorie erreichten.
+Diese Variante, Tabelle:([[tab:django]]) hat am meisten Punkte erhalten.
+Wie bei der Variante "PHP und MySQL" sind auch hier beide Komponenten
+freie Software. Im Gegensatz zu der vorherigen Variante gibt es bei
+diesen Komponenten nur eine mögliche Lizenz Form. Womit sie die volle
+Punktzahl in dieser Kategorie erreichten.
 
 Beide Projekte laufen unter Windows, Linux sowie Mac. Wobei das Setup
 unter für Django(Python) unter Windows etwas komplizierter ausfällt
@@ -347,11 +347,12 @@ als eher niedrig eingestuft dafür den Lernfaktor umso höher.
 
 **** Ergebnis
 
-Aufgrund der erreichten Punktzahl haben wir uns dafür entschieden die
-Variante "Django(Python) und MariaDB" umzusetzen. In der Sektion [[Werkzeuge]]
-beschreiben wir noch die weiteren Mittel welche beim Erstellen der
-Case Study verwendet wurden und erklären wenn möglich auch weshalb wir
-uns dafür entschieden haben.
+Aufgrund der erreichten Punktzahl, Tabelle:([[tab:result]]) bei den
+vorhergehenden Variantenbewertungen haben wir uns dafür entschieden
+die Variante "Django(Python) und MariaDB" umzusetzen. In der Sektion
+[[Werkzeuge]] beschreiben wir noch die weiteren Mittel welche beim
+Erstellen der Case Study verwendet wurden und erklären wenn möglich
+auch weshalb wir uns dafür entschieden haben.
 
 #+CAPTION: Variantenbewertung Ergebnis
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4.5cm}|r|
