@@ -81,201 +81,7 @@ nach Prioritäten gewichtet.
 |    7. | Die Punkte der Bewertung werden erfüllt.                           | Hoch                 |
 |-------+--------------------------------------------------------------------+----------------------|
 
-** Mittel und Methoden
-*** Werkzeuge
-
-Während dem Erstellen dieser Arbeit wurde eine Vielzahl an Werkzeugen
-eingesetzt. Nachfolgend werden diese Werkzeuge kurz beschrieben sowie
-ihre Verwendung begründet. Wir haben dabei darauf geachtet soviel Open
-Source Software wie möglich zu verwenden. Nicht nur für den Web-Shop an
-sich sondern generell für alle Tasks im Projekt.
-
-**** Versionkontrolle
-
-Eine Versionskontrollsoftware erschien uns als notwendig um den Code
-auf einfache und zuverlässige Weise untereinander austauschen zu
-können. Andere Lösungen wie Dropbox, etc. hätten es uns nicht erlaubt
-Konflikte zu vermeinden.
-
-Als Software für die Versionskontrolle wurde Git \footcite{git} gewählt.
-Git wurde aus diversen Gründen gewählt:
-
-- Ist der de facto Standard bei Versionskontrollsoftware
-- Läuft auf allen gängigen Betriebsystemen
-- Es gäbe gratis Services die man nutzen könnte (Github, Gitlab)
-- Man kann offline arbeiten und Commits erstellen
-- Das Team hat bereits einen eigenen Git Server zur Verfügung
-- Das Team ist bereits mit Git aus vorhergehenden Projekten vertraut
-  dadurch muss man keine Ressourcen aufwenden eine neue Software zu lernen.
-  Zusätzlich hat sich Git in den vorhergehenden Projekten als robuste
-  und schnelle Software erwiesen.
-- Git ist freie Software unter GNU Public License v2.
-
-**** Entwicklungsumgebung
-
-Damit beide Studenten auf der gleichen Basis arbeiten haben wir uns
-dazu entschieden den Web-Shop in einer virtuellen Maschine zu
-entwickeln. Dies führt jedoch in der Regel zum Problem das die
-Änderungen in der virtuellen Maschine miteinander abgesprochen und
-ausgetauscht werden müssen. Um dieses Problem zu beheben haben wir uns
-dazu entschieden Vagrant\footcite{vagrant} zu verwenden.
-Vagrant ist freie Software unter der MIT Lizenz.
-
-Vagrant erlaubt es einem den Zustand einer virtuellen Maschine in
-einer Text Datei zu beschreiben und diese dann gemäss der Beschreibung
-automatisiert aufzusetzen. Dies hat den Vorteil das die Konfiguration
-der virtuellen Maschine auch ohne weiteres mit dem restlichen Code in
-der Versionskontrollsoftware gepflegt werden kann.
-
-Desweiteren hilft das automatisierte Aufsetzen das vermeiden von
-menschlichen Fehlern. Somit kann davon ausgegangen werden dass, das
-System in der virtuellen Maschine immer den korrekten Stand zum
-entwickeln sein. Sollte dies nicht mehr der Fall sein lässt sich die
-virtuelle Maschine mit einem maxmimal zwei Befehlen wieder in den
-Ursprungszustand zurücksetzen.
-
-Als Hypervisor der virtuellen Maschine wurde
-Virtualbox\footcite{virtualbox} eingesetzt. Virtualbox ist im Kern
-freie Software unter der GNU Public License v2. Das unter einer
-proprietären Lizenz erhältliche Erweiterungspacket ist für unser Setup
-nicht notwendig.
-
-**** Hostsystem
-
-Als Hostsystem für unseren Web-Shop haben wir uns für die Linux
-Distribution Debian\footcite{debian} in der Version 9 (Stretch)
-entschieden. Für Debian haben wir uns vor allem aus folgenden Gründen
-entschieden:
-
-- Stabiles System
-- Sehr guter Packetmanager was einem das Scripting vereinfacht.
-- Gilt als sehr sicher
-- Hat sich in vorhergehenden Projekten bereits als gute Basis bewiesen
-- Enthält in der Grundkonfiguration nur freie Software (nicht freie
-  Software muss aktiv hinzugefügt werden)
-- In der Linux Welt sehr verbreitet
-- Im Gegensatz zu Ubuntu nicht von einer Firma abhängig
-
-**** Deployment Software für Produktionsserver
-
-Auch auf dem produktiven Server haben wir uns für Debian entschieden.
-Um diesen aufzusetzen hatten wir in etwa die ähnlichen Anforderungen
-wie für die Entwicklungsumgebung. Also einen Weg um das System
-möglichst automatisch und reproduzierbar aufzusetzen. Die für die
-Entwicklungsumgebung verwendete Software Vagrant ist für produktive
-System allerdings eher weniger geeignet.
-
-Für solche Fälle bietet sich eine Software Namens
-"Ansible"\footcite{ansible} an. Diese bietet einem ähnlich wie Vagrant
-die Möglichkeit den Zustand eines Systems in Text Dateien zu
-beschreiben. Allerdings bietet einem Ansible noch zusätzliche
-Möglichkeiten und bietet einem ein standardisiertes Interface um
-unterschiedliche Systeme auf die selbe Weise zu konfigurieren.
-
-Der Vorteil gegenüber anderen System ist vorallem das Ansible mit sehr
-wenig Abhängigkeiten für das zu konfigurierende System daherkommt. Auf
-einem Linux System ist nur SSH Zugriff und Python notwendig. Einen
-Client braucht man nicht zu installieren.
-Ansible ist freie Software unter der GNU Public License v3.
-
-**** Framework
-
-Um die Entwicklung der Applikation zu vereinfachen haben wir uns dazu
-entschlossen ein Framework einzusetzen. Frameworks bringen einem in
-der Entwicklung diverse Vorteile. Unter anderem bieten sie Hilfen bei
-sich wiederholenden Programmieraufgaben und bieten je nachdem die
-Möglichkeit die Applikation in einer einzigen Sprache zu schreiben da
-sich das Framework auch um die Datenbank kümmert. In der
-Webentwicklung helfen sie einem insbesondere auch dabei
-Sicherheitslücken wie Cross Site Scripting und SQL Injections
-abzufangen.
-
-Wir haben uns dabei für das Framework Django\footcite{django}
-entschieden. Django ist ein Python basiertest Framework. Django ist
-freie Software unter der drei Klausen BSD Lizenz. Wir haben uns aus
-folgenden Gründen für ein Python basiertes Framework gegenüber einem
-PHP basierten Framework entschieden:
-
-- Python gilt als die Sprache mit der schöneren Syntax
-- Wir wollten im Bezug auf das Programmieren etwas neues ausprobieren
-  was sich im Rahmen einer Case Study sehr gut machen lässt. Da man
-  ein "realistisches" Szenarium erhält und dieses in einem relativ
-  kontrollierten Rahmen ausführen kann.
-- Python ist in dem von uns gewählten Hostsystem wie in den meisten
-  Linux Distributionen bereits integriert.
-
-Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
-
-**** Webserver
-
-Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
-Dies vorallem aus dem Grund das wir Apache aus diversen vorhergehenden
-Projekten bereits sehr gut kennen und sich der Webserver dort sehr gut
-bewährt hat. Apache wird dabei auch noch gut von Django unterstützt.
-Der Apache Webserver ist freie Software unter der Apache License 2.0
-und gehört der gemeinnützigen Organisation "Apache Foundation".
-
-**** Datenbank
-
-Bei der Datenbank haben wir uns für MariaDB\footcite{mariadb}
-entschieden. Auch hier hauptsächlich weil wir MariaDB bereits aus
-vorhergehenden Projekt kennen. MariaDB ist ein Fork von MySQL welcher
-gegenüber MySQL rückwärtskompatibel ist. MariaDB ist dabei jedoch viel
-Community näher als MySQL und wird dabei auch sehr demokratisch
-entwickelt\footcite{mariadbgov}. MariaDB gehört dabei keiner einzelnen
-Firma oder Person sonder der gemeinnützigen Organisation "MariaDB
-Foundation". Was für zusätzliche Stabilität sorgen sollte.
-MariaDB ist freie Software unter GNU Public License v2.
-
-**** Editoren
-
-Das Hauptwerkzeug von jedem Entwickler ist sein Text Editor. Dabei
-hat jeder meistens seine ganz eigene Präferenzen wenn es um die Wahl
-des Editors geht.
-
-- Atom :: Ivan hat während der Case Study hauptsächlich mit
-          Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
-          entwickelt und basiert auf dem Electron Framework welches
-          seinerseit auf Webtechnologien wie Node.js und Chromium
-          basiert. Atom ist freie Software unter der MIT Lizenz.
-
-- GNU Emacs :: Andreas arbeitet hauptsächlich mit dem Editor GNU
-               Emacs\footcite{emacs}. GNU Emacs ist mit 32 Jahren
-               (obwohl seine Wurzeln bis ins Jahre 1976 zurückgehen)
-               wohl eines der ältesten noch "aktiven" Software
-               Projekte. Emacs ist freie Software unter der GNU Public
-               License v3.
-
-**** Dokumentation
-
-Diese Dokumentation wurde in Org-mode\footcite{orgmode} einer
-Erweiterung für den Text Editor Emacs geschrieben. Anschliessend wurde
-die Dokumentation in LaTeX\footcite{latex} Code konvertiert und
-finalisiert. Der Zwischenschritt über Org-mode wurde gewählt weil
-Org-mode etwas einfacher zu schreiben ist als reines LaTeX.
-
-LaTeX ist eine Software welche einem die Benutzung des Textsatzsystems
-TeXs vereinfacht. Wir haben LaTeX gegenüber einem "What You See Is
-What You Get" Editor gewählt weil es einem mit seiner Markup Sprache
-erlaubt das Dokument in Text Dateien zu erstellen. Was wir als
-Programmierer sehr angenehm finden. Dadurch das LaTeX auch nur aus
-reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
-in die Versionskontrollsoftware einchecken und somit auf einfache
-Weise zusammen daran arbeiten und die Entwicklung im Log
-zurückverfolgen kann.
-LaTeX ist freie Software unter der LaTeX Project Public License.
-
-Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
-Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
-Software unter der GNU Public License v3. Für das Entity Relation
-Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
-ist freie Software unter der GNU Public License v2.
-
-Die Klassen Diagramme haben wir mit der Django Erweiterung
-"Django-Extensions"\footcite{django_extensions} erstellt.
-Django-Extensions ist freie Software unter der MIT Lizenz.
-
-*** Methoden
+** Methoden
 
 Die Methodik die die Gruppe wählt ist Aufgrund der nur zwei Personen
 im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden
@@ -286,7 +92,7 @@ eingenommen und die Backlog-Tasks dementsprechend erstellt resp.
 verteilt. Während der Woche arbeiten beide Team-Mitglieder an der
 Arbeit als Team-Kolegen.
 
-*** Vorkenntnisse
+** Vorkenntnisse
 
 Die benötigten Vorkenntnisse wurden in den vorangeganenen Semestern
 erarbeitet und sind in der Basis gefestigt. Diese Arbeit wird
@@ -418,11 +224,206 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 * Projektmanagement
 ** Organigram
 ** Projektstrukturplan
-** Varianten erarbeiten
-** Architektur vorbereiten
 ** Arbeitspakete definieren
 
 * TODO Umsetzung
+** Werkzeuge
+
+Während dem Erstellen dieser Arbeit wurde eine Vielzahl an Werkzeugen
+eingesetzt. Nachfolgend werden diese Werkzeuge kurz beschrieben sowie
+ihre Verwendung begründet. Wir haben dabei darauf geachtet soviel Open
+Source Software wie möglich zu verwenden. Nicht nur für den Web-Shop an
+sich sondern generell für alle Tasks im Projekt.
+
+*** Versionkontrolle
+
+Eine Versionskontrollsoftware erschien uns als notwendig um den Code
+auf einfache und zuverlässige Weise untereinander austauschen zu
+können. Andere Lösungen wie Dropbox, etc. hätten es uns nicht erlaubt
+Konflikte zu vermeinden.
+
+Als Software für die Versionskontrolle wurde Git \footcite{git} gewählt.
+Git wurde aus diversen Gründen gewählt:
+
+- Ist der de facto Standard bei Versionskontrollsoftware
+- Läuft auf allen gängigen Betriebsystemen
+- Es gäbe gratis Services die man nutzen könnte (Github, Gitlab)
+- Man kann offline arbeiten und Commits erstellen
+- Das Team hat bereits einen eigenen Git Server zur Verfügung
+- Das Team ist bereits mit Git aus vorhergehenden Projekten vertraut
+  dadurch muss man keine Ressourcen aufwenden eine neue Software zu lernen.
+  Zusätzlich hat sich Git in den vorhergehenden Projekten als robuste
+  und schnelle Software erwiesen.
+- Git ist freie Software unter GNU Public License v2.
+
+*** Entwicklungsumgebung
+
+Damit beide Studenten auf der gleichen Basis arbeiten haben wir uns
+dazu entschieden den Web-Shop in einer virtuellen Maschine zu
+entwickeln. Dies führt jedoch in der Regel zum Problem das die
+Änderungen in der virtuellen Maschine miteinander abgesprochen und
+ausgetauscht werden müssen. Um dieses Problem zu beheben haben wir uns
+dazu entschieden Vagrant\footcite{vagrant} zu verwenden.
+Vagrant ist freie Software unter der MIT Lizenz.
+
+Vagrant erlaubt es einem den Zustand einer virtuellen Maschine in
+einer Text Datei zu beschreiben und diese dann gemäss der Beschreibung
+automatisiert aufzusetzen. Dies hat den Vorteil das die Konfiguration
+der virtuellen Maschine auch ohne weiteres mit dem restlichen Code in
+der Versionskontrollsoftware gepflegt werden kann.
+
+Desweiteren hilft das automatisierte Aufsetzen das vermeiden von
+menschlichen Fehlern. Somit kann davon ausgegangen werden dass, das
+System in der virtuellen Maschine immer den korrekten Stand zum
+entwickeln sein. Sollte dies nicht mehr der Fall sein lässt sich die
+virtuelle Maschine mit einem maxmimal zwei Befehlen wieder in den
+Ursprungszustand zurücksetzen.
+
+Als Hypervisor der virtuellen Maschine wurde
+Virtualbox\footcite{virtualbox} eingesetzt. Virtualbox ist im Kern
+freie Software unter der GNU Public License v2. Das unter einer
+proprietären Lizenz erhältliche Erweiterungspacket ist für unser Setup
+nicht notwendig.
+
+*** Hostsystem
+
+Als Hostsystem für unseren Web-Shop haben wir uns für die Linux
+Distribution Debian\footcite{debian} in der Version 9 (Stretch)
+entschieden. Für Debian haben wir uns vor allem aus folgenden Gründen
+entschieden:
+
+- Stabiles System
+- Sehr guter Packetmanager was einem das Scripting vereinfacht.
+- Gilt als sehr sicher
+- Hat sich in vorhergehenden Projekten bereits als gute Basis bewiesen
+- Enthält in der Grundkonfiguration nur freie Software (nicht freie
+  Software muss aktiv hinzugefügt werden)
+- In der Linux Welt sehr verbreitet
+- Im Gegensatz zu Ubuntu nicht von einer Firma abhängig
+
+*** Deployment Software für Produktionsserver
+
+Auch auf dem produktiven Server haben wir uns für Debian entschieden.
+Um diesen aufzusetzen hatten wir in etwa die ähnlichen Anforderungen
+wie für die Entwicklungsumgebung. Also einen Weg um das System
+möglichst automatisch und reproduzierbar aufzusetzen. Die für die
+Entwicklungsumgebung verwendete Software Vagrant ist für produktive
+System allerdings eher weniger geeignet.
+
+Für solche Fälle bietet sich eine Software Namens
+"Ansible"\footcite{ansible} an. Diese bietet einem ähnlich wie Vagrant
+die Möglichkeit den Zustand eines Systems in Text Dateien zu
+beschreiben. Allerdings bietet einem Ansible noch zusätzliche
+Möglichkeiten und bietet einem ein standardisiertes Interface um
+unterschiedliche Systeme auf die selbe Weise zu konfigurieren.
+
+Der Vorteil gegenüber anderen System ist vorallem das Ansible mit sehr
+wenig Abhängigkeiten für das zu konfigurierende System daherkommt. Auf
+einem Linux System ist nur SSH Zugriff und Python notwendig. Einen
+Client braucht man nicht zu installieren.
+Ansible ist freie Software unter der GNU Public License v3.
+
+*** Framework
+
+Um die Entwicklung der Applikation zu vereinfachen haben wir uns dazu
+entschlossen ein Framework einzusetzen. Frameworks bringen einem in
+der Entwicklung diverse Vorteile. Unter anderem bieten sie Hilfen bei
+sich wiederholenden Programmieraufgaben und bieten je nachdem die
+Möglichkeit die Applikation in einer einzigen Sprache zu schreiben da
+sich das Framework auch um die Datenbank kümmert. In der
+Webentwicklung helfen sie einem insbesondere auch dabei
+Sicherheitslücken wie Cross Site Scripting und SQL Injections
+abzufangen.
+
+Wir haben uns dabei für das Framework Django\footcite{django}
+entschieden. Django ist ein Python basiertest Framework. Django ist
+freie Software unter der drei Klausen BSD Lizenz. Wir haben uns aus
+folgenden Gründen für ein Python basiertes Framework gegenüber einem
+PHP basierten Framework entschieden:
+
+- Python gilt als die Sprache mit der schöneren Syntax
+- Wir wollten im Bezug auf das Programmieren etwas neues ausprobieren
+  was sich im Rahmen einer Case Study sehr gut machen lässt. Da man
+  ein "realistisches" Szenarium erhält und dieses in einem relativ
+  kontrollierten Rahmen ausführen kann.
+- Python ist in dem von uns gewählten Hostsystem wie in den meisten
+  Linux Distributionen bereits integriert.
+- Desweiteren hat Django bei einer Variantenbewertung das beste
+  Ergebnis geholt.
+
+Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
+
+*** Webserver
+
+Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
+Dies vorallem aus dem Grund das wir Apache aus diversen vorhergehenden
+Projekten bereits sehr gut kennen und sich der Webserver dort sehr gut
+bewährt hat. Apache wird dabei auch noch gut von Django unterstützt.
+Der Apache Webserver ist freie Software unter der Apache License 2.0
+und gehört der gemeinnützigen Organisation "Apache Foundation".
+
+*** Datenbank
+
+Bei der Datenbank haben wir uns für MariaDB\footcite{mariadb}
+entschieden. Auch hier hauptsächlich weil wir MariaDB bereits aus
+vorhergehenden Projekt kennen. MariaDB ist ein Fork von MySQL welcher
+gegenüber MySQL rückwärtskompatibel ist. MariaDB ist dabei jedoch viel
+Community näher als MySQL und wird dabei auch sehr demokratisch
+entwickelt\footcite{mariadbgov}. MariaDB gehört dabei keiner einzelnen
+Firma oder Person sonder der gemeinnützigen Organisation "MariaDB
+Foundation". Was für zusätzliche Stabilität sorgen sollte. MariaDB ist
+freie Software unter GNU Public License v2. Desweiteren hat MariaDB bei
+einer Variantenbewertung das beste Ergebnis geholt.
+
+
+*** Editoren
+
+Das Hauptwerkzeug von jedem Entwickler ist sein Text Editor. Dabei
+hat jeder meistens seine ganz eigene Präferenzen wenn es um die Wahl
+des Editors geht.
+
+- Atom :: Ivan hat während der Case Study hauptsächlich mit
+          Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
+          entwickelt und basiert auf dem Electron Framework welches
+          seinerseit auf Webtechnologien wie Node.js und Chromium
+          basiert. Atom ist freie Software unter der MIT Lizenz.
+
+- GNU Emacs :: Andreas arbeitet hauptsächlich mit dem Editor GNU
+               Emacs\footcite{emacs}. GNU Emacs ist mit 32 Jahren
+               (obwohl seine Wurzeln bis ins Jahre 1976 zurückgehen)
+               wohl eines der ältesten noch "aktiven" Software
+               Projekte. Emacs ist freie Software unter der GNU Public
+               License v3.
+
+*** Dokumentation
+
+Diese Dokumentation wurde in Org-mode\footcite{orgmode} einer
+Erweiterung für den Text Editor Emacs geschrieben. Anschliessend wurde
+die Dokumentation in LaTeX\footcite{latex} Code konvertiert und
+finalisiert. Der Zwischenschritt über Org-mode wurde gewählt weil
+Org-mode etwas einfacher zu schreiben ist als reines LaTeX.
+
+LaTeX ist eine Software welche einem die Benutzung des Textsatzsystems
+TeXs vereinfacht. Wir haben LaTeX gegenüber einem "What You See Is
+What You Get" Editor gewählt weil es einem mit seiner Markup Sprache
+erlaubt das Dokument in Text Dateien zu erstellen. Was wir als
+Programmierer sehr angenehm finden. Dadurch das LaTeX auch nur aus
+reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
+in die Versionskontrollsoftware einchecken und somit auf einfache
+Weise zusammen daran arbeiten und die Entwicklung im Log
+zurückverfolgen kann.
+LaTeX ist freie Software unter der LaTeX Project Public License.
+
+Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
+Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
+Software unter der GNU Public License v3. Für das Entity Relation
+Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
+ist freie Software unter der GNU Public License v2.
+
+Die Klassen Diagramme haben wir mit der Django Erweiterung
+"Django-Extensions"\footcite{django_extensions} erstellt.
+Django-Extensions ist freie Software unter der MIT Lizenz.
+
 ** TODO Spezifikation
 *** User Stories
 
