@@ -240,7 +240,7 @@ G * EP = KE
 Also die Gewichtung(/G/) multipliziert mit der erreichten
 Punktzahl(/EP/) ergibt das Kriteriumsergebnis(/KE/).
 
-**** ASP.NET und SQL Server
+*** ASP.NET und SQL Server
 
 ASP.NET und SQL Server, Tabelle:([[tab:asp-net]]), haben vorallem viele
 Punkte verloren da C# nur in Teilen und SQL Server gar nicht unter
@@ -273,7 +273,7 @@ noch nicht das Gefühl haben sonderlich gut mit C# umgehen zu können.
 #+TBLFM: @9$5=@9$2 * @9$4
 #+TBLFM: @10$5=vsum(@3$5..@9$5)
 
-**** PHP und MySQL
+*** PHP und MySQL
 
 Die Variante PHP und MySQL, Tabelle:([[tab:php]]), hat insgesamt ein sehr
 gute Bewertung erhalten. Beide Projekte sind zumindest teilweise unter
@@ -309,7 +309,7 @@ anderen Varianten jedoch auf jeden Fall weniger.
 #+TBLFM: @9$5=@9$2 * @9$4
 #+TBLFM: @10$5=vsum(@3$5..@9$5)
 
-**** Django(Python) und MariaDB
+*** Django(Python) und MariaDB
 
 Diese Variante, Tabelle:([[tab:django]]) hat am meisten Punkte erhalten.
 Wie bei der Variante "PHP und MySQL" sind auch hier beide Komponenten
@@ -345,7 +345,7 @@ als eher niedrig eingestuft dafür den Lernfaktor umso höher.
 #+TBLFM: @9$5=@9$2 * @9$4
 #+TBLFM: @10$5=vsum(@3$5..@9$5)
 
-**** Ergebnis
+*** Ergebnis
 
 Aufgrund der erreichten Punktzahl, Tabelle:([[tab:result]]) bei den
 vorhergehenden Variantenbewertungen haben wir uns dafür entschieden
