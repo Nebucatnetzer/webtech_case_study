@@ -120,14 +120,119 @@ Tabelle: ([[tab:swot]]) zu sehen.
 #+CAPTION: SWOT-Analyse
 #+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
 #+NAME: tab:swot
-|----------------------+----------------------+----------------------+----------------------|
-| *Stärken*\cellcolor[HTML]{C0C0C0} | *Schwächen*\cellcolor[HTML]{C0C0C0} | *Chancen*\cellcolor[HTML]{C0C0C0} | *Gefahren*\cellcolor[HTML]{C0C0C0} |
-| <20>                 | <20>                 | <20>                 | <20>                 |
-|----------------------+----------------------+----------------------+----------------------|
-| Wir als Programmierer haben ein gutes Know-How im Bereich Datenbanken | Wir als Programmierer haben keine Erfahrung im Konsumsegment unseres Nutzers |                      |                      |
-|----------------------+----------------------+----------------------+----------------------|
-| Die Umsetzung der graphischen Anwendungsoberfläche könnte sich als schwierig erweisen. | Die Umsetzungszeit ist knapp bemessen |                      |                      |
-|----------------------+----------------------+----------------------+----------------------|
+%--Beginn SWOT Analyse
+           %---Used for SWOT Analysys Chart
+           %---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
+           \colorlet{staerken}{lime!70}
+           \colorlet{schwaechen}{red!30}
+           \colorlet{chancen}{yellow!20}
+           \colorlet{risiken}{cyan!30}
+           \colorlet{S}{staerken!50!chancen}
+           \colorlet{W}{schwaechen!50!chancen}
+           \colorlet{O}{staerken!50!risiken}
+           \colorlet{T}{schwaechen!50!risiken}
+           % implemented this in doc instead as in preamble:
+          \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
+             \begin{tikzpicture}[
+               any/.style={
+               			minimum width=5cm,
+				minimum height=5cm,%
+				text width=4.8cm,
+				align=center,
+				outer sep=1pt
+				},
+               header/.style={
+               			any,
+				minimum height=1cm,
+				fill=black!10
+				},
+               leftcol/.style={
+               			header,rotate=90
+				},
+               bigbackgroundfont/.style={
+               			fill=#1,
+				text=#1!90!black
+				}
+             ]
+             \matrix (SWOT) [
+             	matrix of nodes,
+		nodes={
+			any,
+			anchor=center
+			},%
+                column sep=-\pgflinewidth,%
+                row sep=-\pgflinewidth,%
+                row 1/.style={
+                		nodes=header
+			},%
+                column 1/.style={
+                		nodes=leftcol
+			},
+                inner sep=0pt]{
+                		&|[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Anaylse)\par}
+			& |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Anaylse)\par} \\
+				|[fill=chancen]| {Chancen\\ \footnotesize (Externe Analyse)\par}
+		   	& |[bigbackgroundfont=S]| \bigfont{S}
+			& |[bigbackgroundfont=W]| \bigfont{W} \\
+				|[fill=risiken]| {Risiken\\ \footnotesize (Externe Analyse)\par}
+		   	& |[bigbackgroundfont=O]| \bigfont{O}
+			& |[bigbackgroundfont=T]| \bigfont{T} \\
+                };
+                \node[
+                		any,
+			anchor=center
+			] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
+              			\begin{itemize}
+		  		  \item Know-How in Webtechnologien.
+		  		  \item Quelloffene Software ist leichter zu unterhalten.
+				  \item durch verwendung des Frameworks kann die Entwicklungszeit
+                    stark reduziert werden.
+                  \item Wir als Programmierer haben ein gutes Know-How
+                    im Bereich Datenbanken.
+				\end{itemize}
+				};
+                \node[
+              		any,
+			anchor=center
+			] at (SWOT-2-3) {% Interne Schwächen/Externe Chancen feld:
+              	\begin{itemize}
+		  		  \item Das Framework ist nicht vollkommen. Teile davon müssten
+                    eventuell selber konzipiert/erarbeitet werden.
+                    Welche Teile das sind ist noch nicht ersichtlich.
+                    Durch die Quelloffene Lizenz kann dies dem Projekt jedoch
+                    einen mehrwert geben, in dem diese Teile wiederverwendet
+                    werden können.
+		  		  \item Der Kunde vertraut uns, und die Beziehung ist gut.
+                    Diese Ausgangslage mag helfen interne Schwächen durch
+                    offene Kommunikation übergehen.
+				\end{itemize}
+				};
+                \node[
+              		any,
+			anchor=center
+			] at (SWOT-3-2) {% Interne Stärken/ Externe Risiken feld:
+              	\begin{itemize}
+		  		  \item Quelloffene Software kann unkontrolliert kopiert werden.
+		  		  \item Die implementation von Währungsänderungen ist
+                    nicht trivial. Der Zeitpunkt zu dem die Kosten
+                    eines Produktes sich ändert muss gut durchdacht werden.
+				\end{itemize}
+				};
+                \node[
+                		any,
+			anchor=center
+			] at (SWOT-3-3) {% Interne Schwächen/ Externe Risiken feld:
+              	\begin{itemize}
+		  		  \item Wir als Programmierer haben keine Erfahrung im
+                    Konsumsegment unseres Nutzers..
+		  		  \item Die Umsetzung der graphischen Anwendungsoberfläche
+                    könnte sich als schwierig erweisen.
+                  \item Die Umsetzungszeit ist knapp bemessen.
+				\end{itemize}
+				};
+            \end{tikzpicture}
+          \end{center}
+	%--Ende SWOT Analyse
 
 ** Umweltanalyse
 
