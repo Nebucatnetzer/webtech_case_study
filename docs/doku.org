@@ -120,6 +120,7 @@ Tabelle: ([[tab:swot]]) zu sehen.
 #+CAPTION: SWOT-Analyse
 #+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
 #+NAME: tab:swot
+#+BEGIN_EXPORT latex
 %--Beginn SWOT Analyse
            %---Used for SWOT Analysys Chart
            %---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
@@ -171,10 +172,10 @@ Tabelle: ([[tab:swot]]) zu sehen.
                 inner sep=0pt]{
                 		&|[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Anaylse)\par}
 			& |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Anaylse)\par} \\
-				|[fill=chancen]| {Chancen\\ \footnotesize (Externe Analyse)\par}
+				| [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
 		   	& |[bigbackgroundfont=S]| \bigfont{S}
 			& |[bigbackgroundfont=W]| \bigfont{W} \\
-				|[fill=risiken]| {Risiken\\ \footnotesize (Externe Analyse)\par}
+				| [fill=risiken] | {Risiken\\ \footnotesize (Externe Analyse)\par} |
 		   	& |[bigbackgroundfont=O]| \bigfont{O}
 			& |[bigbackgroundfont=T]| \bigfont{T} \\
                 };
@@ -232,6 +233,7 @@ Tabelle: ([[tab:swot]]) zu sehen.
 				};
             \end{tikzpicture}
 	%--Ende SWOT Analyse
+#+END_EXPORT
 
 ** Umweltanalyse
 
