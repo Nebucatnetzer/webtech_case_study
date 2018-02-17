@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from django.db import transaction
 from webshop.models import (Article,
                             Category,
                             ArticleStatus,
@@ -16,7 +16,8 @@ from webshop.models import (Article,
                             ShoppingCart)
 from webshop.forms import (RegistrationForm,
                            AddToCartForm,
-                           CartForm)
+                           CartForm,
+                           CheckoutForm)
 from webshop.utils import (get_categories,
                            get_hidden_status_id,
                            process_article_prices)
@@ -208,6 +209,7 @@ def cart(request):
         currency = request.session['currency']
 
     if request.method == 'POST':
+        print(request.POST)
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
             currencies_form = CurrenciesForm(request.POST)
@@ -221,8 +223,8 @@ def cart(request):
                 else:
                     request.session['currency'] = None
         # here we react to a change of amount per item in the Cart:
-        if 'amount' in request.POST:
-            print(request.POST)
+        if 'amount_in_cart' in request.POST:
+            print('yes amount post')
             amount = CartForm.ChangeAmount(request.POST)
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
@@ -240,8 +242,18 @@ def cart(request):
                         )
                     cart_position.save()
                 amount = CartForm.ChangeAmount()
+
+        if 'checkout' in request.POST:
+            checkout_form = CheckoutForm(request.POST)
+            if checkout_form.is_valid():
+                checkout_form = checkout_form.cleaned_data['checkout']
+                print('views checkout checkout_form', checkout_form)
+                if checkout_form is True:
+                    # add to order
+                    order = ''
         else:
-            amount = AddToCartForm()
+            message = 'Plese accept our General Terms and Conditions!'
+    checkout_form = CheckoutForm()
     # if the cart_id is set the user has already added items to cart.
     try:
         cart_id = ShoppingCart.objects.get(user=request.user)
@@ -249,11 +261,11 @@ def cart(request):
         message = "You have no items in the Basket"
 
     if cart_id:
+        print(cart_id)
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
         # scrap out the details to calculate Total of item and Summ of All:
         for idx, article in enumerate(articles_list):
-            print(article, idx)
             article.calculate_position_price()
             if currency:
                 article.price_in_chf = rate.exchange(
@@ -275,6 +287,7 @@ def cart(request):
                    'totalprice_list': totalprice_list,
                    'total': total,
                    'currencies_form': currencies_form,
+                   'checkout_form': checkout_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
                    'category_list': category_list,

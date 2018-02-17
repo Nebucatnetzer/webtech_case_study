@@ -23,7 +23,14 @@
               </a>
             </td>
             <td scope="col">{{ article.article.stock }}</td>
-            <td scope="col">{{ article.amount }}</td>
+            <td scope="col">
+              <form id="amountfield" action="" method="POST" novalidate>
+                {{ CartForm }}
+                <input type="submit" value="change" />
+                {% csrf_token %}
+              </form>
+              <!-- {{ article.amount }} -->
+            </td>
             <td scope="col">
               {{ article.article.price_in_chf }}
               {{ currency_name }}
@@ -37,9 +44,22 @@
           </td>
         </tr>
       </table>
+      <form id="checkout" method="post">
+        {% csrf_token %}
+        {{ checkout_form.as_p }}
+        <input type="submit" value="checkout ->" />
+      </form>
     {% else %}
-      <p class="alert">
-        There are currently no articles in your cart.
+      <p class="alert alert-danger">
+        <strong>
+          This cart seams to lack some Items.
+          Go get some in the store!
+        <strong>
       </p>
     {% endif %}
+    <p class="alert text-danger">
+      <strong>
+        {{ message }}
+      <strong>
+    </p>
 {% endblock %}

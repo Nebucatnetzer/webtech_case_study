@@ -68,7 +68,9 @@ class AddToCartForm(forms.Form):
 
 
 class CartForm(forms.Form):
+    print('CartForm')
     def ChangeAmount(self):
+        print('CartForm.ChangeAmount')
         article = OrderPosition.objects.filter(pk=self.id)
         amountfield = forms.IntegerField(
             label='pce',
@@ -76,3 +78,10 @@ class CartForm(forms.Form):
             initial=article.amount
         )
         return amountfield
+
+
+class CheckoutForm(forms.Form):
+
+    checkout = forms.BooleanField(
+        required=True,
+        label='Yes. I have read the General Terms and Conditions.')
