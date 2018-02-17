@@ -135,9 +135,9 @@ Tabelle: ([[tab:swot]]) zu sehen.
           \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
              \begin{tikzpicture}[
                any/.style={
-               			minimum width=5cm,
-				minimum height=5cm,%
-				text width=4.8cm,
+               			minimum width=7cm,
+				minimum height=7cm,%
+				text width=6.5cm,
 				align=center,
 				outer sep=1pt
 				},
@@ -231,7 +231,6 @@ Tabelle: ([[tab:swot]]) zu sehen.
 				\end{itemize}
 				};
             \end{tikzpicture}
-          \end{center}
 	%--Ende SWOT Analyse
 
 ** Umweltanalyse
