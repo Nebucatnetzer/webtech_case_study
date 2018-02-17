@@ -22,7 +22,15 @@ lustigste entschieden.
 - Marktplatz
 - Shopshop
 - Barewahre-Shop
-- Didgeridoo-Shop
+- *Didgeridoo-Shop*
+
+Aufgrund des eher lustigen Namens dieses Instruments haben wir uns
+entschieden diesen Titel zu verwenden. Die Ursprünge des Instruments
+liegen 2000 Jahre, sagen die Forscher – 40.000 Jahre, sagen die
+Aborigines zurück.
+
+…Als das Traumzeitvolk die Erde verließ, hinterließ es den Menschen ein
+Geschenk: Ein Horn, das ein Klangfeld zwischen ihrer Welt und unserer erzeugt…\footcite{didgeridoo}
 
 ** Beschreibung
 
@@ -117,123 +125,122 @@ Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
 haben. Die ausegfüllte SWOT-Analyse für dieses Projekt ist in der
 Tabelle: ([[tab:swot]]) zu sehen.
 
-#+CAPTION: SWOT-Analyse
-#+ATTR_LATEX: :align |p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|p{.22\textwidth}|
-#+NAME: tab:swot
-#+BEGIN_EXPORT latex
-%--Beginn SWOT Analyse
-           %---Used for SWOT Analysys Chart
-           %---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
-           \colorlet{staerken}{lime!70}
-           \colorlet{schwaechen}{red!30}
-           \colorlet{chancen}{yellow!20}
-           \colorlet{risiken}{cyan!30}
-           \colorlet{S}{staerken!50!chancen}
-           \colorlet{W}{schwaechen!50!chancen}
-           \colorlet{O}{staerken!50!risiken}
-           \colorlet{T}{schwaechen!50!risiken}
-           % implemented this in doc instead as in preamble:
-          \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
-             \begin{tikzpicture}[
-               any/.style={
-               			minimum width=7cm,
-				minimum height=7cm,%
-				text width=6.5cm,
-				align=center,
-				outer sep=1pt
-				},
-               header/.style={
-               			any,
-				minimum height=1cm,
-				fill=black!10
-				},
-               leftcol/.style={
-               			header,rotate=90
-				},
-               bigbackgroundfont/.style={
-               			fill=#1,
-				text=#1!90!black
-				}
-             ]
-             \matrix (SWOT) [
-             	matrix of nodes,
-		nodes={
-			any,
-			anchor=center
-			},%
-                column sep=-\pgflinewidth,%
-                row sep=-\pgflinewidth,%
-                row 1/.style={
-                		nodes=header
-			},%
-                column 1/.style={
-                		nodes=leftcol
-			},
-                inner sep=0pt]{
-                		&|[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Anaylse)\par}
-			& |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Anaylse)\par} \\
-				| [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
-		   	& |[bigbackgroundfont=S]| \bigfont{S}
-			& |[bigbackgroundfont=W]| \bigfont{W} \\
-				| [fill=risiken] | {Risiken\\ \footnotesize (Externe Analyse)\par} |
-		   	& |[bigbackgroundfont=O]| \bigfont{O}
-			& |[bigbackgroundfont=T]| \bigfont{T} \\
-                };
-                \node[
-                		any,
-			anchor=center
-			] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
-              			\begin{itemize}
-		  		  \item Know-How in Webtechnologien.
-		  		  \item Quelloffene Software ist leichter zu unterhalten.
-				  \item durch verwendung des Frameworks kann die Entwicklungszeit
-                    stark reduziert werden.
-                  \item Wir als Programmierer haben ein gutes Know-How
-                    im Bereich Datenbanken.
-				\end{itemize}
-				};
-                \node[
-              		any,
-			anchor=center
-			] at (SWOT-2-3) {% Interne Schwächen/Externe Chancen feld:
-              	\begin{itemize}
-		  		  \item Das Framework ist nicht vollkommen. Teile davon müssten
-                    eventuell selber konzipiert/erarbeitet werden.
-                    Welche Teile das sind ist noch nicht ersichtlich.
-                    Durch die Quelloffene Lizenz kann dies dem Projekt jedoch
-                    einen mehrwert geben, in dem diese Teile wiederverwendet
-                    werden können.
-		  		  \item Der Kunde vertraut uns, und die Beziehung ist gut.
-                    Diese Ausgangslage mag helfen interne Schwächen durch
-                    offene Kommunikation übergehen.
-				\end{itemize}
-				};
-                \node[
-              		any,
-			anchor=center
-			] at (SWOT-3-2) {% Interne Stärken/ Externe Risiken feld:
-              	\begin{itemize}
-		  		  \item Quelloffene Software kann unkontrolliert kopiert werden.
-		  		  \item Die implementation von Währungsänderungen ist
-                    nicht trivial. Der Zeitpunkt zu dem die Kosten
-                    eines Produktes sich ändert muss gut durchdacht werden.
-				\end{itemize}
-				};
-                \node[
-                		any,
-			anchor=center
-			] at (SWOT-3-3) {% Interne Schwächen/ Externe Risiken feld:
-              	\begin{itemize}
-		  		  \item Wir als Programmierer haben keine Erfahrung im
-                    Konsumsegment unseres Nutzers..
-		  		  \item Die Umsetzung der graphischen Anwendungsoberfläche
-                    könnte sich als schwierig erweisen.
-                  \item Die Umsetzungszeit ist knapp bemessen.
-				\end{itemize}
-				};
-            \end{tikzpicture}
-	%--Ende SWOT Analyse
-#+END_EXPORT
+      #+CAPTION: SWOT-Analyse
+      #+NAME: tab:swot
+      #+BEGIN_EXPORT latex
+      %--Beginn SWOT Analyse
+                 %---Used for SWOT Analysys Chart
+                 %---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
+                 \colorlet{staerken}{lime!70}
+                 \colorlet{schwaechen}{red!30}
+                 \colorlet{chancen}{yellow!20}
+                 \colorlet{risiken}{cyan!30}
+                 \colorlet{S}{staerken!50!chancen}
+                 \colorlet{W}{schwaechen!50!chancen}
+                 \colorlet{O}{staerken!50!risiken}
+                 \colorlet{T}{schwaechen!50!risiken}
+                 % implemented this in doc instead as in preamble:
+                 \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
+                  \begin{tikzpicture}[scale=0.9,
+                     any/.style={
+                              minimum width=8cm,
+                      minimum height=8cm,%
+                      text width=7.5cm,
+                      align=center,
+                      outer sep=1pt
+                      },
+                     header/.style={
+                              any,
+                      minimum height=1cm,
+                      fill=black!10
+                      },
+                     leftcol/.style={
+                              header,rotate=90
+                      },
+                     bigbackgroundfont/.style={
+                              fill=#1,
+                      text=#1!90!black
+                      }
+                   ]
+                   \matrix (SWOT) [
+                      matrix of nodes,
+                      nodes={
+                        any,
+                        anchor=center
+                        },%
+                      column sep=-\pgflinewidth,%
+                      row sep=-\pgflinewidth,%
+                      row 1/.style={
+                              nodes=header
+                              },%
+                      column 1/.style={
+                              nodes=leftcol
+                              },
+                      inner sep=0pt]{
+                        & |[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Anaylse)\par}
+                        & |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Anaylse)\par} \\
+                        | [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
+                        & |[bigbackgroundfont=S]| \bigfont{S}
+                        & |[bigbackgroundfont=W]| \bigfont{W} \\
+                        | [fill=risiken] | {Risiken\\ \footnotesize (Externe Analyse)\par} |
+                        & |[bigbackgroundfont=O]| \bigfont{O}
+                        & |[bigbackgroundfont=T]| \bigfont{T} \\
+                      };
+                      \node[
+                        any,
+                        anchor=center
+                        ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
+                      \begin{itemize}
+                        \item Know-How in Webtechnologien.
+                        \item Quelloffene Software ist leichter zu unterhalten.
+                        \item durch verwendung des Frameworks kann die Entwicklungszeit
+                          stark reduziert werden.
+                        \item Wir als Programmierer haben ein gutes Know-How
+                          im Bereich Datenbanken.
+                      \end{itemize}
+                      };
+                      \node[
+                          any,
+                          anchor=center
+                          ] at (SWOT-2-3) { % Interne Schwächen/Externe Chancen feld:
+                      \begin{itemize}
+                        \item Das Framework ist nicht vollkommen. Teile davon müssten
+                          eventuell selber konzipiert/erarbeitet werden.
+                          Welche Teile das sind ist noch nicht ersichtlich.
+                          Durch die Quelloffene Lizenz kann dies dem Projekt jedoch
+                          einen mehrwert geben, in dem diese Teile wiederverwendet
+                          werden können.
+                        \item Der Kunde vertraut uns, und die Beziehung ist gut.
+                          Diese Ausgangslage mag helfen interne Schwächen durch
+                          offene Kommunikation übergehen.
+                      \end{itemize}
+                      };
+                      \node[
+                          any,
+                          anchor=center
+                          ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
+                      \begin{itemize}
+                        \item Quelloffene Software kann unkontrolliert kopiert werden.
+                        \item Die implementation von Währungsänderungen ist
+                          nicht trivial. Der Zeitpunkt zu dem die Kosten
+                          eines Produktes sich ändert muss gut durchdacht werden.
+                      \end{itemize}
+                      };
+                      \node[
+                          any,
+                          anchor=center
+                          ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
+                      \begin{itemize}
+                        \item Wir als Programmierer haben keine Erfahrung im
+                          Konsumsegment unseres Nutzers..
+                        \item Die Umsetzung der graphischen Anwendungsoberfläche
+                          könnte sich als schwierig erweisen.
+                        \item Die Umsetzungszeit ist knapp bemessen.
+                      \end{itemize}
+                      };
+                  \end{tikzpicture}
+          %--Ende SWOT Analyse
+      #+END_EXPORT
 
 ** Umweltanalyse
 
@@ -278,7 +285,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 [[file:diagrammes/stakeholder_diagramm.eps]]
 
 ** TODO Risikomanagement
-*** NEXT Risikobeschreibung
+*** Risikobeschreibung
 
 #+CAPTION: Risikobeschreibung
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|p{5cm}|p{5cm}|p{0.8cm}|p{0.8cm}|
@@ -298,7 +305,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 |         5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |                             3 |                             1 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 
-*** NEXT Risikobewertung
+*** Risikobewertung
 
 #+CAPTION: Risikobewertung Wahrscheinlichkeit
 #+ATTR_LATEX: :align l|l :placement [H]
@@ -329,6 +336,34 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * Projektmanagement
 ** Organigram
+  #+CAPTION: Organigram
+  #+NAME: fig:Organigram
+  #+BEGIN_EXPORT latex
+    \begin{tikzpicture}[
+    	auto, node distance = 0.4cm, 
+	thick,
+	every node/.style = {
+		rectangle, 
+		font = \sffamily, 
+		white,
+		top color = green!90!black, 
+		bottom color = green!60!black,
+		text width = 2.7cm, 
+		align = center, 
+		minimum height = 1cm
+		}
+	]
+      \node (PL) {\textbf{PL}\\Projektleiter};
+      \coordinate  [below = 0.2cm of PL] (Unten);
+      \node (FD)  [below =  of PL] {\textbf{FD}\\Frontenddeveloper};
+      \node (SE)  [left  = of FD] {\textbf{SE}\\Softwareengineer};
+      \node (BD)  [right = of FD] {\textbf{BD}\\Backenddeveloper};
+        \draw [green!60!black,thick]
+    	(PL)    -- (Unten) -| (FD)
+    	(Unten) -| (SE)
+    	(Unten) -| (BD);
+     \end{tikzpicture}
+   #+END_EXPORT
 ** Projektstrukturplan
 ** Varianten
 
@@ -561,10 +596,10 @@ Für solche Fälle bietet sich eine Software Namens
 "Ansible"\footcite{ansible} an. Diese bietet einem ähnlich wie Vagrant
 die Möglichkeit den Zustand eines Systems in Text Dateien zu
 beschreiben. Allerdings bietet einem Ansible noch zusätzliche
-Möglichkeiten und bietet einem ein standardisiertes Interface um
+Möglichkeiten und vor allem  ein standardisiertes Interface um
 unterschiedliche Systeme auf die selbe Weise zu konfigurieren.
 
-Der Vorteil gegenüber anderen System ist vorallem das Ansible mit sehr
+Der Vorteil gegenüber anderen System ist das Ansible mit sehr
 wenig Abhängigkeiten für das zu konfigurierende System daherkommt. Auf
 einem Linux System ist nur SSH Zugriff und Python notwendig. Einen
 Client braucht man nicht zu installieren.
@@ -1233,14 +1268,6 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-*** NEXT Mockup
-
-#+CAPTION: Ein frühes Mockup des Shop
-#+ATTR_LATEX: :width \textwidth
-#+NAME: mockup
-[[file:pictures/mockup-full-snipet.png]]
-
-#+LATEX:\newpage
 *** Models
 
 Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
@@ -1551,9 +1578,47 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 [[file:pictures/class_person.png]]
 
 ** Benutzerinterface
-*** Mockup skizzieren
+*** Mockup skizze
+
+#+CAPTION: Ein frühes Mockup des Shop
+#+ATTR_LATEX: :width \textwidth
+#+NAME: mockup
+[[file:pictures/mockup-full-snipet.png]]
+#+LATEX:\newpage
+
 *** Frontend Umsetzung
+
+Die Umsetztung des Frontends mittels Django integrierter Template
+funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
+framework das auch in Python programmiert wurde. Mittlerweile ist es
+integrierter bestandteil vom django Framework.
+Dieses snipet erklärt deren Nutzung:
+#+CAPTION: jinja Code Block
+#+BEGIN_SRC python
+{% extends 'base.html' %} --> Dieser codeblock wird im base.html eingefügt.
+{% block title %}Memberlist{% endblock %} --> Titel wird in den tag
+title eingefügt.
+{% block content %} --> wird in den block mit dem tag ''content'' eingefügt.
+  <ul> --> standard unordered List item von HTML.
+  {% for user in users %} --> schleifenkopf 
+    <li>
+      <a href="{{ user.url }}">{{ user.username }}</a> --> für
+jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
+    </li> 
+  {% endfor %}
+  </ul>
+{% endblock %}
+#+END_SRC
 *** Backend Umsetzung
+
+Django ist ein Modelbasiertes Framework das die Programmierung der
+Datenbank gleich selbst regelt. Dadurch lässt sich backendseitig
+durchgängig in Python arbeiten.
+Die Umsetzung gliedert sich vereinfacht in 3 Bereiche:
+1. Einem Frontend dass für den Benutzer gemacht ist und das mehrere
+   submodule wie Cathegories oder Wahrenkorb beinhaltet.
+2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
+3. Currencies die Täglich abgeholt werden
 
 ** Testing
 
@@ -1624,6 +1689,7 @@ Diese Section müssten man dann zuerst abschliesen damit die
 
 | Name | Funktion | Beschreibung |
 |------+----------+--------------|
+|      |          |              |
 |      |          |              |
 |      |          |              |
 |      |          |              |
