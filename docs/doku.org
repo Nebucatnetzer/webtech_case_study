@@ -1616,10 +1616,10 @@ jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
 
 *** Backend Umsetzung
 
-Django ist ein Modelbasiertes Framework das die Programmierung der
+Django ist ein modelbasiertes Framework das die Programmierung der
 Datenbank gleich selbst regelt. Dadurch lässt sich backendseitig
-durchgängig in Python arbeiten.
-Die Umsetzung gliedert sich vereinfacht in 3 Bereiche:
+durchgängig in Python arbeiten. Die Umsetzung gliedert sich
+vereinfacht in 3 Bereiche:
 1. Einem Frontend dass für den Benutzer gemacht ist und das mehrere
    submodule wie Cathegories oder Wahrenkorb beinhaltet.
 2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
