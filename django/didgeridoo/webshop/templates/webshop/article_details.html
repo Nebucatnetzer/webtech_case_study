@@ -7,11 +7,13 @@
     <p><b>Status:</b> {{ article.status }}</p>
     <p><b>Price:</b> {{ article.price_in_chf }} {{ currency_name }}</p>
     {% if user.is_authenticated %}
+    <p>
       <form id="amount" action="" method="POST" novalidate>
         {{ amount.as_p }}
         <input type="submit" value="Add to Cart" />
         {% csrf_token %}
       </form>
+    </p>
     {% else %}
       <p> please login to fill your basket...</p>
     {% endif %}
