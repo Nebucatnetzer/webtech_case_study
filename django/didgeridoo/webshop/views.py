@@ -197,7 +197,6 @@ def cart(request):
     article_view = True
     currency_name = "CHF"
     message = ""
-    cart_id = False
     articles_list = ""
     prices_in_cart = []
     totalprice_list = []
@@ -212,6 +211,7 @@ def cart(request):
         print(request.POST)
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
+            print('currencies')
             currencies_form = CurrenciesForm(request.POST)
             if currencies_form.is_valid():
                 cf = currencies_form.cleaned_data
@@ -223,9 +223,9 @@ def cart(request):
                 else:
                     request.session['currency'] = None
         # here we react to a change of amount per item in the Cart:
-        if 'amount_in_cart' in request.POST:
+        if 'amountfield' in request.POST:
             print('yes amount post')
-            amount = CartForm.ChangeAmount(request.POST)
+
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
                 article = Article.objects.get(id=article_id)
@@ -244,6 +244,7 @@ def cart(request):
                 amount = CartForm.ChangeAmount()
 
         if 'checkout' in request.POST:
+            print('checkout')
             checkout_form = CheckoutForm(request.POST)
             if checkout_form.is_valid():
                 checkout_form = checkout_form.cleaned_data['checkout']
@@ -253,6 +254,8 @@ def cart(request):
                     order = ''
         else:
             message = 'Plese accept our General Terms and Conditions!'
+            print('else')
+
     checkout_form = CheckoutForm()
     # if the cart_id is set the user has already added items to cart.
     try:
@@ -261,7 +264,6 @@ def cart(request):
         message = "You have no items in the Basket"
 
     if cart_id:
-        print(cart_id)
         articles = CartPosition.objects.filter(cart=cart_id)
         articles_list = list(articles)
         # scrap out the details to calculate Total of item and Summ of All:
@@ -276,7 +278,7 @@ def cart(request):
                 article.price_in_chf = rate.exchange(
                     currency,
                     article.price_in_chf)
-            amount = Decimal.from_float(article.amount)
+            amount = CartForm.ChangeAmount(request.POST, article.id)
             totalprice_list.append(article.position_price)
             articles_list[idx] = article
 

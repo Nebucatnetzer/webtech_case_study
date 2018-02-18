@@ -5,7 +5,7 @@ from webshop.models import (
                         Picture,
                         Article,
                         Option,
-                        OrderPosition
+                        CartPosition
                         )
 
 
@@ -69,9 +69,9 @@ class AddToCartForm(forms.Form):
 
 class CartForm(forms.Form):
     print('CartForm')
-    def ChangeAmount(self):
+    def ChangeAmount(self, _article_id):
         print('CartForm.ChangeAmount')
-        article = OrderPosition.objects.filter(pk=self.id)
+        article = CartPosition.objects.filter(pk=_article_id)
         amountfield = forms.IntegerField(
             label='pce',
             help_text='Enter a Value between 1 and 99.',
