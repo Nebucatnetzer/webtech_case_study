@@ -336,21 +336,22 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * Projektmanagement
 ** Organigram
+
   #+CAPTION: Organigram
   #+NAME: fig:Organigram
   #+BEGIN_EXPORT latex
     \begin{tikzpicture}[
-	auto, 
-	node distance = 0.4cm, 
+	auto,
+	node distance = 0.4cm,
 	thick,
   	every node/.style = {
-		rectangle, 
-		font = \sffamily, 
+		rectangle,
+		font = \sffamily,
 		white,
-    		top color = green!90!black, 
+    		top color = green!90!black,
 		bottom color = green!60!black,
-    		text width = 2.4cm, 
-		align = center, 
+    		text width = 2.4cm,
+		align = center,
 		minimum height = 1cm
 		}
 	]
@@ -361,11 +362,11 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
   \node (AZ) 	[below = of CV]    		{\textbf{AZ}\\Andreas Zweili};
   \node (IH) 	[left  = of AZ]       	{\textbf{IH}\\Ivan Hörler};
   \draw [green!60!black,thick]
-    (CH)    -- (Mitte) 
+    (CH)    -- (Mitte)
     (CV)   -- (Mitte) -- (Unten) -| (IH)
     (Unten) -| (IH)
     (Unten) -| (AZ);
-\end{tikzpicture}  
+\end{tikzpicture}
  #+END_EXPORT
 ** Projektstrukturplan
 ** Varianten
@@ -709,7 +710,7 @@ Die Klassen Diagramme haben wir mit der Django Erweiterung
 "Django-Extensions"\footcite{django_extensions} erstellt.
 Django-Extensions ist freie Software unter der MIT Lizenz.
 
-** TODO Spezifikation
+** Spezifikation
 *** User Stories
 
 User Stories sind eine in Alltagssprache geschriebenen
@@ -816,7 +817,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | - [[Checkout][3.2 Checkout]]                                           | - [[Bestellung %C3%A4ndern/korrigieren][7.0 Bestellung ändern/korrigieren (Admin Funktion)]] |
 | - [[User Passwort %C3%A4ndern][4.0 User Passwort ändern (Admin Funktion)]]              | - Bestellung löschen (Admin Funktion)                |
 | - [[Artikel erfassen][5.0 Artikel erfassen (Admin Funktion)]]                  | - [[max_pictures Option anpassen][6.0 max_pictures Option anpassen (Admin Funktion)]]  |
-| - Artikel ändern (Admin Funktion)                        | - max_pictures Option deaktivieren (Admin Funktion)  |
+| - [[Artikel %C3%A4ndern][5.1 Artikel ändern (Admin Funktion)]]                    | - max_pictures Option deaktivieren (Admin Funktion)  |
 | - Artikel löschen (Admin Funktion)                       | - User erfassen (Admin Funktion)                     |
 | - Materialbestellung erfassen (Admin Funktion)           | - User/Personen Daten ändern (Admin Funktion)        |
 | - Materialbestellung ändern/korrigieren (Admin Funktion) | - User löschen (Admin Funktion)                      |
@@ -1155,7 +1156,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Preconditions*     | Account mit Administrationsrechten vorhanden. |
 |---------------------+--------------------------------|
-| *Postconditions*    | Der Artikel wir im Webshop angezeigt. |
+| *Postconditions*    | Der Artikel wird im Webshop angezeigt. |
 |---------------------+--------------------------------|
 | *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
 |                     | 2. Admin klickt neben "Articles" auf "+ Add". |
@@ -1174,10 +1175,53 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
 | *UC History*        | 1.0 Darft erstellt durch AZ    |
+|                     | 1.1 AZ Rechtschreibung korrigiert |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+#+LATEX:}
+
+***** Artikel ändern
+
+#+LATEX:{\footnotesize
+#+CAPTION: 5.1 Artikel ändern
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:create_article
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 5.1 Artikel ändern             |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator ändert den Status eines Artikels. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Artikel wird vorübergehend aus dem Sortiment genommen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Der Artikel wird im Webshop nicht mehr angezeigt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin wählte in der Kategorie Articles einen "Artikel" aus. |
+|                     | 3. Der Admin ändert den Artikel Status von "active" auf "hidden". |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website speichert den Artikel in der Datenbank. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | -                              |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 18.02.2018                     |
 |---------------------+--------------------------------|
 #+LATEX:}
 
@@ -1592,32 +1636,35 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 *** Frontend Umsetzung
 
 Die Umsetztung des Frontends mittels Django integrierter Template
-funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
-framework das auch in Python programmiert wurde. Mittlerweile ist es
-integrierter bestandteil vom django Framework.
-Dieses snipet erklärt deren Nutzung:
-#+CAPTION: jinja Code Block
-#+BEGIN_SRC python
+Funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
+Framework das auch in Python programmiert wurde. Mittlerweile ist es
+integrierter Bestandteil vom Django Framework. Dieses Snippet erklärt
+deren Nutzung:
+
+#+BEGIN_EXPORT latex
+\begin{sexylisting}{Jinja Code Block}
 {% extends 'base.html' %} --> Dieser codeblock wird im base.html eingefügt.
 {% block title %}Memberlist{% endblock %} --> Titel wird in den tag
 title eingefügt.
 {% block content %} --> wird in den block mit dem tag ''content'' eingefügt.
   <ul> --> standard unordered List item von HTML.
-  {% for user in users %} --> schleifenkopf 
+  {% for user in users %} --> schleifenkopf
     <li>
       <a href="{{ user.url }}">{{ user.username }}</a> --> für
 jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
-    </li> 
+    </li>
   {% endfor %}
   </ul>
 {% endblock %}
-#+END_SRC
+\end{sexylisting}
+#+END_EXPORT
+
 *** Backend Umsetzung
 
-Django ist ein Modelbasiertes Framework das die Programmierung der
+Django ist ein modelbasiertes Framework das die Programmierung der
 Datenbank gleich selbst regelt. Dadurch lässt sich backendseitig
-durchgängig in Python arbeiten.
-Die Umsetzung gliedert sich vereinfacht in 3 Bereiche:
+durchgängig in Python arbeiten. Die Umsetzung gliedert sich
+vereinfacht in 3 Bereiche:
 1. Einem Frontend dass für den Benutzer gemacht ist und das mehrere
    submodule wie Cathegories oder Wahrenkorb beinhaltet.
 2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
@@ -1625,7 +1672,29 @@ Die Umsetzung gliedert sich vereinfacht in 3 Bereiche:
 
 ** Testing
 
-*** Fixtures
+Um die Funktionalität des Webshops sicherzustellen haben wir
+Die Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
+getestet und geprüft. Auch sehr hilfreich war das Admin Interface von
+Django. Damit konnten wir die Modells sehr gut auf ihre Funktionalität
+überprüfen bevor wir sie im Frontend verwendeten.
+
+*Fixtures*
+
+Django hat ein Funktion\footcite{fixtures} genannt "Fixtures" welche
+es einem erlaubt fixe Daten in die Datenbank zu schreiben. Dabei
+werden die Daten in YAML Syntax in eine .yaml Datei geschrieben und
+mittels folgendem Befehl dann in die Datenbank geladen:
+
+#+BEGIN_EXPORT latex
+\begin{sexylisting}{Fixtures in Datenbank laden.}
+python3 /vagrant/django/didgeridoo/manage.py loaddata webshop
+\end{sexylisting}
+#+END_EXPORT
+
+Wir haben diese Funktion verwendet um Testdaten in der Datenbank zu
+speichern. Somit mussten wir etwa nicht von Hand Artikel oder User
+erfassen. Zumindest nicht mehr sobald wir sicher waren das die
+dazugehörige Funktionen korrekt funktionieren.
 
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
