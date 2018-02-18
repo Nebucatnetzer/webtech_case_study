@@ -708,7 +708,7 @@ Die Klassen Diagramme haben wir mit der Django Erweiterung
 "Django-Extensions"\footcite{django_extensions} erstellt.
 Django-Extensions ist freie Software unter der MIT Lizenz.
 
-** TODO Spezifikation
+** Spezifikation
 *** User Stories
 
 User Stories sind eine in Alltagssprache geschriebenen
