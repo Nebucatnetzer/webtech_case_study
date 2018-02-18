@@ -815,7 +815,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | - [[Checkout][3.2 Checkout]]                                           | - [[Bestellung %C3%A4ndern/korrigieren][7.0 Bestellung ändern/korrigieren (Admin Funktion)]] |
 | - [[User Passwort %C3%A4ndern][4.0 User Passwort ändern (Admin Funktion)]]              | - Bestellung löschen (Admin Funktion)                |
 | - [[Artikel erfassen][5.0 Artikel erfassen (Admin Funktion)]]                  | - [[max_pictures Option anpassen][6.0 max_pictures Option anpassen (Admin Funktion)]]  |
-| - Artikel ändern (Admin Funktion)                        | - max_pictures Option deaktivieren (Admin Funktion)  |
+| - [[Artikel %C3%A4ndern][5.1 Artikel ändern (Admin Funktion)]]                    | - max_pictures Option deaktivieren (Admin Funktion)  |
 | - Artikel löschen (Admin Funktion)                       | - User erfassen (Admin Funktion)                     |
 | - Materialbestellung erfassen (Admin Funktion)           | - User/Personen Daten ändern (Admin Funktion)        |
 | - Materialbestellung ändern/korrigieren (Admin Funktion) | - User löschen (Admin Funktion)                      |
@@ -1178,6 +1178,48 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
 | *Date*              | 16.01.2018                     |
+|---------------------+--------------------------------|
+#+LATEX:}
+
+***** Artikel ändern
+
+#+LATEX:{\footnotesize
+#+CAPTION: 5.1 Artikel ändern
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{.25\textwidth}|p{.7\textwidth}| :placement [H]
+#+NAME: tab:create_article
+|---------------------+--------------------------------|
+|                     | <30>                           |
+| *Identifier + Name* | 5.1 Artikel ändern             |
+|---------------------+--------------------------------|
+| *Description*       | Ein Administrator ändert den Status eines Artikels. |
+|---------------------+--------------------------------|
+| *Actors*            | Verwaltung                     |
+|---------------------+--------------------------------|
+| *Status*            | Freigeben                      |
+|---------------------+--------------------------------|
+| *Includes*          | -                              |
+|---------------------+--------------------------------|
+| *Trigger*           | Ein Artikel wird vorübergehend aus dem Sortiment genommen. |
+|---------------------+--------------------------------|
+| *Preconditions*     | Account mit Administrationsrechten vorhanden. |
+|---------------------+--------------------------------|
+| *Postconditions*    | Der Artikel wird im Webshop nicht mehr angezeigt. |
+|---------------------+--------------------------------|
+| *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
+|                     | 2. Admin wählte in der Kategorie Articles einen "Artikel" aus. |
+|                     | 3. Der Admin ändert den Artikel Status von "active" auf "hidden". |
+|                     | 4. Klickt unten rechts auf "Save". |
+|                     | 5. Die Website speichert den Artikel in der Datenbank. |
+|---------------------+--------------------------------|
+| *Alternative Flow*  | -                              |
+|---------------------+--------------------------------|
+| *Notes*             | -                              |
+|---------------------+--------------------------------|
+| *UC History*        | 1.0 Darft erstellt durch AZ    |
+|---------------------+--------------------------------|
+| *Author*            | A. Zweili & I. Hörler          |
+|---------------------+--------------------------------|
+| *Date*              | 18.02.2018                     |
 |---------------------+--------------------------------|
 #+LATEX:}
 
