@@ -336,6 +336,7 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * Projektmanagement
 ** Organigram
+
   #+CAPTION: Organigram
   #+NAME: fig:Organigram
   #+BEGIN_EXPORT latex
@@ -364,6 +365,7 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
     	(Unten) -| (BD);
      \end{tikzpicture}
    #+END_EXPORT
+
 ** Projektstrukturplan
 ** Varianten
 
