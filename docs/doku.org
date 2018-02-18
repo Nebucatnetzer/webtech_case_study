@@ -340,16 +340,16 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
   #+NAME: fig:Organigram
   #+BEGIN_EXPORT latex
     \begin{tikzpicture}[
-    	auto, node distance = 0.4cm, 
+    	auto, node distance = 0.4cm,
 	thick,
 	every node/.style = {
-		rectangle, 
-		font = \sffamily, 
+		rectangle,
+		font = \sffamily,
 		white,
-		top color = green!90!black, 
+		top color = green!90!black,
 		bottom color = green!60!black,
-		text width = 2.7cm, 
-		align = center, 
+		text width = 2.7cm,
+		align = center,
 		minimum height = 1cm
 		}
 	]
@@ -1600,11 +1600,11 @@ Dieses snipet erklärt deren Nutzung:
 title eingefügt.
 {% block content %} --> wird in den block mit dem tag ''content'' eingefügt.
   <ul> --> standard unordered List item von HTML.
-  {% for user in users %} --> schleifenkopf 
+  {% for user in users %} --> schleifenkopf
     <li>
       <a href="{{ user.url }}">{{ user.username }}</a> --> für
 jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
-    </li> 
+    </li>
   {% endfor %}
   </ul>
 {% endblock %}
