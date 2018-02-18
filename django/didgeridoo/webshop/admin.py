@@ -53,10 +53,6 @@ class UserAdmin(BaseUserAdmin):
     inlines = (PersonInline,)
 
 
-class ArticleAdmin(admin.ModelAdmin):
-    inlines = (PictureInline,)
-
-
 class OrderPositionInline(admin.StackedInline):
     model = OrderPosition
     can_delete = False
@@ -81,7 +77,7 @@ class OrderOfGoodsAdmin(admin.ModelAdmin):
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
-admin.site.register(Article, ArticleAdmin)
+admin.site.register(Article)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Picture, PictureAdmin)
 admin.site.register(City)
