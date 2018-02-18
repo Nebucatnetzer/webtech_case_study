@@ -32,17 +32,16 @@ class PictureInline(admin.StackedInline):
 class OptionAdmin(admin.ModelAdmin):
     model = Option
     list_display = ('name', 'description',)
-    readonly_fields = ('name','description',)
-
+    readonly_fields = ('name', 'description',)
 
     def get_actions(self, request):
-        #Disable delete
+        # Disable delete
         actions = super(OptionAdmin, self).get_actions(request)
         del actions['delete_selected']
         return actions
 
     def has_delete_permission(self, request, obj=None):
-        #Disable delete
+        # Disable delete
         return False
 
     def has_add_permission(self, request):
