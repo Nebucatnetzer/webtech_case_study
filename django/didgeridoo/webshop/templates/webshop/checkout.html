@@ -2,7 +2,7 @@
 {% block section_title %}<h1>Cart</h1>{% endblock %}
 {% block content %}
     <h3>List of Items in your Shopping Cart:</h3>
-    {% if cart_position_list %}
+    {% if articles_list %}
       <table class="table">
         <tr class="table_header">
           <th scope="col">POS.</th>
@@ -13,29 +13,24 @@
           <th scope="col">PRICE p.pce.</th>
           <th scope="col">POSITION PRICE</th>
         </tr>
-        {% for cart_position in cart_position_list %}
+        {% for article in articles_list %}
           <tr class="table_content">
-            <td scope="col">{{ cart_position.id }}</td>
-            <td scope="col">{{ cart_position.article.id }}</td>
+            <td scope="col">{{ article.id }}</td>
+            <td scope="col">{{ article.article.id }}</td>
             <td scope="col">
-              <a href="{% url 'details' cart_position.article.id %}">
-                {{ cart_position.article.name }}
+              <a href="{% url 'details' article.article.id %}">
+                {{ article.article.name }}
               </a>
             </td>
-            <td scope="col">{{ cart_position.article.stock }}</td>
+            <td scope="col">{{ article.article.stock }}</td>
             <td scope="col">
-              <form id="amountfield" action="" method="POST" novalidate>
-                {{ CartForm }}
-                <input type="submit" value="change" />
-                {% csrf_token %}
-              </form>
-              <!-- {{ article.amount }} -->
+              {{ article.amount }}
             </td>
             <td scope="col">
-              {{ cart_position.article.price_in_chf }}
+              {{ article.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ cart_position.position_price }} {{ currency_name }}</td>
+            <td scope="col">{{ article.position_price }} {{ currency_name }}</td>
           </tr>
         {% endfor %}
         <tr>
@@ -44,6 +39,11 @@
           </td>
         </tr>
       </table>
+      <form id="checkout" method="post">
+        {% csrf_token %}
+        {{ checkout_form.as_p }}
+        <input type="submit" value="checkout ->" />
+      </form>
     {% else %}
       <p class="alert alert-danger">
         <strong>
