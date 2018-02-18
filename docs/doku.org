@@ -1627,7 +1627,29 @@ vereinfacht in 3 Bereiche:
 
 ** Testing
 
-*** Fixtures
+Um die Funktionalität des Webshops sicherzustellen haben wir
+Die Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
+getestet und geprüft. Auch sehr hilfreich war das Admin Interface von
+Django. Damit konnten wir die Modells sehr gut auf ihre Funktionalität
+überprüfen bevor wir sie im Frontend verwendeten.
+
+*Fixtures*
+
+Django hat ein Funktion\footcite{fixtures} genannt "Fixtures" welche
+es einem erlaubt fixe Daten in die Datenbank zu schreiben. Dabei
+werden die Daten in YAML Syntax in eine .yaml Datei geschrieben und
+mittels folgendem Befehl dann in die Datenbank geladen:
+
+#+BEGIN_EXPORT latex
+\begin{sexylisting}{Fixtures in Datenbank laden.}
+python3 /vagrant/django/didgeridoo/manage.py loaddata webshop
+\end{sexylisting}
+#+END_EXPORT
+
+Wir haben diese Funktion verwendet um Testdaten in der Datenbank zu
+speichern. Somit mussten wir etwa nicht von Hand Artikel oder User
+erfassen. Zumindest nicht mehr sobald wir sicher waren das die
+dazugehörige Funktionen korrekt funktionieren.
 
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
