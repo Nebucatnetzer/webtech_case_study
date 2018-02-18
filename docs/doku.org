@@ -1591,12 +1591,13 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 *** Frontend Umsetzung
 
 Die Umsetztung des Frontends mittels Django integrierter Template
-funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
-framework das auch in Python programmiert wurde. Mittlerweile ist es
-integrierter bestandteil vom django Framework.
-Dieses snipet erklärt deren Nutzung:
-#+CAPTION: jinja Code Block
-#+BEGIN_SRC python
+Funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
+Framework das auch in Python programmiert wurde. Mittlerweile ist es
+integrierter Bestandteil vom Django Framework. Dieses Snippet erklärt
+deren Nutzung:
+
+#+BEGIN_EXPORT latex
+\begin{sexylisting}{Jinja Code Block}
 {% extends 'base.html' %} --> Dieser codeblock wird im base.html eingefügt.
 {% block title %}Memberlist{% endblock %} --> Titel wird in den tag
 title eingefügt.
@@ -1610,7 +1611,9 @@ jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
   {% endfor %}
   </ul>
 {% endblock %}
-#+END_SRC
+\end{sexylisting}
+#+END_EXPORT
+
 *** Backend Umsetzung
 
 Django ist ein Modelbasiertes Framework das die Programmierung der
