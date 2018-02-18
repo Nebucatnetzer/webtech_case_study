@@ -340,30 +340,33 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
   #+NAME: fig:Organigram
   #+BEGIN_EXPORT latex
     \begin{tikzpicture}[
-    	auto, node distance = 0.4cm, 
+	auto, 
+	node distance = 0.4cm, 
 	thick,
-	every node/.style = {
+  	every node/.style = {
 		rectangle, 
 		font = \sffamily, 
 		white,
-		top color = green!90!black, 
+    		top color = green!90!black, 
 		bottom color = green!60!black,
-		text width = 2.7cm, 
+    		text width = 2.4cm, 
 		align = center, 
 		minimum height = 1cm
 		}
 	]
-      \node (PL) {\textbf{PL}\\Projektleiter};
-      \coordinate  [below = 0.2cm of PL] (Unten);
-      \node (FD)  [below =  of PL] {\textbf{FD}\\Frontenddeveloper};
-      \node (SE)  [left  = of FD] {\textbf{SE}\\Softwareengineer};
-      \node (BD)  [right = of FD] {\textbf{BD}\\Backenddeveloper};
-        \draw [green!60!black,thick]
-    	(PL)    -- (Unten) -| (FD)
-    	(Unten) -| (SE)
-    	(Unten) -| (BD);
-     \end{tikzpicture}
-   #+END_EXPORT
+  \node (CH) 						    {\textbf{CH}\\Christian Herren};
+  \coordinate 	[below = 0.9cm of CH] 	(Mitte);
+  \coordinate 	[below = 1.6cm of CH] 	(Unten);
+  \node (CV)	[right = 2mm of Mitte]  {\textbf{CV}\\Christian Vögeli};
+  \node (AZ) 	[below = of CV]    		{\textbf{AZ}\\Andreas Zweili};
+  \node (IH) 	[left  = of AZ]       	{\textbf{IH}\\Ivan Hörler};
+  \draw [green!60!black,thick]
+    (CH)    -- (Mitte) 
+    (CV)   -- (Mitte) -- (Unten) -| (IH)
+    (Unten) -| (IH)
+    (Unten) -| (AZ);
+\end{tikzpicture}  
+ #+END_EXPORT
 ** Projektstrukturplan
 ** Varianten
 
