@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
@@ -8,7 +6,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from webshop.models import (Article,
                             Category,
-                            ArticleStatus,
                             Person,
                             City,
                             Picture,
@@ -100,7 +97,6 @@ def article_details(request, article_id):
             amount = AddToCartForm(request.POST)
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
-                currency_id = request.session['currency']
                 article = Article.objects.get(id=article_id)
                 try:
                     # lookup if cart_id is already existent:
@@ -297,7 +293,6 @@ def cart(request):
                     order = ''
 
     checkout_form = CheckoutForm()
-
 
     return render(request, 'webshop/cart.html',
                   {'cart_position_list': cart_position_list,
