@@ -1704,7 +1704,10 @@ dazugehörige Funktionen korrekt funktionieren.
 *** NEXT Testfälle
 
 Alle Testfälle werden ausgehend von der Index Seite aus gestartet.
-Dies wird in den Test Cases nicht noch einmal explizit erwähnt.
+Dies wird in den Test Cases nicht noch einmal explizit erwähnt. Die
+Tabelle: ([[tab:testcases]]) zeigt dabei die Resultate des letzten
+Testlaufs. Dabei wurden keine Probleme mehr mit der Applikation
+entdeckt.
 
 #+LATEX:{\footnotesize
 #+CAPTION: Testfälle
