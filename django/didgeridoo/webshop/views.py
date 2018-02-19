@@ -197,16 +197,55 @@ def cart(request):
     article_view = True
     currency_name = "CHF"
     message = ""
-    articles_list = ""
+    cart_position_list = ""
     prices_in_cart = []
     totalprice_list = []
     total = 0
 
+# here we configure the users Currency:
     if not 'currency' in request.session:
         request.session['currency'] = None
     else:
         currency = request.session['currency']
 
+# here we handle the normal cart view:
+    # if the cart_id is set the user has already added items to cart.
+    try:
+        cart_id = ShoppingCart.objects.get(user=request.user.id)
+    except Exception as e:
+        message = "You have no items in the Basket"
+        print('try cart_id exception as: ', e)
+        cart_id = False
+    if cart_id:
+        print('cart_id', cart_id)
+        articles = CartPosition.objects.filter(cart=cart_id)
+        cart_position_list = list(articles)
+        # scrap out the details to calculate Total of item and Summ of All:
+        for idx, cart_position in enumerate(cart_position_list):
+            article = CartPosition.objects.get(
+                cart=cart_id,
+                article=cart_position.article.id
+                )
+            cart_position.calculate_position_price()
+            if currency:
+                print('calc currency')
+                # get currencyname to display:
+                currency_name = ExchangeRate_name.objects.get(id=currency)
+                # get exchange_rate multiplyed:
+                cart_position.price_in_chf = rate.exchange(
+                    currency,
+                    cart_position.price_in_chf
+                    )
+                totalprice_list.append(cart_position.price_in_chf)
+            cart_position_list[idx] = cart_position
+
+            amount_form = CartForm(
+                initial=cart_position.amount
+            )
+
+    total = sum(totalprice_list)
+
+# Here we handle all POST Operations:
     if request.method == 'POST':
         print(request.POST)
         # here we react to a currency dropdown change:
@@ -223,11 +262,13 @@ def cart(request):
                 else:
                     request.session['currency'] = None
         # here we react to a change of amount per item in the Cart:
-        if 'amountfield' in request.POST:
+        if 'amount_field' in request.POST:
             print('yes amount post')
-
-            if amount.is_valid():
-                amount = amount.cleaned_data['amount']
+            amount_form = CartForm(request.POST,
+                                   cart_id,
+                                   cart_position.article.id)
+            if amount_form.is_valid():
+                amount = amount_form.cleaned_data['amount']
                 article = Article.objects.get(id=article_id)
                 try:
                     cart_id = ShoppingCart.objects.get(user=request.user)
@@ -254,43 +295,14 @@ def cart(request):
                     order = ''
 
     checkout_form = CheckoutForm()
-    # if the cart_id is set the user has already added items to cart.
-    try:
-        cart_id = ShoppingCart.objects.get(user=request.user.id)
-    except Exception as e:
-        message = "You have no items in the Basket"
-        print('try cart_id exception as: ', e)
-        cart_id = False
-    if cart_id:
-        print('cart_id', cart_id)
-        articles = CartPosition.objects.filter(cart=cart_id)
-        cart_position_list = list(articles)
-        # scrap out the details to calculate Total of item and Summ of All:
-        for idx, cart_position in enumerate(cart_position_list):
-            cart_position.calculate_position_price()
-            if currency:
-                cart_position.price_in_chf = rate.exchange(
-                    currency, cart_position.article.price_in_chf)
-                # get currencyname to display:
-                currency_name = ExchangeRate_name.objects.get(id=currency)
-                # get exchange_rate multiplyed:
-                cart_position.price_in_chf = rate.exchange(
-                                                    currency,
-                                                    article.price_in_chf)
-            amount = CartForm.ChangeAmount(request.POST,
-                                           cart_id,
-                                           cart_position.article.id)
-            totalprice_list.append(cart_position.position_price)
-            cart_position_list[idx] = cart_position
 
-    total = sum(totalprice_list)
 
     return render(request, 'webshop/cart.html',
                   {'cart_position_list': cart_position_list,
                    'totalprice_list': totalprice_list,
                    'total': total,
                    'currencies_form': currencies_form,
-                   'checkout_form': checkout_form,
+                   'amount_form': amount_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
                    'category_list': category_list,
