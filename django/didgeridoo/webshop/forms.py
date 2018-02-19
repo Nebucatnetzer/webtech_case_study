@@ -68,16 +68,19 @@ class AddToCartForm(forms.Form):
 
 
 class CartForm(forms.Form):
-    print('CartForm')
-    def ChangeAmount(self, _cart_id, _article_id):
+    amount_field = forms.IntegerField(
+                        label='pce',
+                        help_text='Enter a Value between 1 and 99.')
+
+    def change_amount(self, article):
         print('CartForm.ChangeAmount')
-        article = CartPosition.objects.get(cart=_cart_id, article=_article_id)
-        amountfield = forms.IntegerField(
+        position = CartPosition.objects.get(article=article)
+        self.amount_field = forms.IntegerField(
             label='pce',
             help_text='Enter a Value between 1 and 99.',
-            initial=article.amount
+            initial=position.amount
         )
-        return amountfield
+        return self.amount_field
 
 
 class CheckoutForm(forms.Form):

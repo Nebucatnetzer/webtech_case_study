@@ -25,7 +25,7 @@
             <td scope="col">{{ cart_position.article.stock }}</td>
             <td scope="col">
               <form id="amountfield" action="" method="POST" novalidate>
-                {{ CartForm }}
+                {{ cart_form }}
                 <input type="submit" value="change" />
                 {% csrf_token %}
               </form>
