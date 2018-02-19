@@ -66,6 +66,37 @@ def articles_in_category(request, category_id):
                    'category': selected_category})
 
 
+def restrict_cart_to_one_article(user_name, article_id, amount):
+    article = Article.objects.get(id=article_id)
+    try:
+        # lookup if cart_id is already existent:
+        cart_id = ShoppingCart.objects.get(user=user_name)
+    except:
+        # if cart_id is not existent create a cart:
+        cart_id = ShoppingCart.objects.create(user=user_name)
+        cart_id.save()
+    if cart_id:
+        # check if the article is existent in cart already:
+        try:
+            article_amount = CartPosition.objects.get(
+                article=article_id)
+            new_amount = article_amount.amount + amount
+            # if article is in cart already update amount:
+            cart_position = CartPosition.objects.filter(
+                id=article_id).update(
+                amount=new_amount
+                )
+        except Exception as e:
+            # if the article is not in cart yet add full item:
+            cart_position = CartPosition.objects.create(
+                article=article,
+                amount=amount,
+                position_price=article.price_in_chf,
+                cart=ShoppingCart.objects.get(user=user_name)
+                )
+            cart_position.save()
+
+
 def article_details(request, article_id):
     category_list = get_categories()
     currencies_form = CurrenciesForm
@@ -99,35 +130,8 @@ def article_details(request, article_id):
             amount = AddToCartForm(request.POST)
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
-                currency_id = request.session['currency']
-                article = Article.objects.get(id=article_id)
-                try:
-                    # lookup if cart_id is already existent:
-                    cart_id = ShoppingCart.objects.get(user=request.user)
-                except:
-                    # if cart_id is not existent create a cart:
-                    cart_id = ShoppingCart.objects.create(user=request.user)
-                    cart_id.save()
-                if cart_id:
-                    # check if the article is existent in cart already:
-                    try:
-                        article_amount = CartPosition.objects.get(
-                            article=article_id)
-                        new_amount = article_amount.amount + amount
-                        # if article is in cart already update amount:
-                        cart_position = CartPosition.objects.filter(
-                            id=article_id).update(
-                            amount=new_amount
-                            )
-                    except Exception as e:
-                        # if the article is not in cart yet add full item:
-                        cart_position = CartPosition.objects.create(
-                            article=article,
-                            amount=amount,
-                            position_price=article.price_in_chf,
-                            cart=ShoppingCart.objects.get(user=request.user)
-                            )
-                        cart_position.save()
+                user_name = request.user
+                restrict_cart_to_one_article(user_name, article_id, amount)
                 # write default value (1) to form field:
                 amount = AddToCartForm()
         else:
@@ -202,7 +206,7 @@ def cart(request):
     prices_in_cart = []
     totalprice_list = []
     total = 0
-
+    user_name = request.user
 # here we configure the users Currency:
     if not 'currency' in request.session:
         request.session['currency'] = None
@@ -223,7 +227,7 @@ def cart(request):
         cart_position_list = list(articles)
         # scrap out the details to calculate Total of item and Summ of All:
         for idx, cart_position in enumerate(cart_position_list):
-            article = CartPosition.objects.get(
+            article = CartPosition.objects.filter(
                 cart=cart_id,
                 article=cart_position.article.id
                 )
@@ -241,7 +245,7 @@ def cart(request):
             cart_position_list[idx] = cart_position
 
             amount_form = CartForm(
-                initial=cart_position.amount
+                # initial=cart_position.amount
             )
 
     total = sum(totalprice_list)
@@ -263,28 +267,19 @@ def cart(request):
                 else:
                     request.session['currency'] = None
         # here we react to a change of amount per item in the Cart:
-        if 'amount_field' in request.POST:
+        if 'amount_form' in request.POST:
             print('yes amount post')
-            amount_form = CartForm(request.POST,
-                                   cart_id,
-                                   cart_position.article.id)
+            amount_form = CartForm(request.POST)
             if amount_form.is_valid():
-                amount = amount_form.cleaned_data['amount']
-                article = Article.objects.get(id=article_id)
-                try:
-                    cart_id = ShoppingCart.objects.get(user=request.user)
-                except:
-                    cart_id = ShoppingCart.objects.create(user=request.user)
-                    cart_id.save()
-                if cart_id:
-                    cart_position = CartPosition.objects.create(
-                        article=article,
-                        amount=amount,
-                        cart=ShoppingCart.objects.get(user=request.user)
-                        )
-                    cart_position.save()
-                amount = CartForm.ChangeAmount()
-
+                amount = amount_form.cleaned_data['amount_form']
+                article_id = request.POST.get('article_id')
+                restrict_cart_to_one_article(user_name, article_id, amount)
+                article = CartPosition.objects.get(article=article_id)
+                articleamount = article.amount
+                print('articleamount', articleamount)
+                amount_form = CartForm(
+                    initial=articleamount
+                )
         if 'checkout' in request.POST:
             print('checkout')
             checkout_form = CheckoutForm(request.POST)

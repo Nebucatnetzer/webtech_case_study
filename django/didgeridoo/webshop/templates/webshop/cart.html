@@ -26,6 +26,7 @@
             <td scope="col">
               <form id="amount_form" action="" method="POST" novalidate>
                 {{ amount_form.as_p }}
+                <input type="hidden" value="{{ cart_position.article.id }}" name="article_id">
                 <input type="submit" value="change" />
                 {% csrf_token %}
               </form>
