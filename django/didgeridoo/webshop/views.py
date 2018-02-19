@@ -25,6 +25,7 @@ from webshop.utils import (get_categories,
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
 
+
 def index(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
@@ -74,7 +75,7 @@ def article_details(request, article_id):
     article_view = True
     currency_name = "CHF"
 
-    if not 'currency' in request.session:
+    if 'currency' not in request.session:
         request.session['currency'] = None
 
     article = get_object_or_404(Article, pk=article_id)
@@ -176,7 +177,7 @@ def registration(request):
                     person = Person.objects.create(
                         salutation=pf['salutation'],
                         city=City.objects.get(zip_code=pf['zip_code'],
-                                            name=pf['city']),
+                                              name=pf['city']),
                         street_name=pf['street_name'],
                         street_number=pf['street_number'],
                         user=user)
@@ -204,7 +205,7 @@ def cart(request):
     total = 0
 
 # here we configure the users Currency:
-    if not 'currency' in request.session:
+    if 'currency' not in request.session:
         request.session['currency'] = None
     else:
         currency = request.session['currency']
