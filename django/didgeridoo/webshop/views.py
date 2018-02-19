@@ -193,6 +193,7 @@ def registration(request):
 def cart(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
+    cart_form = CartForm
     rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
@@ -301,6 +302,7 @@ def cart(request):
                   {'cart_position_list': cart_position_list,
                    'totalprice_list': totalprice_list,
                    'total': total,
+                   'cart_form': cart_form,
                    'currencies_form': currencies_form,
                    'amount_form': amount_form,
                    'article_view': article_view,
