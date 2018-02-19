@@ -1371,7 +1371,7 @@ Somit konnten wir dann über die Kategorie iterieren.
 
 **** Option
 
-Gemäss der Anforderung FA\_1.4 muss es möglich sein für einen Artikel 0-5
+Gemäss der Anforderung FA_1.4 muss es möglich sein für einen Artikel 0-5
 Bilder hochzuladen. Wir stellen dies über eine Variabel im "Option"
 Modell, Abbildung:([[fig:option]]), sicher gegen welche beim Speichern
 überprüft wird. Die Variabel ist als Option im Admin Interface
@@ -1397,7 +1397,7 @@ noch der Wert editierbar.
 
 Das Modell "ArticleStatus", Abbildung:([[fig:articlestatus]]), wird über
 einen Fremdschlüssel mit dem "Article" Modell verbunden und gibt
-diesem verschiedene Status. Gemäss der Anforderung FA\_1.4 muss ein
+diesem verschiedene Status. Gemäss der Anforderung FA_1.4 muss ein
 Artikel die Status "active" und "hidden" haben. Wir haben dies in der
 Applikation dann auch gleich so umgesetzt das nur die Artikel
 angezeigt werden welche nicht den Status "hidden" haben.
@@ -1458,7 +1458,7 @@ Erstellen des Objekt evaluiert wird.
 
 Das Modell "Article", Abbildung([[fig:article]]), ist als solches nicht
 sehr komplex und widerspiegelt einen Artikel aus der realen Welt.
-Gemäss der Anforderung FA\_1.4 hat er eine eindeutige ID (den
+Gemäss der Anforderung FA_1.4 hat er eine eindeutige ID (den
 Primärschlüssel), einen Namen von maximal 200 Zeichen, eine
 Beschreibung von maximal 2000 Zeichen, Status sowie 0 - 5
 Produktbilder.
@@ -1519,7 +1519,7 @@ Stackoverflow\footcite{images} die Lösung.
 
 Bestellungen der Kunden werden im Modell "Order",
 Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
-ID gespeichert wird, sowie, gemäss der Anforderung FA\_3.3, der
+ID gespeichert wird, sowie, gemäss der Anforderung FA_3.3, der
 Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
 Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
 hergestellt.
