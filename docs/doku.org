@@ -1668,13 +1668,15 @@ vereinfacht in 3 Bereiche:
 2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
 3. Currencies die Täglich abgeholt werden
 
-** Testing
+** TODO Testing
 
-Um die Funktionalität des Webshops sicherzustellen haben wir
-Die Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
-getestet und geprüft. Auch sehr hilfreich war das Admin Interface von
-Django. Damit konnten wir die Modells sehr gut auf ihre Funktionalität
-überprüfen bevor wir sie im Frontend verwendeten.
+Um die Funktionalität des Webshops sicherzustellen haben wir Die
+Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
+getestet und geprüft. Bei den Testfällen haben wir uns wie auch bei
+den Use Cases hauptsächlich auf die Funktionen beschränkt welche wir
+selber ausprogrammiert haben. Auch sehr hilfreich war das Admin
+Interface von Django. Damit konnten wir die Modells sehr gut auf ihre
+Funktionalität überprüfen bevor wir sie im Frontend verwendeten.
 
 *Fixtures*
 
