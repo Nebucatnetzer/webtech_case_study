@@ -1373,7 +1373,7 @@ Somit konnten wir dann über die Kategorie iterieren.
 
 **** Option
 
-Gemäss der Anforderung FA\_1.4 muss es möglich sein für einen Artikel 0-5
+Gemäss der Anforderung FA_1.4 muss es möglich sein für einen Artikel 0-5
 Bilder hochzuladen. Wir stellen dies über eine Variabel im "Option"
 Modell, Abbildung:([[fig:option]]), sicher gegen welche beim Speichern
 überprüft wird. Die Variabel ist als Option im Admin Interface
@@ -1399,7 +1399,7 @@ noch der Wert editierbar.
 
 Das Modell "ArticleStatus", Abbildung:([[fig:articlestatus]]), wird über
 einen Fremdschlüssel mit dem "Article" Modell verbunden und gibt
-diesem verschiedene Status. Gemäss der Anforderung FA\_1.4 muss ein
+diesem verschiedene Status. Gemäss der Anforderung FA_1.4 muss ein
 Artikel die Status "active" und "hidden" haben. Wir haben dies in der
 Applikation dann auch gleich so umgesetzt das nur die Artikel
 angezeigt werden welche nicht den Status "hidden" haben.
@@ -1460,7 +1460,7 @@ Erstellen des Objekt evaluiert wird.
 
 Das Modell "Article", Abbildung([[fig:article]]), ist als solches nicht
 sehr komplex und widerspiegelt einen Artikel aus der realen Welt.
-Gemäss der Anforderung FA\_1.4 hat er eine eindeutige ID (den
+Gemäss der Anforderung FA_1.4 hat er eine eindeutige ID (den
 Primärschlüssel), einen Namen von maximal 200 Zeichen, eine
 Beschreibung von maximal 2000 Zeichen, Status sowie 0 - 5
 Produktbilder.
@@ -1521,7 +1521,7 @@ Stackoverflow\footcite{images} die Lösung.
 
 Bestellungen der Kunden werden im Modell "Order",
 Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
-ID gespeichert wird, sowie, gemäss der Anforderung FA\_3.3, der
+ID gespeichert wird, sowie, gemäss der Anforderung FA_3.3, der
 Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
 Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
 hergestellt.
@@ -1670,13 +1670,15 @@ vereinfacht in 3 Bereiche:
 2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
 3. Currencies die Täglich abgeholt werden
 
-** Testing
+** TODO Testing
 
-Um die Funktionalität des Webshops sicherzustellen haben wir
-Die Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
-getestet und geprüft. Auch sehr hilfreich war das Admin Interface von
-Django. Damit konnten wir die Modells sehr gut auf ihre Funktionalität
-überprüfen bevor wir sie im Frontend verwendeten.
+Um die Funktionalität des Webshops sicherzustellen haben wir Die
+Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
+getestet und geprüft. Bei den Testfällen haben wir uns wie auch bei
+den Use Cases hauptsächlich auf die Funktionen beschränkt welche wir
+selber ausprogrammiert haben. Auch sehr hilfreich war das Admin
+Interface von Django. Damit konnten wir die Modells sehr gut auf ihre
+Funktionalität überprüfen bevor wir sie im Frontend verwendeten.
 
 *Fixtures*
 
@@ -1698,39 +1700,60 @@ dazugehörige Funktionen korrekt funktionieren.
 
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
-*** Testfälle
 
+*** NEXT Testfälle
+
+Alle Testfälle werden ausgehend von der Index Seite aus gestartet.
+Dies wird in den Test Cases nicht noch einmal explizit erwähnt. Die
+Tabelle: ([[tab:testcases]]) zeigt dabei die Resultate des letzten
+Testlaufs. Dabei wurden keine Probleme mehr mit der Applikation
+entdeckt.
+
+#+LATEX:{\footnotesize
 #+CAPTION: Testfälle
-#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}| :placement [H]
+#+ATTR_LATEX: :environment longtable :align |>{\columncolor[HTML]{EFEFEF}}l|p{2cm}|p{2cm}|p{3cm}|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}| :placement [H]
 #+NAME: tab:testcases
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 |
 | *Testcase ID*\cellcolor[HTML]{C0C0C0} | *Objective*\cellcolor[HTML]{C0C0C0} | *Precondition*\cellcolor[HTML]{C0C0C0} | *Steps*\cellcolor[HTML]{C0C0C0} | *Testdata*\cellcolor[HTML]{C0C0C0} | *Expected Result*\cellcolor[HTML]{C0C0C0} | *Postcondition*\cellcolor[HTML]{C0C0C0} | *Result*\cellcolor[HTML]{C0C0C0} |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-01*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-01*              | Artikel durschtöbern | -                    | 1. Auf "First Parent Category" klicken. | -                    | Die Artikel der "Parent Category 1" werden angezeigt. | Eine gefilterte Artikelliste wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-02*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-02*              | User Registration    | -                    | 1. Auf "LOGIN" klicken.\newline 2. Auf "Go to registration." klicken.\newline 3. Die Personaldaten eintragen.\newline 4. Auf "Register" klicken. | Username: max\newline Password: TestPasswort\newline Email: max@gmail.com\newline Salutation: Herr\newline Firstname: Max\newline Lastname: Muster\newline Streetname: Musterstrasse\newline Streetnumber: 13\newline ZIP Code: 1000\newline City: Lausanne | User wurde erfolgreich registriert. | Die Login Form wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-03*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-03*              | User Registration    | TC-02\newline ausgeführt | 1. Auf "LOGIN" klicken.\newline 2. Auf "Go to registration." klicken.\newline 3. Die Personaldaten eintragen.\newline 4. Auf "Register" klicken. | Username: max\newline Password: TestPasswort\newline Email: max@gmail.com\newline Salutation: Herr\newline Firstname: Max\newline Lastname: Muster\newline Streetname: Musterstrasse\newline Streetnumber: 13\newline ZIP Code: 1000\newline City: Lausanne | Fehlermeldung: "A user with that username already exists." | Die Registrierungsform wird wieder angezeigt werden. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-04*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-04*              | User Registration    | -                    | 1. Auf "LOGIN" klicken.\newline 2. Auf "Go to registration." klicken.\newline 3. Die Personaldaten eintragen.\newline 4. Auf "Register" klicken. | Username: max\newline Password: TestPasswort\newline Email: max@gmail.com\newline Salutation: Herr\newline Firstname: Max\newline Lastname: Muster\newline Streetname: Musterstrasse\newline Streetnumber: 13\newline ZIP Code: 1000\newline City: Lausanne | Fehlermeldung: "The two password fields didn't match." | Die Registrierungsform wird wieder angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-05*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-05*              | User Registration    | -                    | 1. Auf "LOGIN" klicken.\newline 2. Auf "Go to registration." klicken.\newline 3. Die Personaldaten eintragen.\newline 4. Auf "Register" klicken. | Username: max\newline Password: TestPasswort\newline Email: max@gmail.com\newline Salutation: Herr\newline Firstname: Max\newline Lastname: Muster\newline Streetname: Musterstrasse\newline Streetnumber: 13\newline ZIP Code: 1000\newline City: Lausanne | Fehlermeldung: "The zip code and the city don't match." | Die Registrierungsform wird wieder angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-06*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-06*              | User Login           | TC-02\newline ausgeführt | 1. Auf "LOGIN" klicken.\newline 2. Login Daten eingeben.\newline 3. Auf "Login" Button klicken. | Username: max\newline Password: TestPasswort | Der User wird zum Index weitergeleitet. | Die Index Seite wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-07*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-07*              | User Login           | -                    | 1. Auf "LOGIN" klicken.\newline 2. Login Daten eingeben.\newline 3. Auf "Login" Button klicken. | Username: FakeUser\newline Password: FakePassword | Fehlermeldung: "Please enter a correct username and password. Note that both fields may be case-sensitive." | Die Login Form wird wieder angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-08*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-08*              | Artikel in Warenkorb legen | -                    | 1. Auf "Article of First Parent Category" klicken. | -                    | Meldung "please login to fill your basket..." | Die Artikel Details werden angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-09*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-09*              | Artikel in Warenkorb legen | TC-02\newline ausgeführt | 1. Auf "Article of First Parent Category"\newline 2. In das "Amount in piece." Feld Die Menge eintragen.\newline 3. Auf den "Add to Cart" Button klicken.\newline 4. Auf "CART" klicken. | Menge: 5             | Der Artikel wird als Warenkorb Position in der Datenbank gespeichert. | Der Cart mit dem Artikel wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-10*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-10*              | Währung ändern       | -                    | 1. Auf das Dropdown "Currencies" klicken.\newline 2. Den Eintrag "EUR" auswählen.\newline 3. Auf den Button "Select" klicken. | -                    | Die Artikel Preise werden in Euro angezeigt. | Die Index Seite wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-11*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-11*              | Checkout             | TC-09\newline ausgeführt |                      |                      |                      |                      | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-12*              |                      |                      |                      |                      |                      |                      |                      |
+| *TC-12*              | Checkout             | TC-09\newline ausgeführt |                      |                      |                      |                      | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-13*              | Artikel erfassen     | -                    | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Neben "Articles" auf "+ Add" klicken.\newline 4. Artikel Daten eingeben.\newline 5. Auf den "SAVE" Button klicken. | Username: admin\newline Password: password\newline Name: Test Artikel\newline Description: Test Description\newline Stock: 10\newline Status: active\newline Price in chf: 23 | Der Artikel wird in der Datenbank gespeichert. | Die Artikelliste wird mit dem Artikel "Test Artikel" angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-14*              | Artikel erfassen     | -                    | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Neben "Articles" auf "+ Add" klicken.\newline 4. Artikel Daten eingeben.\newline 5. Auf den "SAVE" Button klicken. | Username: admin\newline Password: password\newline Name: Test Artikel\newline Description: Test Description\newline Stock: 10\newline Status: active | Fehlermeldung: "This field is required." | Die Artikel Form wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-15*              | Artikel löschen      | TC-13\newline ausgeführt | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Auf "Articles" klicken.\newline 4. Den Artikel "Test Artikel" markieren.\newline 5. Im Dropdown "Action" die Aktion "Delete selected articles" auswählen.\newline 6. Auf den "Go" Button klicken. | Username: admin\newline Password: password | Der Artikel und die Bilder dazu werden aus der Datenbank gelöscht. | Die Artikelliste wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-16*              | Bilder hochladen     | TC-13\newline ausgeführt | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Neben "Pictures" auf "+ Add" klicken.\newline 4. Bild Daten eingeben.\newline 5. Auf den "Browse..." Button klicken.\newline 6. Ein beliebiges Bild hochladen.\newline 7. Auf den "SAVE" Button klicken.\newline 8. Die URL http://localhost:8000/details/1/ aufrufen. | Username: admin\newline Password: password\newline Name: Test Bild\newline Article: Article of First Parent Category | Das Bild ist in den Artikel Details zu sehen. | Die Artikel Details werden angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-17*              | Bilder hochladen     | TC-13\newline ausgeführt | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Neben "Pictures" auf "+ Add" klicken.\newline 4. Bild Daten eingeben.\newline 5. Auf den "Browse..." Button klicken.\newline 6. Ein beliebiges Bild hochladen.\newline 7. Auf den "SAVE" Button klicken.\newline 8. Die Schritte 1 - 7 5 mal wiederholen. | Username: admin\newline Password: password\newline Name: Test Bild[1-5]\newline Article: Article of First Parent Category | Fehlermeldung: "Only 5 pictures per article allowed." | Die "Picture" Form wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+| *TC-18*              | Artikel Status ändern | TC-13\newline ausgeführt | 1. Die URL http://localhost:8000/admin aufrufen.\newline 2. Userdaten eingeben.\newline 3. Auf "Articles" klicken.\newline 4. Auf den Artikel "Test Artikel" klicken.\newline 5. Im Dropdown "Status" den Status "Hidden" auswählen.\newline 6. Auf den "SAVE" Button klicken.\newline 7. Die URL http://localhost:8000 aufrufen. | -                    | Der Artikel wird im Webshop nicht mehr angezeigt. | Die Index Seite wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+|----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
+#+LATEX:}
 #+LATEX:\end{landscape}
 #+LATEX:\newpage
 

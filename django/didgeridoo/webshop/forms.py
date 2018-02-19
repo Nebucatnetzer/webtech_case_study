@@ -3,7 +3,6 @@ from webshop.models import (
                         Salutation,
                         City,
                         Picture,
-                        Article,
                         Option,
                         CartPosition
                         )

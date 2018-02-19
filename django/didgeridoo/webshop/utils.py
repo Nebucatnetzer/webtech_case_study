@@ -1,16 +1,16 @@
-from webshop.models import (Article,
-                            Category,
+from webshop.models import (Category,
                             ArticleStatus)
 
 from currencies.models import ExchangeRate, ExchangeRate_name
 from currencies.forms import CurrenciesForm
+
 
 def process_article_prices(request, articles):
     articles_list = list(articles)
     rate = ExchangeRate
     currency_name = "CHF"
 
-    if not 'currency' in request.session:
+    if 'currency' not in request.session:
         request.session['currency'] = None
 
     if request.method == 'POST':
@@ -27,13 +27,14 @@ def process_article_prices(request, articles):
     if request.session['currency']:
         currency = request.session['currency']
         for idx, article in enumerate(articles_list):
-            article.price_in_chf = rate.exchange(currency, article.price_in_chf)
+            article.price_in_chf = rate.exchange(currency,
+                                                 article.price_in_chf)
             articles_list[idx] = article
             currency_name = ExchangeRate_name.objects.get(id=currency)
 
-    return {'request':request,
-            'currency_name':currency_name,
-            'articles_list':articles_list}
+    return {'request': request,
+            'currency_name': currency_name,
+            'articles_list': articles_list}
 
 
 def get_categories():
