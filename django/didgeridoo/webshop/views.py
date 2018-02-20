@@ -211,6 +211,43 @@ def cart(request):
     else:
         currency = request.session['currency']
 
+# Here we handle all POST Operations:
+    if request.method == 'POST':
+        print(request.POST)
+        # here we react to a currency dropdown change:
+        if 'currencies' in request.POST:
+            print('currencies')
+            currencies_form = CurrenciesForm(request.POST)
+            if currencies_form.is_valid():
+                cf = currencies_form.cleaned_data
+                if cf['currencies']:
+                    selection = cf['currencies']
+                    request.session['currency'] = selection.id
+                    currency_name = ExchangeRate_name.objects.get(
+                        id=selection.id)
+                else:
+                    request.session['currency'] = None
+        # here we react to a change of amount per item in the Cart:
+        if 'amount_form' in request.POST:
+            print('amount_form yes amount post')
+            amount_form = CartForm(request.POST)
+            if amount_form.is_valid():
+                amount = amount_form.cleaned_data['amount_form']
+                article_id = request.POST.get('article_id')
+                restrict_cart_to_one_article(user_name, article_id, amount)
+                article = CartPosition.objects.get(article=article_id)
+                articleamount = article.amount
+                print('amount_form articleamount:', articleamount)
+
+        if 'checkout' in request.POST:
+            print('checkout')
+            checkout_form = CheckoutForm(request.POST)
+            if checkout_form.is_valid():
+                checkout_form = checkout_form.cleaned_data['checkout']
+                print('views checkout checkout_form', checkout_form)
+                if checkout_form is True:
+                    # add to order
+                    order = ''
 # here we handle the normal cart view:
     # if the cart_id is set the user has already added items to cart.
     try:
@@ -240,53 +277,15 @@ def cart(request):
                     cart_position.price_in_chf
                     )
                 totalprice_list.append(cart_position.price_in_chf)
+
+            print('cart cart_position.article.id', cart_position.article.id,
+                  'articleamount:', cart_position.amount)
+            amount_form = CartForm(
+                initial={'amount_form': cart_position.amount}
+            )
             cart_position_list[idx] = cart_position
 
-            amount_form = CartForm(
-                # initial=cart_position.amount
-            )
-
     total = sum(totalprice_list)
-
-# Here we handle all POST Operations:
-    if request.method == 'POST':
-        print(request.POST)
-        # here we react to a currency dropdown change:
-        if 'currencies' in request.POST:
-            print('currencies')
-            currencies_form = CurrenciesForm(request.POST)
-            if currencies_form.is_valid():
-                cf = currencies_form.cleaned_data
-                if cf['currencies']:
-                    selection = cf['currencies']
-                    request.session['currency'] = selection.id
-                    currency_name = ExchangeRate_name.objects.get(
-                        id=selection.id)
-                else:
-                    request.session['currency'] = None
-        # here we react to a change of amount per item in the Cart:
-        if 'amount_form' in request.POST:
-            print('yes amount post')
-            amount_form = CartForm(request.POST)
-            if amount_form.is_valid():
-                amount = amount_form.cleaned_data['amount_form']
-                article_id = request.POST.get('article_id')
-                restrict_cart_to_one_article(user_name, article_id, amount)
-                article = CartPosition.objects.get(article=article_id)
-                articleamount = article.amount
-                print('articleamount', articleamount)
-                amount_form = CartForm(
-                    initial=articleamount
-                )
-        if 'checkout' in request.POST:
-            print('checkout')
-            checkout_form = CheckoutForm(request.POST)
-            if checkout_form.is_valid():
-                checkout_form = checkout_form.cleaned_data['checkout']
-                print('views checkout checkout_form', checkout_form)
-                if checkout_form is True:
-                    # add to order
-                    order = ''
 
     checkout_form = CheckoutForm()
 
