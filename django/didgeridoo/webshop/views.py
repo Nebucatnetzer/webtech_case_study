@@ -274,7 +274,7 @@ def cart(request):
                 # get exchange_rate multiplyed:
                 cart_position.price_in_chf = rate.exchange(
                     currency,
-                    cart_position.price_in_chf
+                    cart_position.article.price_in_chf
                     )
                 totalprice_list.append(cart_position.price_in_chf)
 
