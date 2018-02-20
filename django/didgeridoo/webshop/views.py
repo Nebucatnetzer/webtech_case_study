@@ -84,8 +84,9 @@ def restrict_cart_to_one_article(user_name, article_id, amount, operation):
                 print('restrict_cart_to_one_article add new_amount:', new_amount,
                       'article_id', article_id)
             if operation == 'replace':
-                print('restrict_cart_to_one_article replace:', amount)
                 new_amount = amount
+                print('restrict_cart_to_one_article replace:', new_amount,
+                      'article_id', article_id)
             # if article is in cart already update amount:
             cart_position = CartPosition.objects.filter(
                 id=article_id).update(
@@ -274,16 +275,16 @@ def cart(request):
         print('try cart_id exception as: ', e)
         cart_id = False
     if cart_id:
-        print('cart_id', cart_id)
+        print('cart cart_id', cart_id)
+        # get all items in the cart of this customer:
         articles = CartPosition.objects.filter(cart=cart_id)
+        # make a list out of all articles:
         cart_position_list = list(articles)
-        # scrap out the details to calculate Total of item and Summ of All:
+        # enumerate the list of articles and loop over items:
         for idx, cart_position in enumerate(cart_position_list):
-            article = CartPosition.objects.filter(
-                cart=cart_id,
-                article=cart_position.article.id
-                )
+            # sub funciton of CartPosition:
             cart_position.calculate_position_price()
+            # scrap out the details to calculate Total of item and Summ of All:
             if currency:
                 print('calc currency')
                 # get currencyname to display:
