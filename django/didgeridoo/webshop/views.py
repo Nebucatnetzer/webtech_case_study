@@ -64,7 +64,7 @@ def articles_in_category(request, category_id):
                    'category': selected_category})
 
 
-def restrict_cart_to_one_article(user_name, article_id, amount):
+def restrict_cart_to_one_article(user_name, article_id, amount, operation):
     article = Article.objects.get(id=article_id)
     try:
         # lookup if cart_id is already existent:
@@ -74,17 +74,25 @@ def restrict_cart_to_one_article(user_name, article_id, amount):
         cart_id = ShoppingCart.objects.create(user=user_name)
         cart_id.save()
     if cart_id:
+        print('restrict_cart_to_one_article cart_id:', cart_id)
         # check if the article is existent in cart already:
         try:
             article_amount = CartPosition.objects.get(
                 article=article_id)
-            new_amount = article_amount.amount + amount
+            if operation == 'add':
+                new_amount = article_amount.amount + amount
+                print('restrict_cart_to_one_article add new_amount:', new_amount,
+                      'article_id', article_id)
+            if operation == 'replace':
+                print('restrict_cart_to_one_article replace:', amount)
+                new_amount = amount
             # if article is in cart already update amount:
             cart_position = CartPosition.objects.filter(
                 id=article_id).update(
                 amount=new_amount
                 )
         except Exception as e:
+            print('restrict_cart_to_one_article except: ', e)
             # if the article is not in cart yet add full item:
             cart_position = CartPosition.objects.create(
                 article=article,
@@ -129,7 +137,13 @@ def article_details(request, article_id):
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
                 user_name = request.user
-                restrict_cart_to_one_article(user_name, article_id, amount)
+                operation = 'add'
+                restrict_cart_to_one_article(
+                    user_name,
+                    article_id,
+                    amount,
+                    operation
+                    )
                 # write default value (1) to form field:
                 amount = AddToCartForm()
         else:
@@ -234,10 +248,13 @@ def cart(request):
             if amount_form.is_valid():
                 amount = amount_form.cleaned_data['amount_form']
                 article_id = request.POST.get('article_id')
-                restrict_cart_to_one_article(user_name, article_id, amount)
-                article = CartPosition.objects.get(article=article_id)
-                articleamount = article.amount
-                print('amount_form articleamount:', articleamount)
+                operation = 'replace'
+                restrict_cart_to_one_article(
+                    user_name,
+                    article_id,
+                    amount,
+                    operation
+                    )
 
         if 'checkout' in request.POST:
             print('checkout')
