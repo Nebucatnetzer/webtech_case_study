@@ -220,6 +220,8 @@ def cart(request):
     totalprice_list = []
     total = 0
     user_name = request.user
+    cart_position_list_zip = []
+
 # here we configure the users Currency:
     if 'currency' not in request.session:
         request.session['currency'] = None
