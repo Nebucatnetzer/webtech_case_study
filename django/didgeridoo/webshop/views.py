@@ -77,21 +77,24 @@ def restrict_cart_to_one_article(user_name, article_id, amount, operation):
         print('restrict_cart_to_one_article cart_id:', cart_id)
         # check if the article is existent in cart already:
         try:
-            article_amount = CartPosition.objects.get(
+            article = CartPosition.objects.get(
                 article=article_id)
             if operation == 'add':
-                new_amount = article_amount.amount + amount
+                new_amount = article.amount + amount
                 print('restrict_cart_to_one_article add new_amount:', new_amount,
                       'article_id', article_id)
             if operation == 'replace':
-                new_amount = amount
+                new_amount = amount  # ref two times check later !!
                 print('restrict_cart_to_one_article replace:', new_amount,
                       'article_id', article_id)
-            # if article is in cart already update amount:
-            cart_position = CartPosition.objects.filter(
-                id=article_id).update(
-                amount=new_amount
-                )
+                # if article is in cart already update amount:
+                cart_position = CartPosition.objects.filter(
+                    id=article_id).update(
+                    amount=new_amount
+                    )
+            if operation == 'delete':
+                article.delete()
+                print('restrict_cart_to_one_article delete article_id:', article_id)
         except Exception as e:
             print('restrict_cart_to_one_article except: ', e)
             # if the article is not in cart yet add full item:
@@ -252,6 +255,21 @@ def cart(request):
                 amount = amount_form.cleaned_data['amount_form']
                 article_id = request.POST.get('article_id')
                 operation = 'replace'
+                restrict_cart_to_one_article(
+                    user_name,
+                    article_id,
+                    amount,
+                    operation
+                    )
+        # here we react to a change of amount per item in the Cart:
+        if 'delete' in request.POST:
+            print('delete yes delete post')
+            delete = CartForm(request.POST)
+            if delete.is_valid():
+                amount = delete.cleaned_data['amount_form']
+                article_id = request.POST.get('article_id')
+                amount = 1
+                operation = 'delete'
                 restrict_cart_to_one_article(
                     user_name,
                     article_id,

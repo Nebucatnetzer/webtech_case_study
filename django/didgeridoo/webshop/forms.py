@@ -69,7 +69,7 @@ class AddToCartForm(forms.Form):
 class CartForm(forms.Form):
     amount_form = forms.FloatField(
                         label='pce',
-                        help_text='Enter a Value between 1 and 99.')
+                        )
 
 
 class CheckoutForm(forms.Form):
