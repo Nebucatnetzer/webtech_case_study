@@ -215,8 +215,8 @@ def cart(request):
     article_view = True
     currency_name = "CHF"
     message = ""
-    cart_position_list = ""
-    prices_in_cart = []
+    cart_position_list = []
+    amount_form_list = []
     totalprice_list = []
     total = 0
     user_name = request.user
@@ -264,7 +264,7 @@ def cart(request):
                 checkout_form = checkout_form.cleaned_data['checkout']
                 print('views checkout checkout_form', checkout_form)
                 if checkout_form is True:
-                    # add to order
+                    # todo add to order
                     order = ''
 # here we handle the normal cart view:
     # if the cart_id is set the user has already added items to cart.
@@ -301,17 +301,18 @@ def cart(request):
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
+            amount_form_list.append(amount_form)
             cart_position_list[idx] = cart_position
+        cart_position_list_zip = zip(cart_position_list, amount_form_list)
 
     total = sum(totalprice_list)
 
     checkout_form = CheckoutForm()
 
     return render(request, 'webshop/cart.html',
-                  {'cart_position_list': cart_position_list,
+                  {'cart_position_list_zip': cart_position_list_zip,
                    'totalprice_list': totalprice_list,
                    'total': total,
-                   'cart_form': cart_form,
                    'currencies_form': currencies_form,
                    'amount_form': amount_form,
                    'article_view': article_view,

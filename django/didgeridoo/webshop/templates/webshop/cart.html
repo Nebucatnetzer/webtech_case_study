@@ -13,7 +13,7 @@
           <th scope="col">PRICE p.pce.</th>
           <th scope="col">POSITION PRICE</th>
         </tr>
-        {% for cart_position in cart_position_list %}
+        {% for cart_position, amount_form in cart_position_list_zip %}
           <tr class="table_content">
             <td scope="col">{{ cart_position.id }}</td>
             <td scope="col">{{ cart_position.article.id }}</td>
