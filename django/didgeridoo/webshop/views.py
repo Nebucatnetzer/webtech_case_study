@@ -76,6 +76,9 @@ def restrict_cart_to_one_article(user_name, article_id, amount, operation):
     if cart_id:
         print('restrict_cart_to_one_article cart_id:', cart_id)
         # check if the article is existent in cart already:
+        if operation == 'delete':
+            article.delete()
+            print('restrict_cart_to_one_article delete article_id:', article_id)
         try:
             article = CartPosition.objects.get(
                 article=article_id)
@@ -83,18 +86,19 @@ def restrict_cart_to_one_article(user_name, article_id, amount, operation):
                 new_amount = article.amount + amount
                 print('restrict_cart_to_one_article add new_amount:', new_amount,
                       'article_id', article_id)
+                cart_position = CartPosition.objects.filter(
+                    article=article_id).update(
+                    amount=new_amount
+                    )
             if operation == 'replace':
                 new_amount = amount  # ref two times check later !!
                 print('restrict_cart_to_one_article replace:', new_amount,
                       'article_id', article_id)
                 # if article is in cart already update amount:
                 cart_position = CartPosition.objects.filter(
-                    id=article_id).update(
+                    article=article_id).update(
                     amount=new_amount
                     )
-            if operation == 'delete':
-                article.delete()
-                print('restrict_cart_to_one_article delete article_id:', article_id)
         except Exception as e:
             print('restrict_cart_to_one_article except: ', e)
             # if the article is not in cart yet add full item:

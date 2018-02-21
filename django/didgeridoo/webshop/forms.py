@@ -69,6 +69,7 @@ class AddToCartForm(forms.Form):
 class CartForm(forms.Form):
     amount_form = forms.FloatField(
                         label='pce',
+                        widget=forms.NumberInput(attrs={'class': 'col-xs-6'})
                         )
 
 
