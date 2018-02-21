@@ -1,4 +1,4 @@
-#+TITLE: Casestudy Webtechnologien
+#+TITLE: Case Study Webtechnologien
 #+SETUPFILE: ~/git_repos/notes/settings/html_theme/setup/theme-readtheorg.setup
 #+AUTHOR: Ivan Hörler Andreas Zweili
 #+LaTeX_CLASS: article
@@ -17,7 +17,7 @@ diesem Dokument.
 ** Titel der Dokumentation
 
 Die Gruppe hat verschiedene Varianten gelistet und sich für die
-lustigste entschieden.
+Lustigste entschieden.
 
 - Marktplatz
 - Shopshop
@@ -29,8 +29,9 @@ entschieden diesen Titel zu verwenden. Die Ursprünge des Instruments
 liegen 2000 Jahre, sagen die Forscher – 40.000 Jahre, sagen die
 Aborigines zurück.
 
-…Als das Traumzeitvolk die Erde verließ, hinterließ es den Menschen ein
-Geschenk: Ein Horn, das ein Klangfeld zwischen ihrer Welt und unserer erzeugt…\footcite{didgeridoo}
+…Als das Traumzeitvolk die Erde verliess, hinterliess es den Menschen
+ein Geschenk: Ein Horn, das ein Klangfeld zwischen ihrer Welt und
+unserer erzeugt…\footcite{didgeridoo}
 
 ** Beschreibung
 
@@ -45,22 +46,22 @@ Dokumentation zu unserer Case Study Webtechnologie 3.
 ** Aufbau
 
 Alle Inhalte sind chronologisch sortiert, vom ältesten zum jüngsten
-Ereigniss, und nach Kapiteln getrennt.
+Ereignis, und nach Kapiteln getrennt.
 
 ** Lizenz
 
 Dieses Dokument sowie der dazugehörige Code wurde von Ivan Hörler und
 Andreas Zweili im Rahmen einer Arbeit an der IBZ Schule erstellt und
 steht unter einer GPLv3\footcite{gplv3} Lizenz. Dadurch darf die
-Arbeit kopiert und weiterverarbeitet unter Einhaltung der Regeln der
-GPLv3.
+Arbeit unter Einhaltung der Regeln der GPLv3 kopiert und
+weiterverarbeitet werden.
 
 * TODO Projektanalyse und Planung
 ** Projektziele
 
-Der Student erarbeitet in einer Zweiergruppe einen selbstentwickelten
-Web-Shop. Die einzusezenden Technologien sollen Opensource sein. Die
-zur verfügungstehende Zeit ist pro Student mit 80h zu veranschlagen.
+Der Student erarbeitet in einer Zweiergruppe einen selbst entwickelten
+Web-Shop. Die einzusetzenden Technologien sollen Open-Source sein. Die
+zur Verfügung stehende Zeit ist pro Student mit 80h zu veranschlagen.
 Am Ende dieser Zeitspanne soll ein funktionaler Web-Shop mit minimalem
 graphischen User Interface entstehen, die dazugehörige Dokumentation
 umfasst alle Aspekte um die gewählte Lösung nachzuvollziehen.
@@ -91,18 +92,18 @@ nach Prioritäten gewichtet.
 
 ** Methoden
 
-Die Methodik die die Gruppe wählt ist Aufgrund der nur zwei Personen
+Die Methodik die, die Gruppe wählt ist Aufgrund der nur zwei Personen
 im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden
-ist eine itterative Methodik unabdingbar. Daher wandte die Gruppe eine
-angepasste version von Scrum an. In dieser wird jeweils während
+ist eine iterative Methodik unabdingbar. Daher wandte die Gruppe eine
+angepasste Version von Scrum an. In dieser wird jeweils während
 Sitzungen die Position des Product Owners und des Scrum Masters
 eingenommen und die Backlog-Tasks dementsprechend erstellt resp.
 verteilt. Während der Woche arbeiten beide Team-Mitglieder an der
-Arbeit als Team-Kolegen.
+Arbeit als Team-Kollegen
 
 ** Vorkenntnisse
 
-Die benötigten Vorkenntnisse wurden in den vorangeganenen Semestern
+Die benötigten Vorkenntnisse wurden in den vorangegangenen Semestern
 erarbeitet und sind in der Basis gefestigt. Diese Arbeit wird
 vorwiegend weiterführende Elemente wie Frameworks neu einbringen deren
 Verhalten letztendlich nicht abgeschätzt werden kann.
@@ -122,8 +123,8 @@ Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
 Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
 
 Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
-haben. Die ausegfüllte SWOT-Analyse für dieses Projekt ist in der
-Tabelle: ([[tab:swot]]) zu sehen.
+haben. Die ausgefüllte SWOT-Analyse für dieses Projekt ist in der
+Tabelle:([[tab:swot]]) zu sehen.
 
       #+CAPTION: SWOT-Analyse
       #+NAME: tab:swot
@@ -177,8 +178,8 @@ Tabelle: ([[tab:swot]]) zu sehen.
                               nodes=leftcol
                               },
                       inner sep=0pt]{
-                        & |[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Anaylse)\par}
-                        & |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Anaylse)\par} \\
+                        & |[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Analyse)\par}
+                        & |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Analyse)\par} \\
                         | [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
                         & |[bigbackgroundfont=S]| \bigfont{S}
                         & |[bigbackgroundfont=W]| \bigfont{W} \\
@@ -192,8 +193,8 @@ Tabelle: ([[tab:swot]]) zu sehen.
                         ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
                       \begin{itemize}
                         \item Know-How in Webtechnologien.
-                        \item Quelloffene Software ist leichter zu unterhalten.
-                        \item durch verwendung des Frameworks kann die Entwicklungszeit
+                        \item Quell offene Software ist leichter zu unterhalten.
+                        \item durch Verwendung des Frameworks kann die Entwicklungszeit
                           stark reduziert werden.
                         \item Wir als Programmierer haben ein gutes Know-How
                           im Bereich Datenbanken.
@@ -207,8 +208,8 @@ Tabelle: ([[tab:swot]]) zu sehen.
                         \item Das Framework ist nicht vollkommen. Teile davon müssten
                           eventuell selber konzipiert/erarbeitet werden.
                           Welche Teile das sind ist noch nicht ersichtlich.
-                          Durch die Quelloffene Lizenz kann dies dem Projekt jedoch
-                          einen mehrwert geben, in dem diese Teile wiederverwendet
+                          Durch die Quell offene Lizenz kann dies dem Projekt jedoch
+                          einen Mehrwert geben, in dem diese Teile wiederverwendet
                           werden können.
                         \item Der Kunde vertraut uns, und die Beziehung ist gut.
                           Diese Ausgangslage mag helfen interne Schwächen durch
@@ -220,8 +221,8 @@ Tabelle: ([[tab:swot]]) zu sehen.
                           anchor=center
                           ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
                       \begin{itemize}
-                        \item Quelloffene Software kann unkontrolliert kopiert werden.
-                        \item Die implementation von Währungsänderungen ist
+                        \item Quell offene Software kann unkontrolliert kopiert werden.
+                        \item Die Implementation von Währungsänderungen ist
                           nicht trivial. Der Zeitpunkt zu dem die Kosten
                           eines Produktes sich ändert muss gut durchdacht werden.
                       \end{itemize}
@@ -249,11 +250,11 @@ Erwartungshaltungen und Einflüsse auf das Projekt durch interne und
 externe soziale Umwelten zu betrachten und zu bewerten. Auf Grundlage
 der Analyseergebnisse werden erforderliche Massnahmen zur Gestaltung
 der Umweltbeziehungen abgeleitet. Die Gestaltung der
-Projektumweltbeziehungen ist eine Projektmanagementaufgabe. In dieser
-Tabelle: ([[tab:umweltanalyse]]) wurden die Anforderungen und Wünsche
+Projektumweltbeziehungen ist eine Projektmanagementaufgabe. In der
+Tabelle:([[tab:umweltanalyse]]) wurden die Anforderungen und Wünsche
 mit Einschätzung der Wahrscheinlichkeit der Einflussnahme aufgenommen.
 Zusätzlich ist die Beziehung der Stakeholder zum Projekt noch in der
-Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
+Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
@@ -262,7 +263,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 #+NAME: tab:umweltanalyse
 |-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
 |   <5> | <20>                 | <20>                 |                                               |                                             |
-| *Nr*.\cellcolor[HTML]{C0C0C0} | *Stakeholder*\cellcolor[HTML]{C0C0C0} | *Einfluss*\cellcolor[HTML]{C0C0C0} | *Anforderung/Wünsche*\cellcolor[HTML]{C0C0C0} | *Warscheinlichkeit*\cellcolor[HTML]{C0C0C0} |
+| *Nr*.\cellcolor[HTML]{C0C0C0} | *Stakeholder*\cellcolor[HTML]{C0C0C0} | *Einfluss*\cellcolor[HTML]{C0C0C0} | *Anforderung/Wünsche*\cellcolor[HTML]{C0C0C0} | *Wahrscheinlichkeit*\cellcolor[HTML]{C0C0C0} |
 |-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
 |    1. | Auftraggeber         | hoch                 | - Innovatives Produkt auf dem Markt anbieten. | hoch                                        |
 |       |                      |                      | - Einhaltung von Terminen und Qualität.       | hoch                                        |
@@ -294,7 +295,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 |       <10> | <30>                           | <30>                           |                               |                               |
 | *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0} | *Massnahmen*\cellcolor[HTML]{C0C0C0} | *W^1*\cellcolor[HTML]{C0C0C0} | *A^2*\cellcolor[HTML]{C0C0C0} |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         1. | Die Datenbank ist schlecht modeliert. | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
+|         1. | Die Datenbank ist schlecht modelliert | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 |         2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |                             1 |                             2 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
@@ -302,7 +303,7 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 |         4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |                             1 |                             1 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         5. | Die Programmierung des Shops benötigt zuviel Zeit | Beider Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, abgrenzungen treffen. |                             3 |                             1 |
+|         5. | Die Programmierung des Shops benötigt zu viel Zeit | Bei der Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, Abgrenzungen treffen. |                             3 |                             1 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 
 *** Risikobewertung
@@ -310,18 +311,18 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 #+CAPTION: Risikobewertung Wahrscheinlichkeit
 #+ATTR_LATEX: :align l|l :placement [H]
 #+NAME: tab:wahrscheinlichkeit
-| *Bewertung* | *Beschreibung: Warscheinlichkeit (W)* |
+| *Bewertung* | *Beschreibung: Wahrscheinlichkeit (W)* |
 |-------------+---------------------------------------|
-| 1 = gering  | Unwarscheinlich, <20%                 |
-| 2 = mittel  | Mässig warscheinlich, 20-50%          |
-| 3 = hoch    | Hohe warscheinlichkeit > 50%          |
+| 1 = gering  | Unwahrscheinlich, <20%                 |
+| 2 = mittel  | Mässig wahrscheinlich, 20-50%          |
+| 3 = hoch    | Hohe Wahrscheinlichkeit > 50%          |
 
 #+CAPTION: Risikobewertung Auswirkung
 #+ATTR_LATEX: :align l|l :placement [H]
 #+NAME: tab:auswirkung
 | *Bewertung* | *Beschreibung: Auswirkung (A)*                  |
 |-------------+-------------------------------------------------|
-| 1 = gering  | geringe auswirkungen auf das Gesammtergebniss   |
+| 1 = gering  | Geringe Auswirkungen auf das Gesamtergebnis     |
 | 2 = mittel  | Arbeitsumstellung oder grösserer Arbeitsaufwand |
 | 3 = hoch    | Projekt erfüllt nicht alle Anforderungen        |
 
@@ -335,10 +336,10 @@ Abbildung: ([[fig:umweltgrafik]]) grafisch dargestellt.
 Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 
 * Projektmanagement
-** Organigram
+** Organigramm
 
-  #+CAPTION: Organigram
-  #+NAME: fig:Organigram
+  #+CAPTION: Organigramm
+  #+NAME: fig:Organigramm
   #+BEGIN_EXPORT latex
     \begin{tikzpicture}[
 	auto,
@@ -387,16 +388,17 @@ Punktzahl(/EP/) ergibt das Kriteriumsergebnis(/KE/).
 
 *** ASP.NET und SQL Server
 
-ASP.NET und SQL Server, Tabelle:([[tab:asp-net]]), haben vorallem viele
+ASP.NET und SQL Server, Tabelle:([[tab:asp-net]]), haben vor allem viele
 Punkte verloren da C# nur in Teilen und SQL Server gar nicht unter
-einer freien Lizenz steht. Desweiteren läuft .NET Core zwar auch auf
+einer freien Lizenz steht. Des weiteren läuft .NET Core zwar auch auf
 Unix Systemen allerdings ist das verhältnismässig ein relativ kleiner
 Teil der gesamten Sprache. SQL Server läuft hingegen nur unter Windows
-und Linux. Desweiteren ist es sehr schwierig C# Applikationen ohne
+und Linux. Des weiteren ist es sehr schwierig C# Applikationen ohne
 Visual Studio zu entwickeln. Es geht in der Theorie, in der Praxis ist
-es jedoch eher umständlich. Die Vorkenntnisse wurden mit 6 von Punkten
-bewertet da wir C# zwar im Rahmen der Ausbildung lernen. Allerdings
-noch nicht das Gefühl haben sonderlich gut mit C# umgehen zu können.
+es jedoch eher umständlich. Die Vorkenntnisse wurden mit 6 von 10
+Punkten bewertet da wir C# zwar im Rahmen der Ausbildung lernen,
+allerdings noch nicht das Gefühl haben sonderlich gut mit C# umgehen
+zu können.
 
 #+CAPTION: Bewertung der Variante ASP.NET und SQL Server
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4cm}|c|p{2cm}|p{2cm}|p{2cm}|
@@ -429,8 +431,8 @@ Punktzahl vergeben konnten. Abstriche gab es bei der Lesbarkeit des
 Codes. Da PHP insgesamt eine ziemlich inkonsistente und ausschweifende
 Sprache ist. Dafür ist das Setup sehr einfach und man kann eine PHP
 basierte Applikation ohne spezielle Werkzeuge entwickeln. Da wir
-jedoch bereits sehr intensiv mit PHP und MySQL in Berürung kamen haben
-wir beim Lernfaktor abstriche gemacht. In Zusammenhang mit einem
+jedoch bereits sehr intensiv mit PHP und MySQL in Berührung kamen haben
+wir beim Lernfaktor Abstriche gemacht. In Zusammenhang mit einem
 Framework hätten wir sicher auch viel dazugelernt im Vergleich zu den
 anderen Varianten jedoch auf jeden Fall weniger.
 
@@ -456,7 +458,7 @@ anderen Varianten jedoch auf jeden Fall weniger.
 
 *** Django(Python) und MariaDB
 
-Diese Variante, Tabelle:([[tab:django]]) hat am meisten Punkte erhalten.
+Diese Variante, Tabelle:([[tab:django]]), hat am meisten Punkte erhalten.
 Wie bei der Variante "PHP und MySQL" sind auch hier beide Komponenten
 freie Software. Im Gegensatz zu der vorherigen Variante gibt es bei
 diesen Komponenten nur eine mögliche Lizenz Form. Womit sie die volle
@@ -467,7 +469,7 @@ unter für Django(Python) unter Windows etwas komplizierter ausfällt
 als wir gerne hätten weshalb wir hier bei der Cross Plattform
 Kompatibilität und dem Setup einen Abstrich gemacht haben. Python kann
 ohne spezielle Tools programmiert werden und gilt als eine der
-Sprachen mit der schönsten Syntax. Die Vorkenntnisse haben wir hier
+Sprachen mit der leserlichsten Syntax. Die Vorkenntnisse haben wir hier
 als eher niedrig eingestuft dafür den Lernfaktor umso höher.
 
 #+CAPTION: Bewertung der Variante Django und MariaDB
@@ -492,7 +494,7 @@ als eher niedrig eingestuft dafür den Lernfaktor umso höher.
 
 *** Ergebnis
 
-Aufgrund der erreichten Punktzahl, Tabelle:([[tab:result]]) bei den
+Aufgrund der erreichten Punktzahl, Tabelle:([[tab:result]]), bei den
 vorhergehenden Variantenbewertungen haben wir uns dafür entschieden
 die Variante "Django(Python) und MariaDB" umzusetzen. In der Sektion
 [[Werkzeuge]] beschreiben wir noch die weiteren Mittel welche beim
@@ -517,22 +519,22 @@ auch weshalb wir uns dafür entschieden haben.
 
 Während dem Erstellen dieser Arbeit wurde eine Vielzahl an Werkzeugen
 eingesetzt. Nachfolgend werden diese Werkzeuge kurz beschrieben sowie
-ihre Verwendung begründet. Wir haben dabei darauf geachtet soviel Open
-Source Software wie möglich zu verwenden. Nicht nur für den Web-Shop an
-sich sondern generell für alle Tasks im Projekt.
+ihre Verwendung begründet. Wir haben dabei darauf geachtet soviel
+Open-Source Software wie möglich zu verwenden. Nicht nur für den
+Web-Shop an sich sondern generell für alle Tasks im Projekt.
 
-*** Versionkontrolle
+*** Versionskontrolle
 
 Eine Versionskontrollsoftware erschien uns als notwendig um den Code
 auf einfache und zuverlässige Weise untereinander austauschen zu
 können. Andere Lösungen wie Dropbox, etc. hätten es uns nicht erlaubt
-Konflikte zu vermeinden.
+Konflikte zu vermeiden
 
 Als Software für die Versionskontrolle wurde Git \footcite{git} gewählt.
 Git wurde aus diversen Gründen gewählt:
 
 - Ist der de facto Standard bei Versionskontrollsoftware
-- Läuft auf allen gängigen Betriebsystemen
+- Läuft auf allen gängigen Betriebssystemen
 - Es gäbe gratis Services die man nutzen könnte (Github, Gitlab)
 - Man kann offline arbeiten und Commits erstellen
 - Das Team hat bereits einen eigenen Git Server zur Verfügung
@@ -546,7 +548,7 @@ Git wurde aus diversen Gründen gewählt:
 
 Damit beide Studenten auf der gleichen Basis arbeiten haben wir uns
 dazu entschieden den Web-Shop in einer virtuellen Maschine zu
-entwickeln. Dies führt jedoch in der Regel zum Problem das die
+entwickeln. Dies führt jedoch in der Regel zum Problem, dass die
 Änderungen in der virtuellen Maschine miteinander abgesprochen und
 ausgetauscht werden müssen. Um dieses Problem zu beheben haben wir uns
 dazu entschieden Vagrant\footcite{vagrant} zu verwenden.
@@ -555,31 +557,30 @@ Vagrant ist freie Software unter der MIT Lizenz.
 Vagrant erlaubt es einem den Zustand einer virtuellen Maschine in
 einer Text Datei zu beschreiben und diese dann gemäss der Beschreibung
 automatisiert aufzusetzen. Dies hat den Vorteil das die Konfiguration
-der virtuellen Maschine auch ohne weiteres mit dem restlichen Code in
+der virtuellen Maschine auch ohne Weiteres mit dem restlichen Code in
 der Versionskontrollsoftware gepflegt werden kann.
 
-Desweiteren hilft das automatisierte Aufsetzen das vermeiden von
+Des weiteren hilft das automatisierte Aufsetzen, das Vermeiden von
 menschlichen Fehlern. Somit kann davon ausgegangen werden dass, das
 System in der virtuellen Maschine immer den korrekten Stand zum
-entwickeln sein. Sollte dies nicht mehr der Fall sein lässt sich die
-virtuelle Maschine mit einem maxmimal zwei Befehlen wieder in den
+Entwickeln hat. Sollte dies nicht mehr der Fall sein lässt sich die
+virtuelle Maschine mit einem maximal zwei Befehlen wieder in den
 Ursprungszustand zurücksetzen.
 
 Als Hypervisor der virtuellen Maschine wurde
 Virtualbox\footcite{virtualbox} eingesetzt. Virtualbox ist im Kern
 freie Software unter der GNU Public License v2. Das unter einer
-proprietären Lizenz erhältliche Erweiterungspacket ist für unser Setup
+proprietären Lizenz erhältliche Erweiterungspaket ist für unser Setup
 nicht notwendig.
 
 *** Hostsystem
 
-Als Hostsystem für unseren Web-Shop haben wir uns für die Linux
-Distribution Debian\footcite{debian} in der Version 9 (Stretch)
-entschieden. Für Debian haben wir uns vor allem aus folgenden Gründen
-entschieden:
+Als Hostsystem für unseren Web-Shop haben wir die Linux Distribution
+Debian\footcite{debian} in der Version 9 (Stretch) gewählt. Für Debian
+haben wir uns vor allem aus folgenden Gründen entschieden:
 
-- Stabiles System
-- Sehr guter Packetmanager was einem das Scripting vereinfacht.
+- Stabiles Betriebsystem
+- Sehr guter Paketmanager was einem das Scripting vereinfacht
 - Gilt als sehr sicher
 - Hat sich in vorhergehenden Projekten bereits als gute Basis bewiesen
 - Enthält in der Grundkonfiguration nur freie Software (nicht freie
@@ -623,18 +624,18 @@ abzufangen.
 
 Wir haben uns dabei für das Framework Django\footcite{django}
 entschieden. Django ist ein Python basiertest Framework. Django ist
-freie Software unter der drei Klausen BSD Lizenz. Wir haben uns aus
+freie Software unter der drei Klauseln BSD Lizenz. Wir haben uns aus
 folgenden Gründen für ein Python basiertes Framework gegenüber einem
 PHP basierten Framework entschieden:
 
-- Python gilt als die Sprache mit der schöneren Syntax
+- Python gilt als die Sprache mit der schöneren Syntax.
 - Wir wollten im Bezug auf das Programmieren etwas neues ausprobieren
   was sich im Rahmen einer Case Study sehr gut machen lässt. Da man
   ein "realistisches" Szenarium erhält und dieses in einem relativ
   kontrollierten Rahmen ausführen kann.
 - Python ist in dem von uns gewählten Hostsystem wie in den meisten
   Linux Distributionen bereits integriert.
-- Desweiteren hat Django bei einer Variantenbewertung das beste
+- Des weiteren hat Django bei einer Variantenbewertung das beste
   Ergebnis geholt.
 
 Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
@@ -642,7 +643,7 @@ Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
 *** Webserver
 
 Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
-Dies vorallem aus dem Grund das wir Apache aus diversen vorhergehenden
+Dies vor allem aus dem Grund das wir Apache aus diversen vorhergehenden
 Projekten bereits sehr gut kennen und sich der Webserver dort sehr gut
 bewährt hat. Apache wird dabei auch noch gut von Django unterstützt.
 Der Apache Webserver ist freie Software unter der Apache License 2.0
@@ -653,12 +654,12 @@ und gehört der gemeinnützigen Organisation "Apache Foundation".
 Bei der Datenbank haben wir uns für MariaDB\footcite{mariadb}
 entschieden. Auch hier hauptsächlich weil wir MariaDB bereits aus
 vorhergehenden Projekt kennen. MariaDB ist ein Fork von MySQL welcher
-gegenüber MySQL rückwärtskompatibel ist. MariaDB ist dabei jedoch viel
+gegenüber MySQL rückwärts kompatibel ist. MariaDB ist dabei jedoch viel
 Community näher als MySQL und wird dabei auch sehr demokratisch
 entwickelt\footcite{mariadbgov}. MariaDB gehört dabei keiner einzelnen
 Firma oder Person sonder der gemeinnützigen Organisation "MariaDB
 Foundation". Was für zusätzliche Stabilität sorgen sollte. MariaDB ist
-freie Software unter GNU Public License v2. Desweiteren hat MariaDB bei
+freie Software unter GNU Public License v2. Des weiteren hat MariaDB bei
 einer Variantenbewertung das beste Ergebnis geholt.
 
 
@@ -671,7 +672,7 @@ des Editors geht.
 - Atom :: Ivan hat während der Case Study hauptsächlich mit
           Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
           entwickelt und basiert auf dem Electron Framework welches
-          seinerseit auf Webtechnologien wie Node.js und Chromium
+          seinerseits auf Webtechnologien wie Node.js und Chromium
           basiert. Atom ist freie Software unter der MIT Lizenz.
 
 - GNU Emacs :: Andreas arbeitet hauptsächlich mit dem Editor GNU
@@ -697,13 +698,13 @@ Programmierer sehr angenehm finden. Dadurch das LaTeX auch nur aus
 reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
 in die Versionskontrollsoftware einchecken und somit auf einfache
 Weise zusammen daran arbeiten und die Entwicklung im Log
-zurückverfolgen kann.
+zurückverfolgen.
 LaTeX ist freie Software unter der LaTeX Project Public License.
 
-Die Grafiken in diesem Dokument wurden hauptächlich mit dem Vektor
+Die Grafiken in diesem Dokument wurden hauptsächlich mit dem Vektor
 Grafik Editor Inkscape\footcite{inkscape} erstellt. Inkscape ist freie
 Software unter der GNU Public License v3. Für das Entity Relation
-Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
+Diagramm in [[Modells]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
 ist freie Software unter der GNU Public License v2.
 
 Die Klassen Diagramme haben wir mit der Django Erweiterung
@@ -714,8 +715,9 @@ Django-Extensions ist freie Software unter der MIT Lizenz.
 *** User Stories
 
 User Stories sind eine in Alltagssprache geschriebenen
-Software-Anforderungen. Sie sind bewusst kurzgehalten und beschreiben
-die Wünsche und Ziele der Rollen welche die Software verwenden.
+Software-Anforderungen. Sie sind bewusst kurz gehalten und beschreiben
+die Wünsche und Ziele der Rollen welche die Software
+verwenden.\footcite{userstory}
 
 **** Auftraggeber/Verwaltung
 
@@ -725,7 +727,7 @@ Als Anbieter möchte ich...
   anschauen können.
 - Artikel aktiv oder versteckt schalten können damit ich Produkte auch
   temporär aus dem Verkauf nehmen kann.
-- Lagerbestände verwalten können damit ich rechzeitig nachbestellen kann.
+- Lagerbestände verwalten können damit ich rechtzeitig nachbestellen kann.
 - Nachbestellungen von Artikeln erfassen können damit ich weiss was
   bestellt wurde.
 - eine komplette Liste meiner Artikel einsehen können damit ich einen
@@ -767,14 +769,14 @@ Ein Use Case sammelt alle möglichen Szenarien, die eintreten können,
 wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
 bestimmtes Ziel zu erreichen. Dabei beschreibt er was beim Versuch der
 Zielerreichung passieren kann. Je nach Ablauf kann auch ein Fehlschlag
-ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Pass- wort beim
+ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Passwort beim
 Login). Dabei wird die technische Lösung nicht konkret beschrieben.
 Die Detailstufe kann dabei sehr unterschiedlich sein.\footcite{usecase}
 
 **** Anwendungsfalldiagramm
 
 "Ein Anwendungsfalldiagramm ... ist eine der 14 Diagrammarten der
-Unified Modeling Language (UML), einer Sprache für die Modellierung
+Unified Modelling Language (UML), einer Sprache für die Modellierung
 der Strukturen und des Verhaltens von Software- und anderen Systemen.
 Es stellt Anwendungsfälle und Akteure mit ihren jeweiligen
 Abhängigkeiten und Beziehungen dar."\footcite{usecasediagramm}
@@ -837,7 +839,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |                     | <30>                           |
 | *Identifier + Name* | 1.0 Artikel durchstöbern       |
 |---------------------+--------------------------------|
-| *Description*       | Durchklicken der verschiedenen Kategorieren und ansehen der Artikel Details und Bilder. |
+| *Description*       | Durch klicken der verschiedenen Kategorien und ansehen der Artikel Details und Bilder. |
 |---------------------+--------------------------------|
 | *Actors*            | Kunden, Interessenten          |
 |---------------------+--------------------------------|
@@ -852,14 +854,14 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | *Postconditions*    | -                              |
 |---------------------+--------------------------------|
 | *Normal Flow*       | 1. Website aufrufen            |
-|                     | 2. Kategorienen durchsehen     |
+|                     | 2. Kategorien durchsehen     |
 |                     | 3. Artikel anklicken           |
 |---------------------+--------------------------------|
 | *Alternative Flow*  | -                              |
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ   |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -881,7 +883,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Actors*            | Interessent                    |
 |---------------------+--------------------------------|
-| *Status*            | Freigebgen                     |
+| *Status*            | Freigegeben                     |
 |---------------------+--------------------------------|
 | *Includes*          | -                              |
 |---------------------+--------------------------------|
@@ -905,7 +907,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -949,7 +951,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -991,7 +993,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1030,7 +1032,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1076,7 +1078,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1116,7 +1118,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |                     | 6. Die Website leitet den Admin zurück zu den User Details. |
 |---------------------+--------------------------------|
 | *Alternative Flow*  | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
-|                     | 2. Admin klicht auf "Users".   |
+|                     | 2. Admin klickt auf "Users".   |
 |                     | 3. Admin wählt den passenden Account aus. |
 |                     | 4. Klickt unterhalb des Passwort Hashes auf "this form". |
 |                     | 5. Gibt zweimal ein invalides Passwort ein und klickt "Change password". |
@@ -1126,7 +1128,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1166,7 +1168,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Alternative Flow*  | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
 |                     | 2. Admin klickt neben "Articles" auf "+ Add". |
-|                     | 3. Admin füllt das Formular aus und lädt zuviele Bilder hoch. |
+|                     | 3. Admin füllt das Formular aus und lädt zu viele Bilder hoch. |
 |                     | 4. Klickt unten rechts auf "Save". |
 |                     | 5. Die Website gibt eine entsprechende Fehlermeldung aus. |
 |                     | 6. Der Admin entfernt die überzähligen Bilder. |
@@ -1174,7 +1176,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |                     | 1.1 AZ Rechtschreibung korrigiert |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
@@ -1217,7 +1219,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1265,7 +1267,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1307,7 +1309,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Darft erstellt durch AZ    |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -1315,7 +1317,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-*** Models
+*** Modells
 
 Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
 Erstellung der Tabellen in der Datenbank. Für den Aufbau der Anwendung
@@ -1326,14 +1328,13 @@ relationalen Datenbank basiert. Aus diesem Grund haben wir vor Beginn
 der Arbeit ein klassisches Entity Relation Diagramm aufgezeichnet.
 Während der Entwicklung haben wir es dann kontinuierlich erweitert und
 korrigiert. Das finale Ergebnis ist in der Abbildung:([[fig:erd]]) zu sehen.
-erstellt haben.
 
-Django übernimmt dann jedoch das erstellen der Tabellen und benennen
-derjenigen weshalb das Resultat in der Datenbank dann etwas anders
+Django übernimmt dann jedoch das Erstellen der Tabellen und Benennen
+derjenigen weshalb das Resultat in der Datenbank etwas anders
 aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
 daher. Der finale Aufbau der Datenbank ist in der
 Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
-Erweiterung "Djangoextensions"\footcite{djangoextensions} erstellt.
+Erweiterung "Django-Extensions"\footcite{djangoextensions} erstellt.
 
 Nachfolgend werden wir die von uns erstellten Modells im Detail
 beschreiben und auf jeweils spezifische Probleme eingehen.
@@ -1358,16 +1359,16 @@ beschreiben und auf jeweils spezifische Probleme eingehen.
 
 **** Category
 
-Das "Category" Modell, Abbildung:([[fig:category]]) ist der Kernpunkt der
+Das "Category" Modell, Abbildung:([[fig:category]]), ist der Kernpunkt der
 Artikelnavigation und vom Aufbau her eigentlich eher simpel.
 Allerdings hatten wir etwas Mühe die hierarchische Darstellung im
 Template sauber abzubilden. Hier half uns ein Artikel\footcite{tree}
 von Stackoverflow auf die richtige Lösung zu kommen. Nämlich das sich
-das ganze um zwei in einander verschachtelte Dictionaries handelt.
+das Ganze um zwei in einander verschachtelte Dictionaries handelt.
 Somit konnten wir dann über die Kategorie iterieren.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Kategorien
+#+CAPTION: Klassenmodelll für Kategorien
 #+NAME: fig:category
 [[file:pictures/class_category.png]]
 
@@ -1386,12 +1387,12 @@ Versehen gelöscht oder umbenannt wird. Des weiteren macht es in der
 Applikation im Momentan wenig Sinn wenn der User selber Optionen
 hinzufügen kann. Aus diesen Gründen haben wir für das "Option" Modell
 den "Add" Button\footcite{removeadd} und die "Delete"
-Option\footcite{removedelete} entfernt sowie den Namen im Admin
-Interface nur lesbar gemacht\footcite{readonly}. Somit ist nun nur
-noch der Wert editierbar.
+Option\footcite{removedelete} entfernt, sowie den Namen im Admin
+Interface nur lesbar gemacht\footcite{readonly}. Somit ist nur noch
+der Wert editierbar.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Optionen
+#+CAPTION: Klassenmodelll für Optionen
 #+NAME: fig:option
 [[file:pictures/class_option.png]]
 
@@ -1405,7 +1406,7 @@ Applikation dann auch gleich so umgesetzt das nur die Artikel
 angezeigt werden welche nicht den Status "hidden" haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Artikelstatus
+#+CAPTION: Klassenmodelll für Artikelstatus
 #+NAME: fig:articlestatus
 [[file:pictures/class_articlestatus.png]]
 
@@ -1419,12 +1420,12 @@ Feed\footcite{snb} der Schweizerischen Nationalbank stündlich
 abgeholt. Vor dem Ablegen in der Datenbank wird dann noch überprüft ob
 sich die Werte geändert haben oder nicht.
 Wir haben uns für den die Daten der SNB entschieden da sie einerseits
-die benötigten Wechselkurse anbieten und anderseit bereits von unserer
+die benötigten Wechselkurse anbieten und anderseits bereits von unserer
 Basiswährung CHF ausgehen. Dadurch müssen wir nicht zuerst aus einer
 anderen Währung zurückrechnen.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Wechselkurse
+#+CAPTION: Klassenmodelll für Wechselkurse
 #+NAME: fig:exchangerate
 [[file:pictures/class_exchangerate.png]]
 
@@ -1434,7 +1435,7 @@ Im Modell ExchangeRate_name, Abbildung:([[fig:exchangerate_name]]), ist nur
 eine Liste mit allen möglichen Währungsnamen abgelegt.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Wechselkurse
+#+CAPTION: Klassenmodell für Wechselkurse
 #+NAME: fig:exchangerate_name
 [[file:pictures/exchangerate_name.png]]
 
@@ -1452,7 +1453,7 @@ die Datumsfunktion als Variabel übergeben müssen damit sie bei jedem
 Erstellen des Objekt evaluiert wird.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Wechselkurse
+#+CAPTION: Klassenmodell für Wechselkurse
 #+NAME: fig:exchangerate_date
 [[file:pictures/exchangerate_date.png]]
 
@@ -1463,10 +1464,11 @@ sehr komplex und widerspiegelt einen Artikel aus der realen Welt.
 Gemäss der Anforderung FA_1.4 hat er eine eindeutige ID (den
 Primärschlüssel), einen Namen von maximal 200 Zeichen, eine
 Beschreibung von maximal 2000 Zeichen, Status sowie 0 - 5
-Produktbilder.
+Produktbilder welche vom Modell "Picture" über einen Fremdschlüssel
+zugewiesen werden.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Artikel
+#+CAPTION: Klassenmodell für Artikel
 #+NAME: fig:article
 [[file:pictures/class_article.png]]
 
@@ -1485,7 +1487,7 @@ Der "OrderStatus" wird vom "Order" sowie auch dem "OrderOfGoods" Modell
 verwendet.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Bestellstatus
+#+CAPTION: Klassenmodell für Bestellstatus
 #+NAME: fig:orderstatus
 [[file:pictures/class_orderstatus.png]]
 
@@ -1496,13 +1498,13 @@ Nachbestellungen fürs Warenlager ab. Dabei wird es hauptsächlich für
 die Verwaltung verwendet um die Nachbestellungen im Griff zu haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Warenbestellungen
+#+CAPTION: Klassenmodell für Warenbestellungen
 #+NAME: fig:orderofgoods
 [[file:pictures/class_orderofgoods.png]]
 
 **** Picture
 
-Über das Modell "Picture", Abbildung:([[fig:picture]]) können Bilder für
+Über das Modell "Picture", Abbildung:([[fig:picture]]), können Bilder für
 einen Artikel hochgeladen werden. Grundsätzlich kann man Bilder
 relativ einfach über das Attribut "models.ImageField" zu einem Modell
 hinzufügen. Wir hatten allerdings noch einige Probleme mit dem
@@ -1513,14 +1515,14 @@ verwenden der Bilder in den Templates fanden wir in einem Post auf
 Stackoverflow\footcite{images} die Lösung.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Bilder
+#+CAPTION: Klassenmodell für Bilder
 #+NAME: fig:picture
 [[file:pictures/class_picture.png]]
 
 **** Order und OrderPosition
 
 Bestellungen der Kunden werden im Modell "Order",
-Abbildung:([[fig:order]]), erfasst. Wobei im Modell Order nur die Kunden
+Abbildung:([[fig:order]]), erfasst. Wobei im Modell "Order" nur die Kunden
 ID gespeichert wird, sowie, gemäss der Anforderung FA_3.3, der
 Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
 Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
@@ -1532,17 +1534,17 @@ Modell welches die Beziehung abbildet. Dies realisieren wir über das
 Modell "OrderPostion", Abbildung:([[fig:orderposition]]).
 
 In diesem Modell werden dann noch zusätzlich die bestellte Menge sowie
-der Preis zur Zeit der Bestellung in schweizer Franken des jeweiligen
+der Preis zur Zeit der Bestellung in Schweizer Franken des jeweiligen
 Artikels erfasst. Somit kann auch später noch nachvollzogen werden zu
 welchem Preis die Ware bezogen wurde.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Bestellungen
+#+CAPTION: Klassenmodell für Bestellungen
 #+NAME: fig:order
 [[file:pictures/class_order.png]]
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Bestellungens Positionen
+#+CAPTION: Klassenmodell für Bestellungs-Positionen
 #+NAME: fig:orderposition
 [[file:pictures/class_orderposition.png]]
 
@@ -1556,27 +1558,27 @@ Abbildung:([[fig:shoppingcartposition]]), werden die ausgewählten Artikel
 sowie ihre Mengen einem User zugewiesen. Im Gegensatz zur Bestellung
 wird im Artikel jedoch der Preis nicht gespeichert da sich der Preis
 vor der Bestellung noch ändern könnte. Wenn die Verwaltung etwa die
-Preise anpasst oder die Währungen den Kurs ändern.
+Preise anpasst oder die Währungskurse ändern.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Warenkörbe
+#+CAPTION: Klassenmodell für Warenkörbe
 #+NAME: fig:shoppingcart
 [[file:pictures/class_shoppingcart.png]]
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Warenkorbs Positionen
+#+CAPTION: Klassenmodell für Warenkorbs Positionen
 #+NAME: fig:shoppingcartposition
 [[file:pictures/class_shoppingcartposition.png]]
 
 **** City
 
 Das "City" Modell speichert Städte Namen und die dazugehörige
-Postleizahl. Die Städte werden als Teil der Adresse auf dem "Person"
+Postleitzahl Die Städte werden als Teil der Adresse auf dem "Person"
 Modell hinterlegt. Im aktuellen Zustand der Applikation enthält die
-Tabelle die Daten aller schweizer Städte.
+Tabelle die Daten aller Schweizer Städte.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Städte
+#+CAPTION: Klassenmodell für Städte
 #+NAME: fig:city
 [[file:pictures/class_city.png]]
 
@@ -1591,7 +1593,7 @@ hinterlegt:
 - Dr.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Anreden
+#+CAPTION: Klassenmodell für Anreden
 #+NAME: fig:salutation
 [[file:pictures/class_salutation.png]]
 
@@ -1610,9 +1612,9 @@ wir zwingend zusätzliche Informationen speichern wollten. Die
 Varianten mit Vererbungen erschienen uns ungeeignet da die Möglichkeit
 besteht die Sicherheit der Authentifizierung zu schwächen. Aus diesem
 Grund wird in der Django Dokumentation eher davor abgeraten diese
-Varianten wenn man nicht genau weiss was man macht.
+Varianten zu verwenden wenn man nicht genau weiss was man macht.
 
-Die verbeiblende Variante erweitert das "User" Modell über eine
+Die verbleibende Variante erweitert das "User" Modell über eine
 "One-to-One" Beziehung ein sogenanntes "Profil". Dadurch bleibt das
 "User" Modell intakt und man kann zusätzliche Informationen über den
 User speichern. Man sollte im Profil jedoch nur Daten speichern welche
@@ -1620,12 +1622,17 @@ nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist das
 die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodel für Personen
+#+CAPTION: Klassenmodell für Personen
 #+NAME: fig:person
 [[file:pictures/class_person.png]]
 
 ** Benutzerinterface
-*** Mockup skizze
+*** Mockup Skizze
+
+Mit Hilfe eines Hand gezeichneten Mockups, Abbildung:([[mockup]]), haben
+wir eine erste Skizze des Webshop Interfaces erstellt. Damit hatten
+wir eine Diskusionsgrundlage wie wir das Interface weiter entwickeln
+könnten.
 
 #+CAPTION: Ein frühes Mockup des Shop
 #+ATTR_LATEX: :width \textwidth
@@ -1635,23 +1642,23 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
 *** Frontend Umsetzung
 
-Die Umsetztung des Frontends mittels Django integrierter Template
-Funktionen sind geprägt vom einstmalig eigenständigen Jinja Template
+Die Umsetzung des Frontends mittels Django integrierter Template
+Funktionen sind geprägt vom einstmals eigenständigen Jinja Template
 Framework das auch in Python programmiert wurde. Mittlerweile ist es
 integrierter Bestandteil vom Django Framework. Dieses Snippet erklärt
 deren Nutzung:
 
 #+BEGIN_EXPORT latex
 \begin{sexylisting}{Jinja Code Block}
-{% extends 'base.html' %} --> Dieser codeblock wird im base.html eingefügt.
-{% block title %}Memberlist{% endblock %} --> Titel wird in den tag
+{% extends 'base.html' %} --> Dieser Codeblock wird im base.html eingefügt.
+{% block title %}Memberlist{% endblock %} --> Titel wird in den Tag
 title eingefügt.
-{% block content %} --> wird in den block mit dem tag ''content'' eingefügt.
-  <ul> --> standard unordered List item von HTML.
-  {% for user in users %} --> schleifenkopf
+{% block content %} --> wird in den block mit dem Tag ''content'' eingefügt.
+  <ul> --> Standard unordered List item von HTML.
+  {% for user in users %} --> Schleifenkopf
     <li>
       <a href="{{ user.url }}">{{ user.username }}</a> --> für
-jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
+jeden Benutzer wird eine listitem erstellt und der Username als Text eingefügt.
     </li>
   {% endfor %}
   </ul>
@@ -1661,14 +1668,14 @@ jeden Benutzer wird eine listitem erstellt und der Username als text eingefügt.
 
 *** Backend Umsetzung
 
-Django ist ein modelbasiertes Framework das die Programmierung der
-Datenbank gleich selbst regelt. Dadurch lässt sich backendseitig
+Django ist ein modellbasiertes Framework das die Programmierung der
+Datenbank gleich selbst regelt. Dadurch lässt sich backend seitig
 durchgängig in Python arbeiten. Die Umsetzung gliedert sich
 vereinfacht in 3 Bereiche:
 1. Einem Frontend dass für den Benutzer gemacht ist und das mehrere
-   submodule wie Cathegories oder Wahrenkorb beinhaltet.
+   Submodule wie Categories oder Warenkorb beinhaltet.
 2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
-3. Currencies die Täglich abgeholt werden
+3. Currencies die täglich abgeholt werden
 
 ** TODO Testing
 
@@ -1676,7 +1683,7 @@ Um die Funktionalität des Webshops sicherzustellen haben wir Die
 Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
 getestet und geprüft. Bei den Testfällen haben wir uns wie auch bei
 den Use Cases hauptsächlich auf die Funktionen beschränkt welche wir
-selber ausprogrammiert haben. Auch sehr hilfreich war das Admin
+selber aus programmiert haben. Auch sehr hilfreich war das Admin
 Interface von Django. Damit konnten wir die Modells sehr gut auf ihre
 Funktionalität überprüfen bevor wir sie im Frontend verwendeten.
 
@@ -1717,7 +1724,7 @@ entdeckt.
 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 | <20>                 |
 | *Testcase ID*\cellcolor[HTML]{C0C0C0} | *Objective*\cellcolor[HTML]{C0C0C0} | *Precondition*\cellcolor[HTML]{C0C0C0} | *Steps*\cellcolor[HTML]{C0C0C0} | *Testdata*\cellcolor[HTML]{C0C0C0} | *Expected Result*\cellcolor[HTML]{C0C0C0} | *Postcondition*\cellcolor[HTML]{C0C0C0} | *Result*\cellcolor[HTML]{C0C0C0} |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-01*              | Artikel durschtöbern | -                    | 1. Auf "First Parent Category" klicken. | -                    | Die Artikel der "Parent Category 1" werden angezeigt. | Eine gefilterte Artikelliste wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
+| *TC-01*              | Artikel durchstöbern | -                    | 1. Auf "First Parent Category" klicken. | -                    | Die Artikel der "Parent Category 1" werden angezeigt. | Eine gefilterte Artikelliste wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
 | *TC-02*              | User Registration    | -                    | 1. Auf "LOGIN" klicken.\newline 2. Auf "Go to registration." klicken.\newline 3. Die Personaldaten eintragen.\newline 4. Auf "Register" klicken. | Username: max\newline Password: TestPasswort\newline Email: max@gmail.com\newline Salutation: Herr\newline Firstname: Max\newline Lastname: Muster\newline Streetname: Musterstrasse\newline Streetnumber: 13\newline ZIP Code: 1000\newline City: Lausanne | User wurde erfolgreich registriert. | Die Login Form wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 A.Z. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
