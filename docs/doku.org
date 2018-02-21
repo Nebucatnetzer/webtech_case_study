@@ -126,122 +126,122 @@ Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
 haben. Die ausgefüllte SWOT-Analyse für dieses Projekt ist in der
 Tabelle:([[tab:swot]]) zu sehen.
 
-      #+CAPTION: SWOT-Analyse
-      #+NAME: tab:swot
-      #+BEGIN_EXPORT latex
-      %--Beginn SWOT Analyse
-                 %---Used for SWOT Analysys Chart
-                 %---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
-                 \colorlet{staerken}{lime!70}
-                 \colorlet{schwaechen}{red!30}
-                 \colorlet{chancen}{yellow!20}
-                 \colorlet{risiken}{cyan!30}
-                 \colorlet{S}{staerken!50!chancen}
-                 \colorlet{W}{schwaechen!50!chancen}
-                 \colorlet{O}{staerken!50!risiken}
-                 \colorlet{T}{schwaechen!50!risiken}
-                 % implemented this in doc instead as in preamble:
-                 \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
-                  \begin{tikzpicture}[scale=0.9,
-                     any/.style={
-                              minimum width=8cm,
-                      minimum height=8cm,%
-                      text width=7.5cm,
-                      align=center,
-                      outer sep=1pt
-                      },
-                     header/.style={
-                              any,
-                      minimum height=1cm,
-                      fill=black!10
-                      },
-                     leftcol/.style={
-                              header,rotate=90
-                      },
-                     bigbackgroundfont/.style={
-                              fill=#1,
-                      text=#1!90!black
-                      }
-                   ]
-                   \matrix (SWOT) [
-                      matrix of nodes,
-                      nodes={
-                        any,
-                        anchor=center
-                        },%
-                      column sep=-\pgflinewidth,%
-                      row sep=-\pgflinewidth,%
-                      row 1/.style={
-                              nodes=header
-                              },%
-                      column 1/.style={
-                              nodes=leftcol
-                              },
-                      inner sep=0pt]{
-                        & |[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Analyse)\par}
-                        & |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Analyse)\par} \\
-                        | [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
-                        & |[bigbackgroundfont=S]| \bigfont{S}
-                        & |[bigbackgroundfont=W]| \bigfont{W} \\
-                        | [fill=risiken] | {Risiken\\ \footnotesize (Externe Analyse)\par} |
-                        & |[bigbackgroundfont=O]| \bigfont{O}
-                        & |[bigbackgroundfont=T]| \bigfont{T} \\
-                      };
-                      \node[
-                        any,
-                        anchor=center
-                        ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
-                      \begin{itemize}
-                        \item Know-How in Webtechnologien.
-                        \item Quell offene Software ist leichter zu unterhalten.
-                        \item durch Verwendung des Frameworks kann die Entwicklungszeit
-                          stark reduziert werden.
-                        \item Wir als Programmierer haben ein gutes Know-How
-                          im Bereich Datenbanken.
-                      \end{itemize}
-                      };
-                      \node[
-                          any,
-                          anchor=center
-                          ] at (SWOT-2-3) { % Interne Schwächen/Externe Chancen feld:
-                      \begin{itemize}
-                        \item Das Framework ist nicht vollkommen. Teile davon müssten
-                          eventuell selber konzipiert/erarbeitet werden.
-                          Welche Teile das sind ist noch nicht ersichtlich.
-                          Durch die Quell offene Lizenz kann dies dem Projekt jedoch
-                          einen Mehrwert geben, in dem diese Teile wiederverwendet
-                          werden können.
-                        \item Der Kunde vertraut uns, und die Beziehung ist gut.
-                          Diese Ausgangslage mag helfen interne Schwächen durch
-                          offene Kommunikation übergehen.
-                      \end{itemize}
-                      };
-                      \node[
-                          any,
-                          anchor=center
-                          ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
-                      \begin{itemize}
-                        \item Quell offene Software kann unkontrolliert kopiert werden.
-                        \item Die Implementation von Währungsänderungen ist
-                          nicht trivial. Der Zeitpunkt zu dem die Kosten
-                          eines Produktes sich ändert muss gut durchdacht werden.
-                      \end{itemize}
-                      };
-                      \node[
-                          any,
-                          anchor=center
-                          ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
-                      \begin{itemize}
-                        \item Wir als Programmierer haben keine Erfahrung im
-                          Konsumsegment unseres Nutzers..
-                        \item Die Umsetzung der graphischen Anwendungsoberfläche
-                          könnte sich als schwierig erweisen.
-                        \item Die Umsetzungszeit ist knapp bemessen.
-                      \end{itemize}
-                      };
-                  \end{tikzpicture}
-          %--Ende SWOT Analyse
-      #+END_EXPORT
+#+CAPTION: SWOT-Analyse
+#+NAME: tab:swot
+#+BEGIN_EXPORT latex
+%--Beginn SWOT Analyse
+%---Used for SWOT Analysys Chart
+%---Source https://tex.stackexchange.com/questions/177167/swot-table-how-to-convert-to-an-article
+\colorlet{staerken}{lime!70}
+\colorlet{schwaechen}{red!30}
+\colorlet{chancen}{yellow!20}
+\colorlet{risiken}{cyan!30}
+\colorlet{S}{staerken!50!chancen}
+\colorlet{W}{schwaechen!50!chancen}
+\colorlet{O}{staerken!50!risiken}
+\colorlet{T}{schwaechen!50!risiken}
+% implemented this in doc instead as in preamble:
+\def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
+\begin{tikzpicture}[scale=0.9,
+    any/.style={
+            minimum width=8cm,
+    minimum height=8cm,%
+    text width=7.5cm,
+    align=center,
+    outer sep=1pt
+    },
+    header/.style={
+            any,
+    minimum height=1cm,
+    fill=black!10
+    },
+    leftcol/.style={
+            header,rotate=90
+    },
+    bigbackgroundfont/.style={
+            fill=#1,
+    text=#1!90!black
+    }
+]
+\matrix (SWOT) [
+    matrix of nodes,
+    nodes={
+    any,
+    anchor=center
+    },%
+    column sep=-\pgflinewidth,%
+    row sep=-\pgflinewidth,%
+    row 1/.style={
+            nodes=header
+            },%
+    column 1/.style={
+            nodes=leftcol
+            },
+    inner sep=0pt]{
+    & |[fill=staerken]| {Stärken\\ \footnotesize (Unternehmens Analyse)\par}
+    & |[fill=schwaechen]| {Schwächen\\ \footnotesize (Unternehmens Analyse)\par} \\
+    | [fill=chancen] | {Chancen\\ \footnotesize (Externe Analyse)\par} |
+    & |[bigbackgroundfont=S]| \bigfont{S}
+    & |[bigbackgroundfont=W]| \bigfont{W} \\
+    | [fill=risiken] | {Risiken\\ \footnotesize (Externe Analyse)\par} |
+    & |[bigbackgroundfont=O]| \bigfont{O}
+    & |[bigbackgroundfont=T]| \bigfont{T} \\
+    };
+    \node[
+    any,
+    anchor=center
+    ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
+    \begin{itemize}
+    \item Know-How in Webtechnologien.
+    \item Quell offene Software ist leichter zu unterhalten.
+    \item durch Verwendung des Frameworks kann die Entwicklungszeit
+        stark reduziert werden.
+    \item Wir als Programmierer haben ein gutes Know-How
+        im Bereich Datenbanken.
+    \end{itemize}
+    };
+    \node[
+        any,
+        anchor=center
+        ] at (SWOT-2-3) { % Interne Schwächen/Externe Chancen feld:
+    \begin{itemize}
+    \item Das Framework ist nicht vollkommen. Teile davon müssten
+        eventuell selber konzipiert/erarbeitet werden.
+        Welche Teile das sind ist noch nicht ersichtlich.
+        Durch die Quell offene Lizenz kann dies dem Projekt jedoch
+        einen Mehrwert geben, in dem diese Teile wiederverwendet
+        werden können.
+    \item Der Kunde vertraut uns, und die Beziehung ist gut.
+        Diese Ausgangslage mag helfen interne Schwächen durch
+        offene Kommunikation übergehen.
+    \end{itemize}
+    };
+    \node[
+        any,
+        anchor=center
+        ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
+    \begin{itemize}
+    \item Quell offene Software kann unkontrolliert kopiert werden.
+    \item Die Implementation von Währungsänderungen ist
+        nicht trivial. Der Zeitpunkt zu dem die Kosten
+        eines Produktes sich ändert muss gut durchdacht werden.
+    \end{itemize}
+    };
+    \node[
+        any,
+        anchor=center
+        ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
+    \begin{itemize}
+    \item Wir als Programmierer haben keine Erfahrung im
+        Konsumsegment unseres Nutzers..
+    \item Die Umsetzung der graphischen Anwendungsoberfläche
+        könnte sich als schwierig erweisen.
+    \item Die Umsetzungszeit ist knapp bemessen.
+    \end{itemize}
+    };
+\end{tikzpicture}
+%--Ende SWOT Analyse
+#+END_EXPORT
 
 ** Umweltanalyse
 
@@ -338,10 +338,9 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 * Projektmanagement
 ** Organigramm
 
-  #+CAPTION: Organigramm
-  #+NAME: fig:Organigramm
-  #+BEGIN_EXPORT latex
-    \begin{tikzpicture}[
+#+NAME: fig:Organigramm
+#+BEGIN_EXPORT latex
+\begin{tikzpicture}[
 	auto,
 	node distance = 0.4cm,
 	thick,
@@ -368,7 +367,9 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
     (Unten) -| (IH)
     (Unten) -| (AZ);
 \end{tikzpicture}
- #+END_EXPORT
+#+END_EXPORT
+#+CAPTION: Organigramm
+
 ** Projektstrukturplan
 ** Varianten
 
