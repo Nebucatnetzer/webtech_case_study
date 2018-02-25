@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^cart/$',
         views.cart,
         name='cart'),
-    url(r'^checkout/$',
+    url(r'^cart/checkout/$',
         views.checkout,
         name='checkout'),
 ]
