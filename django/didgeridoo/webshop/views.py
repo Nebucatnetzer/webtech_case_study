@@ -305,6 +305,7 @@ def cart(request):
                    'message': message,
                    })
 
+
 def checkout(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
