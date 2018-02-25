@@ -3,15 +3,15 @@
 {% block content %}
     <h3>List of Items in your Shopping Cart:</h3>
     {% if cart_position_list_zip %}
-      <table class="table">
+      <table class="table price-table">
         <tr class="table_header">
           <th scope="col">POS.</th>
           <th scope="col">ART#</th>
           <th scope="col">NAME</th>
           <th scope="col">STOCK</th>
           <th scope="col">AMOUNT</th>
-          <th scope="col">PRICE p.pce.</th>
-          <th scope="col">POSITION PRICE</th>
+          <th scope="col" class="price-label">PRICE p.pce.</th>
+          <th scope="col" class="price-label">POSITION PRICE</th>
         </tr>
         {% for cart_position, amount_form in cart_position_list_zip %}
           <tr class="table_content">
@@ -33,16 +33,21 @@
               </form>
               <!-- {{ article.amount }} -->
             </td>
-            <td scope="col">
+            <td scope="col" class="price-value">
               {{ cart_position.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ cart_position.position_price }} {{ currency_name }}</td>
+            <td scope="col" class="price-value">
+              {{ cart_position.position_price }} {{ currency_name }}
+            </td>
           </tr>
         {% endfor %}
         <tr>
-          <td scope="col" colspan="7" class="text-right">
-            Total: {{ total }} {{ currency_name }}
+          <td scope="col" colspan="5"class="text-right">
+          <td scope="col" class="price-value">
+            <dl><dt>Total:</dl></dt></td>
+          <td scope="col" class="price-value">
+             <dl><dt>{{ total }} {{ currency_name }}</dl></dt>
           </td>
         </tr>
       </table>
