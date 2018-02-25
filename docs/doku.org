@@ -117,7 +117,7 @@ geeignet erscheinenden Frameworks. Jede noch so kleine Zeiteinsparung
 durch vorgefertigte Entwicklungen werden angenommen und dennoch wollen
 wir keine fertigen Software Produkte einsetzen.
 
-** TODO SWOT-Analyse
+** SWOT-Analyse
 
 Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
 Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
@@ -292,7 +292,7 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 #+NAME: fig:umweltgrafik
 [[file:diagrammes/stakeholder_diagramm.eps]]
 
-** TODO Risikomanagement
+** Risikomanagement
 *** Risikobeschreibung
 
 #+CAPTION: Risikobeschreibung
