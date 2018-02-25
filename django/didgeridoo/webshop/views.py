@@ -286,6 +286,7 @@ def cart(request):
                     )
                 cart_position.calculate_position_price()
                 totalprice_list.append(cart_position.position_price)
+                print('totalprice_list', totalprice_list)
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
@@ -380,11 +381,6 @@ def checkout(request):
         cart_position_list = list(cart_positions)
         # enumerate the list of articles and loop over items:
         for idx, cart_position in enumerate(cart_position_list):
-            # *************************************************
-            # !!! here i don't understand how its intended
-            # to use the utils function.
-            # cart_position = process_article_prices(request, cart_position)
-            # *************************************************
             # scrap out the details to calculate Total of item and Summ of All:
             if currency:
                 # get currencyname to display:
