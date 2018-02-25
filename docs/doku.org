@@ -1647,7 +1647,7 @@ wir eine Diskusionsgrundlage wie wir das Interface weiter entwickeln
 könnten.
 
 #+CAPTION: Ein frühes Mockup des Shop
-#+ATTR_LATEX: :width \textwidth
+#+ATTR_LATEX: :height 15cm
 #+NAME: mockup
 [[file:pictures/mockup-full-snipet.png]]
 #+LATEX:\newpage
