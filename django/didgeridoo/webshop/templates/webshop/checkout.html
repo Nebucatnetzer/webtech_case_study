@@ -1,8 +1,24 @@
 {% extends "webshop/base.html" %}
-{% block section_title %}<h1>Cart</h1>{% endblock %}
+{% block section_title %}<h1>CHECKOUT</h1>{% endblock %}
 {% block content %}
-    <h3>List of Items in your Shopping Cart:</h3>
+    <h3>Preview your Purchase:</h3>
+    <h4>Shipping Address:</h4>
+    {% if person %}
+    <p><b>Salutation: </b>{{ person.salutation }}</p>
+    <p><b>Firstname: </b>{{ request.user.first_name }}</p>
+    <p><b>Lastname: </b>{{ request.user.last_name }}</p>
+    <p><b>Street: </b>{{ person.street_name }}</p>
+    <p><b>Streetnumber: </b>{{ person.street_number }}</p>
+    <p><b>City: </b>{{ person.city }}</p>
+    {% else %}
+      <p class="alert alert-danger">
+        <strong>
+          Something whent wrong. Your User is incomplete.
+        <strong>
+      </p>
+    {% endif %}
     {% if articles_list %}
+    <h4>Articles:</h4>
       <table class="table">
         <tr class="table_header">
           <th scope="col">POS.</th>
@@ -39,11 +55,6 @@
           </td>
         </tr>
       </table>
-      <form id="checkout" method="post">
-        {% csrf_token %}
-        {{ checkout_form.as_p }}
-        <input type="submit" value="checkout ->" />
-      </form>
     {% else %}
       <p class="alert alert-danger">
         <strong>
