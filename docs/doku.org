@@ -144,9 +144,9 @@ Tabelle:([[tab:swot]]) zu sehen.
 \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
 \begin{tikzpicture}[scale=0.9,
     any/.style={
-            minimum width=8cm,
-    minimum height=8cm,%
-    text width=7.5cm,
+            minimum width=7cm,
+    minimum height=7cm,%
+    text width=6.5cm,
     align=center,
     outer sep=1pt
     },
@@ -191,6 +191,7 @@ Tabelle:([[tab:swot]]) zu sehen.
     any,
     anchor=center
     ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
+    \footnotesize{
     \begin{itemize}
     \item Know-How in Webtechnologien.
     \item Quell offene Software ist leichter zu unterhalten.
@@ -198,12 +199,13 @@ Tabelle:([[tab:swot]]) zu sehen.
         stark reduziert werden.
     \item Wir als Programmierer haben ein gutes Know-How
         im Bereich Datenbanken.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
         anchor=center
         ] at (SWOT-2-3) { % Interne Schwächen/Externe Chancen feld:
+    \footnotesize{
     \begin{itemize}
     \item Das Framework ist nicht vollkommen. Teile davon müssten
         eventuell selber konzipiert/erarbeitet werden.
@@ -214,30 +216,32 @@ Tabelle:([[tab:swot]]) zu sehen.
     \item Der Kunde vertraut uns, und die Beziehung ist gut.
         Diese Ausgangslage mag helfen interne Schwächen durch
         offene Kommunikation übergehen.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
         anchor=center
         ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
+    \footnotesize{
     \begin{itemize}
     \item Quell offene Software kann unkontrolliert kopiert werden.
     \item Die Implementation von Währungsänderungen ist
         nicht trivial. Der Zeitpunkt zu dem die Kosten
         eines Produktes sich ändert muss gut durchdacht werden.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
         anchor=center
         ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
+    \footnotesize{
     \begin{itemize}
     \item Wir als Programmierer haben keine Erfahrung im
         Konsumsegment unseres Nutzers..
     \item Die Umsetzung der graphischen Anwendungsoberfläche
         könnte sich als schwierig erweisen.
     \item Die Umsetzungszeit ist knapp bemessen.
-    \end{itemize}
+    \end{itemize}}
     };
 \end{tikzpicture}
 %--Ende SWOT Analyse
