@@ -260,27 +260,130 @@ def cart(request):
                     operation
                     )
 
-        if 'checkout' in request.POST:
-            print('checkout')
-            checkout_form = CheckoutForm(request.POST)
-            if checkout_form.is_valid():
-                checkout_form = checkout_form.cleaned_data['checkout']
-                print('views checkout checkout_form', checkout_form)
-                if checkout_form is True:
-                    # todo add to order
-                    order = ''
 # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
     cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
     # get all items in the cart of this customer:
-    articles = CartPosition.objects.filter(cart=cart_id)
-    if (articles.count()) > 0:
+    cart_positions = CartPosition.objects.filter(cart=cart_id)
+    if (cart_positions.count()) > 0:
         # make a list out of all articles:
-        cart_position_list = list(articles)
+        cart_position_list = list(cart_positions)
         # enumerate the list of articles and loop over items:
         for idx, cart_position in enumerate(cart_position_list):
-            # sub funciton of CartPosition:
-            cart_position.calculate_position_price()
+            # *************************************************
+            # !!! here i don't understand how its intended
+            # to use the utils function.
+            # cart_position = process_article_prices(request, cart_position)
+            # *************************************************
+            # scrap out the details to calculate Total of item and Summ of All:
+            if currency:
+                # get currencyname to display:
+                currency_name = ExchangeRate_name.objects.get(id=currency)
+                # get exchange_rate multiplyed:
+                cart_position.price_in_chf = rate.exchange(
+                    currency,
+                    cart_position.article.price_in_chf
+                    )
+                totalprice_list.append(cart_position.price_in_chf)
+            amount_form = CartForm(
+                initial={'amount_form': cart_position.amount}
+            )
+            amount_form_list.append(amount_form)
+            cart_position_list[idx] = cart_position
+        cart_position_list_zip = zip(cart_position_list, amount_form_list)
+
+    total = sum(totalprice_list)
+
+    return render(request, 'webshop/cart.html',
+                  {'cart_position_list_zip': cart_position_list_zip,
+                   'totalprice_list': totalprice_list,
+                   'total': total,
+                   'currencies_form': currencies_form,
+                   'amount_form': amount_form,
+                   'article_view': article_view,
+                   'currency_name': currency_name,
+                   'category_list': category_list,
+                   'message': message,
+                   })
+
+def checkout(request):
+    category_list = get_categories()
+    currencies_form = CurrenciesForm
+    amount_form = CartForm
+    rate = ExchangeRate
+    article_view = True
+    currency_name = "CHF"
+    message = ""
+    cart_position_list = []
+    amount_form_list = []
+    totalprice_list = []
+    total = 0
+    user_id = request.user.id
+    cart_position_list_zip = []
+# here we configure the users Currency:
+    if 'currency' not in request.session:
+        request.session['currency'] = None
+    else:
+        currency = request.session['currency']
+# Here we handle all POST Operations:
+    if request.method == 'POST':
+        # here we react to a currency dropdown change:
+        if 'currencies' in request.POST:
+            print('currencies')
+            currencies_form = CurrenciesForm(request.POST)
+            if currencies_form.is_valid():
+                cf = currencies_form.cleaned_data
+                if cf['currencies']:
+                    print('currencies cf:', cf)
+                    selection = cf['currencies']
+                    request.session['currency'] = selection.id
+                    currency_name = ExchangeRate_name.objects.get(
+                        id=selection.id)
+                    print('currencies currency_name:', currency_name)
+                else:
+                    request.session['currency'] = None
+        # here we react to a change of amount per item in the Cart:
+        if 'amount_form' in request.POST:
+            amount_form = CartForm(request.POST)
+            if amount_form.is_valid():
+                amount = amount_form.cleaned_data['amount_form']
+                article_id = request.POST.get('article_id')
+                operation = 'replace'
+                restrict_cart_to_one_article(
+                    user_id,
+                    article_id,
+                    amount,
+                    operation
+                    )
+        # here we react to a change of amount per item in the Cart:
+        if 'delete' in request.POST:
+            delete = CartForm(request.POST)
+            if delete.is_valid():
+                amount = delete.cleaned_data['amount_form']
+                article_id = request.POST.get('article_id')
+                amount = 1
+                operation = 'delete'
+                restrict_cart_to_one_article(
+                    user_id,
+                    article_id,
+                    amount,
+                    operation
+                    )
+# here we handle the normal cart view:
+    # if cart_id is not existent create a cart:
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
+    # get all items in the cart of this customer:
+    cart_positions = CartPosition.objects.filter(cart=cart_id)
+    if (cart_positions.count()) > 0:
+        # make a list out of all articles:
+        cart_position_list = list(cart_positions)
+        # enumerate the list of articles and loop over items:
+        for idx, cart_position in enumerate(cart_position_list):
+            # *************************************************
+            # !!! here i don't understand how its intended
+            # to use the utils function.
+            # cart_position = process_article_prices(request, cart_position)
+            # *************************************************
             # scrap out the details to calculate Total of item and Summ of All:
             if currency:
                 # get currencyname to display:
@@ -301,6 +404,7 @@ def cart(request):
     total = sum(totalprice_list)
 
     checkout_form = CheckoutForm()
+    registration_form = RegistrationForm()
 
     return render(request, 'webshop/cart.html',
                   {'cart_position_list_zip': cart_position_list_zip,
@@ -308,6 +412,8 @@ def cart(request):
                    'total': total,
                    'currencies_form': currencies_form,
                    'amount_form': amount_form,
+                   'checkout_form': checkout_form,
+                   'registration_form': registration_form,
                    'article_view': article_view,
                    'currency_name': currency_name,
                    'category_list': category_list,
