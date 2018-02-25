@@ -261,7 +261,9 @@ def cart(request):
 
     # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=request.user)
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(
+        user=request.user
+    )
     # get all items in the cart of this customer:
     cart_positions = CartPosition.objects.filter(cart=cart_id)
     if (cart_positions.count()) > 0:
