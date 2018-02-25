@@ -98,7 +98,7 @@ def article_details(request, article_id):
     rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
-    user_id = request.user.id
+    user = request.user
 
     if 'currency' not in request.session:
         request.session['currency'] = None
@@ -127,7 +127,7 @@ def article_details(request, article_id):
                 amount = amount.cleaned_data['amount']
                 operation = 'add'
                 restrict_cart_to_one_article(
-                    user_id,
+                    user,
                     article_id,
                     amount,
                     operation
