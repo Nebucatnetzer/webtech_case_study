@@ -65,7 +65,6 @@ def articles_in_category(request, category_id):
 
 
 def restrict_cart_to_one_article(user_id, article_id, amount, operation):
-    print('operation:', operation)
     # if cart_id is not existent create a cart:
     cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
     article = Article.objects.get(id=article_id)
@@ -77,32 +76,14 @@ def restrict_cart_to_one_article(user_id, article_id, amount, operation):
                   'cart': cart_id
                   }
         )
-    print('restrict_cart_to_one_article cart_position:', cart_position,
-          'created_position', created_position)
     if created_position is False:
-        print('restrict_cart_to_one_article cart_position False')
         if operation == 'delete':
-            print('restrict_cart_to_one_article delete article_id:',
-                  article_id)
             cart_position.delete()
-        print('restrict_cart_to_one_article cart_position:',
-              cart_position,
-              'created_position',
-              created_position)
         if (operation == 'add') or (operation == 'replace'):
-            print('yep in add or replace')
             if operation == 'add':
                 new_amount = cart_position.amount + amount
-                print('restrict_cart_to_one_article add new_amount:',
-                      new_amount,
-                      'article_id',
-                      article_id)
             if operation == 'replace':
                 new_amount = amount  # ref two times check later !!
-                print('restrict_cart_to_one_article replace:',
-                      new_amount,
-                      'article_id',
-                      article_id)
             # if article is in cart already update amount:
             cart_position = CartPosition.objects.filter(
                 article=article_id).update(
@@ -236,7 +217,6 @@ def cart(request):
 
 # Here we handle all POST Operations:
     if request.method == 'POST':
-        print(request.POST)
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
             print('currencies')
@@ -244,31 +224,29 @@ def cart(request):
             if currencies_form.is_valid():
                 cf = currencies_form.cleaned_data
                 if cf['currencies']:
+                    print('currencies cf:', cf)
                     selection = cf['currencies']
                     request.session['currency'] = selection.id
                     currency_name = ExchangeRate_name.objects.get(
                         id=selection.id)
+                    print('currencies currency_name:', currency_name)
                 else:
                     request.session['currency'] = None
         # here we react to a change of amount per item in the Cart:
         if 'amount_form' in request.POST:
-            print('amount_form yes amount post')
             amount_form = CartForm(request.POST)
             if amount_form.is_valid():
                 amount = amount_form.cleaned_data['amount_form']
                 article_id = request.POST.get('article_id')
                 operation = 'replace'
-                print('cart amount_form going in to function restrict_cart_to_one_article')
                 restrict_cart_to_one_article(
                     user_id,
                     article_id,
                     amount,
                     operation
                     )
-                print('cart amount_form coming back from function restrict_cart_to_one_article')
         # here we react to a change of amount per item in the Cart:
         if 'delete' in request.POST:
-            print('delete yes delete post')
             delete = CartForm(request.POST)
             if delete.is_valid():
                 amount = delete.cleaned_data['amount_form']
@@ -294,13 +272,9 @@ def cart(request):
 # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
     cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
-    print('cart cart_id:', cart_id,
-          'created_cart', created_cart)
     # get all items in the cart of this customer:
     articles = CartPosition.objects.filter(cart=cart_id)
-    print('cart articles > 0:', articles.count())
     if (articles.count()) > 0:
-        print('cart articles > 0 = True:', articles.count())
         # make a list out of all articles:
         cart_position_list = list(articles)
         # enumerate the list of articles and loop over items:
@@ -309,7 +283,6 @@ def cart(request):
             cart_position.calculate_position_price()
             # scrap out the details to calculate Total of item and Summ of All:
             if currency:
-                print('calc currency')
                 # get currencyname to display:
                 currency_name = ExchangeRate_name.objects.get(id=currency)
                 # get exchange_rate multiplyed:
@@ -318,9 +291,6 @@ def cart(request):
                     cart_position.article.price_in_chf
                     )
                 totalprice_list.append(cart_position.price_in_chf)
-
-            print('cart cart_position.article.id', cart_position.article.id,
-                  'articleamount:', cart_position.amount)
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
