@@ -284,11 +284,12 @@ def cart(request):
                     currency,
                     cart_position.position_price
                     )
-                cart_position.calculate_position_price()
-                totalprice_list.append(cart_position.position_price)
+
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
+            cart_position.calculate_position_price()
+            totalprice_list.append(cart_position.position_price)
             amount_form_list.append(amount_form)
             cart_position_list[idx] = cart_position
         cart_position_list_zip = zip(cart_position_list, amount_form_list)
