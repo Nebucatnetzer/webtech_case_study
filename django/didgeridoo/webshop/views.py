@@ -260,7 +260,7 @@ def cart(request):
                     operation
                     )
 
-# here we handle the normal cart view:
+    # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
     cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
     # get all items in the cart of this customer:
@@ -320,12 +320,12 @@ def checkout(request):
     total = 0
     user_id = request.user.id
     cart_position_list_zip = []
-# here we configure the users Currency:
+    # here we configure the users Currency:
     if 'currency' not in request.session:
         request.session['currency'] = None
     else:
         currency = request.session['currency']
-# Here we handle all POST Operations:
+    # Here we handle all POST Operations:
     if request.method == 'POST':
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
@@ -369,7 +369,7 @@ def checkout(request):
                     amount,
                     operation
                     )
-# here we handle the normal cart view:
+    # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
     cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
     # get all items in the cart of this customer:
