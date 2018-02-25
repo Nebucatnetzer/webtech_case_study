@@ -269,21 +269,21 @@ def cart(request):
         cart_position_list = list(cart_positions)
         # enumerate the list of articles and loop over items:
         for idx, cart_position in enumerate(cart_position_list):
-            # *************************************************
-            # !!! here i don't understand how its intended
-            # to use the utils function.
-            # cart_position = process_article_prices(request, cart_position)
-            # *************************************************
             # scrap out the details to calculate Total of item and Summ of All:
             if currency:
                 # get currencyname to display:
                 currency_name = ExchangeRate_name.objects.get(id=currency)
                 # get exchange_rate multiplyed:
-                cart_position.price_in_chf = rate.exchange(
+                cart_position.article.price_in_chf = rate.exchange(
                     currency,
                     cart_position.article.price_in_chf
                     )
-                totalprice_list.append(cart_position.price_in_chf)
+                cart_position.position_price = rate.exchange(
+                    currency,
+                    cart_position.position_price
+                    )
+                cart_position.calculate_position_price()
+                totalprice_list.append(cart_position.position_price)
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
