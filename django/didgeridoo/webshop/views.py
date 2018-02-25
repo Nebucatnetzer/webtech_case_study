@@ -274,7 +274,8 @@ def cart(request):
         # enumerate the list of articles and loop over items:
         for idx, cart_position in enumerate(cart_position_list):
             # scrap out the details to calculate Total of item and Summ of All:
-            if currency:
+            if request.session['currency']:
+                currency = request.session['currency']
                 # get currencyname to display:
                 currency_name = ExchangeRate_name.objects.get(id=currency)
                 # get exchange_rate multiplyed:
