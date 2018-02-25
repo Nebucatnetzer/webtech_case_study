@@ -1637,6 +1637,7 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 #+NAME: fig:person
 [[file:pictures/class_person.png]]
 
+#+LATEX:\newpage
 ** Benutzerinterface
 *** Mockup Skizze
 
