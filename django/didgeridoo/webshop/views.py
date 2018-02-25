@@ -64,14 +64,12 @@ def articles_in_category(request, category_id):
                    'category': selected_category})
 
 
-def restrict_cart_to_one_article(user_name, article_id, amount, operation):
+def restrict_cart_to_one_article(user_id, article_id, amount, operation):
     print('operation:', operation)
     # if cart_id is not existent create a cart:
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_name)
-    print('restrict_cart_to_one_article cart_id:', cart_id,
-          'created_cart', created_cart)
-    # transfair Article to CartPosition:
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
     article = Article.objects.get(id=article_id)
+    # transfair Article to CartPosition:
     cart_position, created_position = CartPosition.objects.get_or_create(
         article=article,
         defaults={'amount': amount,
@@ -119,6 +117,7 @@ def article_details(request, article_id):
     rate = ExchangeRate
     article_view = True
     currency_name = "CHF"
+    user_id = request.user.id
 
     if 'currency' not in request.session:
         request.session['currency'] = None
@@ -145,10 +144,9 @@ def article_details(request, article_id):
             amount = AddToCartForm(request.POST)
             if amount.is_valid():
                 amount = amount.cleaned_data['amount']
-                user_name = request.user
                 operation = 'add'
                 restrict_cart_to_one_article(
-                    user_name,
+                    user_id,
                     article_id,
                     amount,
                     operation
@@ -227,7 +225,7 @@ def cart(request):
     amount_form_list = []
     totalprice_list = []
     total = 0
-    user_name = request.user
+    user_id = request.user.id
     cart_position_list_zip = []
 
 # here we configure the users Currency:
@@ -262,7 +260,7 @@ def cart(request):
                 operation = 'replace'
                 print('cart amount_form going in to function restrict_cart_to_one_article')
                 restrict_cart_to_one_article(
-                    user_name,
+                    user_id,
                     article_id,
                     amount,
                     operation
@@ -278,7 +276,7 @@ def cart(request):
                 amount = 1
                 operation = 'delete'
                 restrict_cart_to_one_article(
-                    user_name,
+                    user_id,
                     article_id,
                     amount,
                     operation
@@ -294,17 +292,15 @@ def cart(request):
                     # todo add to order
                     order = ''
 # here we handle the normal cart view:
-    # if the cart_id is set the user has already added items to cart.
-    try:
-        cart_id = ShoppingCart.objects.get(user=request.user.id)
-    except Exception as e:
-        message = "You have no items in the Basket"
-        print('try cart_id exception as: ', e)
-        cart_id = False
-    if cart_id:
-        print('cart cart_id', cart_id)
-        # get all items in the cart of this customer:
-        articles = CartPosition.objects.filter(cart=cart_id)
+    # if cart_id is not existent create a cart:
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
+    print('cart cart_id:', cart_id,
+          'created_cart', created_cart)
+    # get all items in the cart of this customer:
+    articles = CartPosition.objects.filter(cart=cart_id)
+    print('cart articles > 0:', articles.count())
+    if (articles.count()) > 0:
+        print('cart articles > 0 = True:', articles.count())
         # make a list out of all articles:
         cart_position_list = list(articles)
         # enumerate the list of articles and loop over items:
