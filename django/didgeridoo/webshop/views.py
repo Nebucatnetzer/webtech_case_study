@@ -405,6 +405,7 @@ def checkout(request):
 
     checkout_form = CheckoutForm()
     registration_form = RegistrationForm()
+    person = Person.objects.get(user=request.user.id)
 
     return render(request, 'webshop/cart.html',
                   {'cart_position_list_zip': cart_position_list_zip,
@@ -418,4 +419,5 @@ def checkout(request):
                    'currency_name': currency_name,
                    'category_list': category_list,
                    'message': message,
+                   'person': person
                    })

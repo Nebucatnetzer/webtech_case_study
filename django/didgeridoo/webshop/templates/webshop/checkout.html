@@ -3,7 +3,7 @@
 {% block content %}
     <h3>Preview your Purchase:</h3>
     <h4>Shipping Address:</h4>
-    {% if user_list %}
+    {% if person %}
     <p><b>Salutation: </b>{{ person.salutation }}</p>
     <p><b>Firstname: </b>{{ request.user.first_name }}</p>
     <p><b>Lastname: </b>{{ request.user.last_name }}</p>
