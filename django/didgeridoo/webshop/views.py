@@ -231,6 +231,7 @@ def cart(request):
                     print('currencies currency_name:', currency_name)
                 else:
                     request.session['currency'] = None
+
         # here we react to a change of amount per item in the Cart:
         if 'amount_form' in request.POST:
             amount_form = CartForm(request.POST)
@@ -244,6 +245,7 @@ def cart(request):
                     amount,
                     operation
                     )
+
         # here we react to a change of amount per item in the Cart:
         if 'delete' in request.POST:
             delete = CartForm(request.POST)
