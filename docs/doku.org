@@ -124,10 +124,8 @@ Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
 
 Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
 haben. Die ausgefüllte SWOT-Analyse für dieses Projekt ist in der
-Tabelle:([[tab:swot]]) zu sehen.
+Abbildung:(\ref{fig:swot}) zu sehen.
 
-#+CAPTION: SWOT-Analyse
-#+NAME: tab:swot
 #+BEGIN_EXPORT latex
 %--Beginn SWOT Analyse
 %---Used for SWOT Analysys Chart
@@ -142,6 +140,8 @@ Tabelle:([[tab:swot]]) zu sehen.
 \colorlet{T}{schwaechen!50!risiken}
 % implemented this in doc instead as in preamble:
 \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[scale=0.9,
     any/.style={
             minimum width=7cm,
@@ -244,6 +244,9 @@ Tabelle:([[tab:swot]]) zu sehen.
     \end{itemize}}
     };
 \end{tikzpicture}
+\caption{SWOT-Analyse}
+\label{fig:swot}
+\end{figure}
 %--Ende SWOT Analyse
 #+END_EXPORT
 
@@ -342,12 +345,14 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 * Projektmanagement
 ** Organigramm
 
-#+NAME: fig:Organigramm
 #+BEGIN_EXPORT latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[
 	auto,
 	node distance = 0.4cm,
 	thick,
+    align=center,
   	every node/.style = {
 		rectangle,
 		font = \sffamily,
@@ -360,8 +365,8 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 		}
 	]
   \node (CH) 						    {\textbf{CH}\\Christian Herren};
-  \coordinate 	[below = 0.9cm of CH] 	(Mitte);
-  \coordinate 	[below = 1.6cm of CH] 	(Unten);
+  \coordinate 	[below = 1.2cm of CH] 	(Mitte);
+  \coordinate 	[below = 2.2cm of CH] 	(Unten);
   \node (CV)	[right = 2mm of Mitte]  {\textbf{CV}\\Christian Vögeli};
   \node (AZ) 	[below = of CV]    		{\textbf{AZ}\\Andreas Zweili};
   \node (IH) 	[left  = of AZ]       	{\textbf{IH}\\Ivan Hörler};
@@ -371,8 +376,9 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
     (Unten) -| (IH)
     (Unten) -| (AZ);
 \end{tikzpicture}
+\caption{Organigramm}
+\end{figure}
 #+END_EXPORT
-#+CAPTION: Organigramm
 
 ** Projektstrukturplan
 ** Varianten
