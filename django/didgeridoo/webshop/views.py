@@ -206,7 +206,6 @@ def cart(request):
     amount_form_list = []
     totalprice_list = []
     total = 0
-    user_id = request.user.id
     cart_position_list_zip = []
 
 # here we configure the users Currency:
@@ -240,7 +239,7 @@ def cart(request):
                 article_id = request.POST.get('article_id')
                 operation = 'replace'
                 restrict_cart_to_one_article(
-                    user_id,
+                    request.user.id,
                     article_id,
                     amount,
                     operation
@@ -254,7 +253,7 @@ def cart(request):
                 amount = 1
                 operation = 'delete'
                 restrict_cart_to_one_article(
-                    user_id,
+                    request.user.id,
                     article_id,
                     amount,
                     operation
@@ -262,7 +261,7 @@ def cart(request):
 
     # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=request.user)
     # get all items in the cart of this customer:
     cart_positions = CartPosition.objects.filter(cart=cart_id)
     if (cart_positions.count()) > 0:
@@ -318,7 +317,6 @@ def checkout(request):
     amount_form_list = []
     totalprice_list = []
     total = 0
-    user_id = request.user.id
     cart_position_list_zip = []
     # here we configure the users Currency:
     if 'currency' not in request.session:
@@ -350,7 +348,7 @@ def checkout(request):
                 article_id = request.POST.get('article_id')
                 operation = 'replace'
                 restrict_cart_to_one_article(
-                    user_id,
+                    request.user.id,
                     article_id,
                     amount,
                     operation
@@ -364,14 +362,14 @@ def checkout(request):
                 amount = 1
                 operation = 'delete'
                 restrict_cart_to_one_article(
-                    user_id,
+                    request.user.id,
                     article_id,
                     amount,
                     operation
                     )
     # here we handle the normal cart view:
     # if cart_id is not existent create a cart:
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=user_id)
+    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=request.user)
     # get all items in the cart of this customer:
     cart_positions = CartPosition.objects.filter(cart=cart_id)
     if (cart_positions.count()) > 0:
