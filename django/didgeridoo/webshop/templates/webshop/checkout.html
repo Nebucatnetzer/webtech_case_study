@@ -60,7 +60,7 @@
           </td>
         </tr>
       </table>
-      <form id="checkout_form" action="orders" method="post">
+      <form id="checkout_form" action="order/" method="post">
         {% csrf_token %}
         {{ checkout_form.as_p }}
         <input type="submit" value="Order" class="btn btn-success" role="button"/>

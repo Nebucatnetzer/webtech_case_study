@@ -313,7 +313,7 @@ def checkout(request):
     currencies_form = CurrenciesForm
     amount_form = CartForm
     rate = ExchangeRate
-    article_view = True
+    article_view = False
     message = ""
     cart_position_list = []
     totalprice_list = []
@@ -394,7 +394,7 @@ def checkout(request):
                    })
 
 
-def orders(request):
+def order(request):
     return render(request, 'webshop/orders.html',
                   {
 

@@ -13,9 +13,6 @@
         {% else %}
         <li><a href="{% url 'login' %}">LOGIN</a></li>
         {% endif %}
-        {% if checkout %}
-        <!-- bewusst leer um dropdown in checkout auszublenden -->
-        {% else %}
         <li class="dropdown">
             {% if article_view %}
           <form id="currency" action="" method="POST" novalidate>
@@ -23,7 +20,6 @@
             <li><input type="submit" value="Select"></li>
           {% csrf_token %}
           </form>
-        {% endif %}
         {% endif %}
         </li>
       </ul>
