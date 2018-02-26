@@ -180,7 +180,7 @@ def registration(request):
                     user.last_name = pf['last_name']
                     user.first_name = pf['first_name']
                     user.save()
-                    person = Person.objects.create(
+                    Person.objects.create(
                         salutation=pf['salutation'],
                         city=City.objects.get(zip_code=pf['zip_code'],
                                               name=pf['city']),
