@@ -330,29 +330,6 @@ def checkout(request):
     else:
         currency = request.session['currency']
 
-    # Here we handle all POST Operations:
-    if request.method == 'POST':
-        print('checkout post', request.POST)
-        # here we react to a change of amount per item in the Cart:
-        if 'checkout' in request.POST:
-            print('checkout post request.POST = checkout_form')
-            checkout_form = CheckoutForm(request.POST)
-            if checkout_form.is_valid():
-                orderstatus = OrderStatus.objects.get(name='ordered')
-                print('checkout post valid orderstatus', orderstatus,
-                      'exchange_rate:', exchange_rate)
-                order = Order.objects.create(user=request.user,
-                                             status=orderstatus,
-                                             exchange_rate=exchange_rate)
-                print('order', order, 'created:', order)
-                if order is False:
-                    message = """something whent wrong.
-                    Seams like this cart was already submitted. How come? """
-                    #  order status variables:
-                    #  • ordered -> vom Kunden bestellt
-                    #  • delivered -> Bestellung wurde versandt
-                    #  • cancelled -> Bestellung storniert
-                    #  • on hold -> Bestellung pausiert
     if currency:
         exchange_rate = rate.objects.filter(name=currency).latest('date')
 
@@ -383,6 +360,33 @@ def checkout(request):
                      not existent before. How come? """
 
     total = sum(totalprice_list)
+
+    # Here we handle all POST Operations:
+    if request.method == 'POST':
+        print('checkout post', request.POST)
+        # here we react to a change of amount per item in the Cart:
+        if 'checkout' in request.POST:
+            print('checkout post request.POST = checkout_form')
+            checkout_form = CheckoutForm(request.POST)
+            if checkout_form.is_valid():
+                orderstatus = OrderStatus.objects.get(name='ordered')
+                if exchange_rate:
+                    order = Order.objects.create(user=request.user,
+                                                 status=orderstatus,
+                                                 exchange_rate=exchange_rate)
+                else:
+                    order = Order.objects.create(user=request.user,
+                                                 status=orderstatus)
+
+                print('order', order, 'created:', order)
+                for position in cart_positions:
+                    OrderPosition.objects.create(
+                        position.article,
+                        order,
+                        position.amount,
+                        position.article.price_in_chf
+                        )
+                ShoppingCart.objects.delete(pk=cart.id)
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
