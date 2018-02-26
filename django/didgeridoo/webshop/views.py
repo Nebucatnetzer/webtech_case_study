@@ -321,6 +321,7 @@ def checkout(request):
     cart_position_list = []
     totalprice_list = []
     total = 0
+    person = Person.objects.get(user=request.user.id)
 
     checkout_form = CheckoutForm()
     if 'currency' not in request.session:
@@ -378,7 +379,6 @@ def checkout(request):
                      Seams like your cart was
                      not existent before. How come? """
     total = sum(totalprice_list)
-    person = Person.objects.get(user=request.user.id)
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
