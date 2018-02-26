@@ -84,7 +84,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.ForeignKey(OrderStatus)
     date = models.DateTimeField(default=timezone.now)
-    exchange_rate = models.ForeignKey(ExchangeRate)
+    exchange_rate = models.ForeignKey(ExchangeRate, null=True)
 
     def __str__(self):
         return str(self.id)
