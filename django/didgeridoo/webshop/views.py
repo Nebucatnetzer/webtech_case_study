@@ -317,6 +317,7 @@ def checkout(request):
     rate = ExchangeRate
     article_view = False
     currency_name = "CHF"
+    exchange_rate = False
     message = ""
     cart_position_list = []
     totalprice_list = []
