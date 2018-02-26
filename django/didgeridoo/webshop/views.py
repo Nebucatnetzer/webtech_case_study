@@ -362,7 +362,7 @@ def checkout(request):
             cart_position_list = list(cart_positions)
             # enumerate the list of articles and loop over items:
             for idx, cart_position in enumerate(cart_position_list):
-                if currency:
+                if request.session['currency']:
                     # get currencyname to display:
                     currency_name = ExchangeRate_name.objects.get(id=currency)
                     # get exchange_rate multiplyed:
