@@ -351,12 +351,10 @@ def checkout(request):
                     #  • cancelled -> Bestellung storniert
                     #  • on hold -> Bestellung pausiert
 
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(
-        user=request.user)
-    if created_cart is False:
+    cart = ShoppingCart.objects.get(user=request.user)
+    if cart:
         # get all items in the cart of this customer:
-        cart_positions = CartPosition.objects.filter(
-            cart=cart_id)
+        cart_positions = CartPosition.objects.filter(cart=cart)
         if (cart_positions.count()) > 0:
             # make a list out of all articles:
             cart_position_list = list(cart_positions)
