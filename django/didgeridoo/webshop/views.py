@@ -12,7 +12,8 @@ from webshop.models import (Article,
                             CartPosition,
                             ShoppingCart,
                             Order,
-                            OrderStatus)
+                            OrderStatus,
+                            OrderPosition)
 from webshop.forms import (RegistrationForm,
                            AddToCartForm,
                            CartForm,
