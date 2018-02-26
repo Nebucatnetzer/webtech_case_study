@@ -195,6 +195,7 @@ def registration(request):
                    'user_form': user_form})
 
 
+@login_required
 def cart(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
@@ -308,6 +309,7 @@ def cart(request):
                    })
 
 
+@login_required
 def checkout(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
