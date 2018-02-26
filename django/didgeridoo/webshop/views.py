@@ -328,7 +328,6 @@ def checkout(request):
         request.session['currency'] = None
     else:
         currency = request.session['currency']
-        exchange_rate = rate.objects.filter(name=currency).latest('date')
 
     # Here we handle all POST Operations:
     if request.method == 'POST':
@@ -353,6 +352,8 @@ def checkout(request):
                     #  • delivered -> Bestellung wurde versandt
                     #  • cancelled -> Bestellung storniert
                     #  • on hold -> Bestellung pausiert
+    if currency:
+        exchange_rate = rate.objects.filter(name=currency).latest('date')
 
     cart = ShoppingCart.objects.get(user=request.user)
     if cart:
