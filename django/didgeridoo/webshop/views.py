@@ -337,15 +337,12 @@ def checkout(request):
             if checkout_form.is_valid():
                 orderstatus = OrderStatus.objects.get(name='ordered')
                 print('checkout post valid orderstatus', orderstatus,
-                      'exchange_rate_id:', exchange_rate_id)
-                order, created_order = Order.objects.get_or_create(
-                    user=request.user,
-                    defaults={'status': orderstatus,
-                              'exchange_rate': exchange_rate,
-                              }
-                    )
-                print('order', order, 'created:', created_order)
-                if created_order is False:
+                      'exchange_rate:', exchange_rate)
+                order = Order.objects.create(user=request.user,
+                                             status=orderstatus,
+                                             exchange_rate=exchange_rate)
+                print('order', order, 'created:', order)
+                if order is False:
                     message = """something whent wrong.
                     Seams like this cart was already submitted. How come? """
                     #  order status variables:
