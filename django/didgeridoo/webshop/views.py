@@ -391,7 +391,4 @@ def checkout(request):
 
 
 def order(request):
-    return render(request, 'webshop/order.html',
-                  {
-
-                  })
+    return render(request, 'webshop/order.html', {})
