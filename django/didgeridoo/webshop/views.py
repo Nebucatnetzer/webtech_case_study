@@ -386,7 +386,8 @@ def checkout(request):
                         amount=position.amount,
                         price_in_chf=position.article.price_in_chf
                         )
-                ShoppingCart.objects.delete(pk=cart.id)
+                cart.delete()
+                cart = False
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
