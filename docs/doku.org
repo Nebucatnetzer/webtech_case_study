@@ -24,11 +24,12 @@ Lustigste entschieden.
 - Barewahre-Shop
 - *Didgeridoo-Shop*
 
-Aufgrund des eher lustigen Namens dieses Instruments haben wir uns
+Aufgrund des eher lustigen Namens dieses Instruments, haben wir uns
 entschieden diesen Titel zu verwenden. Die Ursprünge des Instruments
-liegen 2000 Jahre, sagen die Forscher – 40.000 Jahre, sagen die
-Aborigines zurück.
+liegen weit zurück. Die Forscher sagen bis zu 2000 Jahre, und die
+Aborigines sogar bis 40.000 Jahre.
 
+Zitat:
 …Als das Traumzeitvolk die Erde verliess, hinterliess es den Menschen
 ein Geschenk: Ein Horn, das ein Klangfeld zwischen ihrer Welt und
 unserer erzeugt…\footcite{didgeridoo}
@@ -65,7 +66,7 @@ zur Verfügung stehende Zeit ist pro Student mit 80h zu veranschlagen.
 Am Ende dieser Zeitspanne soll ein funktionaler Web-Shop mit minimalem
 graphischen User Interface entstehen, die dazugehörige Dokumentation
 umfasst alle Aspekte um die gewählte Lösung nachzuvollziehen.
-Die Projekt wurden in der Tabelle: ([[tab:projektziele]]) zusätzlich noch
+Die Projekte wurden in der Tabelle: ([[tab:projektziele]]) zusätzlich noch
 nach Prioritäten gewichtet.
 
 #+CAPTION: Projektziele
@@ -92,12 +93,12 @@ nach Prioritäten gewichtet.
 
 ** Methoden
 
-Die Methodik die, die Gruppe wählt ist Aufgrund der nur zwei Personen
-im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden
+Die Methodik, die die Gruppe wählt, ist aufgrund der nur zwei Personen
+im Team beschränkt. Da jedoch Fehler und Rückschläge erwartet werden,
 ist eine iterative Methodik unabdingbar. Daher wandte die Gruppe eine
 angepasste Version von Scrum an. In dieser wird jeweils während
 Sitzungen die Position des Product Owners und des Scrum Masters
-eingenommen und die Backlog-Tasks dementsprechend erstellt resp.
+eingenommen und die Backlog-Tasks dementsprechend erstellt, resp.
 verteilt. Während der Woche arbeiten beide Team-Mitglieder an der
 Arbeit als Team-Kollegen
 
@@ -105,13 +106,13 @@ Arbeit als Team-Kollegen
 
 Die benötigten Vorkenntnisse wurden in den vorangegangenen Semestern
 erarbeitet und sind in der Basis gefestigt. Diese Arbeit wird
-vorwiegend weiterführende Elemente wie Frameworks neu einbringen deren
+vorwiegend weiterführende Elemente wie Frameworks neu einbringen, deren
 Verhalten letztendlich nicht abgeschätzt werden kann.
 
 ** Vision
 
 Wir wollen einen Web-Shop mit geeigneter Software erstellen. Dabei
-setzen wir nur freie Software ein (frei im Bezug auf Freiheit nicht
+setzen wir nur freie Software ein (frei, in Bezug auf Freiheit, nicht
 Preis). Wir untersuchen die Anforderung und wählen die uns als
 geeignet erscheinenden Frameworks. Jede noch so kleine Zeiteinsparung
 durch vorgefertigte Entwicklungen werden angenommen und dennoch wollen
@@ -193,7 +194,7 @@ Tabelle:([[tab:swot]]) zu sehen.
     ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
     \begin{itemize}
     \item Know-How in Webtechnologien.
-    \item Quell offene Software ist leichter zu unterhalten.
+    \item Quelloffene Software ist leichter zu unterhalten.
     \item durch Verwendung des Frameworks kann die Entwicklungszeit
         stark reduziert werden.
     \item Wir als Programmierer haben ein gutes Know-How
@@ -207,13 +208,13 @@ Tabelle:([[tab:swot]]) zu sehen.
     \begin{itemize}
     \item Das Framework ist nicht vollkommen. Teile davon müssten
         eventuell selber konzipiert/erarbeitet werden.
-        Welche Teile das sind ist noch nicht ersichtlich.
-        Durch die Quell offene Lizenz kann dies dem Projekt jedoch
-        einen Mehrwert geben, in dem diese Teile wiederverwendet
+        Welche Teile, das sind ist noch nicht ersichtlich.
+        Durch die Quelloffene Lizenz kann dies dem Projekt jedoch
+        einen Mehrwert geben, indem diese Teile wiederverwendet
         werden können.
-    \item Der Kunde vertraut uns, und die Beziehung ist gut.
+    \item Der Kunde vertraut uns und die Beziehung ist gut.
         Diese Ausgangslage mag helfen interne Schwächen durch
-        offene Kommunikation übergehen.
+        offene Kommunikation zu übergehen.
     \end{itemize}
     };
     \node[
@@ -221,10 +222,10 @@ Tabelle:([[tab:swot]]) zu sehen.
         anchor=center
         ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
     \begin{itemize}
-    \item Quell offene Software kann unkontrolliert kopiert werden.
-    \item Die Implementation von Währungsänderungen ist
+    \item Quelloffene Software kann unkontrolliert kopiert werden.
+    \item Die Implementierung von Währungsänderungen ist
         nicht trivial. Der Zeitpunkt zu dem die Kosten
-        eines Produktes sich ändert muss gut durchdacht werden.
+        eines Produktes sich ändert, muss gut durchdacht werden.
     \end{itemize}
     };
     \node[
@@ -233,7 +234,7 @@ Tabelle:([[tab:swot]]) zu sehen.
         ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
     \begin{itemize}
     \item Wir als Programmierer haben keine Erfahrung im
-        Konsumsegment unseres Nutzers..
+        Konsumsegment unseres Nutzers.
     \item Die Umsetzung der graphischen Anwendungsoberfläche
         könnte sich als schwierig erweisen.
     \item Die Umsetzungszeit ist knapp bemessen.
@@ -261,23 +262,23 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 #+CAPTION: Umwelt-Analyse
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{0.8cm}|l|l|p{8cm}|l|
 #+NAME: tab:umweltanalyse
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
-|   <5> | <20>                 | <20>                 |                                               |                                             |
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
+|   <5> | <20>                 | <20>                 |                                               |                                              |
 | *Nr*.\cellcolor[HTML]{C0C0C0} | *Stakeholder*\cellcolor[HTML]{C0C0C0} | *Einfluss*\cellcolor[HTML]{C0C0C0} | *Anforderung/Wünsche*\cellcolor[HTML]{C0C0C0} | *Wahrscheinlichkeit*\cellcolor[HTML]{C0C0C0} |
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
-|    1. | Auftraggeber         | hoch                 | - Innovatives Produkt auf dem Markt anbieten. | hoch                                        |
-|       |                      |                      | - Einhaltung von Terminen und Qualität.       | hoch                                        |
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
-|    2. | Kunden               | gering               | - Einfache Lösung die anpassungsfähig ist.    | hoch                                        |
-|       |                      |                      | - Schnell anfangen können.                    | hoch                                        |
-|       |                      |                      | - Viele Arbeitsschritte Automatisieren        | mittel                                      |
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
-|    3. | Interessenten        | gering               | - Intuitiv bedienbare Webseite                | hoch                                        |
-|       |                      |                      | - schnell finden was gesucht wird.            | hoch                                        |
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
-|    4. | Projektleiter        | hoch                 | - Gutes Innovatives Produkt erschaffen.       | mittel                                      |
-|       |                      |                      | - Anerkennung im fachlichen Umfeld            | hoch                                        |
-|-------+----------------------+----------------------+-----------------------------------------------+---------------------------------------------|
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
+|    1. | Auftraggeber         | hoch                 | - Innovatives Produkt auf dem Markt anbieten. | hoch                                         |
+|       |                      |                      | - Einhaltung von Terminen und Qualität.       | hoch                                         |
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
+|    2. | Kunden               | gering               | - Einfache Lösung die anpassungsfähig ist.    | hoch                                         |
+|       |                      |                      | - Schnell anfangen können.                    | hoch                                         |
+|       |                      |                      | - Viele Arbeitsschritte automatisieren        | mittel                                       |
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
+|    3. | Interessenten        | gering               | - Intuitiv bedienbare Webseite                | hoch                                         |
+|       |                      |                      | - schnell finden, was gesucht wird.            | hoch                                         |
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
+|    4. | Projektleiter        | hoch                 | - Gutes innovatives Produkt erschaffen.       | mittel                                       |
+|       |                      |                      | - Anerkennung im fachlichen Umfeld            | hoch                                         |
+|-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
 #+LATEX:\end{landscape}
 
 #+CAPTION: Stakeholder Diagramm
@@ -295,15 +296,15 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 |       <10> | <30>                           | <30>                           |                               |                               |
 | *Nr.*\cellcolor[HTML]{C0C0C0} | *Beschreibung*\cellcolor[HTML]{C0C0C0} | *Massnahmen*\cellcolor[HTML]{C0C0C0} | *W^1*\cellcolor[HTML]{C0C0C0} | *A^2*\cellcolor[HTML]{C0C0C0} |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         1. | Die Datenbank ist schlecht modelliert | Das ERM nach dessen Erstellung gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
+|         1. | Die Datenbank ist schlecht modelliert | Das ERM, nach dessen Erstellung, gründlich auf Fehler prüfen, falls nötig extern prüfen lassen. |                             2 |                             3 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht nutzen und fixe Tage definieren. Projektplanung machen. |                             1 |                             2 |
+|         2. | Viel Arbeit an der Arbeitsstelle, dabei bleibt weniger Zeit für die Casestudy. | Die Zeit die einem zur Verfügung steht, nutzen und fixe Tage definieren. Projektplanung machen. |                             1 |                             2 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgeber, Dozenten etc. |                             2 |                             2 |
+|         3. | Know-How zur Umsetzung ist nicht vollständig vorhanden. | Gute Informationsbeschaffung im Internet, Mitschülern, Arbeitgebern, Dozenten etc. |                             2 |                             2 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen |                             1 |                             1 |
+|         4. | Kommunikation innerhalb des Teams. | Klare Arbeitsaufteilung innerhalb des Teams und alle 2 Wochen Besprechungen über offene Aufgaben oder Problembehandlungen. |                             1 |                             1 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
-|         5. | Die Programmierung des Shops benötigt zu viel Zeit | Bei der Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, Abgrenzungen treffen. |                             3 |                             1 |
+|         5. | Die Programmierung des Shops benötigt zu viel Zeit. | Bei der Projektplanung genau definieren was die GUI Applikation beinhalten muss. Ziele definieren, Abgrenzungen treffen. |                             3 |                             1 |
 |------------+--------------------------------+--------------------------------+-------------------------------+-------------------------------|
 
 *** Risikobewertung
@@ -312,7 +313,7 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 #+ATTR_LATEX: :align l|l :placement [H]
 #+NAME: tab:wahrscheinlichkeit
 | *Bewertung* | *Beschreibung: Wahrscheinlichkeit (W)* |
-|-------------+---------------------------------------|
+|-------------+----------------------------------------|
 | 1 = gering  | Unwahrscheinlich, <20%                 |
 | 2 = mittel  | Mässig wahrscheinlich, 20-50%          |
 | 3 = hoch    | Hohe Wahrscheinlichkeit > 50%          |
@@ -333,7 +334,7 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 
 ** TODO Projektabgrenzung
 
-Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
+Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
 
 * Projektmanagement
 ** Organigramm
@@ -373,8 +374,8 @@ Am ende des Projekts die nicht lauffähigen teile ausgrenzen. :-)
 ** Projektstrukturplan
 ** Varianten
 
-Wir haben uns 3 mögliche Varianten überlegt im Bezug auf die zu
-verwendende Software. Die Varianten wurden bewertet und die Variante
+Wir haben uns 3 mögliche Varianten in Bezug auf die zu
+verwendende Software überlegt. Die Varianten wurden bewertet und die Variante
 mit den meisten Punkten dann schlussendlich ausgewählt.
 Bei jeder Variante wurden die gleichen Kriterien mit der gleichen
 Gewichtung bewertet. Die Punktzahl pro Kriterium wird nach der
@@ -390,14 +391,14 @@ Punktzahl(/EP/) ergibt das Kriteriumsergebnis(/KE/).
 *** ASP.NET und SQL Server
 
 ASP.NET und SQL Server, Tabelle:([[tab:asp-net]]), haben vor allem viele
-Punkte verloren da C# nur in Teilen und SQL Server gar nicht unter
+Punkte verloren, da C# nur in Teilen und SQL Server gar nicht unter
 einer freien Lizenz steht. Des weiteren läuft .NET Core zwar auch auf
-Unix Systemen allerdings ist das verhältnismässig ein relativ kleiner
+Unix Systemen, allerdings ist das verhältnismässig ein relativ kleiner
 Teil der gesamten Sprache. SQL Server läuft hingegen nur unter Windows
 und Linux. Des weiteren ist es sehr schwierig C# Applikationen ohne
 Visual Studio zu entwickeln. Es geht in der Theorie, in der Praxis ist
 es jedoch eher umständlich. Die Vorkenntnisse wurden mit 6 von 10
-Punkten bewertet da wir C# zwar im Rahmen der Ausbildung lernen,
+Punkten bewertet, da wir C# zwar im Rahmen der Ausbildung lernen,
 allerdings noch nicht das Gefühl haben sonderlich gut mit C# umgehen
 zu können.
 
@@ -423,18 +424,18 @@ zu können.
 
 *** PHP und MySQL
 
-Die Variante PHP und MySQL, Tabelle:([[tab:php]]), hat insgesamt ein sehr
+Die Variante PHP und MySQL, Tabelle:([[tab:php]]), hat insgesamt eine sehr
 gute Bewertung erhalten. Beide Projekte sind zumindest teilweise unter
 einer freien Lizenz verfügbar und sind sowohl unter Windows, wie auch
 Mac und Linux einsetzbar. Allerdings gibt es von MySQL noch eine
-proprietäre Enterprise Variante weshalb wir hier nicht die volle
+proprietäre Enterprise Variante, weshalb wir hier nicht die volle
 Punktzahl vergeben konnten. Abstriche gab es bei der Lesbarkeit des
 Codes. Da PHP insgesamt eine ziemlich inkonsistente und ausschweifende
 Sprache ist. Dafür ist das Setup sehr einfach und man kann eine PHP
 basierte Applikation ohne spezielle Werkzeuge entwickeln. Da wir
-jedoch bereits sehr intensiv mit PHP und MySQL in Berührung kamen haben
+jedoch bereits sehr intensiv mit PHP und MySQL in Berührung kamen, haben
 wir beim Lernfaktor Abstriche gemacht. In Zusammenhang mit einem
-Framework hätten wir sicher auch viel dazugelernt im Vergleich zu den
+Framework hätten wir sicher auch viel dazugelernt. Im Vergleich zu den
 anderen Varianten jedoch auf jeden Fall weniger.
 
 #+CAPTION: Bewertung der Variante PHP und MySQL
@@ -462,12 +463,12 @@ anderen Varianten jedoch auf jeden Fall weniger.
 Diese Variante, Tabelle:([[tab:django]]), hat am meisten Punkte erhalten.
 Wie bei der Variante "PHP und MySQL" sind auch hier beide Komponenten
 freie Software. Im Gegensatz zu der vorherigen Variante gibt es bei
-diesen Komponenten nur eine mögliche Lizenz Form. Womit sie die volle
+diesen Komponenten nur eine mögliche Lizenzform. Womit sie die volle
 Punktzahl in dieser Kategorie erreichten.
 
 Beide Projekte laufen unter Windows, Linux sowie Mac. Wobei das Setup
-unter für Django(Python) unter Windows etwas komplizierter ausfällt
-als wir gerne hätten weshalb wir hier bei der Cross Plattform
+für Django(Python) unter Windows etwas komplizierter ausfällt
+als wir gerne hätten, weshalb wir hier bei der Cross Plattform
 Kompatibilität und dem Setup einen Abstrich gemacht haben. Python kann
 ohne spezielle Tools programmiert werden und gilt als eine der
 Sprachen mit der leserlichsten Syntax. Die Vorkenntnisse haben wir hier
@@ -496,11 +497,11 @@ als eher niedrig eingestuft dafür den Lernfaktor umso höher.
 *** Ergebnis
 
 Aufgrund der erreichten Punktzahl, Tabelle:([[tab:result]]), bei den
-vorhergehenden Variantenbewertungen haben wir uns dafür entschieden
+vorhergehenden Variantenbewertungen, haben wir uns dafür entschieden,
 die Variante "Django(Python) und MariaDB" umzusetzen. In der Sektion
-[[Werkzeuge]] beschreiben wir noch die weiteren Mittel welche beim
-Erstellen der Case Study verwendet wurden und erklären wenn möglich
-auch weshalb wir uns dafür entschieden haben.
+[[Werkzeuge]] beschreiben wir noch die weiteren Mittel, welche beim
+Erstellen der Case Study verwendet wurden und erklären, wenn möglich
+auch, weshalb wir uns dafür entschieden haben.
 
 #+CAPTION: Variantenbewertung Ergebnis
 #+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4.5cm}|r|
@@ -526,10 +527,10 @@ Web-Shop an sich sondern generell für alle Tasks im Projekt.
 
 *** Versionskontrolle
 
-Eine Versionskontrollsoftware erschien uns als notwendig um den Code
+Eine Versionskontrollsoftware erschien uns als notwendig, um den Code
 auf einfache und zuverlässige Weise untereinander austauschen zu
 können. Andere Lösungen wie Dropbox, etc. hätten es uns nicht erlaubt
-Konflikte zu vermeiden
+Konflikte zu vermeiden.
 
 Als Software für die Versionskontrolle wurde Git \footcite{git} gewählt.
 Git wurde aus diversen Gründen gewählt:
@@ -539,7 +540,7 @@ Git wurde aus diversen Gründen gewählt:
 - Es gäbe gratis Services die man nutzen könnte (Github, Gitlab)
 - Man kann offline arbeiten und Commits erstellen
 - Das Team hat bereits einen eigenen Git Server zur Verfügung
-- Das Team ist bereits mit Git aus vorhergehenden Projekten vertraut
+- Das Team ist bereits mit Git aus vorhergehenden Projekten vertraut,
   dadurch muss man keine Ressourcen aufwenden eine neue Software zu lernen.
   Zusätzlich hat sich Git in den vorhergehenden Projekten als robuste
   und schnelle Software erwiesen.
@@ -547,25 +548,25 @@ Git wurde aus diversen Gründen gewählt:
 
 *** Entwicklungsumgebung
 
-Damit beide Studenten auf der gleichen Basis arbeiten haben wir uns
-dazu entschieden den Web-Shop in einer virtuellen Maschine zu
+Damit beide Studenten auf der gleichen Basis arbeiten, haben wir uns
+dazu entschieden, den Web-Shop in einer virtuellen Maschine zu
 entwickeln. Dies führt jedoch in der Regel zum Problem, dass die
 Änderungen in der virtuellen Maschine miteinander abgesprochen und
-ausgetauscht werden müssen. Um dieses Problem zu beheben haben wir uns
+ausgetauscht werden müssen. Um dieses Problem zu beheben, haben wir uns
 dazu entschieden Vagrant\footcite{vagrant} zu verwenden.
 Vagrant ist freie Software unter der MIT Lizenz.
 
 Vagrant erlaubt es einem den Zustand einer virtuellen Maschine in
 einer Text Datei zu beschreiben und diese dann gemäss der Beschreibung
-automatisiert aufzusetzen. Dies hat den Vorteil das die Konfiguration
+automatisiert aufzusetzen. Dies hat den Vorteil, dass die Konfiguration
 der virtuellen Maschine auch ohne Weiteres mit dem restlichen Code in
 der Versionskontrollsoftware gepflegt werden kann.
 
 Des weiteren hilft das automatisierte Aufsetzen, das Vermeiden von
-menschlichen Fehlern. Somit kann davon ausgegangen werden dass, das
+menschlichen Fehlern. Somit kann davon ausgegangen werden, dass das
 System in der virtuellen Maschine immer den korrekten Stand zum
-Entwickeln hat. Sollte dies nicht mehr der Fall sein lässt sich die
-virtuelle Maschine mit einem maximal zwei Befehlen wieder in den
+Entwickeln hat. Sollte dies nicht mehr der Fall sein, lässt sich die
+virtuelle Maschine mit einem, maximal zwei Befehlen wieder in den
 Ursprungszustand zurücksetzen.
 
 Als Hypervisor der virtuellen Maschine wurde
@@ -581,7 +582,7 @@ Debian\footcite{debian} in der Version 9 (Stretch) gewählt. Für Debian
 haben wir uns vor allem aus folgenden Gründen entschieden:
 
 - Stabiles Betriebsystem
-- Sehr guter Paketmanager was einem das Scripting vereinfacht
+- Sehr guter Paketmanager, was einem das Scripting vereinfacht
 - Gilt als sehr sicher
 - Hat sich in vorhergehenden Projekten bereits als gute Basis bewiesen
 - Enthält in der Grundkonfiguration nur freie Software (nicht freie
@@ -592,20 +593,20 @@ haben wir uns vor allem aus folgenden Gründen entschieden:
 *** Deployment Software für Produktionsserver
 
 Auch auf dem produktiven Server haben wir uns für Debian entschieden.
-Um diesen aufzusetzen hatten wir in etwa die ähnlichen Anforderungen
+Um diesen aufzusetzen, hatten wir in etwa die ähnlichen Anforderungen
 wie für die Entwicklungsumgebung. Also einen Weg um das System
 möglichst automatisch und reproduzierbar aufzusetzen. Die für die
 Entwicklungsumgebung verwendete Software Vagrant ist für produktive
-System allerdings eher weniger geeignet.
+Systeme allerdings eher weniger geeignet.
 
 Für solche Fälle bietet sich eine Software Namens
-"Ansible"\footcite{ansible} an. Diese bietet einem ähnlich wie Vagrant
-die Möglichkeit den Zustand eines Systems in Text Dateien zu
+"Ansible"\footcite{ansible} an. Diese bietet einem, ähnlich wie Vagrant,
+die Möglichkeit, den Zustand eines Systems in Textdateien zu
 beschreiben. Allerdings bietet einem Ansible noch zusätzliche
-Möglichkeiten und vor allem  ein standardisiertes Interface um
-unterschiedliche Systeme auf die selbe Weise zu konfigurieren.
+Möglichkeiten und vor allem  ein standardisiertes Interface, um
+unterschiedliche Systeme auf dieselbe Weise zu konfigurieren.
 
-Der Vorteil gegenüber anderen System ist das Ansible mit sehr
+Der Vorteil gegenüber anderen System ist, dass Ansible mit sehr
 wenig Abhängigkeiten für das zu konfigurierende System daherkommt. Auf
 einem Linux System ist nur SSH Zugriff und Python notwendig. Einen
 Client braucht man nicht zu installieren.
@@ -613,11 +614,11 @@ Ansible ist freie Software unter der GNU Public License v3.
 
 *** Framework
 
-Um die Entwicklung der Applikation zu vereinfachen haben wir uns dazu
+Um die Entwicklung der Applikation zu vereinfachen, haben wir uns dazu
 entschlossen ein Framework einzusetzen. Frameworks bringen einem in
 der Entwicklung diverse Vorteile. Unter anderem bieten sie Hilfen bei
 sich wiederholenden Programmieraufgaben und bieten je nachdem die
-Möglichkeit die Applikation in einer einzigen Sprache zu schreiben da
+Möglichkeit, die Applikation in einer einzigen Sprache zu schreiben, da
 sich das Framework auch um die Datenbank kümmert. In der
 Webentwicklung helfen sie einem insbesondere auch dabei
 Sicherheitslücken wie Cross Site Scripting und SQL Injections
@@ -630,8 +631,8 @@ folgenden Gründen für ein Python basiertes Framework gegenüber einem
 PHP basierten Framework entschieden:
 
 - Python gilt als die Sprache mit der schöneren Syntax.
-- Wir wollten im Bezug auf das Programmieren etwas neues ausprobieren
-  was sich im Rahmen einer Case Study sehr gut machen lässt. Da man
+- Wir wollten im Bezug auf das Programmieren etwas Neues ausprobieren
+  was sich im Rahmen einer Case Study sehr gut machen lässt, da man
   ein "realistisches" Szenarium erhält und dieses in einem relativ
   kontrollierten Rahmen ausführen kann.
 - Python ist in dem von uns gewählten Hostsystem wie in den meisten
@@ -644,7 +645,7 @@ Die verwendete Version war dabei 1.10.7-2 aus dem Debian Stretch Repository.
 *** Webserver
 
 Als Webserver verwenden wir ganz klassisch Apache\footcite{apache}.
-Dies vor allem aus dem Grund das wir Apache aus diversen vorhergehenden
+Dies vor allem desswegen weil wir Apache aus diversen vorhergehenden
 Projekten bereits sehr gut kennen und sich der Webserver dort sehr gut
 bewährt hat. Apache wird dabei auch noch gut von Django unterstützt.
 Der Apache Webserver ist freie Software unter der Apache License 2.0
@@ -658,7 +659,7 @@ vorhergehenden Projekt kennen. MariaDB ist ein Fork von MySQL welcher
 gegenüber MySQL rückwärts kompatibel ist. MariaDB ist dabei jedoch viel
 Community näher als MySQL und wird dabei auch sehr demokratisch
 entwickelt\footcite{mariadbgov}. MariaDB gehört dabei keiner einzelnen
-Firma oder Person sonder der gemeinnützigen Organisation "MariaDB
+Firma oder Person sondern der gemeinnützigen Organisation "MariaDB
 Foundation". Was für zusätzliche Stabilität sorgen sollte. MariaDB ist
 freie Software unter GNU Public License v2. Des weiteren hat MariaDB bei
 einer Variantenbewertung das beste Ergebnis geholt.
@@ -667,12 +668,12 @@ einer Variantenbewertung das beste Ergebnis geholt.
 *** Editoren
 
 Das Hauptwerkzeug von jedem Entwickler ist sein Text Editor. Dabei
-hat jeder meistens seine ganz eigene Präferenzen wenn es um die Wahl
+hat jeder meistens seine ganz eigene Präferenzen, wenn es um die Wahl
 des Editors geht.
 
 - Atom :: Ivan hat während der Case Study hauptsächlich mit
           Atom\footcite{atom} gearbeitet. Atom wird von Github Inc.
-          entwickelt und basiert auf dem Electron Framework welches
+          entwickelt und basiert auf dem Electron Framework, welches
           seinerseits auf Webtechnologien wie Node.js und Chromium
           basiert. Atom ist freie Software unter der MIT Lizenz.
 
@@ -685,18 +686,18 @@ des Editors geht.
 
 *** Dokumentation
 
-Diese Dokumentation wurde in Org-mode\footcite{orgmode} einer
-Erweiterung für den Text Editor Emacs geschrieben. Anschliessend wurde
+Diese Dokumentation wurde in Org-mode\footcite{orgmode}, einer
+Erweiterung für den Text Editor Emacs, geschrieben. Anschliessend wurde
 die Dokumentation in LaTeX\footcite{latex} Code konvertiert und
-finalisiert. Der Zwischenschritt über Org-mode wurde gewählt weil
+finalisiert. Der Zwischenschritt über Org-mode wurde gewählt, weil
 Org-mode etwas einfacher zu schreiben ist als reines LaTeX.
 
-LaTeX ist eine Software welche einem die Benutzung des Textsatzsystems
+LaTeX ist eine Software, welche einem die Benutzung des Textsatzsystems
 TeXs vereinfacht. Wir haben LaTeX gegenüber einem "What You See Is
-What You Get" Editor gewählt weil es einem mit seiner Markup Sprache
-erlaubt das Dokument in Text Dateien zu erstellen. Was wir als
-Programmierer sehr angenehm finden. Dadurch das LaTeX auch nur aus
-reinen Textdateien besteht kann man die Dokumente auch ohne weiteres
+What You Get", Editor gewählt weil es einem mit seiner Markup Sprache
+erlaubt das Dokument in Text Dateien zu erstellen, was wir als
+Programmierer sehr angenehm finden. Dadurch, dass LaTeX auch nur aus
+reinen Textdateien besteht, kann man die Dokumente auch ohne weiteres
 in die Versionskontrollsoftware einchecken und somit auf einfache
 Weise zusammen daran arbeiten und die Entwicklung im Log
 zurückverfolgen.
@@ -708,52 +709,52 @@ Software unter der GNU Public License v3. Für das Entity Relation
 Diagramm in [[Modells]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
 ist freie Software unter der GNU Public License v2.
 
-Die Klassen Diagramme haben wir mit der Django Erweiterung
+Die Klassendiagramme haben wir mit der Django Erweiterung
 "Django-Extensions"\footcite{django_extensions} erstellt.
 Django-Extensions ist freie Software unter der MIT Lizenz.
 
 ** Spezifikation
 *** User Stories
 
-User Stories sind eine in Alltagssprache geschriebenen
+User Stories sind in Alltagssprache geschriebene
 Software-Anforderungen. Sie sind bewusst kurz gehalten und beschreiben
-die Wünsche und Ziele der Rollen welche die Software
+die Wünsche und Ziele der Rollen, welche die Software
 verwenden.\footcite{userstory}
 
 **** Auftraggeber/Verwaltung
 
 Als Anbieter möchte ich...
-- Artikel in Kategorien strukturieren damit Kunden sich orientieren können.
-- Bilder zu meinen Artikeln hinzufügen damit sich Kunden das Produkt
+- Artikel in Kategorien strukturieren, damit Kunden sich orientieren können.
+- Bilder zu meinen Artikeln hinzufügen, damit sich Kunden das Produkt
   anschauen können.
-- Artikel aktiv oder versteckt schalten können damit ich Produkte auch
+- Artikel aktiv oder versteckt schalten können, damit ich Produkte auch
   temporär aus dem Verkauf nehmen kann.
-- Lagerbestände verwalten können damit ich rechtzeitig nachbestellen kann.
-- Nachbestellungen von Artikeln erfassen können damit ich weiss was
+- Lagerbestände verwalten können, damit ich rechtzeitig nachbestellen kann.
+- Nachbestellungen von Artikeln erfassen können, damit ich weiss, was
   bestellt wurde.
-- eine komplette Liste meiner Artikel einsehen können damit ich einen
+- eine komplette Liste meiner Artikel einsehen können, damit ich einen
   Überblick über meine Produkte habe.
-- eine Liste aller Bestellungen einsehen können um allenfalls
+- eine Liste aller Bestellungen einsehen können, um allenfalls
   Anpassungen vornehmen zu können.
-- Produkte und Kategorien in einer Admin Seite editieren können um
+- Produkte und Kategorien in einer Admin Seite editieren können, um
   diese einfach administrieren zu können.
 
 **** Kunde
 
 Als Kunde möchte ich...
 - durch Kategorien zu den Produkten navigieren um diese einfacher zu finden.
-- Artikel einem Warenkorb hinzufügen können damit ich ungestört
+- Artikel einem Warenkorb hinzufügen können, damit ich ungestört
   stöbern kann und erst am Schluss den administrativen Teil erledigen muss.
 - meinen Warenkorb anzeigen und editieren können um allenfalls
   Korrekturen vornehmen zu können.
 - die Artikel in meinem Warenkorb bestellen können.
 - vor dem Abschluss des Kaufs eine Zusammenstellung der Bestellung
   einsehen um die Richtigkeit der Daten zu überprüfen.
-- mich registrieren können damit ich meine Adresse nicht jedes Mal neu
+- mich registrieren können, damit ich meine Adresse nicht jedes Mal neu
   eingeben muss.
 - in einem Bereich der Webseite meine Profildaten zur Überprüfung
   einsehen können.
-- Artikel in meiner bevorzugten Währung kaufen können damit ich die
+- Artikel in meiner bevorzugten Währung kaufen können, damit ich die
   Preise nicht umrechnen muss.
 
 **** Interessenten
@@ -768,7 +769,7 @@ Als Interessent möchte ich...
 
 Ein Use Case sammelt alle möglichen Szenarien, die eintreten können,
 wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
-bestimmtes Ziel zu erreichen. Dabei beschreibt er was beim Versuch der
+bestimmtes Ziel zu erreichen. Dabei beschreibt er, was beim Versuch der
 Zielerreichung passieren kann. Je nach Ablauf kann auch ein Fehlschlag
 ein Ergebnis eines Anwendungsfalls sein (e.g. falsches Passwort beim
 Login). Dabei wird die technische Lösung nicht konkret beschrieben.
@@ -798,15 +799,15 @@ Webshops beschränkt.
 **** Use Cases Detailbeschreibung
 
 Use Cases werden in der Regel mit Hilfe einer sogenannten Use Case
-Schablone im Detail beschrieben damit klar ist wie der Ablauf jeweils
+Schablone im Detail beschrieben, damit klar ist, wie der Ablauf jeweils
 genau aussieht. Die von uns verwendete Schablone wurde von Alistair
 Cockburn definiert.
 
-Da ein Web-Shop eine sehr umfangreiche Applikation ist gibt es sehr
-viele Use Cases welche beschrieben und umgesetzt werden müssen. Aus
+Da ein Web-Shop eine sehr umfangreiche Applikation ist, gibt es sehr
+viele Use Cases, welche beschrieben und umgesetzt werden müssen. Aus
 zeitlichen Gründen haben wir nur einen kleinen Teil der Use Cases im
-Detail ausgearbeitet. Insbesondere diese welche wir selber
-aus programmiert haben. Die gesamte Liste an Use Cases sieht wie folgt
+Detail ausgearbeitet. Insbesondere diese, welche wir selber
+ausprogrammiert haben. Die gesamte Liste an Use Cases sieht wie folgt
 aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 
 #+LATEX: {\footnotesize
@@ -840,7 +841,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |                     | <30>                           |
 | *Identifier + Name* | 1.0 Artikel durchstöbern       |
 |---------------------+--------------------------------|
-| *Description*       | Durch klicken der verschiedenen Kategorien und ansehen der Artikel Details und Bilder. |
+| *Description*       | Durchklicken der verschiedenen Kategorien und ansehen der Artikel, Details und Bilder. |
 |---------------------+--------------------------------|
 | *Actors*            | Kunden, Interessenten          |
 |---------------------+--------------------------------|
@@ -855,14 +856,14 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | *Postconditions*    | -                              |
 |---------------------+--------------------------------|
 | *Normal Flow*       | 1. Website aufrufen            |
-|                     | 2. Kategorien durchsehen     |
+|                     | 2. Kategorien durchsehen       |
 |                     | 3. Artikel anklicken           |
 |---------------------+--------------------------------|
 | *Alternative Flow*  | -                              |
 |---------------------+--------------------------------|
 | *Notes*             | -                              |
 |---------------------+--------------------------------|
-| *UC History*        | 1.0 Draft erstellt durch AZ   |
+| *UC History*        | 1.0 Draft erstellt durch AZ    |
 |---------------------+--------------------------------|
 | *Author*            | A. Zweili & I. Hörler          |
 |---------------------+--------------------------------|
@@ -884,7 +885,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Actors*            | Interessent                    |
 |---------------------+--------------------------------|
-| *Status*            | Freigegeben                     |
+| *Status*            | Freigegeben                    |
 |---------------------+--------------------------------|
 | *Includes*          | -                              |
 |---------------------+--------------------------------|
@@ -900,7 +901,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |                     | 4. Die Website leitet ihn in den Login Bereich um. |
 |---------------------+--------------------------------|
 | *Alternative Flow*  | 1. User klickt auf den Link "Go to registration.". |
-|                     | 2. User füllt das Registrations Formular mir falschen Daten aus. |
+|                     | 2. User füllt das Registrationsformular mir falschen Daten aus. |
 |                     | 3. Die Website gibt die entsprechenden Fehler aus. |
 |                     | 4. Der User korrigiert die Angaben. |
 |                     | 5. User schliesst die Registrierung mit Klick auf "Register" ab. |
@@ -1105,7 +1106,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Includes*          | -                              |
 |---------------------+--------------------------------|
-| *Trigger*           | Ein Administrator möchte ein Passwort zurücksetzen weil es vergessen wurde. |
+| *Trigger*           | Ein Administrator möchte ein Passwort zurücksetzen, weil es vergessen wurde. |
 |---------------------+--------------------------------|
 | *Preconditions*     | Account mit Administrationsrechten vorhanden. |
 |---------------------+--------------------------------|
@@ -1155,7 +1156,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Includes*          | -                              |
 |---------------------+--------------------------------|
-| *Trigger*           | Um das Sortiment zu erweitern möchte der Administrator einen neuen Artikel erfassen. |
+| *Trigger*           | Um das Sortiment zu erweitern, möchte der Administrator einen neuen Artikel erfassen. |
 |---------------------+--------------------------------|
 | *Preconditions*     | Account mit Administrationsrechten vorhanden. |
 |---------------------+--------------------------------|
@@ -1298,7 +1299,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 | *Preconditions*     | Account mit Administrationsrechten vorhanden. |
 |---------------------+--------------------------------|
-| *Postconditions*    | Die Bestellung hat eine angepasste Artikel Menge. |
+| *Postconditions*    | Die Bestellung hat eine angepasste Artikelmenge. |
 |---------------------+--------------------------------|
 | *Normal Flow*       | 1. Der Administrator loggt sich unter https://didgeridoo.ml/admin ein. |
 |                     | 2. Admin klickt auf "Orders" und anschliessend auf die passende Order ID. |
@@ -1318,20 +1319,20 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-*** Modells
+*** Models
 
-Wie bereits in [[Framework]] beschrieben übernimmt das Framework die
+Wie bereits in [[Framework]] beschrieben, übernimmt das Framework die
 Erstellung der Tabellen in der Datenbank. Für den Aufbau der Anwendung
 und der Kommunikation im Team ist es jedoch von absoluter
-Notwendigkeit das man sich über die Beziehung zwischen den Objekten
-Gedanken macht. Insbesondere wenn die Anwendung nach wie vor auf einer
+Notwendigkeit, dass man sich über die Beziehung zwischen den Objekten
+Gedanken macht. Insbesondere, wenn die Anwendung nach wie vor auf einer
 relationalen Datenbank basiert. Aus diesem Grund haben wir vor Beginn
 der Arbeit ein klassisches Entity Relation Diagramm aufgezeichnet.
 Während der Entwicklung haben wir es dann kontinuierlich erweitert und
 korrigiert. Das finale Ergebnis ist in der Abbildung:([[fig:erd]]) zu sehen.
 
-Django übernimmt dann jedoch das Erstellen der Tabellen und Benennen
-derjenigen weshalb das Resultat in der Datenbank etwas anders
+Django übernimmt dann jedoch das Erstellen und Benennen
+der Tabellen, weshalb das Resultat in der Datenbank etwas anders
 aussieht. Zusätzlich kommt Django auch noch mit eigenen Tabellen
 daher. Der finale Aufbau der Datenbank ist in der
 Abbildung:([[fig:final_erd]]) zu sehen. Dieses ERD wurde mit der Django
@@ -1362,14 +1363,14 @@ beschreiben und auf jeweils spezifische Probleme eingehen.
 
 Das "Category" Modell, Abbildung:([[fig:category]]), ist der Kernpunkt der
 Artikelnavigation und vom Aufbau her eigentlich eher simpel.
-Allerdings hatten wir etwas Mühe die hierarchische Darstellung im
+Allerdings hatten wir etwas Mühe, die hierarchische Darstellung im
 Template sauber abzubilden. Hier half uns ein Artikel\footcite{tree}
-von Stackoverflow auf die richtige Lösung zu kommen. Nämlich das sich
-das Ganze um zwei in einander verschachtelte Dictionaries handelt.
+von Stackoverflow auf die richtige Lösung zu kommen mit dem Hinweis,
+dass sich das ganze um zwei in einander verschachtelte Dictionaries handelt.
 Somit konnten wir dann über die Kategorie iterieren.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodelll für Kategorien
+#+CAPTION: Klassenmodell für Kategorien
 #+NAME: fig:category
 [[file:pictures/class_category.png]]
 
@@ -1377,23 +1378,23 @@ Somit konnten wir dann über die Kategorie iterieren.
 
 Gemäss der Anforderung FA_1.4 muss es möglich sein für einen Artikel 0-5
 Bilder hochzuladen. Wir stellen dies über eine Variabel im "Option"
-Modell, Abbildung:([[fig:option]]), sicher gegen welche beim Speichern
-überprüft wird. Die Variabel ist als Option im Admin Interface
+Modell ( Abbildung:([[fig:option]]) ) sicher, gegen welche beim Speichern
+geprüft wird. Die Variabel ist als Option im Admin Interface
 hinterlegt. Dadurch ist es möglich den Wert auch nachträglich
 noch zu ändern oder ganz zu deaktivieren.
 
-Da diese Variabel jedoch essentiell für die Funktion des Webshops ist
-mussten wir sicherstellen das sie von einem Administrator nicht aus
-Versehen gelöscht oder umbenannt wird. Des weiteren macht es in der
-Applikation im Momentan wenig Sinn wenn der User selber Optionen
+Da diese Variabel jedoch essentiell für die Funktion des Webshops ist,
+mussten wir sicherstellen, dass sie von einem Administrator nicht aus
+Versehen gelöscht oder umbenannt wird. Des Weiteren macht es in der
+Applikation momentan wenig Sinn, wenn der User selber Optionen
 hinzufügen kann. Aus diesen Gründen haben wir für das "Option" Modell
 den "Add" Button\footcite{removeadd} und die "Delete"
-Option\footcite{removedelete} entfernt, sowie den Namen im Admin
+Option\footcite{removedelete} entfernt sowie den Namen im Admin
 Interface nur lesbar gemacht\footcite{readonly}. Somit ist nur noch
 der Wert editierbar.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodelll für Optionen
+#+CAPTION: Klassenmodell für Optionen
 #+NAME: fig:option
 [[file:pictures/class_option.png]]
 
@@ -1403,11 +1404,11 @@ Das Modell "ArticleStatus", Abbildung:([[fig:articlestatus]]), wird über
 einen Fremdschlüssel mit dem "Article" Modell verbunden und gibt
 diesem verschiedene Status. Gemäss der Anforderung FA_1.4 muss ein
 Artikel die Status "active" und "hidden" haben. Wir haben dies in der
-Applikation dann auch gleich so umgesetzt das nur die Artikel
+Applikation dann auch gleich so umgesetzt damit nur die Artikel
 angezeigt werden welche nicht den Status "hidden" haben.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodelll für Artikelstatus
+#+CAPTION: Klassenmodell für Artikelstatus
 #+NAME: fig:articlestatus
 [[file:pictures/class_articlestatus.png]]
 
@@ -1415,18 +1416,18 @@ angezeigt werden welche nicht den Status "hidden" haben.
 
 Wir legen die Wechselkurse im Modell "ExchangeRate",
 Abbildung:([[fig:exchangerate]]), ab. Um Manipulationen aufs Datum und den
-Namen einfacher zu machen werden diese beiden Attribute als
+Namen einfacher zu machen, werden diese beiden Attribute als
 Fremdschlüssel hinterlegt. Die Wechselkurse werden dabei aus dem RSS
 Feed\footcite{snb} der Schweizerischen Nationalbank stündlich
-abgeholt. Vor dem Ablegen in der Datenbank wird dann noch überprüft ob
+abgeholt. Vor dem Ablegen in der Datenbank wird dann noch überprüft, ob
 sich die Werte geändert haben oder nicht.
-Wir haben uns für den die Daten der SNB entschieden da sie einerseits
+Wir haben uns für die Daten der SNB entschieden, da sie einerseits
 die benötigten Wechselkurse anbieten und anderseits bereits von unserer
 Basiswährung CHF ausgehen. Dadurch müssen wir nicht zuerst aus einer
 anderen Währung zurückrechnen.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
-#+CAPTION: Klassenmodelll für Wechselkurse
+#+CAPTION: Klassenmodell für Wechselkurse
 #+NAME: fig:exchangerate
 [[file:pictures/class_exchangerate.png]]
 
@@ -1443,15 +1444,15 @@ eine Liste mit allen möglichen Währungsnamen abgelegt.
 **** ExchangeRate_date
 
 Damit die Wechselkurse des Tages einfacher auf einer Zeile angezeigt
-werden können haben wir das Datum in ein eigenes Modell,
+werden können, haben wir das Datum in ein eigenes Modell,
 Abbildung:([[fig:exchangerate_date]]), ausgelagert. Dabei wird das Datum
 als Standardwert mitgegeben. Wir hatten dies zu Beginn noch falsch
 implementiert und das Datum als Funktion übergeben. Das führte jedoch
 dazu, dass die Funktion einmal beim Starten des Servers ausgeführt
 wurde und alle Wechselkurse immer das gleiche Datum hatten. Auf
-Stackoverflow fanden wir dann die Lösung\footcite{timezone} das wir
-die Datumsfunktion als Variabel übergeben müssen damit sie bei jedem
-Erstellen des Objekt evaluiert wird.
+Stackoverflow fanden wir dann die Lösung\footcite{timezone}, die
+Datumsfunktion als Variabel zu übergeben damit sie bei jedem
+Erstellen des Objektes evaluiert wird.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodell für Wechselkurse
@@ -1465,7 +1466,7 @@ sehr komplex und widerspiegelt einen Artikel aus der realen Welt.
 Gemäss der Anforderung FA_1.4 hat er eine eindeutige ID (den
 Primärschlüssel), einen Namen von maximal 200 Zeichen, eine
 Beschreibung von maximal 2000 Zeichen, Status sowie 0 - 5
-Produktbilder welche vom Modell "Picture" über einen Fremdschlüssel
+Produktbilder, welche vom Modell "Picture" über einen Fremdschlüssel
 zugewiesen werden.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
@@ -1476,7 +1477,7 @@ zugewiesen werden.
 **** OrderStatus
 
 Damit nachvollzogen werden kann in welchen Zustand sich eine
-Bestellung gerade befindet haben wir ein Modell "OrderStatus",
+Bestellung gerade befindet, haben wir ein Modell "OrderStatus",
 Abbildung:([[fig:orderstatus]]), erstellt. Für dieses Modell sind folgende
 Status angedacht:
 - ordered -> vom Kunden bestellt
@@ -1529,9 +1530,9 @@ Foreign Key zum "ExchangeRate" Modell. Über den Foreign Key wird eine
 Beziehung auf den für die Bestellung aktuellen Wechselkurs der Währung
 hergestellt.
 
-Da sich bei der Beziehung zwischen den Artikeln und dem Kunden um eine
-"Viele zu Viele" Beziehung handelt braucht es noch ein zusätzliches
-Modell welches die Beziehung abbildet. Dies realisieren wir über das
+Da es sich bei der Beziehung zwischen den Artikeln und dem Kunden um eine
+"Viele zu Viele" Beziehung handelt, braucht es noch ein zusätzliches
+Modell, welches die Beziehung abbildet. Dies realisieren wir über das
 Modell "OrderPostion", Abbildung:([[fig:orderposition]]).
 
 In diesem Modell werden dann noch zusätzlich die bestellte Menge sowie
@@ -1551,13 +1552,13 @@ welchem Preis die Ware bezogen wurde.
 
 **** ShoppingCart und ShoppingCartPosition
 
-Bevor die Bestellungen erfasst werden kann der Kunde die Artikel in
+Bevor die Bestellungen erfasst werden, kann der Kunde die Artikel in
 einem Warenkorb sammeln. Dieser funktioniert sehr ähnlich wie die
 Bestellungen. Über das Modell "ShoppingCart",
 Abbildung:([[fig:shoppingcart]]), und das Modell "ShoppingCartPosition",
 Abbildung:([[fig:shoppingcartposition]]), werden die ausgewählten Artikel
 sowie ihre Mengen einem User zugewiesen. Im Gegensatz zur Bestellung
-wird im Artikel jedoch der Preis nicht gespeichert da sich der Preis
+wird im Artikel jedoch der Preis nicht gespeichert, da sich der Preis
 vor der Bestellung noch ändern könnte. Wenn die Verwaltung etwa die
 Preise anpasst oder die Währungskurse ändern.
 
@@ -1573,8 +1574,8 @@ Preise anpasst oder die Währungskurse ändern.
 
 **** City
 
-Das "City" Modell speichert Städte Namen und die dazugehörige
-Postleitzahl Die Städte werden als Teil der Adresse auf dem "Person"
+Das "City" Modell speichert Städtenamen und die dazugehörige
+Postleitzahl. Die Städte werden als Teil der Adresse auf dem "Person"
 Modell hinterlegt. Im aktuellen Zustand der Applikation enthält die
 Tabelle die Daten aller Schweizer Städte.
 
@@ -1585,8 +1586,8 @@ Tabelle die Daten aller Schweizer Städte.
 
 **** Salutation
 
-"Salutation", zu Deutsch Anrede, ist das Modell welches die möglichen
-Anreden beinhaltet die ein User für sich hinterlegen kann.
+"Salutation", zu Deutsch Anrede, ist das Modell, welches die möglichen
+Anreden beinhaltet, die ein User für sich hinterlegen kann.
 Für den Moment haben wir die folgenden Auswahlmöglichkeiten
 hinterlegt:
 - Herr
@@ -1608,18 +1609,18 @@ erweitern kann. In einem Post\footcite{usermodel} von Vitor Freitas
 werden die möglichen vier Varianten aufgeführt und erklärt. Eine davon
 ist nicht dafür gemacht zusätzliche Informationen zu speichern. Zwei
 weitere Varianten bauen darauf auf von einer Basis "User" Klasse
-abzuleiten. Die erste Variante war für unsere Zwecke nicht geeignet da
+abzuleiten. Die erste Variante war für unsere Zwecke nicht geeignet, da
 wir zwingend zusätzliche Informationen speichern wollten. Die
-Varianten mit Vererbungen erschienen uns ungeeignet da die Möglichkeit
-besteht die Sicherheit der Authentifizierung zu schwächen. Aus diesem
+Varianten mit Vererbungen erschienen uns ungeeignet, da die Möglichkeit
+besteht, die Sicherheit der Authentifizierung zu schwächen. Aus diesem
 Grund wird in der Django Dokumentation eher davor abgeraten diese
-Varianten zu verwenden wenn man nicht genau weiss was man macht.
+Varianten zu verwenden, wenn man nicht genau weiss, was man macht.
 
 Die verbleibende Variante erweitert das "User" Modell über eine
-"One-to-One" Beziehung ein sogenanntes "Profil". Dadurch bleibt das
+"One-to-One" Beziehung, ein sogenanntes "Profil". Dadurch bleibt das
 "User" Modell intakt und man kann zusätzliche Informationen über den
-User speichern. Man sollte im Profil jedoch nur Daten speichern welche
-nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist das
+User speichern. Man sollte im Profil jedoch nur Daten speichern, welche
+nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist, dass
 die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
 #+ATTR_LATEX: :width 9cm :placement [H]
@@ -1669,29 +1670,29 @@ jeden Benutzer wird eine listitem erstellt und der Username als Text eingefügt.
 
 *** Backend Umsetzung
 
-Django ist ein modellbasiertes Framework das die Programmierung der
+Django ist ein modellbasiertes Framework, das die Programmierung der
 Datenbank gleich selbst regelt. Dadurch lässt sich backend seitig
 durchgängig in Python arbeiten. Die Umsetzung gliedert sich
 vereinfacht in 3 Bereiche:
-1. Einem Frontend dass für den Benutzer gemacht ist und das mehrere
+1. Einem Frontend, das für den Benutzer gemacht ist und das mehrere
    Submodule wie Categories oder Warenkorb beinhaltet.
-2. Ein Backend welches zum Bearbeiten/Erstellen von Produkten dient.
-3. Currencies die täglich abgeholt werden
+2. Ein Backend, welches zum Bearbeiten/Erstellen von Produkten dient.
+3. Currencies, die täglich abgeholt werden
 
 ** TODO Testing
 
-Um die Funktionalität des Webshops sicherzustellen haben wir Die
+Um die Funktionalität des Webshops sicherzustellen, haben wir die
 Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
 getestet und geprüft. Bei den Testfällen haben wir uns wie auch bei
-den Use Cases hauptsächlich auf die Funktionen beschränkt welche wir
-selber aus programmiert haben. Auch sehr hilfreich war das Admin
+den Use Cases hauptsächlich auf die Funktionen beschränkt, welche wir
+selber ausprogrammiert haben. Auch sehr hilfreich war das Admin
 Interface von Django. Damit konnten wir die Modells sehr gut auf ihre
-Funktionalität überprüfen bevor wir sie im Frontend verwendeten.
+Funktionalität überprüfen, bevor wir sie im Frontend verwendeten.
 
 *Fixtures*
 
-Django hat ein Funktion\footcite{fixtures} genannt "Fixtures" welche
-es einem erlaubt fixe Daten in die Datenbank zu schreiben. Dabei
+Django hat eine Funktion\footcite{fixtures}, genannt "Fixtures", welche
+es einem erlaubt, fixe Daten in die Datenbank zu schreiben. Dabei
 werden die Daten in YAML Syntax in eine .yaml Datei geschrieben und
 mittels folgendem Befehl dann in die Datenbank geladen:
 
@@ -1703,7 +1704,7 @@ python3 /vagrant/django/didgeridoo/manage.py loaddata webshop
 
 Wir haben diese Funktion verwendet um Testdaten in der Datenbank zu
 speichern. Somit mussten wir etwa nicht von Hand Artikel oder User
-erfassen. Zumindest nicht mehr sobald wir sicher waren das die
+erfassen. Zumindest nicht mehr, als wir sicher waren, dass die
 dazugehörige Funktionen korrekt funktionieren.
 
 #+LATEX:\newpage
@@ -1711,7 +1712,7 @@ dazugehörige Funktionen korrekt funktionieren.
 
 *** NEXT Testfälle
 
-Alle Testfälle werden ausgehend von der Index Seite aus gestartet.
+Alle Testfälle werden von der Index Seite aus gestartet.
 Dies wird in den Test Cases nicht noch einmal explizit erwähnt. Die
 Tabelle: ([[tab:testcases]]) zeigt dabei die Resultate des letzten
 Testlaufs. Dabei wurden keine Probleme mehr mit der Applikation
@@ -1741,7 +1742,7 @@ entdeckt.
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
 | *TC-08*              | Artikel in Warenkorb legen | -                    | 1. Auf "Article of First Parent Category" klicken. | -                    | Meldung "please login to fill your basket..." | Die Artikel Details werden angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
-| *TC-09*              | Artikel in Warenkorb legen | TC-02\newline ausgeführt | 1. Auf "Article of First Parent Category"\newline 2. In das "Amount in piece." Feld Die Menge eintragen.\newline 3. Auf den "Add to Cart" Button klicken.\newline 4. Auf "CART" klicken. | Menge: 5             | Der Artikel wird als Warenkorb Position in der Datenbank gespeichert. | Der Cart mit dem Artikel wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
+| *TC-09*              | Artikel in Warenkorb legen | TC-02\newline ausgeführt | 1. Auf "Article of First Parent Category"\newline 2. In das "Amount in piece" Feld Die Menge eintragen.\newline 3. Auf den "Add to Cart" Button klicken.\newline 4. Auf "CART" klicken. | Menge: 5             | Der Artikel wird als Warenkorb Position in der Datenbank gespeichert. | Der Cart mit dem Artikel wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
 | *TC-10*              | Währung ändern       | -                    | 1. Auf das Dropdown "Currencies" klicken.\newline 2. Den Eintrag "EUR" auswählen.\newline 3. Auf den Button "Select" klicken. | -                    | Die Artikel Preise werden in Euro angezeigt. | Die Index Seite wird angezeigt. | Erfolgreich durchgeführt 19.02.2018 I.H. |
 |----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------|
