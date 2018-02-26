@@ -374,10 +374,12 @@ def checkout(request):
                 cart_position.calculate_position_price()
                 totalprice_list.append(cart_position.position_price)
                 cart_position_list[idx] = cart_position
+
     else:
         message = """something whent wrong.
                      Seams like your cart was
                      not existent before. How come? """
+
     total = sum(totalprice_list)
 
     return render(request, 'webshop/checkout.html',
