@@ -74,7 +74,6 @@ class CartForm(forms.Form):
 
 
 class CheckoutForm(forms.Form):
-
     checkout = forms.BooleanField(
         required=True,
         label='Yes. I have read the General Terms and Conditions.')

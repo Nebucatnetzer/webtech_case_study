@@ -11,7 +11,8 @@ from webshop.models import (Article,
                             Picture,
                             CartPosition,
                             ShoppingCart,
-                            Order)
+                            Order,
+                            OrderStatus)
 from webshop.forms import (RegistrationForm,
                            AddToCartForm,
                            CartForm,
@@ -329,17 +330,19 @@ def checkout(request):
     exchange_rate = ExchangeRate.objects.filter(name=currency).latest('date')
     # Here we handle all POST Operations:
     if request.method == 'POST':
-        print('checkout post')
+        print('checkout post', request.POST)
         # here we react to a change of amount per item in the Cart:
-        if 'checkout_form' in request.POST:
+        if 'checkout' in request.POST:
             print('checkout post request.POST = checkout_form')
-            checkout_form = CartForm(request.POST)
+            checkout_form = CheckoutForm(request.POST)
             if checkout_form.is_valid():
-                print('checkout post valid')
+                orderstatus = OrderStatus.objects.get(name='ordered')
+                print('checkout post valid orderstatus', orderstatus,
+                      'exchange_rate_id:', exchange_rate_id)
                 order, created_order = Order.objects.get_or_create(
                     user=request.user,
-                    defaults={'status': 1,
-                              'exchange_rate': exchange_rate.id,
+                    defaults={'status': orderstatus,
+                              'exchange_rate': exchange_rate,
                               }
                     )
                 print('order', order, 'created:', created_order)
@@ -385,8 +388,6 @@ def checkout(request):
                   {'cart_position_list': cart_position_list,
                    'totalprice_list': totalprice_list,
                    'total': total,
-                   'currencies_form': currencies_form,
-                   'amount_form': amount_form,
                    'checkout_form': checkout_form,
                    'currency_name': currency_name,
                    'article_view': article_view,
