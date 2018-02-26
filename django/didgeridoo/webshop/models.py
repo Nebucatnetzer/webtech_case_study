@@ -86,6 +86,9 @@ class Order(models.Model):
     date = models.DateTimeField(default=timezone.now)
     exchange_rate = models.ForeignKey(ExchangeRate)
 
+    def __str__(self):
+        return str(self.id)
+
 
 class OrderPosition(models.Model):
     """ Items in Submitted Orders"""

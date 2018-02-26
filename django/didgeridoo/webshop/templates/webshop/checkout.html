@@ -2,6 +2,7 @@
 {% block section_title %}<h1>CHECKOUT</h1>{% endblock %}
 {% block content %}
     <h3>Preview your Purchase:</h3>
+    </br>
     <h4>Shipping Address:</h4>
     {% if person %}
     <p><b>Salutation: </b>{{ person.salutation }}</p>
@@ -17,48 +18,58 @@
         <strong>
       </p>
     {% endif %}
-    {% if articles_list %}
-    <h4>Articles:</h4>
-      <table class="table">
+    {% if cart_position_list %}
+  </br>
+    <h4>Your Items:</h4>
+      <table class="table price-table">
         <tr class="table_header">
           <th scope="col">POS.</th>
           <th scope="col">ART#</th>
           <th scope="col">NAME</th>
           <th scope="col">STOCK</th>
           <th scope="col">AMOUNT</th>
-          <th scope="col">PRICE p.pce.</th>
-          <th scope="col">POSITION PRICE</th>
+          <th scope="col" class="price-label">PRICE p.pce.</th>
+          <th scope="col" class="price-label">POSITION PRICE</th>
         </tr>
-        {% for article in articles_list %}
+        {% for cart_position in cart_position_list %}
           <tr class="table_content">
-            <td scope="col">{{ article.id }}</td>
-            <td scope="col">{{ article.article.id }}</td>
+            <td scope="col">{{ cart_position.id }}</td>
+            <td scope="col">{{ cart_position.article.id }}</td>
             <td scope="col">
-              <a href="{% url 'details' article.article.id %}">
-                {{ article.article.name }}
+              <a href="{% url 'details' cart_position.article.id %}">
+                {{ cart_position.article.name }}
               </a>
             </td>
-            <td scope="col">{{ article.article.stock }}</td>
-            <td scope="col">
-              {{ article.amount }}
-            </td>
-            <td scope="col">
-              {{ article.article.price_in_chf }}
+            <td scope="col">{{ cart_position.article.stock }}</td>
+            <td scope="col">{{ cart_position.article.amount }}</td>
+            <td scope="col" class="price-value">
+              {{ cart_position.article.price_in_chf }}
               {{ currency_name }}
             </td>
-            <td scope="col">{{ article.position_price }} {{ currency_name }}</td>
+            <td scope="col" class="price-value">
+              {{ cart_position.position_price }} {{ currency_name }}
+            </td>
           </tr>
         {% endfor %}
         <tr>
-          <td scope="col" colspan="7" class="text-right">
-            Total: {{ total }} {{ currency_name }}
+          <td scope="col" colspan="5"class="text-right">
+          <td scope="col" class="price-value">
+            <dl><dt>Total:</dl></dt></td>
+          <td scope="col" class="price-value">
+             <dl><dt>{{ total }} {{ currency_name }}</dl></dt>
           </td>
         </tr>
       </table>
+      <form id="checkout_form" action="orders" method="post">
+        {% csrf_token %}
+        {{ checkout_form.as_p }}
+        <input type="submit" value="Order" class="btn btn-success" role="button"/>
+      </form>
     {% else %}
       <p class="alert alert-danger">
         <strong>
-          Something whent wrong. Your cart is empty.
+          Your cart seamed to lack Items.
+          Go get some in the store!
         <strong>
       </p>
     {% endif %}
