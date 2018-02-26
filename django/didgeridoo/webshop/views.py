@@ -325,7 +325,8 @@ def checkout(request):
         request.session['currency'] = None
     else:
         currency = request.session['currency']
-    exchange_rate = ExchangeRate.objects.filter(name=currency).latest('date')
+        exchange_rate = rate.objects.filter(name=currency).latest('date')
+
     # Here we handle all POST Operations:
     if request.method == 'POST':
         print('checkout post', request.POST)
