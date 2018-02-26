@@ -313,8 +313,6 @@ def cart(request):
 @login_required
 def checkout(request):
     category_list = get_categories()
-    currencies_form = CurrenciesForm
-    amount_form = CartForm
     rate = ExchangeRate
     article_view = False
     message = ""
@@ -386,7 +384,6 @@ def checkout(request):
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
-                   'totalprice_list': totalprice_list,
                    'total': total,
                    'checkout_form': checkout_form,
                    'currency_name': currency_name,
