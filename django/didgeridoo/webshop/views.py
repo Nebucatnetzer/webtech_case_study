@@ -381,10 +381,10 @@ def checkout(request):
                 print('order', order, 'created:', order)
                 for position in cart_positions:
                     OrderPosition.objects.create(
-                        position.article,
-                        order,
-                        position.amount,
-                        position.article.price_in_chf
+                        article=position.article,
+                        order=order,
+                        amount=position.amount,
+                        price_in_chf=position.article.price_in_chf
                         )
                 ShoppingCart.objects.delete(pk=cart.id)
 
