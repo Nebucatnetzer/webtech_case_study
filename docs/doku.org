@@ -518,7 +518,7 @@ Erstellen der Case Study verwendet wurden und erklären, wenn möglich
 auch, weshalb wir uns dafür entschieden haben.
 
 #+CAPTION: Variantenbewertung Ergebnis
-#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4.5cm}|r|
+#+ATTR_LATEX: :align |>{\columncolor[HTML]{EFEFEF}}p{4.5cm}|r| :placement [H]
 #+NAME: tab:result
 |------------------------------------+-----------------------------------------------|
 | *Variante*\cellcolor[HTML]{C0C0C0} | *Erreichte Punktzahl*\cellcolor[HTML]{C0C0C0} |
