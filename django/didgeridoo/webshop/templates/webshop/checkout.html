@@ -60,6 +60,11 @@
           </td>
         </tr>
       </table>
+      <form id="checkout_form" action="{% url 'cart' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Cancel" class="btn btn-warning" role="button"/>
+      </form>
+    </br>
       <form id="checkout_form" action="" method="POST">
         {% csrf_token %}
         {{ checkout_form.as_p }}
