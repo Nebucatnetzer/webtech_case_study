@@ -1788,6 +1788,7 @@ vereinfacht in 3 Bereiche:
    Submodule wie Categories oder Warenkorb beinhaltet.
 2. Ein Backend, welches zum Bearbeiten/Erstellen von Produkten dient.
 3. Currencies, die täglich abgeholt werden
+   #+LATEX:\newpage
 
 ** TODO Testing
 
