@@ -27,13 +27,15 @@
     <th scope="col">PRICE</th>
   </tr>
   {% for order, order_positions_count, total, currency_name in order_list_zip %}
-  <tr class="table_content">
-      <td scope="col">{{ order.id }}</td>
-      <td scope="col">{{ order.date }}</td>
-      <td scope="col">{{ order.status }}</td>
-      <td scope="col">{{ order_positions_count }}</td>
-      <td scope="col">{{ total }} {{ currency_name }}</td>
-  </tr>
+    <tr class="table_content">
+        <td scope="col">{{ order.id }}</td>
+        <td scope="col">{{ order.date }}</td>
+        <td scope="col">
+          <a href="{% url 'order' order.id %}">{{ order.status }}</a>
+        </td>
+        <td scope="col">{{ order_positions_count }}</td>
+        <td scope="col">{{ total }} {{ currency_name }}</td>
+    </tr>
   {% endfor %}
 </table>
 {% else %}

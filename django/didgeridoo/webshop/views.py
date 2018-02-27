@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
+from decimal import Decimal
 from webshop.models import (Article,
                             Category,
                             Person,
@@ -172,6 +173,7 @@ def profile(request):
     if orders:
         orders_list = list(orders)
         for idx1, order in enumerate(orders_list):
+            print(order.id)
             # get all items in the Order:
             order_positions = OrderPosition.objects.filter(order=order)
             if (order_positions.count()) > 0:
@@ -192,8 +194,8 @@ def profile(request):
                     order_position_list[idx2] = order_position
                     total = sum(totalprice_list)
                 currency_list.append(currency_name)
-                total_list.append(total)
-                order_positions_count = order_positions.count()
+            total_list.append(total)
+            order_positions_count = order_positions.count()
             order_positions_count_list.append(order_positions_count)
         orders_list[idx1] = order
         order_list_zip = zip(orders_list,
@@ -417,8 +419,6 @@ def checkout(request):
                 else:
                     order = Order.objects.create(user=request.user,
                                                  status=orderstatus)
-
-                print('order', order, 'created:', order)
                 for position in cart_positions:
                     OrderPosition.objects.create(
                         article=position.article,
@@ -426,7 +426,7 @@ def checkout(request):
                         amount=position.amount,
                         price_in_chf=position.article.price_in_chf
                         )
-                return HttpResponseRedirect('/order/')
+                return HttpResponseRedirect('/order/%s/' % order.id)
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
@@ -436,11 +436,13 @@ def checkout(request):
                    'article_view': article_view,
                    'category_list': category_list,
                    'message': message,
-                   'person': person
+                   'person': person,
                    })
 
 
-def order(request):
+def order(request, order_id):
+    totalprice_list = []
+    order_position_list = []
     cart = ShoppingCart.objects.get(user=request.user)
     if cart:
         # get all items in the cart of this customer:
@@ -456,27 +458,29 @@ def order(request):
     else:
         message = """something whent wrong.
                      We cold not empty your cart. """
-
-    # category_list = get_categories()
-    # person = Person.objects.get(user=request.user)
-    # orders = Order.objects.filter(user=request.user)
-    # for order in orders:
-    #     currency = order.exchange_rate
-    #     # get all items in the Order:
-    #     order_positions = OrderPosition.objects.filter(order=order)
-    #     if (order_positions.count()) > 0:
-    #         order_position_list = list(order_positions)
-    #         for idx, order_position in enumerate(order_position_list):
-    #                 # get currencyname to display:
-    #                 currency_name = ExchangeRate_name.objects.get(id=currency)
-    #                 # get exchange_rate multiplyed:
-    #                 cart_position.article.price_in_chf = ExchangeRate.exchange(
-    #                     currency,
-    #                     order_position.article.price_in_chf
-    #                     )
-    #             order_position.calculate_position_price()
-    #             totalprice_list.append(order_position.position_price)
-    #             order_position_list[idx] = order_position
-    #
-    #     total = sum(totalprice_list)
-    return render(request, 'webshop/order.html', {})
+    order = Order.objects.get(id=order_id)
+    order_positions = OrderPosition.objects.filter(order=order_id)
+    if (order_positions.count()) > 0:
+        order_position_list = list(order_positions)
+        for idx, order_position in enumerate(order_positions):
+            # get currencyname to display:
+            if order.exchange_rate is not None:
+                print('order.exchange_rate', order.exchange_rate, order.exchange_rate.id)
+                # get price of position in order and append to a list:
+                rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
+                order_position.price = round(
+                    rate.exchange_rate_to_chf * order_position.price_in_chf,
+                    2)
+                currency_name = order.exchange_rate
+            else:
+                currency_name = 'CHF'
+                order_position.price = order_position.price_in_chf
+            order_position.position_price = order_position.price * Decimal.from_float(order_position.amount)
+            order_position_list[idx] = order_position
+            totalprice_list.append(order_position.price)
+        total = sum(totalprice_list)
+    return render(request, 'webshop/order.html', {
+                  'order_position_list': order_position_list,
+                  'currency_name': currency_name,
+                  'total': total
+                  })

@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^cart/checkout/$',
         views.checkout,
         name='checkout'),
-    url(r'^order/$',
+    url(r'^order/(?P<order_id>[0-9]+)/$',
         views.order,
         name='order'),
 ]
