@@ -217,7 +217,7 @@ Abbildung:(\ref{fig:swot}) zu sehen.
     \item Der Kunde vertraut uns und die Beziehung ist gut.
         Diese Ausgangslage mag helfen interne Schwächen durch
         offene Kommunikation zu übergehen.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
@@ -229,7 +229,7 @@ Abbildung:(\ref{fig:swot}) zu sehen.
     \item Die Implementierung von Währungsänderungen ist
         nicht trivial. Der Zeitpunkt zu dem die Kosten
         eines Produktes sich ändert, muss gut durchdacht werden.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
