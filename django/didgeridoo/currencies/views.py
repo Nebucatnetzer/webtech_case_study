@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from datetime import datetime
-from django.views.generic.edit import UpdateView
 from currencies.models import (ExchangeRate,
                                ExchangeRate_date,
                                ExchangeRate_name)
