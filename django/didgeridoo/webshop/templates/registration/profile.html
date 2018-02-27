@@ -3,6 +3,7 @@
 {% block section_title %}User Profile{% endblock %}
 
 {% block content %}
+</br>
 <p><b>Username: </b>{{ request.user.username }}</p>
 <p><b>Salutation: </b>{{ person.salutation }}</p>
 <p><b>Firstname: </b>{{ request.user.first_name }}</p>
@@ -14,4 +15,31 @@
     {% csrf_token %}
     {{ form.as_p }}
 </form>
+{% if order_list_zip %}
+</br>
+<h4> Orders:</h4>
+<table class="table price-table">
+  <tr class="table_header">
+    <th scope="col">ID</th>
+    <th scope="col">DATE</th>
+    <th scope="col">STATUS</th>
+    <th scope="col">ITEMS</th>
+    <th scope="col">PRICE</th>
+  </tr>
+  {% for order, order_positions_count, total, currency_name in order_list_zip %}
+  <tr class="table_content">
+      <td scope="col">{{ order.id }}</td>
+      <td scope="col">{{ order.date }}</td>
+      <td scope="col">{{ order.status }}</td>
+      <td scope="col">{{ order_positions_count }}</td>
+      <td scope="col">{{ total }} {{ currency_name }}</td>
+  </tr>
+</table>
+{% endfor %}
+{% else %}
+  <p>
+    you don't have Ordered anything yet.
+    As soon as you Purchase anything from us you can see your Orders here.
+  </p>
+{% endif %}
 {% endblock %}

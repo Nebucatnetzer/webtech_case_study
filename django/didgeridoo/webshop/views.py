@@ -159,9 +159,48 @@ def article_details(request, article_id):
 @login_required
 def profile(request):
     category_list = get_categories()
+    totalprice_list = []
+    total_list = []
+    currency_list = []
+    order_list_zip = []
+    order_positions_count_list = []
+    order_positions_count = ""
+    total = ""
+    currency_name = ""
     person = Person.objects.get(user=request.user)
+    orders = Order.objects.filter(user=request.user)
+    orders_list = list(orders)
+    for idx1, order in enumerate(orders_list):
+        currency = order.exchange_rate
+        print('order:', order, 'currency:', currency)
+        # get all items in the Order:
+        order_positions = OrderPosition.objects.get(order=order)
+        if (order_positions.count()) > 0:
+            order_position_list = list(order_positions)
+            print('order_position_list:', order_position_list)
+            for idx2, order_position in enumerate(order_position_list):
+                # get currencyname to display:
+                currency_name = ExchangeRate_name.objects.get(id=currency)
+                # get exchange_rate multiplyed:
+                order_position.article.price_in_chf = ExchangeRate.exchange(
+                    currency,
+                    order_position.article.price_in_chf
+                    )
+                # get price of position in order and append to a summed list:
+                order_position.calculate_position_price()
+                totalprice_list.append(order_position.position_price)
+                order_position_list[idx2] = order_position
+            currency_list.append(currency_name)
+            total = sum(totalprice_list)
+            total_list.append(total)
+            order_positions_count = order_positions.count()
+        order_positions_count_list.append(order_positions_count)
+    orders_list[idx1] = order
+    order_list_zip = zip(orders_list, order_positions_count_list, total, currency_name)
+    assert False
     return render(request, 'registration/profile.html',
                   {'person': person,
+                   'order_list_zip': order_list_zip,
                    'category_list': category_list})
 
 
@@ -416,5 +455,28 @@ def order(request):
                     )
     else:
         message = """something whent wrong.
-                     We cold not delete your cartitems. """
+                     We cold not empty your cart. """
+
+    # category_list = get_categories()
+    # person = Person.objects.get(user=request.user)
+    # orders = Order.objects.filter(user=request.user)
+    # for order in orders:
+    #     currency = order.exchange_rate
+    #     # get all items in the Order:
+    #     order_positions = OrderPosition.objects.filter(order=order)
+    #     if (order_positions.count()) > 0:
+    #         order_position_list = list(order_positions)
+    #         for idx, order_position in enumerate(order_position_list):
+    #                 # get currencyname to display:
+    #                 currency_name = ExchangeRate_name.objects.get(id=currency)
+    #                 # get exchange_rate multiplyed:
+    #                 cart_position.article.price_in_chf = ExchangeRate.exchange(
+    #                     currency,
+    #                     order_position.article.price_in_chf
+    #                     )
+    #             order_position.calculate_position_price()
+    #             totalprice_list.append(order_position.position_price)
+    #             order_position_list[idx] = order_position
+    #
+    #     total = sum(totalprice_list)
     return render(request, 'webshop/order.html', {})
