@@ -920,17 +920,17 @@ ausprogrammiert haben. Die gesamte Liste an Use Cases sieht wie folgt
 aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 
 #+LATEX: {\footnotesize
-| - [[*Artikel durchst%C3%B6bern][1.0 Artikel durchstöbern]]                               | - Kategorie erfassen (Admin Funktion)                |
-| - [[Registration][2.0 Registration]]                                       | - Kategorie ändern (Admin Funktion)                  |
-| - [[User Login][2.1 User Login]]                                         | - Kategorie löschen (Admin Funktion)                 |
+| - [[tab:browse_article][1.0 Artikel durchstöbern]]                               | - Kategorie erfassen (Admin Funktion)                |
+| - [[tab:registration][2.0 Registration]]                                       | - Kategorie ändern (Admin Funktion)                  |
+| - [[tab:login][2.1 User Login]]                                         | - Kategorie löschen (Admin Funktion)                 |
 | - User Profil ansehen                                    | - Bild hochladen (Admin Funktion)                    |
-| - [[Artikel in Warenkorb legen][3.0 Artikel in Warenkorb legen]]                         | - Bild ändern (Admin Funktion)                       |
-| - [[W%C3%A4hrung %C3%A4ndern][3.1 Währung ändern]]                                     | - Bild löschen (Admin Funktion)                      |
+| - [[tab:cart][3.0 Artikel in Warenkorb legen]]                         | - Bild ändern (Admin Funktion)                       |
+| - [[tab:currency][3.1 Währung ändern]]                                     | - Bild löschen (Admin Funktion)                      |
 | - Währung aktualisieren (Admin Funktion)                 | - Bestellung erfassen (Admin Funktion)               |
-| - [[Checkout][3.2 Checkout]]                                           | - [[Bestellung %C3%A4ndern/korrigieren][7.0 Bestellung ändern/korrigieren (Admin Funktion)]] |
-| - [[User Passwort %C3%A4ndern][4.0 User Passwort ändern (Admin Funktion)]]              | - Bestellung löschen (Admin Funktion)                |
-| - [[Artikel erfassen][5.0 Artikel erfassen (Admin Funktion)]]                  | - [[max_pictures Option anpassen][6.0 max_pictures Option anpassen (Admin Funktion)]]  |
-| - [[Artikel %C3%A4ndern][5.1 Artikel ändern (Admin Funktion)]]                    | - max_pictures Option deaktivieren (Admin Funktion)  |
+| - [[tab:checkout][3.2 Checkout]]                                           | - [[tab:change_order][7.0 Bestellung ändern/korrigieren (Admin Funktion)]] |
+| - [[tab:password][4.0 User Passwort ändern (Admin Funktion)]]              | - Bestellung löschen (Admin Funktion)                |
+| - [[tab:create_article][5.0 Artikel erfassen (Admin Funktion)]]                  | - [[tab:max_pictures][6.0 max_pictures Option anpassen (Admin Funktion)]]  |
+| - [[tab:create_article][5.1 Artikel ändern (Admin Funktion)]]                    | - max_pictures Option deaktivieren (Admin Funktion)  |
 | - Artikel löschen (Admin Funktion)                       | - User erfassen (Admin Funktion)                     |
 | - Materialbestellung erfassen (Admin Funktion)           | - User/Personen Daten ändern (Admin Funktion)        |
 | - Materialbestellung ändern/korrigieren (Admin Funktion) | - User löschen (Admin Funktion)                      |
@@ -940,7 +940,8 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 | - Stadt löschen (Admin Funktion)                         |                                                      |
 #+LATEX:}
 
-***** Artikel durchstöbern
+#+latex:\newpage
+*1.0 Artikel durchstöbern*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use 1.0 Artikel durchstöbern
@@ -980,7 +981,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Registration
+*2.0 Registration*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 2.0 Registration
@@ -1026,7 +1027,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** User Login
+*2.1 User Login*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 2.1 User Login
@@ -1070,7 +1071,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Artikel in Warenkorb legen
+*3.0 Artikel in Warenkorb legen*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.0 Artikel in Warenkorb legen
@@ -1112,7 +1113,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Währung ändern
+*3.1 Währung ändern*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.1 Währung ändern
@@ -1151,7 +1152,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Checkout
+*3.2 Checkout*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 3.2 Checkout
@@ -1197,7 +1198,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** User Passwort ändern
+*4.0 User Passwort ändern*
 
 #+LATEX:{\footnotesize
 #+CAPTION: 4.0 User Passwort ändern
@@ -1247,7 +1248,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Artikel erfassen
+*5.0 Artikel erfassen*
 
 #+LATEX:{\footnotesize
 #+CAPTION: 5.0 Artikel erfassen
@@ -1296,7 +1297,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Artikel ändern
+*5.1 Artikel ändern*
 
 #+LATEX:{\footnotesize
 #+CAPTION: 5.1 Artikel ändern
@@ -1338,7 +1339,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** max_pictures Option anpassen
+*6.0 max_pictures Option anpassen*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 6.0 max_pictures Option anpassen
@@ -1386,7 +1387,7 @@ aus, die Use Cases mit den Nummern wurden dabei im Detail ausgearbeitet:
 |---------------------+--------------------------------|
 #+LATEX:}
 
-***** Bestellung ändern/korrigieren
+*7.0 Bestellung ändern/korrigieren*
 
 #+LATEX:{\footnotesize
 #+CAPTION: Use Case 7.0 Bestellung ändern/korrigieren
