@@ -118,17 +118,15 @@ geeignet erscheinenden Frameworks. Jede noch so kleine Zeiteinsparung
 durch vorgefertigte Entwicklungen werden angenommen und dennoch wollen
 wir keine fertigen Software Produkte einsetzen.
 
-** TODO SWOT-Analyse
+** SWOT-Analyse
 
 Die SWOT-Analyse ist eine Methode, die Stärken, Schwächen, Chancen und
 Gefahren zu erkennen, indem eine 4-Felder-Matrix ausgefüllt wird.
 
 Wichtig vor dem Ausfüllen der SWOT-Analyse ist es, ein klares Ziel zu
 haben. Die ausgefüllte SWOT-Analyse für dieses Projekt ist in der
-Tabelle:([[tab:swot]]) zu sehen.
+Abbildung:(\ref{fig:swot}) zu sehen.
 
-#+CAPTION: SWOT-Analyse
-#+NAME: tab:swot
 #+BEGIN_EXPORT latex
 %--Beginn SWOT Analyse
 %---Used for SWOT Analysys Chart
@@ -143,11 +141,13 @@ Tabelle:([[tab:swot]]) zu sehen.
 \colorlet{T}{schwaechen!50!risiken}
 % implemented this in doc instead as in preamble:
 \def\bigfont#1#{\fontsize{120}{130}\selectfont #1}
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[scale=0.9,
     any/.style={
-            minimum width=8cm,
-    minimum height=8cm,%
-    text width=7.5cm,
+            minimum width=7cm,
+    minimum height=7cm,%
+    text width=6.5cm,
     align=center,
     outer sep=1pt
     },
@@ -192,6 +192,7 @@ Tabelle:([[tab:swot]]) zu sehen.
     any,
     anchor=center
     ] at (SWOT-2-2) { % Interne Stärken/Externe Chancen feld:
+    \footnotesize{
     \begin{itemize}
     \item Know-How in Webtechnologien.
     \item Quelloffene Software ist leichter zu unterhalten.
@@ -199,12 +200,13 @@ Tabelle:([[tab:swot]]) zu sehen.
         stark reduziert werden.
     \item Wir als Programmierer haben ein gutes Know-How
         im Bereich Datenbanken.
-    \end{itemize}
+    \end{itemize}}
     };
     \node[
         any,
         anchor=center
         ] at (SWOT-2-3) { % Interne Schwächen/Externe Chancen feld:
+    \footnotesize{
     \begin{itemize}
     \item Das Framework ist nicht vollkommen. Teile davon müssten
         eventuell selber konzipiert/erarbeitet werden.
@@ -221,6 +223,7 @@ Tabelle:([[tab:swot]]) zu sehen.
         any,
         anchor=center
         ] at (SWOT-3-2) { % Interne Stärken/ Externe Risiken feld:
+    \footnotesize{
     \begin{itemize}
     \item Quelloffene Software kann unkontrolliert kopiert werden.
     \item Die Implementierung von Währungsänderungen ist
@@ -232,15 +235,19 @@ Tabelle:([[tab:swot]]) zu sehen.
         any,
         anchor=center
         ] at (SWOT-3-3) { % Interne Schwächen/ Externe Risiken feld:
+    \footnotesize{
     \begin{itemize}
     \item Wir als Programmierer haben keine Erfahrung im
         Konsumsegment unseres Nutzers.
     \item Die Umsetzung der graphischen Anwendungsoberfläche
         könnte sich als schwierig erweisen.
     \item Die Umsetzungszeit ist knapp bemessen.
-    \end{itemize}
+    \end{itemize}}
     };
 \end{tikzpicture}
+\caption{SWOT-Analyse}
+\label{fig:swot}
+\end{figure}
 %--Ende SWOT Analyse
 #+END_EXPORT
 
@@ -286,7 +293,7 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 #+NAME: fig:umweltgrafik
 [[file:diagrammes/stakeholder_diagramm.eps]]
 
-** TODO Risikomanagement
+** Risikomanagement
 *** Risikobeschreibung
 
 #+CAPTION: Risikobeschreibung
@@ -339,12 +346,14 @@ Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
 * Projektmanagement
 ** Organigramm
 
-#+NAME: fig:Organigramm
 #+BEGIN_EXPORT latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[
 	auto,
 	node distance = 0.4cm,
 	thick,
+    align=center,
   	every node/.style = {
 		rectangle,
 		font = \sffamily,
@@ -357,8 +366,8 @@ Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
 		}
 	]
   \node (CH) 						    {\textbf{CH}\\Christian Herren};
-  \coordinate 	[below = 0.9cm of CH] 	(Mitte);
-  \coordinate 	[below = 1.6cm of CH] 	(Unten);
+  \coordinate 	[below = 1.2cm of CH] 	(Mitte);
+  \coordinate 	[below = 2.2cm of CH] 	(Unten);
   \node (CV)	[right = 2mm of Mitte]  {\textbf{CV}\\Christian Vögeli};
   \node (AZ) 	[below = of CV]    		{\textbf{AZ}\\Andreas Zweili};
   \node (IH) 	[left  = of AZ]       	{\textbf{IH}\\Ivan Hörler};
@@ -368,8 +377,9 @@ Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
     (Unten) -| (IH)
     (Unten) -| (AZ);
 \end{tikzpicture}
+\caption{Organigramm}
+\end{figure}
 #+END_EXPORT
-#+CAPTION: Organigramm
 
 ** Projektstrukturplan
 ** Varianten
@@ -1628,6 +1638,7 @@ die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 #+NAME: fig:person
 [[file:pictures/class_person.png]]
 
+#+LATEX:\newpage
 ** Benutzerinterface
 *** Mockup Skizze
 
@@ -1637,7 +1648,7 @@ wir eine Diskusionsgrundlage wie wir das Interface weiter entwickeln
 könnten.
 
 #+CAPTION: Ein frühes Mockup des Shop
-#+ATTR_LATEX: :width \textwidth
+#+ATTR_LATEX: :height 15cm
 #+NAME: mockup
 [[file:pictures/mockup-full-snipet.png]]
 #+LATEX:\newpage

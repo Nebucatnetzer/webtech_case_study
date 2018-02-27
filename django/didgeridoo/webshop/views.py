@@ -402,10 +402,8 @@ def checkout(request):
 
     # Here we handle all POST Operations:
     if request.method == 'POST':
-        print('checkout post', request.POST)
         # here we react to a change of amount per item in the Cart:
         if 'checkout' in request.POST:
-            print('checkout post request.POST = checkout_form')
             checkout_form = CheckoutForm(request.POST)
             if checkout_form.is_valid():
                 orderstatus = OrderStatus.objects.get(name='ordered')
@@ -425,8 +423,7 @@ def checkout(request):
                         amount=position.amount,
                         price_in_chf=position.article.price_in_chf
                         )
-                cart.delete()
-                cart = False
+                return HttpResponseRedirect('/order/')
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
