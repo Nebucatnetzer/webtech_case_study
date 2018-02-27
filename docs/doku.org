@@ -819,7 +819,7 @@ Diagramm in [[Models]] haben wir jedoch Dia\footcite{dia} verwendet. Dia
 ist freie Software unter der GNU Public License v2.
 
 Die Klassendiagramme haben wir mit der Django Erweiterung
-"Django-Extensions"\footcite{django_extensions} erstellt.
+"Django-Extensions"\footcite{djangoextensions} erstellt.
 Django-Extensions ist freie Software unter der MIT Lizenz.
 
 ** Spezifikation
