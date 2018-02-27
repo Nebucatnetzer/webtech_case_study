@@ -10,7 +10,10 @@ from webshop.models import (Article,
                             City,
                             Picture,
                             CartPosition,
-                            ShoppingCart)
+                            ShoppingCart,
+                            Order,
+                            OrderStatus,
+                            OrderPosition)
 from webshop.forms import (RegistrationForm,
                            AddToCartForm,
                            CartForm,
@@ -83,7 +86,7 @@ def restrict_cart_to_one_article(user_id, article_id, amount, operation):
             if operation == 'add':
                 new_amount = cart_position.amount + amount
             if operation == 'replace':
-                new_amount = amount  # ref two times check later !!
+                new_amount = amount
             # if article is in cart already update amount:
             cart_position = CartPosition.objects.filter(
                 article=article_id).update(
@@ -177,7 +180,7 @@ def registration(request):
                     user.last_name = pf['last_name']
                     user.first_name = pf['first_name']
                     user.save()
-                    person = Person.objects.create(
+                    Person.objects.create(
                         salutation=pf['salutation'],
                         city=City.objects.get(zip_code=pf['zip_code'],
                                               name=pf['city']),
@@ -194,6 +197,7 @@ def registration(request):
                    'user_form': user_form})
 
 
+@login_required
 def cart(request):
     category_list = get_categories()
     currencies_form = CurrenciesForm
@@ -283,11 +287,6 @@ def cart(request):
                     currency,
                     cart_position.article.price_in_chf
                     )
-                cart_position.position_price = rate.exchange(
-                    currency,
-                    cart_position.position_price
-                    )
-
             amount_form = CartForm(
                 initial={'amount_form': cart_position.amount}
             )
@@ -312,112 +311,107 @@ def cart(request):
                    })
 
 
+@login_required
 def checkout(request):
     category_list = get_categories()
-    currencies_form = CurrenciesForm
-    amount_form = CartForm
     rate = ExchangeRate
-    article_view = True
+    article_view = False
     currency_name = "CHF"
+    exchange_rate = False
     message = ""
     cart_position_list = []
-    amount_form_list = []
     totalprice_list = []
     total = 0
-    cart_position_list_zip = []
-    # here we configure the users Currency:
+    person = Person.objects.get(user=request.user.id)
+
+    checkout_form = CheckoutForm()
     if 'currency' not in request.session:
         request.session['currency'] = None
     else:
         currency = request.session['currency']
-    # Here we handle all POST Operations:
-    if request.method == 'POST':
-        # here we react to a currency dropdown change:
-        if 'currencies' in request.POST:
-            print('currencies')
-            currencies_form = CurrenciesForm(request.POST)
-            if currencies_form.is_valid():
-                cf = currencies_form.cleaned_data
-                if cf['currencies']:
-                    print('currencies cf:', cf)
-                    selection = cf['currencies']
-                    request.session['currency'] = selection.id
-                    currency_name = ExchangeRate_name.objects.get(
-                        id=selection.id)
-                    print('currencies currency_name:', currency_name)
-                else:
-                    request.session['currency'] = None
-        # here we react to a change of amount per item in the Cart:
-        if 'amount_form' in request.POST:
-            amount_form = CartForm(request.POST)
-            if amount_form.is_valid():
-                amount = amount_form.cleaned_data['amount_form']
-                article_id = request.POST.get('article_id')
-                operation = 'replace'
-                restrict_cart_to_one_article(
-                    request.user.id,
-                    article_id,
-                    amount,
-                    operation
-                    )
-        # here we react to a change of amount per item in the Cart:
-        if 'delete' in request.POST:
-            delete = CartForm(request.POST)
-            if delete.is_valid():
-                amount = delete.cleaned_data['amount_form']
-                article_id = request.POST.get('article_id')
-                amount = 1
-                operation = 'delete'
-                restrict_cart_to_one_article(
-                    request.user.id,
-                    article_id,
-                    amount,
-                    operation
-                    )
-    # here we handle the normal cart view:
-    # if cart_id is not existent create a cart:
-    cart_id, created_cart = ShoppingCart.objects.get_or_create(user=request.user)
-    # get all items in the cart of this customer:
-    cart_positions = CartPosition.objects.filter(cart=cart_id)
-    if (cart_positions.count()) > 0:
-        # make a list out of all articles:
-        cart_position_list = list(cart_positions)
-        # enumerate the list of articles and loop over items:
-        for idx, cart_position in enumerate(cart_position_list):
-            # scrap out the details to calculate Total of item and Summ of All:
-            if currency:
-                # get currencyname to display:
-                currency_name = ExchangeRate_name.objects.get(id=currency)
-                # get exchange_rate multiplyed:
-                cart_position.price_in_chf = rate.exchange(
-                    currency,
-                    cart_position.article.price_in_chf
-                    )
-                totalprice_list.append(cart_position.price_in_chf)
-            amount_form = CartForm(
-                initial={'amount_form': cart_position.amount}
-            )
-            amount_form_list.append(amount_form)
-            cart_position_list[idx] = cart_position
-        cart_position_list_zip = zip(cart_position_list, amount_form_list)
+
+    if currency:
+        exchange_rate = rate.objects.filter(name=currency).latest('date')
+
+    cart = ShoppingCart.objects.get(user=request.user)
+    if cart:
+        # get all items in the cart of this customer:
+        cart_positions = CartPosition.objects.filter(cart=cart)
+        if (cart_positions.count()) > 0:
+            # make a list out of all articles:
+            cart_position_list = list(cart_positions)
+            # enumerate the list of articles and loop over items:
+            for idx, cart_position in enumerate(cart_position_list):
+                if request.session['currency']:
+                    # get currencyname to display:
+                    currency_name = ExchangeRate_name.objects.get(id=currency)
+                    # get exchange_rate multiplyed:
+                    cart_position.article.price_in_chf = rate.exchange(
+                        currency,
+                        cart_position.article.price_in_chf
+                        )
+                cart_position.calculate_position_price()
+                totalprice_list.append(cart_position.position_price)
+                cart_position_list[idx] = cart_position
+
+    else:
+        message = """something whent wrong.
+                     Seams like your cart was
+                     not existent before. How come? """
 
     total = sum(totalprice_list)
 
-    checkout_form = CheckoutForm()
-    registration_form = RegistrationForm()
-    person = Person.objects.get(user=request.user.id)
+    # Here we handle all POST Operations:
+    if request.method == 'POST':
+        # here we react to a change of amount per item in the Cart:
+        if 'checkout' in request.POST:
+            checkout_form = CheckoutForm(request.POST)
+            if checkout_form.is_valid():
+                orderstatus = OrderStatus.objects.get(name='ordered')
+                if exchange_rate:
+                    order = Order.objects.create(user=request.user,
+                                                 status=orderstatus,
+                                                 exchange_rate=exchange_rate)
+                else:
+                    order = Order.objects.create(user=request.user,
+                                                 status=orderstatus)
+
+                print('order', order, 'created:', order)
+                for position in cart_positions:
+                    OrderPosition.objects.create(
+                        article=position.article,
+                        order=order,
+                        amount=position.amount,
+                        price_in_chf=position.article.price_in_chf
+                        )
+                return HttpResponseRedirect('/order/')
 
     return render(request, 'webshop/checkout.html',
-                  {'cart_position_list_zip': cart_position_list_zip,
-                   'totalprice_list': totalprice_list,
+                  {'cart_position_list': cart_position_list,
                    'total': total,
-                   'currencies_form': currencies_form,
-                   'amount_form': amount_form,
                    'checkout_form': checkout_form,
-                   'registration_form': registration_form,
-                   'article_view': article_view,
                    'currency_name': currency_name,
+                   'article_view': article_view,
                    'category_list': category_list,
                    'message': message,
                    'person': person
                    })
+
+
+def order(request):
+    cart = ShoppingCart.objects.get(user=request.user)
+    if cart:
+        # get all items in the cart of this customer:
+        cart_positions = CartPosition.objects.filter(cart=cart)
+        if (cart_positions.count()) > 0:
+            for cart_position in cart_positions:
+                restrict_cart_to_one_article(
+                    request.user,
+                    cart_position.article.id,
+                    0,
+                    'delete'
+                    )
+    else:
+        message = """something whent wrong.
+                     We cold not delete your cartitems. """
+    return render(request, 'webshop/order.html', {})
