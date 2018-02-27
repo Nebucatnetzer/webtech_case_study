@@ -1,8 +1,8 @@
 {% extends "webshop/base.html" %}
-{% block section_title %}<h1>CHECKOUT</h1>{% endblock %}
+{% block section_title %}CHECKOUT{% endblock %}
 {% block content %}
     <h3>Preview your Purchase:</h3>
-    </br>
+    <br>
     <h4>Shipping Address:</h4>
     {% if person %}
     <p><b>Salutation: </b>{{ person.salutation }}</p>
@@ -19,7 +19,7 @@
       </p>
     {% endif %}
     {% if cart_position_list %}
-  </br>
+  <br>
     <h4>Your Items:</h4>
       <table class="table price-table">
         <tr class="table_header">
@@ -52,15 +52,15 @@
           </tr>
         {% endfor %}
         <tr>
-          <td scope="col" colspan="5"class="text-right">
+          <td scope="col" colspan="5" class="text-right">
           <td scope="col" class="price-value">
-            <dl><dt>Total:</dl></dt></td>
+            <dt><dl>Total:</dl></dt></td>
           <td scope="col" class="price-value">
-             <dl><dt>{{ total }} {{ currency_name }}</dl></dt>
+             <dt><dl>{{ total }} {{ currency_name }}</dl></dt>
           </td>
         </tr>
       </table>
-      <form id="checkout_form" action="{% url 'order' %}" method="post">
+      <form id="checkout_form" action="" method="POST">
         {% csrf_token %}
         {{ checkout_form.as_p }}
         <input type="submit" value="Order" class="btn btn-success" role="button"/>
@@ -76,6 +76,6 @@
     <p class="alert text-danger">
       <strong>
         {{ message }}
-      <strong>
+      </strong>
     </p>
 {% endblock %}
