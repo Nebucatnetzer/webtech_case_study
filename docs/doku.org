@@ -281,7 +281,7 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 |       |                      |                      | - Viele Arbeitsschritte automatisieren        | mittel                                       |
 |-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
 |    3. | Interessenten        | gering               | - Intuitiv bedienbare Webseite                | hoch                                         |
-|       |                      |                      | - schnell finden, was gesucht wird.            | hoch                                         |
+|       |                      |                      | - schnell finden, was gesucht wird.           | hoch                                         |
 |-------+----------------------+----------------------+-----------------------------------------------+----------------------------------------------|
 |    4. | Projektleiter        | hoch                 | - Gutes innovatives Produkt erschaffen.       | mittel                                       |
 |       |                      |                      | - Anerkennung im fachlichen Umfeld            | hoch                                         |
