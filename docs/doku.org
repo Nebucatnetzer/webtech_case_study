@@ -382,6 +382,7 @@ Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
 #+END_EXPORT
 
 ** Projektstrukturplan
+#+LATEX:\newpage
 ** Varianten
 
 Wir haben uns 3 mögliche Varianten in Bezug auf die zu
