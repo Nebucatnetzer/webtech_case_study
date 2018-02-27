@@ -100,6 +100,10 @@ class OrderPosition(models.Model):
                                        validators=[MinValueValidator(
                                             Decimal('0.00'))])
 
+    def calculate_position_price(self):
+        decimal_amount = Decimal.from_float(self.amount)
+        self.position_price = decimal_amount * self.article.price_in_chf
+
 
 class ShoppingCart(models.Model):
     """ Cart to User Relationships """

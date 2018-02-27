@@ -171,33 +171,35 @@ def profile(request):
     orders = Order.objects.filter(user=request.user)
     orders_list = list(orders)
     for idx1, order in enumerate(orders_list):
-        currency = order.exchange_rate
-        print('order:', order, 'currency:', currency)
         # get all items in the Order:
-        order_positions = OrderPosition.objects.get(order=order)
+        order_positions = OrderPosition.objects.filter(order=order)
         if (order_positions.count()) > 0:
             order_position_list = list(order_positions)
-            print('order_position_list:', order_position_list)
             for idx2, order_position in enumerate(order_position_list):
                 # get currencyname to display:
-                currency_name = ExchangeRate_name.objects.get(id=currency)
-                # get exchange_rate multiplyed:
-                order_position.article.price_in_chf = ExchangeRate.exchange(
-                    currency,
-                    order_position.article.price_in_chf
-                    )
-                # get price of position in order and append to a summed list:
-                order_position.calculate_position_price()
-                totalprice_list.append(order_position.position_price)
+                if order.exchange_rate is not None:
+                    print('order.exchange_rate', order.exchange_rate, order.exchange_rate.id)
+                    # get price of position in order and append to a list:
+                    rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
+                    order_position.price_in_chf = round(
+                        rate.exchange_rate_to_chf * order_position.price_in_chf,
+                        2)
+                    currency_name = order.exchange_rate
+                else:
+                    currency_name = 'CHF'
+                totalprice_list.append(order_position.price_in_chf)
                 order_position_list[idx2] = order_position
+                total = sum(totalprice_list)
             currency_list.append(currency_name)
-            total = sum(totalprice_list)
             total_list.append(total)
             order_positions_count = order_positions.count()
         order_positions_count_list.append(order_positions_count)
     orders_list[idx1] = order
-    order_list_zip = zip(orders_list, order_positions_count_list, total, currency_name)
-    assert False
+    order_list_zip = zip(orders_list,
+                         order_positions_count_list,
+                         total_list,
+                         currency_list)
+    # assert False
     return render(request, 'registration/profile.html',
                   {'person': person,
                    'order_list_zip': order_list_zip,
