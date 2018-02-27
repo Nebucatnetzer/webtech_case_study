@@ -402,4 +402,19 @@ def checkout(request):
 
 
 def order(request):
+    cart = ShoppingCart.objects.get(user=request.user)
+    if cart:
+        # get all items in the cart of this customer:
+        cart_positions = CartPosition.objects.filter(cart=cart)
+        if (cart_positions.count()) > 0:
+            for cart_position in cart_positions:
+                restrict_cart_to_one_article(
+                    request.user,
+                    cart_position.article.id,
+                    0,
+                    'delete'
+                    )
+    else:
+        message = """something whent wrong.
+                     We cold not delete your cartitems. """
     return render(request, 'webshop/order.html', {})
