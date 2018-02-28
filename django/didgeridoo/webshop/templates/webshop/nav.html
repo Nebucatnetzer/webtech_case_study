@@ -17,7 +17,8 @@
             {% if article_view %}
           <form id="currency" action="" method="POST" novalidate>
             {{ currencies_form.as_ul }}
-          {% csrf_token %}
+            {% csrf_token %}
+            <li><input type="submit" value="Select"></li>
           </form>
         {% endif %}
         </li>

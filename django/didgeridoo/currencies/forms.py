@@ -8,10 +8,10 @@ class CurrenciesForm(forms.Form):
         required=False,
         empty_label='CHF',
         label='CURENCIES',
-        widget=forms.Select(
-            attrs={
-                'onchange': 'currency.submit();',
-                'class': 'btn-primary dropdown-toggle'
-            }
-        )
+        # widget=forms.Select(
+        #     attrs={
+        #         'onchange': 'currency.submit();',
+        #         'class': 'btn-primary dropdown-toggle'
+        #     }
+        #)
     )
