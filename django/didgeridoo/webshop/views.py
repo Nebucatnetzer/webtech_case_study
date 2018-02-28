@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
+from decimal import Decimal
 from webshop.models import (Article,
                             Category,
                             Person,
@@ -159,9 +160,32 @@ def article_details(request, article_id):
 @login_required
 def profile(request):
     category_list = get_categories()
+    totalprice_list = []
+    total_list = []
+    currency_list = []
+    order_list_zip = []
+    order_positions_count_list = []
+    order_positions_count = ""
+    total = ""
+    currency_name = ""
     person = Person.objects.get(user=request.user)
+    orders = Order.objects.filter(user=request.user)
+    if orders:
+        orders_list = list(orders)
+        for idx1, order in enumerate(orders_list):
+            # get all items in the Order:
+            order_positions = OrderPosition.objects.filter(order=order)
+            if (order_positions.count()) > 0:
+                order_positions_count = order_positions.count()
+                order_positions_count_list.append(order_positions_count)
+            orders_list[idx1] = order
+        order_list_zip = zip(orders_list,
+                             order_positions_count_list
+                             )
+    # assert False
     return render(request, 'registration/profile.html',
                   {'person': person,
+                   'order_list_zip': order_list_zip,
                    'category_list': category_list})
 
 
@@ -222,17 +246,14 @@ def cart(request):
     if request.method == 'POST':
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
-            print('currencies')
             currencies_form = CurrenciesForm(request.POST)
             if currencies_form.is_valid():
                 cf = currencies_form.cleaned_data
                 if cf['currencies']:
-                    print('currencies cf:', cf)
                     selection = cf['currencies']
                     request.session['currency'] = selection.id
                     currency_name = ExchangeRate_name.objects.get(
                         id=selection.id)
-                    print('currencies currency_name:', currency_name)
                 else:
                     request.session['currency'] = None
 
@@ -375,8 +396,6 @@ def checkout(request):
                 else:
                     order = Order.objects.create(user=request.user,
                                                  status=orderstatus)
-
-                print('order', order, 'created:', order)
                 for position in cart_positions:
                     OrderPosition.objects.create(
                         article=position.article,
@@ -384,7 +403,7 @@ def checkout(request):
                         amount=position.amount,
                         price_in_chf=position.article.price_in_chf
                         )
-                return HttpResponseRedirect('/order/')
+                return HttpResponseRedirect('/order/%s/' % order.id)
 
     return render(request, 'webshop/checkout.html',
                   {'cart_position_list': cart_position_list,
@@ -394,11 +413,14 @@ def checkout(request):
                    'article_view': article_view,
                    'category_list': category_list,
                    'message': message,
-                   'person': person
+                   'person': person,
                    })
 
 
-def order(request):
+def order(request, order_id):
+    price_list = []
+    totalprice_list = []
+    order_position_list_zip = []
     cart = ShoppingCart.objects.get(user=request.user)
     if cart:
         # get all items in the cart of this customer:
@@ -413,5 +435,34 @@ def order(request):
                     )
     else:
         message = """something whent wrong.
-                     We cold not delete your cartitems. """
-    return render(request, 'webshop/order.html', {})
+                     We cold not empty your cart. """
+    order = Order.objects.get(id=order_id)
+    order_positions = OrderPosition.objects.filter(order=order_id)
+    if (order_positions.count()) > 0:
+        order_position_list = list(order_positions)
+        for idx, order_position in enumerate(order_positions):
+            # get currencyname to display:
+            if order.exchange_rate is not None:
+                # get price of position in order and append to a list:
+                rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
+                price = round(
+                    rate.exchange_rate_to_chf * order_position.price_in_chf,
+                    2)
+                currency_name = order.exchange_rate
+            else:
+                currency_name = 'CHF'
+                price = order_position.price_in_chf
+            position_price = price * Decimal.from_float(order_position.amount)
+            order_position_list[idx] = order_position
+            price_list.append(price)
+            totalprice_list.append(position_price)
+        total = sum(totalprice_list)
+        order_position_list_zip = zip(order_position_list,
+                                      price_list,
+                                      totalprice_list)
+    return render(request, 'webshop/order.html', {
+                  'order': order,
+                  'order_position_list_zip': order_position_list_zip,
+                  'total': total,
+                  'currency_name': currency_name,
+                  })

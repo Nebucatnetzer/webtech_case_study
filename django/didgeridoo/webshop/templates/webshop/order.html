@@ -1,7 +1,70 @@
 {% extends "webshop/base.html" %}
-{% load customfilters %}
 {% block section_title %}Order{% endblock %}
 {% block content %}
-  <h1> Your order was submitted. </h1>
-  <h3> Thank you for Purchase. </h3>
+  {% if order %}
+    <h4>Your order was submitted on:
+      {{ order.date }}, current Status is:
+      {{ order.status }}.
+    </h4>
+  {% else %}
+    <p class="alert alert-danger">
+      <strong>
+        Orderdetails are not avalable.
+      <strong>
+    </p>
+  {% endif %}
+  <h3>List of Items in your Order:</h3>
+  {% if order_position_list_zip %}
+    <table class="table price-table">
+      <tr class="table_header">
+        <th scope="col">POS.</th>
+        <th scope="col">ART#</th>
+        <th scope="col">NAME</th>
+        <th scope="col">STOCK</th>
+        <th scope="col">AMOUNT</th>
+        <th scope="col" class="price-label">PRICE p.pce.</th>
+        <th scope="col" class="price-label">POSITION PRICE</th>
+      </tr>
+      {% for order_position, price, pos_price in order_position_list_zip %}
+        <tr class="table_content">
+          <td scope="col">{{ order_position.id }}</td>
+          <td scope="col">{{ order_position.article.id }}</td>
+          <td scope="col">
+            <a href="{% url 'details' order_position.article.id %}">
+              {{ order_position.article.name }}
+            </a>
+          </td>
+          <td scope="col">{{ order_position.article.stock }}</td>
+          <td scope="col">{{ order_position.amount }}</td>
+          <td scope="col" class="price-value">
+            {{ price }}
+            {{ currency_name }}
+          </td>
+          <td scope="col" class="price-value">
+            {{ pos_price }} {{ currency_name }}
+          </td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <td scope="col" colspan="5"class="text-right">
+        <td scope="col" class="price-value">
+          <dl><dt>Total:</dl></dt></td>
+        <td scope="col" class="price-value">
+           <dl><dt>{{ total }} {{ currency_name }}</dl></dt>
+        </td>
+      </tr>
+    </table>
+    <h3> Thank you for Purchase. </h3>
+  {% else %}
+    <p class="alert alert-danger">
+      <strong>
+        This order is empty. Howcome?
+      <strong>
+    </p>
+  {% endif %}
+  <p class="alert text-danger">
+    <strong>
+      {{ message }}
+    <strong>
+  </p>
 {% endblock %}
