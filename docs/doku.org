@@ -1888,8 +1888,51 @@ entdeckt.
 
 * Fazit
 ** Projektmanagement
+
+Eine sorgfälltige Planung ist wichtig um ein Projekt erfolgreich zum
+Abschluss zu bringen. Insbesondere wenn es im Projekt gewisse
+Unbekannte gibt hilft einem eine gute Planung das Ziel nicht aus den
+Augen zu verlieren.
+
+Eine gute Planung ist auch für die Kommunikation im Team wichtig damit
+jeder Projektmitarbeiter den aktuellen Stand kennt, weiss was geplannt
+ist und welche Schritte als nächstes gemacht werden müssen.
+
 ** Umsetzung
+
+Ein Framework ist nahezu immer eine komplexe Angelegenheit und braucht
+viel Einarbeitungszeit wenn man sich zuvor noch nie damit beschäftigt
+hat. Dabei macht es nicht einmal einen grossen Unterschied ob man die
+jeweilige Programmiersprache bereits kennt. Das Framework bringt in
+der Regel viele eigene Wege und Lösungen mit um Probleme anzugehen.
+
+Wir haben jedoch festgestellt das eine Framework eine grosse Hilfe
+sein kann, bei Aufgaben welche immer wieder kommen. Zusätzlich
+empfanden wir es als sehr angenehm uns nicht gross mit der Datenbank
+auseinander setzen zu müssen. Leider kann ein Framework das
+Sprachenchaos bei einer Webanwendung nur bedingt vereinfachen da man
+am Schluss dann doch immer mindestens drei Sprachen einsetzt.
+
 ** Gelerntes
+
+Wir haben bei dieser Case Study einmal mehr gemerkt das eine gute
+Vorbereitung und Planung in einem Projekt von grosser Wichtigkeit ist.
+Spezifikationen sollten früh ausgearbeitet werden und auch konstant
+nachgeführt werden damit man im Team immer auf dem gleichen
+Wissensstand ist und von der gleichen Sache redet.
+
+Im Bezug auf die Umsetzung haben wir die Vorzüge eines Systems wie
+Vagrant schätzen gelernt welches jedem Entwickler die gleiche Umgebung
+zur Verfügung stellt. Somit hatten wir nahezu nie das Problem, dass
+ein Code Update bei einem Entwickler nicht funktionierte und wenn es
+mal auftrat war es dann jeweils sehr schnell behoben.
+Zusätzlich haben wir gelernt das ein Framework zwar die Arbeit enorm
+vereinfachen kann aber durchaus auch seine Tücken hat und zuerst
+einmal verstanden werden muss bevor man es korrekt einsetzen kann.
+
+Insgesamt war es eine sehr interessante Case Study bei welcher wir zum
+ersten Mal das Gefühl hatten das wir über eine genügende Wissensbasis
+verfügten um das Projekt in Angriff zu nehmen.
 
 * TODO samples [to be deleted] :noexport:
 *** Subsubsection
