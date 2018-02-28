@@ -31,7 +31,7 @@ def parse_rss(urlsocket):
 def pass_local_file():
     rss_tree = ET.ElementTree(file='rss')
     return(rss_tree)
-    
+
 
 def get_exchange_rate(rss_tree, ns):
     # Pathvariables to XML Namespaces with
@@ -111,5 +111,4 @@ def get_exchange_rate(rss_tree, ns):
                  'exchangerate': foreign_value_round}]
         exchange_rates.append(data)
         # Print the Dictionary:
-    print(exchange_rates)
     return(exchange_rates)
