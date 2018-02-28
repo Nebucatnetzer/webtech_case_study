@@ -1,5 +1,4 @@
 {% extends "webshop/base.html" %}
-{% load customfilters %}
 {% block section_title %}Order{% endblock %}
 {% block content %}
   {% if order %}
@@ -26,7 +25,7 @@
         <th scope="col" class="price-label">PRICE p.pce.</th>
         <th scope="col" class="price-label">POSITION PRICE</th>
       </tr>
-      {% for order_position, price in order_position_list_zip %}
+      {% for order_position, price, pos_price in order_position_list_zip %}
         <tr class="table_content">
           <td scope="col">{{ order_position.id }}</td>
           <td scope="col">{{ order_position.article.id }}</td>
@@ -42,7 +41,7 @@
             {{ currency_name }}
           </td>
           <td scope="col" class="price-value">
-            {{ price }} {{ currency_name }}
+            {{ pos_price }} {{ currency_name }}
           </td>
         </tr>
       {% endfor %}

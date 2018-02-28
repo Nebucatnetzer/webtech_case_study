@@ -477,7 +477,9 @@ def order(request, order_id):
             price_list.append(price)
             totalprice_list.append(position_price)
         total = sum(totalprice_list)
-        order_position_list_zip = zip(order_position_list, price_list)
+        order_position_list_zip = zip(order_position_list,
+                                      price_list,
+                                      totalprice_list)
     return render(request, 'webshop/order.html', {
                   'order': order,
                   'order_position_list_zip': order_position_list_zip,
