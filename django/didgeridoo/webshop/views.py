@@ -179,25 +179,30 @@ def profile(request):
                 order_positions_count = order_positions.count()
                 order_position_list = list(order_positions)
                 for idx2, order_position in enumerate(order_position_list):
+                    position_price = None
+                    price = None
                     # get currencyname to display:
                     if order.exchange_rate is not None:
                         # get price of position in order and append to a list:
                         rate = ExchangeRate.objects.get(
                                             id=order.exchange_rate.id)
-                        order_position.price_in_chf = round(
+                        price = round(
                             rate.exchange_rate_to_chf *
                             order_position.price_in_chf,
                             2)
                         currency_name = order.exchange_rate
                     else:
                         currency_name = 'CHF'
-                    totalprice_list.append(order_position.price_in_chf)
+                        price = order_position.price_in_chf
+                    position_price = price * Decimal.from_float(
+                        order_position.amount)
+                    totalprice_list.append(position_price)
                     order_position_list[idx2] = order_position
                 total = sum(totalprice_list)
                 currency_list.append(currency_name)
                 total_list.append(total)
                 order_positions_count_list.append(order_positions_count)
-        orders_list[idx1] = order
+            orders_list[idx1] = order
         order_list_zip = zip(orders_list,
                              order_positions_count_list,
                              total_list,
