@@ -3,15 +3,41 @@
 {% block section_title %}User Profile{% endblock %}
 
 {% block content %}
+</br>
 <p><b>Username: </b>{{ request.user.username }}</p>
-<p><b>Salutation: </b>{{ person.salutation }}</p>
-<p><b>Firstname: </b>{{ request.user.first_name }}</p>
-<p><b>Lastname: </b>{{ request.user.last_name }}</p>
+<p><b>Name: </b>
+  {{ person.salutation }}
+  {{ request.user.first_name }}
+  {{ request.user.last_name }}</p>
+<p><b>Street: </b>{{ person.street_name }} {{ person.street_number }}</p>
 <p><b>City: </b>{{ person.city }}</p>
-<p><b>Street: </b>{{ person.street_name }}</p>
-<p><b>Streetnumber: </b>{{ person.street_number }}</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
 </form>
+{% if order_list_zip %}
+</br>
+<h4> Orders:</h4>
+<table class="table price-table">
+  <tr class="table_header">
+    <th scope="col">ID</th>
+    <th scope="col">DATE</th>
+    <th scope="col">STATUS</th>
+  </tr>
+  {% for order, order_positions_count in order_list_zip %}
+    <tr class="table_content">
+        <td scope="col">{{ order.id }}</td>
+        <td scope="col">{{ order.date }}</td>
+        <td scope="col">
+          <a href="{% url 'order' order.id %}">{{ order.status }}</a>
+        </td>
+    </tr>
+  {% endfor %}
+</table>
+{% else %}
+  <p>
+    you don't have Ordered anything yet.
+    As soon as you Purchase anything from us you can see your Orders here.
+  </p>
+{% endif %}
 {% endblock %}

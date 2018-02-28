@@ -21,9 +21,15 @@ def get_rss(url):
 
 
 def parse_rss(urlsocket):
+    rss_tree = ''
     if urlsocket:
         root = ET.parse(urlsocket)
         rss_tree = ET.ElementTree(root)
+    return(rss_tree)
+
+
+def pass_local_file():
+    rss_tree = ET.ElementTree(file='rss')
     return(rss_tree)
 
 
@@ -105,5 +111,4 @@ def get_exchange_rate(rss_tree, ns):
                  'exchangerate': foreign_value_round}]
         exchange_rates.append(data)
         # Print the Dictionary:
-    print(exchange_rates)
     return(exchange_rates)

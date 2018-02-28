@@ -2,12 +2,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Add additional CSS in static file -->
+      <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{{ STATIC_URL }}/static/webshop/css/base.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/bootstrap-3.3.7-dist/css/bootstrap.css" />
     {% block title %}
       <title>
         Casestudy 'Webshop' IBZ TIAE-5(2017/18)
@@ -75,7 +73,7 @@
                           target='_blank'
                           href='http://www.ibz.ch'
                           >This is a case study project of Ivan Hörler and Andreas Zweili.
-                          </br>
+                          <br>
                           It is a school project/excercise and has no commercial intent.
                         </a>
                       </li>
@@ -83,7 +81,7 @@
                         <a href="/currencies">Currencies</a>
                       </li>
                       <li>
-                        <a href="#">How to use</a>
+                          <a href="https://git.2li.ch/ibz/web_AI-5/src/branch/master/README.md">How to use</a>
                       </li>
                     </ul>
                   </div>
@@ -95,7 +93,6 @@
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
     <script>{% block javascript %}{% endblock %}</script>
   </body>
 </html>

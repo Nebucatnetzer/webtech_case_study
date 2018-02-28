@@ -137,6 +137,45 @@
   references = {Referenzen},
 }
 
+% ''Graphix'' is included in tikz but not ''graphics'' and graphics owns scale properties...
+\usepackage{graphics}				%Support for image input and scale
+\usepackage{pgfgantt}
+\usepackage{tikz}					%Support for more advanced Graphics
+  \usetikzlibrary{%
+    arrows,
+    arrows.meta,
+    automata,
+    backgrounds,
+    chains,
+    calc,
+    decorations,
+    decorations.pathreplacing,
+    graphs,
+    graphs.standard,
+    intersections,
+    matrix,
+    mindmap,
+    petri,
+    positioning,
+    scopes,
+    shadows,
+    shapes,
+    shapes.misc,
+    shapes.symbols,
+    shapes.geometric,
+    shapes.multipart,
+    snakes,
+    spy,
+    trees,
+    quotes,
+    }
+\usepackage{ifthen}
+\usepackage{xstring}
+\usepackage{xkeyval}
+\usepackage{calc}
+\usepackage{pgf}
+\usepackage{pgfkeys}
+\usepackage{pgfplots}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"

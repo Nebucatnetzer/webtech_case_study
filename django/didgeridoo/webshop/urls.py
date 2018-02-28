@@ -17,4 +17,13 @@ urlpatterns = [
     url(r'^registration/$',
         views.registration,
         name='registration'),
+    url(r'^cart/$',
+        views.cart,
+        name='cart'),
+    url(r'^cart/checkout/$',
+        views.checkout,
+        name='checkout'),
+    url(r'^order/(?P<order_id>[0-9]+)/$',
+        views.order,
+        name='order'),
 ]

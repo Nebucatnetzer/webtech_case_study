@@ -1,621 +1,621 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:cb="http://www.cbwiki.net/wiki/index.php/Specification_1.2/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
-  <channel rdf:about="https://www.snb.ch/de/ifor/media/id/media_rss">
-    <title>SNB Devisenkurse</title>
-    <link>https://www.snb.ch/de/ifor/media/id/media_rss</link>
-    <description>Schweizerische Nationalbank (SNB): Devisenkurse (Ankauf Zürich 11 Uhr)</description>
-    <items>
-      <rdf:Seq>
-        <rdf:li rdf:resource="https://www.snb.ch#GBP_6ec827d359194a0a002581e5003df8a5"/>
-        <rdf:li rdf:resource="https://www.snb.ch#JPY_6ec827d359194a0a002581e5003df8a5"/>
-        <rdf:li rdf:resource="https://www.snb.ch#EUR_6ec827d359194a0a002581e5003df8a5"/>
-        <rdf:li rdf:resource="https://www.snb.ch#USD_6ec827d359194a0a002581e5003df8a5"/>
-        <rdf:li rdf:resource="https://www.snb.ch#GBP_f4a6fbc20fb0403d002581e2003e3d67"/>
-        <rdf:li rdf:resource="https://www.snb.ch#JPY_f4a6fbc20fb0403d002581e2003e3d67"/>
-        <rdf:li rdf:resource="https://www.snb.ch#EUR_f4a6fbc20fb0403d002581e2003e3d67"/>
-        <rdf:li rdf:resource="https://www.snb.ch#USD_f4a6fbc20fb0403d002581e2003e3d67"/>
-        <rdf:li rdf:resource="https://www.snb.ch#GBP_6568365cd292474b002581e1003fca55"/>
-        <rdf:li rdf:resource="https://www.snb.ch#JPY_6568365cd292474b002581e1003fca55"/>
-        <rdf:li rdf:resource="https://www.snb.ch#EUR_6568365cd292474b002581e1003fca55"/>
-        <rdf:li rdf:resource="https://www.snb.ch#USD_6568365cd292474b002581e1003fca55"/>
-        <rdf:li rdf:resource="https://www.snb.ch#GBP_0d6cfaf1d11a41f8002581e0003ea07c"/>
-        <rdf:li rdf:resource="https://www.snb.ch#JPY_0d6cfaf1d11a41f8002581e0003ea07c"/>
-        <rdf:li rdf:resource="https://www.snb.ch#EUR_0d6cfaf1d11a41f8002581e0003ea07c"/>
-        <rdf:li rdf:resource="https://www.snb.ch#USD_0d6cfaf1d11a41f8002581e0003ea07c"/>
-        <rdf:li rdf:resource="https://www.snb.ch#GBP_d101d729279f41cd002581df003e31f1"/>
-        <rdf:li rdf:resource="https://www.snb.ch#JPY_d101d729279f41cd002581df003e31f1"/>
-        <rdf:li rdf:resource="https://www.snb.ch#EUR_d101d729279f41cd002581df003e31f1"/>
-        <rdf:li rdf:resource="https://www.snb.ch#USD_d101d729279f41cd002581df003e31f1"/>
-      </rdf:Seq>
-    </items>
-    <dc:publisher>SNB</dc:publisher>
-    <dc:rights>Copyright © Schweizerische Nationalbank, Zürich (Schweiz) 2017</dc:rights>
-    <dcterms:license>https://www.snb.ch/de/srv/id/disclaimer</dcterms:license>
-    <dcterms:created>2017-11-28T07:50:22+01:00</dcterms:created>
-  </channel>
-  <item rdf:about="https://www.snb.ch#GBP_6ec827d359194a0a002581e5003df8a5">
-    <title>CH: 1.3081 CHF = 1 GBP 2017-11-27 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 GBP = 1.3081 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.767+01:00)</description>
-    <dc:date>2018-01-03T12:16:53.767+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.3081</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>GBP</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-27</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#JPY_6ec827d359194a0a002581e5003df8a5">
-    <title>CH: 0.8813 CHF = 100 JPY 2017-11-27 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>100 JPY = 0.8813 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.760+01:00)</description>
-    <dc:date>2018-01-03T12:16:53.760+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>10000.8813</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:unit_mult>-2</cb:unit_mult>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>JPY</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-27</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#EUR_6ec827d359194a0a002581e5003df8a5">
-    <title>CH: 1.1697 CHF = 1 EUR 2017-11-27 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 EUR = 1.1697 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.750+01:00)</description>
-    <dc:date>2018-01-03T12:16:53.750+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.1697</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>EUR</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-27</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#USD_6ec827d359194a0a002581e5003df8a5">
-    <title>CH: 0.9803 CHF = 1 USD 2017-11-27 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 USD = 0.9803 CHF (Tägliche Kurse (11:00); 2017-11-27T12:16:53.737+01:00)</description>
-    <dc:date>2018-01-03T12:16:53.737+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.9803</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>USD</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-27</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#GBP_f4a6fbc20fb0403d002581e2003e3d67">
-    <title>CH: 1.3072 CHF = 1 GBP 2017-11-24 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 GBP = 1.3072 CHF (Tägliche Kurse (11:00); 2017-11-24T12:19:49.733+01:00)</description>
-    <dc:date>2017-11-24T12:19:49.733+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.3072</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>GBP</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-24</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#JPY_f4a6fbc20fb0403d002581e2003e3d67">
-    <title>CH: 0.8806 CHF = 100 JPY 2017-11-24 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>100 JPY = 0.8806 CHF (Tägliche Kurse (11:00); 2017-11-24T12:19:49.717+01:00)</description>
-    <dc:date>2017-11-24T12:19:49.717+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.8806</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:unit_mult>-2</cb:unit_mult>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>JPY</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-24</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#EUR_f4a6fbc20fb0403d002581e2003e3d67">
-    <title>CH: 1.1644 CHF = 1 EUR 2017-11-24 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 EUR = 1.1644 CHF (Tägliche Kurse (11:00); 2017-11-24T12:19:49.710+01:00)</description>
-    <dc:date>2017-11-24T12:19:49.710+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.1644</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>EUR</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-24</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#USD_f4a6fbc20fb0403d002581e2003e3d67">
-    <title>CH: 0.9809 CHF = 1 USD 2017-11-24 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 USD = 0.9809 CHF (Tägliche Kurse (11:00); 2017-11-24T12:19:49.703+01:00)</description>
-    <dc:date>2017-11-24T12:19:49.703+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.9809</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>USD</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-24</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#GBP_6568365cd292474b002581e1003fca55">
-    <title>CH: 1.3052 CHF = 1 GBP 2017-11-23 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 GBP = 1.3052 CHF (Tägliche Kurse (11:00); 2017-11-23T12:36:46.040+01:00)</description>
-    <dc:date>2017-11-23T12:36:46.040+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.3052</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>GBP</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-23</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#JPY_6568365cd292474b002581e1003fca55">
-    <title>CH: 0.8816 CHF = 100 JPY 2017-11-23 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>100 JPY = 0.8816 CHF (Tägliche Kurse (11:00); 2017-11-23T12:36:46.030+01:00)</description>
-    <dc:date>2017-11-23T12:36:46.030+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.8816</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:unit_mult>-2</cb:unit_mult>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>JPY</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-23</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#EUR_6568365cd292474b002581e1003fca55">
-    <title>CH: 1.1617 CHF = 1 EUR 2017-11-23 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 EUR = 1.1617 CHF (Tägliche Kurse (11:00); 2017-11-23T12:36:46.027+01:00)</description>
-    <dc:date>2017-11-23T12:36:46.027+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.1617</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>EUR</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-23</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#USD_6568365cd292474b002581e1003fca55">
-    <title>CH: 0.9811 CHF = 1 USD 2017-11-23 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 USD = 0.9811 CHF (Tägliche Kurse (11:00); 2017-11-23T12:36:46.017+01:00)</description>
-    <dc:date>2017-11-23T12:36:46.017+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.9811</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>USD</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-23</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#GBP_0d6cfaf1d11a41f8002581e0003ea07c">
-    <title>CH: 1.3109 CHF = 1 GBP 2017-11-22 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 GBP = 1.3109 CHF (Tägliche Kurse (11:00); 2017-11-22T12:24:04.110+01:00)</description>
-    <dc:date>2017-11-22T12:24:04.110+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.3109</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>GBP</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-22</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#JPY_0d6cfaf1d11a41f8002581e0003ea07c">
-    <title>CH: 0.8827 CHF = 100 JPY 2017-11-22 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>100 JPY = 0.8827 CHF (Tägliche Kurse (11:00); 2017-11-22T12:24:04.103+01:00)</description>
-    <dc:date>2017-11-22T12:24:04.103+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.8827</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:unit_mult>-2</cb:unit_mult>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>JPY</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-22</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#EUR_0d6cfaf1d11a41f8002581e0003ea07c">
-    <title>CH: 1.1633 CHF = 1 EUR 2017-11-22 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 EUR = 1.1633 CHF (Tägliche Kurse (11:00); 2017-11-22T12:24:04.090+01:00)</description>
-    <dc:date>2017-11-22T12:24:04.090+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.1633</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>EUR</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-22</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#USD_0d6cfaf1d11a41f8002581e0003ea07c">
-    <title>CH: 0.9894 CHF = 1 USD 2017-11-22 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 USD = 0.9894 CHF (Tägliche Kurse (11:00); 2017-11-22T12:24:04.083+01:00)</description>
-    <dc:date>2017-11-22T12:24:04.083+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.9894</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>USD</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-22</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#GBP_d101d729279f41cd002581df003e31f1">
-    <title>CH: 1.3151 CHF = 1 GBP 2017-11-21 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 GBP = 1.3151 CHF (Tägliche Kurse (11:00); 2017-11-21T12:19:20.370+01:00)</description>
-    <dc:date>2017-11-21T12:19:20.370+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.3151</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>GBP</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-21</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#JPY_d101d729279f41cd002581df003e31f1">
-    <title>CH: 0.8832 CHF = 100 JPY 2017-11-21 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>100 JPY = 0.8832 CHF (Tägliche Kurse (11:00); 2017-11-21T12:19:20.363+01:00)</description>
-    <dc:date>2017-11-21T12:19:20.363+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.8832</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:unit_mult>-2</cb:unit_mult>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>JPY</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-21</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#EUR_d101d729279f41cd002581df003e31f1">
-    <title>CH: 1.1647 CHF = 1 EUR 2017-11-21 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 EUR = 1.1647 CHF (Tägliche Kurse (11:00); 2017-11-21T12:19:20.360+01:00)</description>
-    <dc:date>2017-11-21T12:19:20.360+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>1.1647</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>EUR</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-21</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
-  <item rdf:about="https://www.snb.ch#USD_d101d729279f41cd002581df003e31f1">
-    <title>CH: 0.9930 CHF = 1 USD 2017-11-21 Tägliche Kurse (11:00)</title>
-    <link>https://www.snb.ch</link>
-    <description>1 USD = 0.9930 CHF (Tägliche Kurse (11:00); 2017-11-21T12:19:20.343+01:00)</description>
-    <dc:date>2017-11-21T12:19:20.343+01:00</dc:date>
-    <dc:language>de</dc:language>
-    <cb:statistics rdf:parseType="Resource">
-      <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
-      <cb:country>CH</cb:country>
-      <cb:institutionAbbrev>SNB</cb:institutionAbbrev>
-      <cb:exchangeRate rdf:parseType="Resource">
-        <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
-        <cb:observation rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
-          <cb:value>0.9930</cb:value>
-          <cb:unit>CHF</cb:unit>
-          <cb:decimals>4</cb:decimals>
-        </cb:observation>
-        <cb:baseCurrency>CHF</cb:baseCurrency>
-        <cb:targetCurrency>USD</cb:targetCurrency>
-        <cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
-        <cb:observationPeriod rdf:parseType="Resource">
-          <rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
-          <cb:frequency>daily</cb:frequency>
-          <cb:period>2017-11-21</cb:period>
-        </cb:observationPeriod>
-      </cb:exchangeRate>
-    </cb:statistics>
-  </item>
+<channel rdf:about="https://www.snb.ch/de/ifor/media/id/media_rss">
+<title>SNB Devisenkurse</title>
+<link>https://www.snb.ch/de/ifor/media/id/media_rss</link>
+<description>Schweizerische Nationalbank (SNB): Devisenkurse (Ankauf Zürich 11 Uhr)</description>
+<items>
+<rdf:Seq>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1549_2018-02-27"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3069_2018-02-27"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8753_2018-02-27"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9363_2018-02-27"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1520_2018-02-26"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3126_2018-02-26"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8754_2018-02-26"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9331_2018-02-26"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1499_2018-02-23"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3058_2018-02-23"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8738_2018-02-23"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9340_2018-02-23"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1527_2018-02-22"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3026_2018-02-22"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8744_2018-02-22"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9375_2018-02-22"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1552_2018-02-21"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3082_2018-02-21"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8713_2018-02-21"/>
+<rdf:li rdf:resource="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9367_2018-02-21"/>
+</rdf:Seq>
+</items>
+<dc:publisher>SNB</dc:publisher>
+<dc:rights>Copyright © Schweizerische Nationalbank, Zürich (Schweiz) 2018</dc:rights>
+<dcterms:license>https://www.snb.ch/de/srv/id/disclaimer</dcterms:license>
+<dcterms:created>2018-02-27T21:05:28+01:00</dcterms:created>
+</channel>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1549_2018-02-27">
+<title>CH: 1.1549 CHF = 1 EUR 2018-02-27 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR</link>
+<description>1 EUR = 1.1549 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:35+01:00)</description>
+<dc:date>2018-02-27T12:06:35+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.1549</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>EUR</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-27</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3069_2018-02-27">
+<title>CH: 1.3069 CHF = 1 GBP 2018-02-27 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP</link>
+<description>1 GBP = 1.3069 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:35+01:00)</description>
+<dc:date>2018-02-27T12:06:35+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.3069</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>GBP</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-27</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8753_2018-02-27">
+<title>CH: 0.8753 CHF = 100 JPY 2018-02-27 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY</link>
+<description>100 JPY = 0.8753 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:35+01:00)</description>
+<dc:date>2018-02-27T12:06:35+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.8753</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:unit_mult>-2</cb:unit_mult>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>JPY</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-27</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9363_2018-02-27">
+<title>CH: 0.9363 CHF = 1 USD 2018-02-27 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD</link>
+<description>1 USD = 0.9363 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:35+01:00)</description>
+<dc:date>2018-02-27T12:06:35+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.9363</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>USD</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-27</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1520_2018-02-26">
+<title>CH: 1.1520 CHF = 1 EUR 2018-02-26 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR</link>
+<description>1 EUR = 1.1520 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:50+01:00)</description>
+<dc:date>2018-02-27T12:06:50+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.1520</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>EUR</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-26</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3126_2018-02-26">
+<title>CH: 1.3126 CHF = 1 GBP 2018-02-26 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP</link>
+<description>1 GBP = 1.3126 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:50+01:00)</description>
+<dc:date>2018-02-27T12:06:50+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.3126</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>GBP</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-26</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8754_2018-02-26">
+<title>CH: 0.8754 CHF = 100 JPY 2018-02-26 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY</link>
+<description>100 JPY = 0.8754 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:50+01:00)</description>
+<dc:date>2018-02-27T12:06:50+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.8754</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:unit_mult>-2</cb:unit_mult>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>JPY</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-26</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9331_2018-02-26">
+<title>CH: 0.9331 CHF = 1 USD 2018-02-26 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD</link>
+<description>1 USD = 0.9331 CHF (Tägliche Kurse (11:00); 2018-02-27T12:06:50+01:00)</description>
+<dc:date>2018-02-27T12:06:50+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.9331</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>USD</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-26</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1499_2018-02-23">
+<title>CH: 1.1499 CHF = 1 EUR 2018-02-23 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR</link>
+<description>1 EUR = 1.1499 CHF (Tägliche Kurse (11:00); 2018-02-26T12:20:51+01:00)</description>
+<dc:date>2018-02-26T12:20:51+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.1499</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>EUR</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-23</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3058_2018-02-23">
+<title>CH: 1.3058 CHF = 1 GBP 2018-02-23 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP</link>
+<description>1 GBP = 1.3058 CHF (Tägliche Kurse (11:00); 2018-02-26T12:20:51+01:00)</description>
+<dc:date>2018-02-26T12:20:51+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.3058</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>GBP</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-23</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8738_2018-02-23">
+<title>CH: 0.8738 CHF = 100 JPY 2018-02-23 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY</link>
+<description>100 JPY = 0.8738 CHF (Tägliche Kurse (11:00); 2018-02-26T12:20:51+01:00)</description>
+<dc:date>2018-02-26T12:20:51+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.8738</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:unit_mult>-2</cb:unit_mult>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>JPY</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-23</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9340_2018-02-23">
+<title>CH: 0.9340 CHF = 1 USD 2018-02-23 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD</link>
+<description>1 USD = 0.9340 CHF (Tägliche Kurse (11:00); 2018-02-26T12:20:51+01:00)</description>
+<dc:date>2018-02-26T12:20:51+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.9340</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>USD</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-23</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1527_2018-02-22">
+<title>CH: 1.1527 CHF = 1 EUR 2018-02-22 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR</link>
+<description>1 EUR = 1.1527 CHF (Tägliche Kurse (11:00); 2018-02-23T12:18:14+01:00)</description>
+<dc:date>2018-02-23T12:18:14+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.1527</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>EUR</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-22</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3026_2018-02-22">
+<title>CH: 1.3026 CHF = 1 GBP 2018-02-22 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP</link>
+<description>1 GBP = 1.3026 CHF (Tägliche Kurse (11:00); 2018-02-23T12:18:14+01:00)</description>
+<dc:date>2018-02-23T12:18:14+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.3026</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>GBP</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-22</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8744_2018-02-22">
+<title>CH: 0.8744 CHF = 100 JPY 2018-02-22 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY</link>
+<description>100 JPY = 0.8744 CHF (Tägliche Kurse (11:00); 2018-02-23T12:18:14+01:00)</description>
+<dc:date>2018-02-23T12:18:14+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.8744</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:unit_mult>-2</cb:unit_mult>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>JPY</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-22</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9375_2018-02-22">
+<title>CH: 0.9375 CHF = 1 USD 2018-02-22 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD</link>
+<description>1 USD = 0.9375 CHF (Tägliche Kurse (11:00); 2018-02-23T12:18:14+01:00)</description>
+<dc:date>2018-02-23T12:18:14+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.9375</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>USD</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-22</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR_1.1552_2018-02-21">
+<title>CH: 1.1552 CHF = 1 EUR 2018-02-21 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#EUR</link>
+<description>1 EUR = 1.1552 CHF (Tägliche Kurse (11:00); 2018-02-22T12:21:03+01:00)</description>
+<dc:date>2018-02-22T12:21:03+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.1552</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>EUR</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-21</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP_1.3082_2018-02-21">
+<title>CH: 1.3082 CHF = 1 GBP 2018-02-21 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#GBP</link>
+<description>1 GBP = 1.3082 CHF (Tägliche Kurse (11:00); 2018-02-22T12:21:03+01:00)</description>
+<dc:date>2018-02-22T12:21:03+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>1.3082</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>GBP</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-21</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY_0.8713_2018-02-21">
+<title>CH: 0.8713 CHF = 100 JPY 2018-02-21 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#JPY</link>
+<description>100 JPY = 0.8713 CHF (Tägliche Kurse (11:00); 2018-02-22T12:21:03+01:00)</description>
+<dc:date>2018-02-22T12:21:03+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.8713</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:unit_mult>-2</cb:unit_mult>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>JPY</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-21</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
+<item rdf:about="https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD_0.9367_2018-02-21">
+<title>CH: 0.9367 CHF = 1 USD 2018-02-21 Tägliche Kurse (11:00)</title>
+<link>https://www.snb.ch/de/iabout/stat/statpub/zidea/id/current_interest_exchange_rates/3#USD</link>
+<description>1 USD = 0.9367 CHF (Tägliche Kurse (11:00); 2018-02-22T12:21:03+01:00)</description>
+<dc:date>2018-02-22T12:21:03+01:00</dc:date>
+<dc:language>de</dc:language>
+<cb:statistics rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Statistics"/>
+<cb:country>CH</cb:country>
+<cb:institutionAbbrev>SNB</cb:institutionAbbrev>
+<cb:exchangeRate rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ExchangeRate"/>
+<cb:observation rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#Observation"/>
+<cb:value>0.9367</cb:value>
+<cb:unit>CHF</cb:unit>
+<cb:decimals>4</cb:decimals>
+</cb:observation>
+<cb:baseCurrency>CHF</cb:baseCurrency>
+<cb:targetCurrency>USD</cb:targetCurrency>
+<cb:rateType>Tägliche Kurse (11:00)</cb:rateType>
+<cb:observationPeriod rdf:parseType="Resource">
+<rdf:type rdf:resource="http://www.cbwiki.net/wiki/index.php/RSS-CB_1.2_RDF_Schema#ObservationPeriod"/>
+<cb:frequency>daily</cb:frequency>
+<cb:period>2018-02-21</cb:period>
+</cb:observationPeriod>
+</cb:exchangeRate>
+</cb:statistics>
+</item>
 </rdf:RDF>

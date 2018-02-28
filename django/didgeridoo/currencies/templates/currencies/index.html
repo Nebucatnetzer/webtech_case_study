@@ -1,88 +1,28 @@
 {% extends "webshop/base.html" %}
 {% block section_title %}Currencies in CHF{% endblock %}
   {% block content %}
-    <h2> {{ message }} </h2>
-    <h3> Frühere Daten: </h3>
-    <h4> US Dollars: </h4>
-      {% if currency_USD_list %}
+    <h4> Currency List: </h4>
+      {% if ordered_currency_list %}
         <table>
           <tr>
               <th scope="col">DATE</th>
+              <th scope="col">NAME</th>
               <th scope="col">RATE</th>
           </tr>
-            {% for currency in currency_USD_list %}
+            {% for currency in ordered_currency_list %}
             <tr>
-              <td scope="col">{{ currency.date.date }}</td>
+              <td scope="col">{{ currency.date }}</td>
+              <td scope="col">{{ currency.name }}</td>
               <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
             </tr>
             {% endfor %}
         </table>
+        <p> {{ message }} </p>
       {% else %}
+        <br>
           <p class="alert">
-            currency_USD_list missing.
+            currency_list missing.
           </p>
       {% endif %}
-      <br>
-      <h4> EURO: </h4>
-      {% if currency_EUR_list %}
-      <table>
-        <tr>
-            <th scope="col">DATE</th>
-            <th scope="col">RATE</th>
-        </tr>
-          {% for currency in currency_EUR_list %}
-          <tr>
-            <td scope="col">{{ currency.date.date }}</td>
-            <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-          </tr>
-          {% endfor %}
-      </table>
-      {% else %}
-          <p class="alert">
-            currency_EUR_list missing.
-          </p>
-      {% endif %}
-      <br>
-      <h4> Japanese Yenn: </h4>
-      {% if currency_JPY_list %}
-      <table>
-        <tr>
-            <th scope="col">DATE</th>
-            <th scope="col">RATE</th>
-        </tr>
-          {% for currency in currency_JPY_list %}
-          <tr>
-            <td scope="col">{{ currency.date.date }}</td>
-            <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-          </tr>
-          {% endfor %}
-        <tr>
-      </table>
-      {% else %}
-          <p class="alert">
-            currency_JPY_list missing.
-          </p>
-      {% endif %}
-      <br>
-      <h4> Great Britain Pounds: </h4>
-        {% if currency_GBP_list %}
-        <table>
-          <tr>
-              <th scope="col">DATE</th>
-              <th scope="col">RATE</th>
-          </tr>
-            {% for currency in currency_GBP_list %}
-            <tr>
-              <td scope="col">{{ currency.date.date }}</td>
-              <td scope="col">{{ currency.exchange_rate_to_chf }}</td>
-            </tr>
-            {% endfor %}
-          <tr>
-        </table>
-        {% else %}
-            <p class="alert">
-              currency_GBP_list missing.
-            </p>
-        {% endif %}
     </div>
 {% endblock %}
