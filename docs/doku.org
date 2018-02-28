@@ -625,7 +625,7 @@ auch, weshalb wir uns dafür entschieden haben.
 #+TBLFM: @>$6=vsum(@2..@-1);%.2f
 #+LATEX:\end{landscape}
 
-* TODO Umsetzung
+* Umsetzung
 ** Werkzeuge
 
 Während dem Erstellen dieser Arbeit wurde eine Vielzahl an Werkzeugen
