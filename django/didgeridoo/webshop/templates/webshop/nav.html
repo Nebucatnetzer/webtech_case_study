@@ -13,11 +13,10 @@
         {% else %}
         <li><a href="{% url 'login' %}">LOGIN</a></li>
         {% endif %}
-        <li class="dropdown">
+        <li>
             {% if article_view %}
           <form id="currency" action="" method="POST" novalidate>
             {{ currencies_form.as_ul }}
-            <li><input type="submit" value="Select"></li>
           {% csrf_token %}
           </form>
         {% endif %}
