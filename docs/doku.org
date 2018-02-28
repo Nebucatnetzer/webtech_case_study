@@ -1791,7 +1791,7 @@ vereinfacht in 3 Bereiche:
 3. Currencies, die täglich abgeholt werden
    #+LATEX:\newpage
 
-** TODO Testing
+** Testing
 
 Um die Funktionalität des Webshops sicherzustellen, haben wir die
 Applikation kontinuierlich gemäss den Testfällen unter [[Testfälle]]
@@ -1822,7 +1822,7 @@ dazugehörige Funktionen korrekt funktionieren.
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
 
-*** NEXT Testfälle
+*** Testfälle
 
 Alle Testfälle werden von der Index Seite aus gestartet.
 Dies wird in den Test Cases nicht noch einmal explizit erwähnt. Die
