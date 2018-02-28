@@ -1733,6 +1733,14 @@ User speichern. Man sollte im Profil jedoch nur Daten speichern, welche
 nicht sicherheitsrelevant sind. Der Nachteil dieser Variante ist, dass
 die Datenbank mit zusätzlichen Anfragen belastet werden kann.
 
+Wir haben uns hier auch dazu entschieden nur Einkäufe nach erfolgter
+Registrierung zu erlauben. Dies einerseits weil wir sowieso bereits
+eine "One-to-One" Beziehung zwischen einem User und einer Person
+ermöglichen. Zum anderen da es auch aus Sicht der Shop Betreiber,
+Kunden die bereits einen Account haben kommen öfters wieder, wie auch
+aus Sicht der Kunden, ein Account kann einem viele Vorteile bringen
+wie etwa einfachere Garantieabwicklung oder Bestellungsübersichten,
+absolut Sinn macht.
 #+ATTR_LATEX: :width 9cm :placement [H]
 #+CAPTION: Klassenmodell für Personen
 #+NAME: fig:person
