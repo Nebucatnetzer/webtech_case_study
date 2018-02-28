@@ -5,12 +5,12 @@
 {% block content %}
 </br>
 <p><b>Username: </b>{{ request.user.username }}</p>
-<p><b>Salutation: </b>{{ person.salutation }}</p>
-<p><b>Firstname: </b>{{ request.user.first_name }}</p>
-<p><b>Lastname: </b>{{ request.user.last_name }}</p>
+<p><b>Name: </b>
+  {{ person.salutation }}
+  {{ request.user.first_name }}
+  {{ request.user.last_name }}</p>
+<p><b>Street: </b>{{ person.street_name }} {{ person.street_number }}</p>
 <p><b>City: </b>{{ person.city }}</p>
-<p><b>Street: </b>{{ person.street_name }}</p>
-<p><b>Streetnumber: </b>{{ person.street_number }}</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

@@ -2,10 +2,20 @@
 {% load customfilters %}
 {% block section_title %}Order{% endblock %}
 {% block content %}
-  <h1> Your order was submitted. </h1>
-  <h3> Thank you for Purchase. </h3>
-  <h3>List of Items in your Shopping Cart:</h3>
-  {% if order_position_list %}
+  {% if order %}
+    <h4>Your order was submitted on:
+      {{ order.date }}, current Status is:
+      {{ order.status }}.
+    </h4>
+  {% else %}
+    <p class="alert alert-danger">
+      <strong>
+        Orderdetails are not avalable.
+      <strong>
+    </p>
+  {% endif %}
+  <h3>List of Items in your Order:</h3>
+  {% if order_position_list_zip %}
     <table class="table price-table">
       <tr class="table_header">
         <th scope="col">POS.</th>
@@ -16,7 +26,7 @@
         <th scope="col" class="price-label">PRICE p.pce.</th>
         <th scope="col" class="price-label">POSITION PRICE</th>
       </tr>
-      {% for order_position in order_position_list %}
+      {% for order_position, price in order_position_list_zip %}
         <tr class="table_content">
           <td scope="col">{{ order_position.id }}</td>
           <td scope="col">{{ order_position.article.id }}</td>
@@ -32,7 +42,7 @@
             {{ currency_name }}
           </td>
           <td scope="col" class="price-value">
-            {{ order_position.position_price }} {{ currency_name }}
+            {{ price }} {{ currency_name }}
           </td>
         </tr>
       {% endfor %}
@@ -45,6 +55,7 @@
         </td>
       </tr>
     </table>
+    <h3> Thank you for Purchase. </h3>
   {% else %}
     <p class="alert alert-danger">
       <strong>

@@ -173,30 +173,30 @@ def profile(request):
     if orders:
         orders_list = list(orders)
         for idx1, order in enumerate(orders_list):
-            print(order.id)
             # get all items in the Order:
             order_positions = OrderPosition.objects.filter(order=order)
             if (order_positions.count()) > 0:
+                order_positions_count = order_positions.count()
                 order_position_list = list(order_positions)
                 for idx2, order_position in enumerate(order_position_list):
                     # get currencyname to display:
                     if order.exchange_rate is not None:
-                        print('order.exchange_rate', order.exchange_rate, order.exchange_rate.id)
                         # get price of position in order and append to a list:
-                        rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
+                        rate = ExchangeRate.objects.get(
+                                            id=order.exchange_rate.id)
                         order_position.price_in_chf = round(
-                            rate.exchange_rate_to_chf * order_position.price_in_chf,
+                            rate.exchange_rate_to_chf *
+                            order_position.price_in_chf,
                             2)
                         currency_name = order.exchange_rate
                     else:
                         currency_name = 'CHF'
                     totalprice_list.append(order_position.price_in_chf)
                     order_position_list[idx2] = order_position
-                    total = sum(totalprice_list)
+                total = sum(totalprice_list)
                 currency_list.append(currency_name)
-            total_list.append(total)
-            order_positions_count = order_positions.count()
-            order_positions_count_list.append(order_positions_count)
+                total_list.append(total)
+                order_positions_count_list.append(order_positions_count)
         orders_list[idx1] = order
         order_list_zip = zip(orders_list,
                              order_positions_count_list,
@@ -266,17 +266,14 @@ def cart(request):
     if request.method == 'POST':
         # here we react to a currency dropdown change:
         if 'currencies' in request.POST:
-            print('currencies')
             currencies_form = CurrenciesForm(request.POST)
             if currencies_form.is_valid():
                 cf = currencies_form.cleaned_data
                 if cf['currencies']:
-                    print('currencies cf:', cf)
                     selection = cf['currencies']
                     request.session['currency'] = selection.id
                     currency_name = ExchangeRate_name.objects.get(
                         id=selection.id)
-                    print('currencies currency_name:', currency_name)
                 else:
                     request.session['currency'] = None
 
@@ -441,8 +438,9 @@ def checkout(request):
 
 
 def order(request, order_id):
+    price_list = []
     totalprice_list = []
-    order_position_list = []
+    order_position_list_zip = []
     cart = ShoppingCart.objects.get(user=request.user)
     if cart:
         # get all items in the cart of this customer:
@@ -465,22 +463,24 @@ def order(request, order_id):
         for idx, order_position in enumerate(order_positions):
             # get currencyname to display:
             if order.exchange_rate is not None:
-                print('order.exchange_rate', order.exchange_rate, order.exchange_rate.id)
                 # get price of position in order and append to a list:
                 rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
-                order_position.price = round(
+                price = round(
                     rate.exchange_rate_to_chf * order_position.price_in_chf,
                     2)
                 currency_name = order.exchange_rate
             else:
                 currency_name = 'CHF'
-                order_position.price = order_position.price_in_chf
-            order_position.position_price = order_position.price * Decimal.from_float(order_position.amount)
+                price = order_position.price_in_chf
+            position_price = price * Decimal.from_float(order_position.amount)
             order_position_list[idx] = order_position
-            totalprice_list.append(order_position.price)
+            price_list.append(price)
+            totalprice_list.append(position_price)
         total = sum(totalprice_list)
+        order_position_list_zip = zip(order_position_list, price_list)
     return render(request, 'webshop/order.html', {
-                  'order_position_list': order_position_list,
+                  'order': order,
+                  'order_position_list_zip': order_position_list_zip,
+                  'total': total,
                   'currency_name': currency_name,
-                  'total': total
                   })
