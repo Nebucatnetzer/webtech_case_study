@@ -15,7 +15,9 @@
       </form>
     </p>
     {% else %}
-      <p> please login to fill your basket...</p>
+      <p class="alert">
+        please login to fill your basket...
+      </p>
     {% endif %}
     {% for picture in picture_list %}
         <p><img src="{{ MEDIA_URL }}{{ picture.image }}" width="200" /></p>

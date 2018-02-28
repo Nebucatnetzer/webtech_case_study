@@ -1,5 +1,5 @@
 from django import forms
-from currencies.models import ExchangeRate_name
+from currencies.models import ExchangeRate, ExchangeRate_name
 
 
 class CurrenciesForm(forms.Form):

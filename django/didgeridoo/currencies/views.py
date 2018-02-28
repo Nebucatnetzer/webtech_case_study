@@ -42,7 +42,7 @@ def currencies(request):
         message_offline = """
         Are you offline? - useing stored currencies.
         This does not efect you, but your purchase prices will be
-        recalculated as soon as you submit your Order.
+        recalculated as soon as you submit your Order. <br>
         """
         try:
             raw_data = exchange_rates.get_exchange_rate(rss_tree, ns)
@@ -148,32 +148,21 @@ def currencies(request):
     elif datetime.datetime.today().isoweekday() == 6:
         message = """Die Abfrage wurde ohne ergebniss beendet.
         Es ist Samstag, die SNB publiziert nur an Arbeitstagen
-        neue Kurse...
+        neue Kurse... <br>
         """
     elif datetime.datetime.today().isoweekday() == 7:
         message = """Die Abfrage wurde ohne ergebniss beendet.
         Es ist Sonntag, die SNB publiziert nur an Arbeitstagen
-        neue Kurse...
+        neue Kurse... <br>
         """
     else:
-        message = """Die Abfrage wurde ohne ergebniss beendet.
+        message = """Die Abfrage wurde ohne ergebniss beendet. <br>
         """
     # know we can query our data for presentaton:
-    currency_list = ExchangeRate.objects.all()
-    currency_USD_list = ExchangeRate.objects.filter(
-        name__name='USD').order_by('date__date')
-    currency_EUR_list = ExchangeRate.objects.filter(
-        name__name='EUR').order_by('date__date')
-    currency_JPY_list = ExchangeRate.objects.filter(
-        name__name='JPY').order_by('date__date')
-    currency_GBP_list = ExchangeRate.objects.filter(
-        name__name='GBP').order_by('date__date')
+    ordered_currency_list = ExchangeRate.objects.order_by('name', 'date')
+
     # and publish it on template:
     return render(request,
                   'currencies/index.html',
-                  {'currency_list': currency_list,
-                   'currency_USD_list': currency_USD_list,
-                   'currency_EUR_list': currency_EUR_list,
-                   'currency_JPY_list': currency_JPY_list,
-                   'currency_GBP_list': currency_GBP_list,
+                  {'ordered_currency_list': ordered_currency_list,
                    'message': message})
