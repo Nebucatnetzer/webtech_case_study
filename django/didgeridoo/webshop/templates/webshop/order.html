@@ -14,7 +14,7 @@
     </p>
   {% endif %}
   <h3>List of Items in your Order:</h3>
-  {% if order_position_list %}
+  {% if order_position_list_zip %}
     <table class="table price-table">
       <tr class="table_header">
         <th scope="col">POS.</th>
@@ -22,9 +22,10 @@
         <th scope="col">NAME</th>
         <th scope="col">STOCK</th>
         <th scope="col">AMOUNT</th>
+        <th scope="col" class="price-label">PRICE p.pce.</th>
         <th scope="col" class="price-label">POSITION PRICE</th>
       </tr>
-      {% for order_position in order_position_list %}
+      {% for order_position, price, pos_price in order_position_list_zip %}
         <tr class="table_content">
           <td scope="col">{{ order_position.id }}</td>
           <td scope="col">{{ order_position.article.id }}</td>
@@ -36,12 +37,16 @@
           <td scope="col">{{ order_position.article.stock }}</td>
           <td scope="col">{{ order_position.amount }}</td>
           <td scope="col" class="price-value">
-            {{ order_postion.price_in_chf }} {{ currency_name }}
+            {{ price }}
+            {{ currency_name }}
+          </td>
+          <td scope="col" class="price-value">
+            {{ pos_price }} {{ currency_name }}
           </td>
         </tr>
       {% endfor %}
       <tr>
-        <td scope="col" colspan="4"class="text-right">
+        <td scope="col" colspan="5"class="text-right">
         <td scope="col" class="price-value">
           <dl><dt>Total:</dl></dt></td>
         <td scope="col" class="price-value">
