@@ -357,6 +357,9 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 Der Webshop wird nur zum Teil aufgebaut. Funktionen wie die Bezahlung
 , das Versenden von Email Benachrichtigungen und einen automatisierte
 Aktualisierung der Warenbestände sind nicht Teil der Umsetzung.
+Aufgrund des hohen Mehraufwandes der für die Umsetzung nötig gewesen
+wäre, ist es zur Zeit nur möglich einen Artikel einem Bild zuzuweisen
+und nicht die Bilder direkt auf dem Aritkel hochzuladen.
 
 * Projektmanagement
 ** Organigramm
