@@ -456,10 +456,9 @@ def order(request, order_id):
             else:
                 currency_name = 'CHF'
                 price = order_position.price_in_chf
-            position_price = price * Decimal.from_float(order_position.amount)
             order_position_list[idx] = order_position
             price_list.append(price)
-            totalprice_list.append(position_price)
+            totalprice_list.append(price)
         total = sum(totalprice_list)
         order_position_list_zip = zip(order_position_list,
                                       price_list,
