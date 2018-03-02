@@ -4,7 +4,7 @@ from currencies.models import (ExchangeRate,
                                ExchangeRate_date,
                                ExchangeRate_name)
 from currencies import exchange_rates
-from django.http import JsonResponse
+from webshop.utils import get_categories
 
 
 def currencies(request):
@@ -160,9 +160,10 @@ def currencies(request):
         """
     # know we can query our data for presentaton:
     ordered_currency_list = ExchangeRate.objects.order_by('name', 'date')
-
+    category_list = get_categories()
     # and publish it on template:
     return render(request,
                   'currencies/index.html',
                   {'ordered_currency_list': ordered_currency_list,
+                   'category_list': category_list,
                    'message': message})

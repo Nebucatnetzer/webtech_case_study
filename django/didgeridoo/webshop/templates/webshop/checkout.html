@@ -59,6 +59,14 @@
              <dt><dl>{{ total }} {{ currency_name }}</dl></dt>
           </td>
         </tr>
+        <tr>
+          <td scope="col" colspan="5" class="text-right">
+          <td scope="col" class="price-value">
+            <dt><dl>Exchange Rate to 1 CHF:</dl></dt></td>
+          <td scope="col" class="price-value">
+             <dt><dl>{{ exchange_rate }}</dl></dt>
+          </td>
+        </tr>
       </table>
       <form id="checkout_form" action="{% url 'cart' %}" method="POST">
         {% csrf_token %}

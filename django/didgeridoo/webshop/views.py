@@ -416,10 +416,12 @@ def checkout(request):
                    'category_list': category_list,
                    'message': message,
                    'person': person,
+                   'exchange_rate': exchange_rate,
                    })
 
 
 def order(request, order_id):
+    category_list = get_categories()
     totalprice_list = []
     order_position_list = []
     cart = ShoppingCart.objects.get(user=request.user)
@@ -457,4 +459,5 @@ def order(request, order_id):
                   'order_position_list': order_positions,
                   'total': total,
                   'currency_name': currency_name,
+                  'category_list': category_list,
                   })
