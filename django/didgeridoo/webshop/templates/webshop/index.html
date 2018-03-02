@@ -1,5 +1,6 @@
 {% extends "webshop/base.html" %}
 {% block section_title %}Articles{% endblock %}
+
 {% block content %}
   {% if articles_list %}
     <table class="table">
@@ -20,13 +21,13 @@
           </td>
           <td scope="col">{{ article.category }}</td>
           <td scope="col">{{ article.stock }}</td>
-          <td scope="col">{{ article.price_in_chf }}</td>
+          <td scope="col">{{ article.price_in_chf }} {{ currency_name }}</td>
         </tr>
       {% endfor %}
     </table>
   {% else %}
     <p class="alert">
-      Something whent wrong, no articles are stored.
+      We are sorry but there are currently no articles being sold.
     </p>
   {% endif %}
 {% endblock %}

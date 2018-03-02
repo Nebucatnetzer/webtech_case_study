@@ -13,9 +13,10 @@ Inspiration falls jemand ähnlich Schulprojekte hat.
 
 ##### Installation
 
-To get started with this repository make sure that you have Virtualbox
-5.1.30 and Vagrant 2.0.0 installed. Vagrant 2.0.0 currently doesn't
-support Virtualbox 5.2.
+To get started with this repository make sure that you have
+[Virtualbox](https://www.virtualbox.org/) and
+[Vagrant](https://www.vagrantup.com/) installed.
+
 
 After you have installed Vagrant and Virtualbox run this command in a
 terminal to make sure that you have installed the Virtualbox plugin
@@ -37,9 +38,10 @@ specifications in the "Vagrantfile" file. After it's finished you
 should be able to access the web page under http://localhost:8080
 
 To access the admin panel visit http://localhost:8080/admin the
-default login is admin and the corresponding password is
-"password". By default the application contains no data, you can enter
-whatever you need.
+default login is "admin" and the corresponding password is "password".
+By default the application contains some example categories and
+articles as well as a test user. The username of the test user is
+"test_user" and the password is "password".
 
 ### Support
 

@@ -95,3 +95,29 @@
     stock: 44
     status: 3
     price_in_chf: 41.4
+
+- model: webshop.Option
+  fields:
+    name: max_pictures
+    description: "Maximum number of Pictures a user is allowed to upload."
+    value: 5
+    enabled: True
+
+- model: auth.User
+  fields:
+    username: "test_user"
+    password: "pbkdf2_sha256$30000$abc$pJp+yQ3hNCcm5bd7LqZo6Qco5NETLPPkaO63vr7Ch6U="
+    first_name: "Max"
+    last_name: "Muster"
+    email: "max.muster@gmail.com"
+    is_superuser: False
+    is_active: True
+    is_staff: False
+
+- model: webshop.Person
+  fields:
+    salutation: 1
+    city: 1
+    street_name: "Musterstrasse"
+    street_number: "13"
+    user: 2

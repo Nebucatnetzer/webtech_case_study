@@ -5,13 +5,47 @@ from django.contrib.auth.models import User
 # Register your models here.
 from webshop.models import (Article, Order, OrderPosition,
                             Person, City, Picture, OrderOfGoods,
-                            Category, Option, Setting)
+                            Category, Option)
+
+from webshop.forms import PictureForm
 
 
 class PersonInline(admin.StackedInline):
     model = Person
     can_delete = False
     verbose_name_plural = 'person'
+
+
+class PictureAdmin(admin.ModelAdmin):
+    form = PictureForm
+    ordering = ('name',)
+    list_display = ('name', 'article',)
+
+
+class PictureInline(admin.StackedInline):
+    model = Picture
+    form = PictureForm
+    can_delete = False
+    verbose_name_plural = 'pictures'
+
+
+class OptionAdmin(admin.ModelAdmin):
+    model = Option
+    list_display = ('name', 'description',)
+    readonly_fields = ('name', 'description',)
+
+    def get_actions(self, request):
+        # Disable delete
+        actions = super(OptionAdmin, self).get_actions(request)
+        del actions['delete_selected']
+        return actions
+
+    def has_delete_permission(self, request, obj=None):
+        # Disable delete
+        return False
+
+    def has_add_permission(self, request):
+        return False
 
 
 class UserAdmin(BaseUserAdmin):
@@ -44,9 +78,8 @@ admin.site.register(User, UserAdmin)
 
 admin.site.register(Article)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(Picture, PictureAdmin)
 admin.site.register(City)
-admin.site.register(Picture)
 admin.site.register(OrderOfGoods, OrderOfGoodsAdmin)
 admin.site.register(Category)
-admin.site.register(Option)
-admin.site.register(Setting)
+admin.site.register(Option, OptionAdmin)

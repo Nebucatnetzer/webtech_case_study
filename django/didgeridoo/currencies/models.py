@@ -1,6 +1,4 @@
 from django.db import models
-from decimal import Decimal
-import datetime
 
 
 class ExchangeRate_name(models.Model):
@@ -20,7 +18,12 @@ class ExchangeRate_date(models.Model):
 class ExchangeRate(models.Model):
     name = models.ForeignKey(ExchangeRate_name)
     date = models.ForeignKey(ExchangeRate_date)
-    exchange_rate_to_chf = models.DecimalField(max_digits=12, decimal_places=5)
+    exchange_rate_to_chf = models.DecimalField(max_digits=12,
+                                               decimal_places=5)
+
+    def exchange(_currency_id, _base_currency):
+        rate = ExchangeRate.objects.filter(name=_currency_id).latest('date')
+        return round(rate.exchange_rate_to_chf * _base_currency, 2)
 
     def __str__(self):
-        return str(self.name)
+        return '{} {}'.format(self.exchange_rate_to_chf, self.name)

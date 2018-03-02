@@ -43,5 +43,13 @@
     group: www-data
     mode: 0755
 
+
+- name: Add currency refresh cronjob
+  cron:
+    name: "refresh currencies"
+    minute: "0"
+    job: "wget -O /dev/null https://didgeridoo.ml/currencies"
+
+
 - name: Restart apache service
   service: name=apache2 state=restarted
