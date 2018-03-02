@@ -1,6 +1,4 @@
 from django.db import models
-from decimal import Decimal
-import datetime
 
 
 class ExchangeRate_name(models.Model):
