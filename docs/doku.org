@@ -1913,6 +1913,13 @@ Eine gute Planung ist auch für die Kommunikation im Team wichtig damit
 jeder Projektmitarbeiter den aktuellen Stand kennt, weiss was geplannt
 ist und welche Schritte als nächstes gemacht werden müssen.
 
+Eine gutes Beispiel für diese Kommunikation ist ein Missverständiss dass
+Zwischen Andreas und Ivan entstand als die Positionen in der Bestellung
+das erste mal abgefragt wurden. Ivan hatte den preis in CHF pro Stück abgelegt
+und Andreas hatte die Summe der Stückzahl mal Preis in CHF erwaret.
+Das fürte zu verwirrung als die Positionen plötzlich x-fach teurer Angezeigt
+wurden als sie Gekauft wurden.
+
 ** Umsetzung
 
 Ein Framework ist nahezu immer eine komplexe Angelegenheit und braucht
