@@ -57,7 +57,7 @@ steht unter einer GPLv3\footcite{gplv3} Lizenz. Dadurch darf die
 Arbeit unter Einhaltung der Regeln der GPLv3 kopiert und
 weiterverarbeitet werden.
 
-* TODO Projektanalyse und Planung
+* Projektanalyse und Planung
 ** Projektziele
 
 Der Student erarbeitet in einer Zweiergruppe einen selbst entwickelten
@@ -117,6 +117,19 @@ Preis). Wir untersuchen die Anforderung und wählen die uns als
 geeignet erscheinenden Frameworks. Jede noch so kleine Zeiteinsparung
 durch vorgefertigte Entwicklungen werden angenommen und dennoch wollen
 wir keine fertigen Software Produkte einsetzen.
+
+Um einen ersten Anhaltspunkt zu haben, haben wir ein Mindmap
+gezeichnet in welchem wir unsere ersten Ideen erfassten. Zusehen ist
+dies in der Abbildung([[fig:mindmap]]).
+
+#+LATEX:\newpage
+#+LATEX:\begin{landscape}
+#+CAPTION: Mindmap
+#+ATTR_LATEX: :height.9\textwidth
+#+NAME: fig:mindmap
+[[file:diagrammes/mindmap/webshop.png]]
+#+LATEX:\end{landscape}
+#+LATEX:\newpage
 
 ** SWOT-Analyse
 
@@ -339,9 +352,14 @@ Abbildung:([[fig:umweltgrafik]]) grafisch dargestellt.
 #+NAME: fig:risk
 [[file:diagrammes/risk_analysis.eps]]
 
-** TODO Projektabgrenzung
+** Projektabgrenzung
 
-Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
+Der Webshop wird nur zum Teil aufgebaut. Funktionen wie die Bezahlung
+, das Versenden von Email Benachrichtigungen und einen automatisierte
+Aktualisierung der Warenbestände sind nicht Teil der Umsetzung.
+Aufgrund des hohen Mehraufwandes der für die Umsetzung nötig gewesen
+wäre, ist es zur Zeit nur möglich einen Artikel einem Bild zuzuweisen
+und nicht die Bilder direkt auf dem Aritkel hochzuladen.
 
 * Projektmanagement
 ** Organigramm
@@ -381,8 +399,6 @@ Am Ende des Projekts die nicht lauffähigen Teile ausgrenzen. :-)
 \end{figure}
 #+END_EXPORT
 
-** Projektstrukturplan
-#+LATEX:\newpage
 ** Varianten
 
 Wir haben uns 3 mögliche Varianten in Bezug auf die zu
@@ -528,101 +544,100 @@ auch, weshalb wir uns dafür entschieden haben.
 | Django und MariaDB                 |                                           196 |
 |------------------------------------+-----------------------------------------------|
 
-** Architektur vorbereiten
-
 #+LATEX:\newpage
 #+LATEX:\begin{landscape}
-** Arbeitspakete definieren
+** Zeitplanung
 
 #+CAPTION: Variantenbewertung Ergebnis
 #+ATTR_LATEX: :environment longtable :align |r|l|l|l|r|r|
-|------------------------------+----------------------------------------------------+--------------------------------+----------------------------------+------------------------------------------+--------------------------------------|
+|------------+----------------------------------------------------+------------+------------+------------+------------|
+|       <10> |                                                    | <10>       | <10>       |       <10> |       <10> |
 | *ID*\cellcolor[HTML]{C0C0C0} | *Subject*\cellcolor[HTML]{C0C0C0}                  | *Type*\cellcolor[HTML]{C0C0C0} | *Status*\cellcolor[HTML]{C0C0C0} | *Estimated time*\cellcolor[HTML]{C0C0C0} | *Spent time*\cellcolor[HTML]{C0C0C0} |
-|------------------------------+----------------------------------------------------+--------------------------------+----------------------------------+------------------------------------------+--------------------------------------|
-|                          201 | Projektanalyse und Planung                         | Phase                          | Closed                           |                                     25.5 |                                 30.5 |
-|                          202 | Projektziele                                       | Task                           | Closed                           |                                        1 |                                  0.5 |
-|                          203 | Vision                                             | Task                           | Closed                           |                                        1 |                                  0.5 |
-|                          204 | SWOT-Analyse                                       | Task                           | Closed                           |                                        3 |                                  0.5 |
-|                          205 | Umweltanalyse                                      | Task                           | Closed                           |                                        3 |                                  1.5 |
-|                          206 | Risikomanagement                                   | Task                           | Closed                           |                                        2 |                                  2.5 |
-|                          207 | Projektabgrenzung                                  | Task                           | Closed                           |                                        2 |                                    2 |
-|                          259 | Meeting 1                                          | Milestone                      | Closed                           |                                        3 |                                    6 |
-|                          200 | Kickoff                                            | Milestone                      | Closed                           |                                        4 |                                    8 |
-|                          301 | Meeting 2                                          | Milestone                      | Closed                           |                                        3 |                                    3 |
-|                          306 | Meeting 3                                          | Milestone                      | Closed                           |                                      1.5 |                                    3 |
-|                          313 | Meeting 4                                          | Milestone                      | Closed                           |                                        1 |                                    1 |
-|                          314 | Meeting 5                                          | Milestone                      | Closed                           |                                        1 |                                    1 |
-|                          208 | Projektmanagement                                  | Phase                          | Closed                           |                                       39 |                                   30 |
-|                          218 | Architektur vorbereiten                            | Phase                          | Closed                           |                                       33 |                                   27 |
-|                          219 | Architektur Grafik                                 | Task                           | Closed                           |                                        6 |                                    4 |
-|                          220 | Use Case Grafiken                                  | Task                           | Closed                           |                                        6 |                                    3 |
-|                          221 | User Stories                                       | Task                           | Closed                           |                                        1 |                                    1 |
-|                          310 | Use Case Beschreibungen                            | Task                           | Closed                           |                                       10 |                                    9 |
-|                          254 | Test Cases benennen                                | Task                           | Closed                           |                                       10 |                                   10 |
-|                          222 | Organigramm                                        | Task                           | Closed                           |                                      0.5 |                                  0.5 |
-|                          223 | Projektstrukturplan                                | Task                           | Closed                           |                                      1.5 |                                  1.5 |
-|                          224 | Arbeitspakete definieren                           | Task                           | Closed                           |                                        4 |                                    1 |
-|                          225 | Datenbank                                          | Phase                          | Closed                           |                                     23.5 |                                13.65 |
-|                          226 | Anforderungsanalyse                                | Task                           | Closed                           |                                      0.5 |                                    0 |
-|                          227 | Relationen Model                                   | Task                           | Closed                           |                                        2 |                                  0.5 |
-|                          228 | Relationen Diagramm                                | Task                           | Closed                           |                                        4 |                                 5.25 |
-|                          229 | SQL Create DB                                      | Task                           | Closed                           |                                      0.5 |                                  0.5 |
-|                          230 | SQL Insert Testdaten                               | Task                           | Closed                           |                                       10 |                                    7 |
-|                          231 | SQL Restriktionen erarbeiten                       | Task                           | Rejected                         |                                      0.5 |                                  0.1 |
-|                          232 | SQL Views erstellen                                | Task                           | Rejected                         |                                        2 |                                  0.1 |
-|                          233 | SQL Prozeduren und Funktionen erarbeiten           | Task                           | Rejected                         |                                        2 |                                  0.1 |
-|                          304 | SQL Create Tables                                  | Task                           | Rejected                         |                                        2 |                                  0.1 |
-|                          234 | Benutzerinterface                                  | Phase                          | Closed                           |                                     44.5 |                                   58 |
-|                          235 | Mockup skizzieren                                  | Task                           | Closed                           |                                        1 |                                    1 |
-|                          236 | Frontend Umsetzung                                 | Phase                          | Closed                           |                                     15.5 |                                   25 |
-|                          237 | Login                                              | Task                           | Closed                           |                                      0.5 |                                 2.75 |
-|                          315 | BUG: Eine zu lange Strassenummer wirf einen Fehler | Task                           | Closed                           |                                      0.5 |                                 0.25 |
-|                          238 | Artikel                                            | Task                           | Closed                           |                                          |                                 0.25 |
-|                          312 | BUG, Preise können negativ sein.                   | Task                           | Closed                           |                                          |                                 0.25 |
-|                          239 | Artikelliste                                       | Task                           | Closed                           |                                        5 |                                    5 |
-|                          240 | Warenkorb                                          | Task                           | Closed                           |                                        5 |                                   12 |
-|                          241 | Checkout                                           | Task                           | Closed                           |                                        5 |                                    5 |
-|                          242 | Backend Umsetzung                                  | Phase                          | Closed                           |                                       28 |                                   32 |
-|                          243 | Login                                              | Task                           | Closed                           |                                        5 |                                    5 |
-|                          244 | Artikel                                            | Task                           | Closed                           |                                        5 |                                    1 |
-|                          247 | Artikelliste                                       | Task                           | Closed                           |                                      2.5 |                                  0.5 |
-|                          302 | Artikel Erstellung                                 | Task                           | Closed                           |                                      2.5 |                                  0.5 |
-|                          245 | Kategorien                                         | Task                           | Closed                           |                                        5 |                                    1 |
-|                          248 | Kategorie Liste                                    | Task                           | Closed                           |                                      2.5 |                                  0.5 |
-|                          303 | Kategorie erstellen                                | Task                           | Closed                           |                                      2.5 |                                  0.5 |
-|                          246 | Artikel Attributte                                 | Task                           | Closed                           |                                        4 |                                  1.5 |
-|                          249 | Atributt Liste                                     | Task                           | Rejected                         |                                        1 |                                    0 |
-|                          305 | Bilder hochladen                                   | Task                           | Closed                           |                                        3 |                                  1.5 |
-|                          250 | Kunden Liste                                       | Task                           | Closed                           |                                        1 |                                  0.5 |
-|                          308 | Models                                             | Task                           | Closed                           |                                        3 |                                    5 |
-|                          309 | Währungskurse                                      | Task                           | Closed                           |                                        5 |                                   18 |
-|                          252 | Testing                                            | Phase                          | Closed                           |                                       10 |                                   10 |
-|                          255 | Test Cases Durchführung                            | Task                           | Closed                           |                                       10 |                                   10 |
-|                          257 | Dokumentations Styling                             | Task                           | Closed                           |                                        2 |                                  2.5 |
-|                          258 | Präsentation                                       | Milestone                      | In progress                      |                                        2 |                                    0 |
-|                          263 | Vorprojekt                                         | Task                           | Closed                           |                                    28.25 |                                 35.5 |
-|                          209 | Tools vorbereiten                                  | Phase                          | Closed                           |                                     4.75 |                                   12 |
-|                          210 | GIT-Workspace                                      | Task                           | Closed                           |                                      0.5 |                                  0.5 |
-|                          211 | Development Container                              | Task                           | Closed                           |                                        2 |                                 7.25 |
-|                          261 | Domain reservieren                                 | Task                           | Closed                           |                                     0.25 |                                 0.25 |
-|                          262 | Produktions Server aufsetzen                       | Task                           | Closed                           |                                        2 |                                    4 |
-|                          212 | Technologien abklären                              | Phase                          | Closed                           |                                     13.5 |                                 13.5 |
-|                          213 | C#                                                 | Task                           | Closed                           |                                        1 |                                    1 |
-|                          214 | Django                                             | Task                           | Closed                           |                                        5 |                                    5 |
-|                          215 | MariaDB                                            | Task                           | Closed                           |                                      0.5 |                                  0.5 |
-|                          216 | SQL Server                                         | Task                           | Closed                           |                                        1 |                                    1 |
-|                          217 | Laravel                                            | Task                           | Closed                           |                                        5 |                                    5 |
-|                          316 | MySQL                                              | Task                           | Closed                           |                                        1 |                                    1 |
-|                          264 | Architektur Tests                                  | Task                           | Closed                           |                                        6 |                                    6 |
-|                          307 | Machbarkeitsanalyse                                | Task                           | Closed                           |                                        2 |                                    2 |
-|                          251 | Varianten Erarbeiten                               | Task                           | Closed                           |                                        2 |                                    2 |
-|                          265 | Abgabetermin                                       | Milestone                      | Scheduled                        |                                      0.5 |                                    0 |
-|                          266 | Zwischenbericht ablieferen                         | Task                           | Closed                           |                                      0.5 |                                    0 |
-|------------------------------+----------------------------------------------------+--------------------------------+----------------------------------+------------------------------------------+--------------------------------------|
-|                      *Total* |                                                    |                                |                                  |                                   455.75 |                               470.30 |
-|------------------------------+----------------------------------------------------+--------------------------------+----------------------------------+------------------------------------------+--------------------------------------|
-#+TBLFM: @>$5=vsum(@2..@-1);%.2f
-#+TBLFM: @>$6=vsum(@2..@-1);%.2f
+|------------+----------------------------------------------------+------------+------------+------------+------------|
+|        201 | Projektanalyse und Planung                         | Phase      | Closed     |            |            |
+|        202 | Projektziele                                       | Task       | Closed     |          1 |        0.5 |
+|        203 | Vision                                             | Task       | Closed     |          1 |        0.5 |
+|        204 | SWOT-Analyse                                       | Task       | Closed     |          3 |        0.5 |
+|        205 | Umweltanalyse                                      | Task       | Closed     |          3 |        1.5 |
+|        206 | Risikomanagement                                   | Task       | Closed     |          2 |        2.5 |
+|        207 | Projektabgrenzung                                  | Task       | Closed     |          2 |          2 |
+|        259 | Meeting 1                                          | Milestone  | Closed     |          3 |          6 |
+|        200 | Kickoff                                            | Milestone  | Closed     |          4 |          8 |
+|        301 | Meeting 2                                          | Milestone  | Closed     |          3 |          3 |
+|        306 | Meeting 3                                          | Milestone  | Closed     |        1.5 |          3 |
+|        313 | Meeting 4                                          | Milestone  | Closed     |          1 |          1 |
+|        314 | Meeting 5                                          | Milestone  | Closed     |          1 |          1 |
+|        208 | Projektmanagement                                  | Phase      | Closed     |            |            |
+|        218 | Architektur vorbereiten                            | Phase      | Closed     |            |            |
+|        219 | Architektur Grafik                                 | Task       | Rejected   |          6 |          0 |
+|        220 | Use Case Grafiken                                  | Task       | Closed     |          6 |          3 |
+|        221 | User Stories                                       | Task       | Closed     |          1 |          1 |
+|        310 | Use Case Beschreibungen                            | Task       | Closed     |         10 |          9 |
+|        254 | Test Cases benennen                                | Task       | Closed     |         10 |         10 |
+|        222 | Organigramm                                        | Task       | Closed     |        0.5 |        0.5 |
+|        223 | Projektstrukturplan                                | Task       | Closed     |        1.5 |        1.5 |
+|        224 | Arbeitspakete definieren                           | Task       | Closed     |          4 |          1 |
+|        225 | Datenbank                                          | Phase      | Closed     |            |            |
+|        226 | Anforderungsanalyse                                | Task       | Closed     |        0.5 |          0 |
+|        227 | Relationen Model                                   | Task       | Closed     |          2 |        0.5 |
+|        228 | Relationen Diagramm                                | Task       | Closed     |          4 |       5.25 |
+|        229 | SQL Create DB                                      | Task       | Closed     |        0.5 |        0.5 |
+|        230 | SQL Insert Testdaten                               | Task       | Closed     |         10 |          7 |
+|        231 | SQL Restriktionen erarbeiten                       | Task       | Rejected   |        0.5 |        0.1 |
+|        232 | SQL Views erstellen                                | Task       | Rejected   |          2 |        0.1 |
+|        233 | SQL Prozeduren und Funktionen erarbeiten           | Task       | Rejected   |          2 |        0.1 |
+|        304 | SQL Create Tables                                  | Task       | Rejected   |          2 |        0.1 |
+|        234 | Benutzerinterface                                  | Phase      | Closed     |            |            |
+|        235 | Mockup skizzieren                                  | Task       | Closed     |          1 |          1 |
+|        236 | Frontend Umsetzung                                 | Phase      | Closed     |            |            |
+|        237 | Login                                              | Task       | Closed     |        0.5 |       2.75 |
+|        315 | BUG: Eine zu lange Strassenummer wirf einen Fehler | Task       | Closed     |        0.5 |       0.25 |
+|        238 | Artikel                                            | Task       | Closed     |            |       0.25 |
+|        312 | BUG, Preise können negativ sein.                   | Task       | Closed     |            |       0.25 |
+|        239 | Artikelliste                                       | Task       | Closed     |          5 |          5 |
+|        240 | Warenkorb                                          | Task       | Closed     |          5 |         12 |
+|        241 | Checkout                                           | Task       | Closed     |          5 |          5 |
+|        242 | Backend Umsetzung                                  | Phase      | Closed     |            |            |
+|        243 | Login                                              | Task       | Closed     |          5 |          5 |
+|        244 | Artikel                                            | Task       | Closed     |          5 |          1 |
+|        247 | Artikelliste                                       | Task       | Closed     |        2.5 |        0.5 |
+|        302 | Artikel Erstellung                                 | Task       | Closed     |        2.5 |        0.5 |
+|        245 | Kategorien                                         | Task       | Closed     |          5 |          1 |
+|        248 | Kategorie Liste                                    | Task       | Closed     |        2.5 |        0.5 |
+|        303 | Kategorie erstellen                                | Task       | Closed     |        2.5 |        0.5 |
+|        246 | Artikel Attributte                                 | Task       | Closed     |          4 |        1.5 |
+|        249 | Atributt Liste                                     | Task       | Rejected   |          1 |          0 |
+|        305 | Bilder hochladen                                   | Task       | Closed     |          3 |        1.5 |
+|        250 | Kunden Liste                                       | Task       | Closed     |          1 |        0.5 |
+|        308 | Models                                             | Task       | Closed     |          3 |          5 |
+|        309 | Währungskurse                                      | Task       | Closed     |          5 |         18 |
+|        252 | Testing                                            | Phase      | Closed     |            |            |
+|        255 | Test Cases Durchführung                            | Task       | Closed     |         10 |         10 |
+|        257 | Dokumentations Styling                             | Task       | Closed     |          2 |        2.5 |
+|        258 | Präsentation                                       | Milestone  | In progress |          2 |          0 |
+|        263 | Vorprojekt                                         | Task       | Closed     |      28.25 |       35.5 |
+|        209 | Tools vorbereiten                                  | Phase      | Closed     |            |            |
+|        210 | GIT-Workspace                                      | Task       | Closed     |        0.5 |        0.5 |
+|        211 | Development Container                              | Task       | Closed     |          2 |       7.25 |
+|        261 | Domain reservieren                                 | Task       | Closed     |       0.25 |       0.25 |
+|        262 | Produktions Server aufsetzen                       | Task       | Closed     |          2 |          4 |
+|        212 | Technologien abklären                              | Phase      | Closed     |            |            |
+|        213 | C#                                                 | Task       | Closed     |          1 |          1 |
+|        214 | Django                                             | Task       | Closed     |          5 |          5 |
+|        215 | MariaDB                                            | Task       | Closed     |        0.5 |        0.5 |
+|        216 | SQL Server                                         | Task       | Closed     |          1 |          1 |
+|        217 | Laravel                                            | Task       | Closed     |          5 |          5 |
+|        316 | MySQL                                              | Task       | Closed     |          1 |          1 |
+|        264 | Architektur Tests                                  | Task       | Closed     |          6 |          6 |
+|        307 | Machbarkeitsanalyse                                | Task       | Closed     |          2 |          2 |
+|        251 | Varianten Erarbeiten                               | Task       | Closed     |          2 |          2 |
+|        265 | Abgabetermin                                       | Milestone  | Scheduled  |        0.5 |          0 |
+|        266 | Zwischenbericht ablieferen                         | Task       | Closed     |        0.5 |          0 |
+|------------+----------------------------------------------------+------------+------------+------------+------------|
+|    *Total* |                                                    |            |            |     218.50 |     214.65 |
+|------------+----------------------------------------------------+------------+------------+------------+------------|
+#+TBLFM: @>$5=vsum(@3..@-1);%.2f
+#+TBLFM: @>$6=vsum(@3..@-1);%.2f
 #+LATEX:\end{landscape}
 
 * Umsetzung

@@ -397,11 +397,13 @@ def checkout(request):
                     order = Order.objects.create(user=request.user,
                                                  status=orderstatus)
                 for position in cart_positions:
+                    article = Article.objects.get(pk=position.article.id)
                     OrderPosition.objects.create(
                         article=position.article,
                         order=order,
                         amount=position.amount,
-                        price_in_chf=position.article.price_in_chf
+                        price_in_chf=article.price_in_chf * Decimal.from_float(
+                            position.amount)
                         )
                 return HttpResponseRedirect('/order/%s/' % order.id)
 
@@ -449,7 +451,7 @@ def order(request, order_id):
                 price = round(
                     rate.exchange_rate_to_chf * order_position.price_in_chf,
                     2)
-                currency_name = order.exchange_rate
+                currency_name = order.exchange_rate.name
             else:
                 currency_name = 'CHF'
                 price = order_position.price_in_chf
