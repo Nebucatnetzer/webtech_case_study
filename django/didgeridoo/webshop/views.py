@@ -448,7 +448,7 @@ def order(request, order_id):
                 price = round(
                     rate.exchange_rate_to_chf * order_position.price_in_chf,
                     2)
-                currency_name = order.exchange_rate
+                currency_name = order.exchange_rate.name
             else:
                 currency_name = 'CHF'
                 price = order_position.price_in_chf
