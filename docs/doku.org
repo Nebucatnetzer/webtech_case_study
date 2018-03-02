@@ -548,13 +548,17 @@ auch, weshalb wir uns dafür entschieden haben.
 #+LATEX:\begin{landscape}
 ** Zeitplanung
 
+In der Tabelle:([[tab:time]]) ist die Zeitplanung für das Projekt zu
+sehen. Die einzelnen Phasen wurden dabei gegenüber ihren Subtasks hervorgehoben.
+
 #+CAPTION: Variantenbewertung Ergebnis
+#+NAME: tab:time
 #+ATTR_LATEX: :environment longtable :align |r|l|l|l|r|r|
 |------------+----------------------------------------------------+------------+------------+------------+------------|
 |       <10> |                                                    | <10>       | <10>       |       <10> |       <10> |
 | *ID*\cellcolor[HTML]{C0C0C0} | *Subject*\cellcolor[HTML]{C0C0C0}                  | *Type*\cellcolor[HTML]{C0C0C0} | *Status*\cellcolor[HTML]{C0C0C0} | *Estimated time*\cellcolor[HTML]{C0C0C0} | *Spent time*\cellcolor[HTML]{C0C0C0} |
 |------------+----------------------------------------------------+------------+------------+------------+------------|
-|        201 | Projektanalyse und Planung                         | Phase      | Closed     |            |            |
+|      *201* | *Projektanalyse und Planung*                       | *Phase*    | *Closed*   |            |            |
 |        202 | Projektziele                                       | Task       | Closed     |          1 |        0.5 |
 |        203 | Vision                                             | Task       | Closed     |          1 |        0.5 |
 |        204 | SWOT-Analyse                                       | Task       | Closed     |          3 |        0.5 |
@@ -567,7 +571,7 @@ auch, weshalb wir uns dafür entschieden haben.
 |        306 | Meeting 3                                          | Milestone  | Closed     |        1.5 |          3 |
 |        313 | Meeting 4                                          | Milestone  | Closed     |          1 |          1 |
 |        314 | Meeting 5                                          | Milestone  | Closed     |          1 |          1 |
-|        208 | Projektmanagement                                  | Phase      | Closed     |            |            |
+|      *208* | *Projektmanagement*                                | *Phase*    | *Closed*   |            |            |
 |        218 | Architektur vorbereiten                            | Phase      | Closed     |            |            |
 |        219 | Architektur Grafik                                 | Task       | Rejected   |          6 |          0 |
 |        220 | Use Case Grafiken                                  | Task       | Closed     |          6 |          3 |
@@ -577,7 +581,7 @@ auch, weshalb wir uns dafür entschieden haben.
 |        222 | Organigramm                                        | Task       | Closed     |        0.5 |        0.5 |
 |        223 | Projektstrukturplan                                | Task       | Closed     |        1.5 |        1.5 |
 |        224 | Arbeitspakete definieren                           | Task       | Closed     |          4 |          1 |
-|        225 | Datenbank                                          | Phase      | Closed     |            |            |
+|      *225* | *Datenbank*                                        | *Phase*    | *Closed*   |            |            |
 |        226 | Anforderungsanalyse                                | Task       | Closed     |        0.5 |          0 |
 |        227 | Relationen Model                                   | Task       | Closed     |          2 |        0.5 |
 |        228 | Relationen Diagramm                                | Task       | Closed     |          4 |       5.25 |
@@ -587,9 +591,9 @@ auch, weshalb wir uns dafür entschieden haben.
 |        232 | SQL Views erstellen                                | Task       | Rejected   |          2 |        0.1 |
 |        233 | SQL Prozeduren und Funktionen erarbeiten           | Task       | Rejected   |          2 |        0.1 |
 |        304 | SQL Create Tables                                  | Task       | Rejected   |          2 |        0.1 |
-|        234 | Benutzerinterface                                  | Phase      | Closed     |            |            |
+|      *234* | *Benutzerinterface*                                | *Phase*    | *Closed*   |            |            |
 |        235 | Mockup skizzieren                                  | Task       | Closed     |          1 |          1 |
-|        236 | Frontend Umsetzung                                 | Phase      | Closed     |            |            |
+|      *236* | *Frontend* *Umsetzung*                             | *Phase*    | *Closed*   |            |            |
 |        237 | Login                                              | Task       | Closed     |        0.5 |       2.75 |
 |        315 | BUG: Eine zu lange Strassenummer wirf einen Fehler | Task       | Closed     |        0.5 |       0.25 |
 |        238 | Artikel                                            | Task       | Closed     |            |       0.25 |
@@ -597,7 +601,7 @@ auch, weshalb wir uns dafür entschieden haben.
 |        239 | Artikelliste                                       | Task       | Closed     |          5 |          5 |
 |        240 | Warenkorb                                          | Task       | Closed     |          5 |         12 |
 |        241 | Checkout                                           | Task       | Closed     |          5 |          5 |
-|        242 | Backend Umsetzung                                  | Phase      | Closed     |            |            |
+|      *242* | *Backend* *Umsetzung*                              | *Phase*    | *Closed*   |            |            |
 |        243 | Login                                              | Task       | Closed     |          5 |          5 |
 |        244 | Artikel                                            | Task       | Closed     |          5 |          1 |
 |        247 | Artikelliste                                       | Task       | Closed     |        2.5 |        0.5 |
@@ -611,17 +615,17 @@ auch, weshalb wir uns dafür entschieden haben.
 |        250 | Kunden Liste                                       | Task       | Closed     |          1 |        0.5 |
 |        308 | Models                                             | Task       | Closed     |          3 |          5 |
 |        309 | Währungskurse                                      | Task       | Closed     |          5 |         18 |
-|        252 | Testing                                            | Phase      | Closed     |            |            |
+|      *252* | *Testing*                                          | *Phase*    | *Closed*   |            |            |
 |        255 | Test Cases Durchführung                            | Task       | Closed     |         10 |         10 |
 |        257 | Dokumentations Styling                             | Task       | Closed     |          2 |        2.5 |
 |        258 | Präsentation                                       | Milestone  | In progress |          2 |          0 |
 |        263 | Vorprojekt                                         | Task       | Closed     |      28.25 |       35.5 |
-|        209 | Tools vorbereiten                                  | Phase      | Closed     |            |            |
+|      *209* | *Tools* *vorbereiten*                              | *Phase*    | *Closed*   |            |            |
 |        210 | GIT-Workspace                                      | Task       | Closed     |        0.5 |        0.5 |
 |        211 | Development Container                              | Task       | Closed     |          2 |       7.25 |
 |        261 | Domain reservieren                                 | Task       | Closed     |       0.25 |       0.25 |
 |        262 | Produktions Server aufsetzen                       | Task       | Closed     |          2 |          4 |
-|        212 | Technologien abklären                              | Phase      | Closed     |            |            |
+|      *212* | *Technologien* *abklären*                          | *Phase*    | *Closed*   |            |            |
 |        213 | C#                                                 | Task       | Closed     |          1 |          1 |
 |        214 | Django                                             | Task       | Closed     |          5 |          5 |
 |        215 | MariaDB                                            | Task       | Closed     |        0.5 |        0.5 |
