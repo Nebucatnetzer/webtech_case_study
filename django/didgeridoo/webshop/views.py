@@ -420,9 +420,8 @@ def checkout(request):
 
 
 def order(request, order_id):
-    price_list = []
     totalprice_list = []
-    order_position_list_zip = []
+    order_position_list = []
     cart = ShoppingCart.objects.get(user=request.user)
     if cart:
         # get all items in the cart of this customer:
@@ -436,35 +435,26 @@ def order(request, order_id):
                     'delete'
                     )
     else:
-        message = """something whent wrong.
-                     We cold not empty your cart. """
+        message = """Something went wrong.
+                     We could not empty your cart. """
     order = Order.objects.get(id=order_id)
     order_positions = OrderPosition.objects.filter(order=order_id)
+
+    if order.exchange_rate is not None:
+        currency_name = order.exchange_rate.name
+    else:
+        currency_name = 'CHF'
+
     if (order_positions.count()) > 0:
         order_position_list = list(order_positions)
-        for idx, order_position in enumerate(order_positions):
+        for idx, order_position in enumerate(order_position_list):
             # get currencyname to display:
-            if order.exchange_rate is not None:
-                # get price of position in order and append to a list:
-                rate = ExchangeRate.objects.get(id=order.exchange_rate.id)
-                price = round(
-                    rate.exchange_rate_to_chf * order_position.price_in_chf,
-                    2)
-                currency_name = order.exchange_rate.name
-            else:
-                currency_name = 'CHF'
-                price = order_position.price_in_chf
-            position_price = price * Decimal.from_float(order_position.amount)
-            order_position_list[idx] = order_position
-            price_list.append(price)
-            totalprice_list.append(position_price)
+            totalprice_list.append(order_position.price_in_chf)
+            print(order_position.price_in_chf)
         total = sum(totalprice_list)
-        order_position_list_zip = zip(order_position_list,
-                                      price_list,
-                                      totalprice_list)
     return render(request, 'webshop/order.html', {
                   'order': order,
-                  'order_position_list_zip': order_position_list_zip,
+                  'order_position_list': order_positions,
                   'total': total,
                   'currency_name': currency_name,
                   })
