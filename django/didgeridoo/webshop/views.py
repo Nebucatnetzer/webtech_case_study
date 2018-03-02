@@ -418,6 +418,7 @@ def checkout(request):
 
 
 def order(request, order_id):
+    category_list = get_categories()
     price_list = []
     totalprice_list = []
     order_position_list_zip = []
@@ -465,4 +466,5 @@ def order(request, order_id):
                   'order_position_list_zip': order_position_list_zip,
                   'total': total,
                   'currency_name': currency_name,
+                  'category_list': category_list,
                   })
