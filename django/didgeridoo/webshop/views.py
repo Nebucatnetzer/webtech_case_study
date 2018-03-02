@@ -416,6 +416,7 @@ def checkout(request):
                    'category_list': category_list,
                    'message': message,
                    'person': person,
+                   'exchange_rate': exchange_rate,
                    })
 
 
