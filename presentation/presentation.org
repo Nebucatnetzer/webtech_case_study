@@ -6,42 +6,41 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+LANGUAGE: de
 
-* Test 1
-** Test 1.1
+* Ausgangslage
+- Freie Software in bezug auf open sourcecode.
+
+Um einen ersten Anhaltspunkt zu haben, haben wir ein Mindmap gezeichnet in
+welchem wir unsere ersten Ideen erfassten.
+
+** Vision
+Ich werde hier kleinere Versionen dieses Mindmap erstellen und mehrere Folien
+Zum zeigen brauchen.
 
 #+ATTR_HTML: :width 80%
 [[file:pictures/webshop.png]]
 
-** Test 1.2
-** Test 1.3
-** Test 1.4
+* Tools
+Logos von Tools wie Django, Laravel, Node.js usw.
 
-* Test 2
-** Test 2.1
-** Test 2.2
-** Test 2.3
-** Test 2.4
+** Kriterien
+- Freie Software
+- Cross Plattform nutzbar
+- Lesbarkeit des Codes
+- Einfachheit des Setups
+- Ohne spezielle Tools nutzbar
+- Vorkenntnisse Lernfaktor
 
-* Test 3
-** Test 3.1
-** Test 3.2
-** Test 3.3
-** Test 3.4
+** Vergleich
+wäre froh wenn Andreas hier die Tabelle 9 einfügt. :-)
 
-* Test 4
-** Test 4.1
-** Test 4.2
-** Test 4.3
-** Test 4.4
+** Auswahl
 
-* Test 5
-** Test 5.1
-** Test 5.2
-** Test 5.3
-** Test 5.4
+* Vorgehen
+** Currencies
+Ivan Erzählt wie die Currencies abgeholt werden
+** Infrastruktur
+Andreas erzählt wie die infrastruktur aufgebaut ist.
+** Programmierung
+vieleicht zwei Schwierigkeiten
 
-* Test 6
-** Test 6.1
-** Test 6.2
-** Test 6.3
-** Test 6.4
+* Fazit
