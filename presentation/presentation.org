@@ -19,8 +19,19 @@ Zum zeigen brauchen.
 #+ATTR_HTML: :width 80%
 [[file:pictures/webshop.png]]
 
-* Tools
-Logos von Tools wie Django, Laravel, Node.js usw.
+* Varianten
+
+** C# und SQL Server
+
+[[file:pictures/csharp.png]]
+
+** Laravel und MySQL
+
+[[file:pictures/laravel.png]]
+
+** Django und MariaDB
+
+[[file:pictures/django.png]]
 
 ** Kriterien
 - Freie Software
@@ -31,9 +42,38 @@ Logos von Tools wie Django, Laravel, Node.js usw.
 - Vorkenntnisse Lernfaktor
 
 ** Vergleich
-wäre froh wenn Andreas hier die Tabelle 9 einfügt. :-)
+
+|------------------------+-----------------------|
+| *Variante*             | *Erreichte Punktzahl* |
+|------------------------+-----------------------|
+| ASP.NET und SQL Server |                   141 |
+| PHP und MySQL          |                   161 |
+| Django und MariaDB     |                   196 |
+|------------------------+-----------------------|
 
 ** Auswahl
+
+* Kosten
+** Laravel Webshop
+
+| Sprache | Codezeilen |
+|---------+------------|
+| PHP     | 8679       |
+|---------+------------|
+| *Total* | *8679*     |
+|---------+------------|
+#+TBLFM: @>$2=vsum(@2..@-1);%.0f
+
+** Django Webshop
+
+| Sprache | Codezeilen |
+|---------+------------|
+| Python  |       1460 |
+| SQL     |       4639 |
+|---------+------------|
+| *Total* |     *6099* |
+|---------+------------|
+#+TBLFM: @>$2=vsum(@2..@-1);%.0f
 
 * Vorgehen
 ** Currencies
