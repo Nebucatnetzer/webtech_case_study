@@ -137,7 +137,7 @@ vieleicht zwei Schwierigkeiten
 Einen HTML Button oder ein Feld erzeugen kann.
 - Die schwierigkeit war nun heraus zu finden wie man dem Feld ein von der DB stammenden
 default wert mitgeben konnte.
-- Es stellte sich heraus dass das Feld ein Key: Value paar benötigte um zu wissen wohin es 
+- Es stellte sich heraus dass das Feld ein Key: Value paar benötigte um zu wissen wohin es
 den wert schreiben soll....
 
 Note: hier den code higlighter einfügen:
@@ -146,3 +146,10 @@ amount_form = CartForm(
 )
 
 * Fazit
+
+special thanks to:
+- draw.io,
+- Python,
+- Django,
+- stackexchange and
+- Beer.
