@@ -92,10 +92,10 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 * Vorgehen
 ** Currencies - App
 
-Wurde in Django als eigenen App entwickelt und sollte daher problemloos in
+- Wurde in Django als eigenen App entwickelt und sollte daher problemloos in
 andere Applikationen eingebunden werden können.
 
-Die Quelle der Währungen ist die Schweizerische Nationalbank mit der URL:
+- Die Quelle der Währungen ist die Schweizerische Nationalbank mit der URL:
 
 https://www.snb.ch | resp:
 https://www.snb.ch/selector/de/mmr/exfeed/rss
@@ -130,5 +130,19 @@ Andreas erzählt wie die infrastruktur aufgebaut ist.
 
 ** Programmierung
 vieleicht zwei Schwierigkeiten
+
+** Programmierung - Hürde #1
+
+- Django hat ein modul das die Forms speziell handelt so dass man mit wehnig Code
+Einen HTML Button oder ein Feld erzeugen kann.
+- Die schwierigkeit war nun heraus zu finden wie man dem Feld ein von der DB stammenden
+default wert mitgeben konnte.
+- Es stellte sich heraus dass das Feld ein Key: Value paar benötigte um zu wissen wohin es 
+den wert schreiben soll....
+
+Note: hier den code higlighter einfügen:
+amount_form = CartForm(
+    initial={'amount_form': cart_position.amount}
+)
 
 * Fazit
