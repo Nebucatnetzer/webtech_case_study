@@ -13,10 +13,9 @@ Um einen ersten Anhaltspunkt zu haben, haben wir ein Mindmap gezeichnet in
 welchem wir unsere ersten Ideen erfassten.
 
 ** Vision
-Ich werde hier kleinere Versionen dieses Mindmap erstellen und mehrere Folien
-Zum zeigen brauchen.
+Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 
-#+ATTR_HTML: :width 80%
+#+ATTR_HTML: :width 70%
 [[file:pictures/webshop.png]]
 
 ** Vision - Artikel
@@ -91,10 +90,44 @@ Zum zeigen brauchen.
 #+TBLFM: @>$2=vsum(@2..@-1);%.0f
 
 * Vorgehen
-** Currencies
-Ivan Erzählt wie die Currencies abgeholt werden
+** Currencies - App
+
+Wurde in Django als eigenen App entwickelt und sollte daher problemloos in
+andere Applikationen eingebunden werden können.
+
+Die Quelle der Währungen ist die Schweizerische Nationalbank mit der URL:
+
+https://www.snb.ch | resp:
+https://www.snb.ch/selector/de/mmr/exfeed/rss
+
+#+ATTR_HTML: :width 80%
+[[file:pictures/currencies-rss-reader.png]]
+
+** Currencies - Quelle
+
+#+ATTR_HTML: :width 80%
+[[file:pictures/currencies-rss-xml.png]]
+
+** Currencies - Parsing
+
+- Das Konvertieren des XML's wurde mit Python eigener Module gemacht.
+- für das Herunterladen des XML's wurde das Modul 'urllib' verwendet (1)
+- für das Parsen über die einzelnen items/nodes das Modul xml.etree.ElementTree. (2)
+
+(1) https://docs.python.org/2/library/urllib.html
+(2) https://docs.python.org/2/library/xml.etree.elementtree.html
+
+** Currencies - Ablauf
+
+#+ATTR_HTML: :width 55%
+[[file:pictures/currencies.png]]
+
 ** Infrastruktur
 Andreas erzählt wie die infrastruktur aufgebaut ist.
+
+#+ATTR_HTML: :width 60%
+[[file:pictures/Server-Architecture.png]]
+
 ** Programmierung
 vieleicht zwei Schwierigkeiten
 
