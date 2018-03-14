@@ -7,7 +7,7 @@
 #+LANGUAGE: de
 
 * Ausgangslage
-- Freie Software in bezug auf open sourcecode.
+- Freie Software in Bezug auf Open-Source Code.
 
 Um einen ersten Anhaltspunkt zu haben, haben wir ein Mindmap gezeichnet in
 welchem wir unsere ersten Ideen erfassten.
@@ -123,7 +123,10 @@ https://www.snb.ch/selector/de/mmr/exfeed/rss
 [[file:pictures/currencies.png]]
 
 ** Infrastruktur
+
+#+BEGIN_NOTES
 Andreas erzählt wie die infrastruktur aufgebaut ist.
+#+END_NOTES
 
 #+ATTR_HTML: :width 60%
 [[file:pictures/Server-Architecture.png]]
