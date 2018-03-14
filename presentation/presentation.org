@@ -7,10 +7,9 @@
 #+LANGUAGE: de
 
 * Ausgangslage
+- Webshop erstellen
+- Währungsumrechnung CHF zu ...
 - Freie Software in Bezug auf Open-Source Code.
-
-Um einen ersten Anhaltspunkt zu haben, haben wir ein Mindmap gezeichnet in
-welchem wir unsere ersten Ideen erfassten.
 
 ** Vision
 Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
@@ -27,11 +26,6 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 
 #+ATTR_HTML: :width 80%
 [[file:pictures/Vision-Warenkorb.png]]
-
-** Vision - Abgaben
-
-#+ATTR_HTML: :width 80%
-[[file:pictures/Vision-Abgaben.png]]
 
 * Varianten
 
@@ -53,19 +47,17 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 - Lesbarkeit des Codes
 - Einfachheit des Setups
 - Ohne spezielle Tools nutzbar
-- Vorkenntnisse Lernfaktor
+- Vorkenntnisse und Lernfaktor
 
 ** Vergleich
 
-|------------------------+-----------------------|
-| *Variante*             | *Erreichte Punktzahl* |
-|------------------------+-----------------------|
-| ASP.NET und SQL Server |                   141 |
-| PHP und MySQL          |                   161 |
-| Django und MariaDB     |                   196 |
-|------------------------+-----------------------|
-
-** Auswahl
+|------------------------+-------------------------------|
+| *Variante*             | *Erreichte Punktzahl von 235* |
+|------------------------+-------------------------------|
+| ASP.NET und SQL Server |                           141 |
+| PHP und MySQL          |                           161 |
+| Django und MariaDB     |                           196 |
+|------------------------+-------------------------------|
 
 * Kosten
 ** Laravel Webshop
@@ -92,12 +84,12 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 * Vorgehen
 ** Currencies - App
 
-- Wurde in Django als eigenen App entwickelt und sollte daher problemloos in
-andere Applikationen eingebunden werden können.
+- Wurde in Django als eigenen App entwickelt und sollte daher problemlos in andere Applikationen eingebunden werden können.
 
 - Die Quelle der Währungen ist die Schweizerische Nationalbank mit der URL:
 
-https://www.snb.ch | resp:
+https://www.snb.ch
+
 https://www.snb.ch/selector/de/mmr/exfeed/rss
 
 #+ATTR_HTML: :width 80%
