@@ -142,9 +142,9 @@ amount_form = CartForm(
 
 * Fazit
 
-special thanks to:
-- draw.io,
-- Python,
-- Django,
-- stackexchange and
-- Beer.
+- Trotz Model View Controll, SQL unerlässlich.
+- Vagrant (up, suspend, provision, destroy)
+- Git, Python/Django, JS brauchts trotzdem.
+
+* Besten Dank für die Aufmerksahmkeit.
+Ivan & Andreas
