@@ -97,7 +97,6 @@ https://www.snb.ch/selector/de/mmr/exfeed/rss
 
 ** Currencies - Quelle
 
-#+ATTR_HTML: :width 80%
 [[file:pictures/currencies-rss-xml.png]]
 
 ** Currencies - Parsing
@@ -106,8 +105,8 @@ https://www.snb.ch/selector/de/mmr/exfeed/rss
 - für das Herunterladen des XML's wurde das Modul 'urllib' verwendet (1)
 - für das Parsen über die einzelnen items/nodes das Modul xml.etree.ElementTree. (2)
 
-(1) https://docs.python.org/2/library/urllib.html
-(2) https://docs.python.org/2/library/xml.etree.elementtree.html
+1. https://docs.python.org/2/library/urllib.html
+2. https://docs.python.org/2/library/xml.etree.elementtree.html
 
 ** Currencies - Ablauf
 
@@ -120,25 +119,20 @@ https://www.snb.ch/selector/de/mmr/exfeed/rss
 Andreas erzählt wie die infrastruktur aufgebaut ist.
 #+END_NOTES
 
-#+ATTR_HTML: :width 60%
+#+ATTR_HTML: :width 90%
 [[file:pictures/Server-Architecture.png]]
 
 ** Programmierung
-vieleicht zwei Schwierigkeiten
 
-** Programmierung - Hürde #1
+#+ATTR_HTML: :width 60%
+[[file:pictures/form.png]]
 
-- Django hat ein modul das die Forms speziell handelt so dass man mit wehnig Code
-Einen HTML Button oder ein Feld erzeugen kann.
-- Die schwierigkeit war nun heraus zu finden wie man dem Feld ein von der DB stammenden
-default wert mitgeben konnte.
-- Es stellte sich heraus dass das Feld ein Key: Value paar benötigte um zu wissen wohin es
-den wert schreiben soll....
-
-Note: hier den code higlighter einfügen:
+#+BEGIN_SRC python
 amount_form = CartForm(
     initial={'amount_form': cart_position.amount}
 )
+#+END_SRC
+
 
 * Fazit
 
