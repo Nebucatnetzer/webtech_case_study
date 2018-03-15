@@ -29,11 +29,11 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 
 * Varianten
 
-** C# und SQL Server
+** ASP.NET (C#) und SQL Server
 
 [[file:pictures/csharp.png]]
 
-** Laravel und MySQL
+** Laravel (PHP) und MySQL
 
 [[file:pictures/laravel.png]]
 
@@ -55,11 +55,19 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 | *Variante*             | *Erreichte Punktzahl von 235* |
 |------------------------+-------------------------------|
 | ASP.NET und SQL Server |                           141 |
-| PHP und MySQL          |                           161 |
+| Laravel und MySQL      |                           161 |
 | Django und MariaDB     |                           196 |
 |------------------------+-------------------------------|
 
 * Kosten
+
+** Tools
+
+- Ausgaben während der Case-Study: 0.00 CHF
+- 100% freie Software
+- "Let's Encrypt" für SSL
+- "freenom.com" für Domain
+
 ** Laravel Webshop
 
 | Sprache | Codezeilen |
@@ -85,7 +93,6 @@ Die Vision wurde anhand eines Mindmaps erstmals grob umfasst:
 ** Currencies - App
 
 - Wurde in Django als eigenen App entwickelt und sollte daher problemlos in andere Applikationen eingebunden werden können.
-
 - Die Quelle der Währungen ist die Schweizerische Nationalbank mit der URL:
 
 https://www.snb.ch
@@ -105,8 +112,9 @@ https://www.snb.ch/selector/de/mmr/exfeed/rss
 - für das Herunterladen des XML's wurde das Modul 'urllib' verwendet (1)
 - für das Parsen über die einzelnen items/nodes das Modul xml.etree.ElementTree. (2)
 
-1. https://docs.python.org/2/library/urllib.html
-2. https://docs.python.org/2/library/xml.etree.elementtree.html
+(1) https://docs.python.org/2/library/urllib.html
+
+(2) https://docs.python.org/2/library/xml.etree.elementtree.html
 
 ** Currencies - Ablauf
 
