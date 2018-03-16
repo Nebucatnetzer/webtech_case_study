@@ -146,7 +146,8 @@ amount_form = CartForm(
 
 - Trotz Model View Controll, SQL unerlässlich.
 - Vagrant (up, suspend, provision, destroy)
-- Git, Python/Django, JS brauchts trotzdem.
+- Git 
+- Python/Django, JS brauchts trotzdem.
 
 ** Besten Dank für die Aufmerksahmkeit.
 Ivan & Andreas
