@@ -140,5 +140,5 @@ amount_form = CartForm(
 - Vagrant (up, suspend, provision, destroy)
 - Git, Python/Django, JS brauchts trotzdem.
 
-* Besten Dank für die Aufmerksahmkeit.
+** Besten Dank für die Aufmerksahmkeit.
 Ivan & Andreas
